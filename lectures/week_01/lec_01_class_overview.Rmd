@@ -1,8 +1,8 @@
 ---
 title: "Course overview"
-subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "4 January 2021"
+date: "4 January 2023"
 output:
   ioslides_presentation:
     css: lecture_slides.css
@@ -51,21 +51,11 @@ WHO ARE YOU?
 </font>
 
 
-## Introduce yourself via Zoom chat:
+## Introduce yourself
 
-1. Your degree program (undergrad, grad)
+1. Your school/department
 
-2. Your school/department
-
-3. Your major (undergrads) or area of study (grads)
-
-<br>
-
-For example,  
-
-`undergrad, SEFS, ESRM`  
-
-`grad, SAFS, salmon migration timing`
+2. Your area of study
 
 
 ## {.flexbox .vcenter .bigger}
@@ -86,7 +76,10 @@ What is *data science*?
 
 ## Data science motto
 
-> If at first you don’t succeed, call it version 1.0
+<p style="text-align:center; font-size:170%;">
+If at first you don’t succeed,<br>call it version 1.0!
+</p>
+
 
 
 ## Data science is interdisciplanary
