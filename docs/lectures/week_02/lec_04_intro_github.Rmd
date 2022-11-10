@@ -4,7 +4,7 @@ author: "Mark Scheuerell"
 date: "11 January 2021"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
