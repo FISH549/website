@@ -1,0 +1,20 @@
+name: "docs"
+navbar:
+  title: "FISH 497"
+  right:
+    - text: "Schedule & materials"
+      href: lectures.html
+    - text: "Assignments"
+      href: homework.html
+    - text: "References"
+      href: references.html
+    - text: "Pkg reviews"
+      href: pkg_reviews.html
+    - text: ""
+      icon: fab fa-github
+      href: https://github.com/FISH497
+output_dir: "docs"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate

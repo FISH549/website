@@ -1,0 +1,723 @@
+---
+title: "Introduction to GitHub"
+author: "Mark Scheuerell"
+date: "11 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# What is GitHub?
+
+GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. GitHub itself is not a development tool, but rather a file hosting and collaboration site. In many ways, a social network like Facebook. You can build a profile, create projects to share with others, and follow the accounts of other users. GitHub is not linked to any one programming language like **R**, as you can find all kinds of projects based upon different languages there.
+
+GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
+
+***
+
+# Repositories
+
+A repository (or "repo" for short) is a directory or storage space for your projects on GitHub. Repositories can contain folders and files, images, videos, spreadsheets, and data sets. Most repos include a **`README.md`** file, which contains information about your project. GitHub makes it easy to add one at the same time you create your new repository. It also offers other common options such as a license file.
+
+## Create a repository
+
+Creating a repository is quite easy. Follow these steps to do so:
+
+1. Log into your account on GitHub
+
+2. Click on the **+** sign in the upper right and select **New repository**
+
+<br>
+
+![](images/gh_new_repo.png)
+<br><br>
+
+3. Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
+
+<br>
+
+![](images/gh_name_repo.png)
+
+<br>
+
+4. Enter some descriptive text in the **Description** field. This can be changed later, so you can keep it simple for now.
+
+<br>
+
+![](images/gh_repo_description.png)
+
+<br>
+
+5. GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo. Go ahead and set it to the default **Public**.
+
+<br>
+
+![](images/gh_repo_public.png)
+
+<br>
+
+6. When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
+
+<br>
+
+![](images/gh_repo_readme.png)
+
+<br>
+
+7. When you are finished, click on the green **Create repository** button.
+
+<br>
+
+![](images/gh_repo_create.png)
+
+<br>
+
+8. You now have a new repo that is ready to be populated with folders, code, data sets, etc.
+
+<br>
+
+![](images/gh_new_repo_view.png)
+
+***
+
+# Markdown
+
+Markdown is a simple markup language for creating formatted text using a plain-text editor. It makes use of some special characters for formatting headers and text. GitHub automatically recognizes Markdown files with a `.md` extension and renders them as formatted information. The repo we just created has one file in it: `README.md`, and its contents are displayed at the bottom of the repo.
+
+## Writing text
+
+The text in a Markdown document can be formatting in a number of ways. At a basic level, it's just various forms of text that are converted to nicely formatted features when the file is rendered.
+
+### Headings
+
+You can specify different levels of headings using the hash tag (pound) symbol `#`. By adding more `#` signs you can decrease the heading level. So, for example, the following
+
+```
+# Level-1 header
+## Level-2 header
+### Level-3 header
+#### Level-4 header
+```
+
+will render to 
+
+# Level-1 header
+## Level-2 header 
+### Level-3 header
+#### Level-4 header 
+
+<br>
+
+### Emphasis 
+
+#### Italics
+
+It's easy to add emphasis to text. For *italic* face, wrap the text with either a single asterisk (`*`) or an underscore (`_`). For example,
+
+```
+This is *italic*, but then so is _this_.
+```
+
+will result in
+
+This is *italic*, but then so is _this_.
+
+<br>
+
+#### Bold
+
+For **bold** face, wrap the text with either two asterisks (`**`) or an underscores (`__`). For example,
+
+```
+This is **bold**, but then so is __this__.
+```
+
+will render to 
+
+This is **bold**, but then so is __this__.
+
+<br>
+
+#### Bold & italic
+
+For combined ***bold and italics*** face, wrap the text with three asterisks (`***`), such that
+
+```
+This is ***bold and italic***.
+```
+
+renders to
+
+This is ***bold and italic***.
+
+<br>
+
+#### Strike-through
+
+If you want to indicate a deletion or ~~strike-through~~, just wrap the text in two tilde's (`~~`), such that
+
+```
+Oops, this is ~~a mistake~~.
+```
+
+will render to 
+
+Oops, this is ~~a mistake~~.
+
+### Block quotes
+
+You can specify a block quote by preceding it with the `>` symbol, such that
+
+```
+> I have a dream that one day this nation will rise up and live out the true meaning of its creed: 'We hold these truths to be self-evident, that all men are created equal.'
+```
+
+yields
+
+> I have a dream that one day this nation will rise up and live out the true meaning of its creed: 'We hold these truths to be self-evident, that all men are created equal.'
+
+### Lists
+
+You can include ordered (numbered) lists, unordered (bulleted) lists, or a combination of the two in Markdown documents as well. Numbered lists simply use a number and period (`1.`) followed by a space and the text. For example, this text
+
+```
+1. This is item 1  
+2. Item 2 comes next
+```
+     
+will render to
+     
+1. This is item 1  
+2. Item 2 comes next
+
+It also turns out that you don't even have to use consecutive numbers to make it work. For example,
+
+```
+1. This is item 1  
+7. Item 2 comes next
+```
+
+will render to
+
+1. This is item 1  
+7. Item 2 comes next
+
+You can specify an unordered list with either an asterisk (`*`) or dash (`-`). For example, the following text 
+
+```
+* This is a thing 
+* Here is another
+- And yet another
+```
+
+will render to
+
+* This is a thing 
+* Here is another
+- And yet another
+
+Mixed lists simply use a mixture of the two constructs, such that 
+
+```
+1. This is item 1
+   * This is a thing
+   * Here is another  
+2. Item 2 comes next
+   - And yet another
+```
+
+will render to
+
+1. This is item 1
+  * This is a thing
+  * Here is another  
+2. Item 2 comes next
+  - And yet another
+  
+### Links
+
+You can insert links to websites, other files, and other locations within a file. For websites, there are several options. The first is to simply write out the full address inline (eg, http://www.google.com) and it will parse correctly. You can also use shorthand text to hide the full address or make a sentence more readable. To do that, include the name in square brackets followed by the address inside parentheses For example,
+
+```
+Please conduct your search from [this link](http://www.google.com).
+```
+
+will render as
+
+Please conduct your search from [this link](http://www.google.com).
+
+### Inserting pictures
+
+#### Inline
+
+Inserting links to images works much the same as for websites, but you add an exclamation point (`!`) at the beginning of the construct (and the text inside the square brackets in optional). For example, here is how to include a hex logo for this class.
+
+```
+![](hexsticker.png)
+```
+
+which will yield this
+
+![](images/hexsticker.png)
+
+## Displaying R code
+
+One of the truly great features of Markdown is the ability to include code within a document. This course uses **R**, but people also use many other languages in Markdown documents (eg, Python).
+
+### Blocks
+
+The most common method for including code in your document is via code blocks, which can be numerous and separated by text, images, etc. Code blocks are delimited at the beginning and end by three back-ticks (\`\`\`). So, for example, here is a really basic code block
+
+````
+`r ''````
+a <- 1
+b <- 2
+```
+````
+
+such that above code block would look like
+
+```{r, eval=FALSE}
+a <- 1
+b <- 2
+```
+
+Later in the course when we start using **R Markdown**, you'll see that you can execute the code within a document and display the results.
+
+### Inline
+
+You can also include code snippets within text by surrounding it with backticks (\`). For example,
+
+```
+I assigned the the temporary data frame to the variable `tmp`.
+```
+
+will result in 
+
+I assigned the the temporary data frame to the variable `tmp`.
+
+<br>
+
+## Edit the README
+
+Let's edit our `README.md` file by clicking on the pencil icon in the upper right.
+
+<br>
+
+![](images/gh_edit_readme.png)
+
+<br>
+
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+
+<br>
+
+![](images/gh_edit_readme_md.png)
+
+<br>
+
+When you are done editing the text, you need to "commit" the changes. To do so, scroll down to the bottom of the page to the box marked **Commit changes**.
+
+<br>
+
+![](images/gh_commit_readme.png)
+
+<br>
+
+This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+
+<br>
+
+![](images/gh_commit_readme_msg.png)
+
+<br>
+
+You will now see your repo with the edited and formatted `README.md` file.
+
+<br>
+
+![](images/gh_repo_readme_edited.png)
+
+<br>
+
+***
+
+# Issues
+
+Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards". Go ahead and click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
+
+<br>
+
+![](images/gh_repo_issues.png)
+
+<br>
+
+You will now see a blank slate with a message from GitHub telling you a bit about Issues. Click on the green **New issue** button in the upper right.
+
+<br>
+
+![](images/gh_issues_blank.png)
+
+<br>
+
+Now you will see a window for you to enter details about the issue. Go ahead and give your issue an informative title.
+
+<br>
+
+![](images/gh_new_issue_title.png)
+
+<br>
+
+Most people also include some details concerning a new issue. For example, you might describe a problem you're having or a bug you've encountered that will need to be fixed later. The issue description can also contain formatted text via the same Markdown we used on our `README.md` file. You can also make use of the tool bar to help you with formatting, inserting links, etc.
+
+<br>
+
+![](images/gh_issue_description.png)
+
+<br>
+
+You have some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. These labels are also searchable from the main Issues page.
+
+<br>
+
+![](images/gh_issue_extras.png)
+
+<br>
+
+You can see below that I've added the following labels to the issue:
+
+- **documentation**
+
+- **enhancement**
+
+- **good frist issue**
+
+When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom. 
+
+<br>
+
+![](images/gh_issue_submit.png)
+
+<br>
+
+You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
+
+<br>
+
+![](images/gh_issue_one.png)
+
+<br>
+
+Now click on the **Issues** tab in the upper left, which will bring you back to the main Issue page (note that there is now a number "1" inside a circle next to the Issues tab, which means there is one open issue at the moment). From here you can add more issues, or click on existing issues to bring up their details. 
+
+<br>
+
+![](images/gh_issues_page.png)
+
+<br>
+
+***
+
+# Projects
+
+So-called **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, etc. Click on the **Projects** tab at the top of the page.
+
+<br>
+
+![](images/gh_goto_projects.png)
+
+<br>
+
+Here you will see some information about Projects and all of the things you can do with them. Go ahead and click on the green **Create a project** button in the upper right.
+
+<br>
+
+![](images/gh_projects_blank.png)
+
+<br>
+
+You will now see a window for creating a new project. Go ahead and give your project an informative title and add a short description as well.
+
+<br>
+
+![](images/gh_project_name.png)
+
+<br>
+
+One of the nice features about Projects is that you can use templates for their structure. You're welcome to create your own from scratch, but for now lets use one of the built-in templates from GitHub. Click on the pull-down **Template** button on the bottom, which will show you a list of template options. Go ahead and select **Basic kanban**.
+
+<br>
+
+![](images/gh_project_template.png)
+
+<br>
+
+Lastly, click on the green **Create project** button.
+
+<br>
+
+![](images/gh_project_create.png)
+
+<br>
+
+You now have a new project to which you can add "cards". By default, GitHub has added 3 cards to the **To do** column on the lefthand side. You will also see an option to **Add cards** on the righthand side, including the new issue we created earlier. This is one of the great features of GitHub. Not only can you create cards from scratch, but you can pull in issues as well to help you manage what's happening, who's doing it, and when it's completed.
+
+You are welcome to follow the tutorial in the first card under the **To do** column, but we'll ignore that for now.
+
+<br>
+
+![](images/gh_project_ex.png)
+
+<br>
+
+Go ahead and click on the **X** on the righthand side of the blue banner across the top of the page that says "Project created from Basic kanban template".
+
+Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card.
+
+<br>
+
+![](images/gh_project_add_issue.png)
+
+<br>
+
+Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**. Let's also close the **Add cards** tab on the righthand side by clicking on the **X**, so we can see the third column of our project board.
+
+<br>
+
+![](images/gh_project_delete_card.png)
+
+<br>
+
+You now have a complete Project board with one issue already set to go.
+
+<br>
+
+![](images/gh_project_complete.png)
+
+<br>
+
+When you are ready to work on or resolve an issue, drag it over to the **In progress** column.
+
+<br>
+
+![](images/gh_project_in_progress.png)
+
+<br>
+
+At any point here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
+
+<br>
+
+![](images/gh_project_issue_details.png)
+
+<br>
+
+You will now see the issue opened under the **Issues** tab with some additional information related to its addition to our new project.
+
+<br>
+
+![](images/gh_project_issue_redirect.png)
+
+<br>
+
+***
+
+# Adding files and folders
+
+Let's address our open issue by adding some more content to our repo. To do so, we'll navigate back to the main page of our repo by clicking on either the **Code** tab or on the **testing** link in the upper left.
+
+<br>
+
+![](images/gh_redirect_home.png)
+
+<br>
+
+We now have the option of either creating files from scratch within GitHub or uploading them from another location on a computer. Let's create a new file by clicking on the **Add file** button next to the green **Code** button and then selecting **Create new file**.
+
+<br>
+
+![](images/gh_create_file.png)
+
+<br>
+
+We now have a window for editing the files contents similar to the one we saw earlier when editing our `README.md` file. At the top left is a box where you can type in the name of the file you'd like to create. If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and the file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+
+Let's create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+
+<br>
+
+![](images/gh_file_create_name.png)
+
+<br>
+
+Now navigate to the editing box and add some simple **R** code.
+
+<br>
+
+![](images/gh_file_create_code.png)
+
+<br>
+
+When you are finished, scroll down to the bottom, enter a brief but informative commit message, and click on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_file_create_commit.png)
+
+<br>
+
+You can now see the contents of the new `R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+
+<br>
+
+![](images/gh_new_folder_contents.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Here you can see our new `R` folder just above our existing `README.md` file.
+
+<br>
+
+![](images/gh_repo_home_r.png)
+
+<br>
+
+Now let's add a simple data file called `example_data.csv` and place it within a new folder called `data`. Again, click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+
+```
+last_name, first_name, role
+Scheuerell, Mark, instructor
+Adams, Mary, TA
+Manion, Lance, student
+```
+
+<br>
+
+![](images/gh_create_data_file.png)
+
+<br>
+
+When you are finished, scroll down to the bottom and commit the file by adding a brief but informative commit message, and clicking on the green **Commit new file** button.
+
+<br>
+
+![](images/gh_data_file_commit.png)
+
+<br>
+
+Just as when we created our **R** script within the `R` folder, you can now see the new `example_data.csv` file we just created within the `data` folder
+
+<br>
+
+![](images/gh_data_folder_view.png)
+
+<br>
+
+Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Now you will see the new `data` folder just below our existing `R` folder.
+
+<br>
+
+![](images/gh_repo_home_data.png)
+
+<br>
+
+***
+
+# Closing an Issue
+
+Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. To do so, click on the **Issues** tab on the top of the page to take you back to our open issue.
+
+<br>
+
+![](images/gh_open_issue_return.png)
+
+<br>
+
+Click on the issue's title, which will open it up and show you all of the details. At the bottom of the issue you will see a comment box with two buttons below it: **Close issue** and **Comment**. You don't need to add a comment when closing an issue, but it's often helpful to do so. Go ahead and add a comment and then click the **Close with comment** button.
+
+<br>
+
+![](images/gh_close_issue_comment.png)
+
+<br>
+
+You'll now see that GitHub has marked the issue with a red "Closed" label under the issue name.
+
+<br>
+
+![](images/gh_issue_closed.png)
+
+<br>
+
+Now click on the **Issues** tab to return to the Issues page. GitHub is now informing you that there aren't any open issues.
+
+<br>
+
+![](images/gh_issues_main_none_open.png)
+
+<br>
+
+Now let's return to our project and move our closed issue to the "Done" column. Click on the **Projects** tab to take you back to the main Projects page where your project is listed. Click on the project name to open it back up.
+
+<br>
+
+![](images/gh_project_main.png)
+
+<br>
+
+Now drag the closed issue card from the **In progress** column over to the **Done** column.
+
+<br>
+
+![](images/gh_project_issue_done.png)
+
+<br>
+
+In the future, you can skip this final step by selecting an automation feature in your project. Go ahead and click on the three dots `...` in the upper right of the **Done** column and select **Manage automation**.
+
+<br>
+
+![](images/gh_project_automate.png)
+
+<br>
+
+Now check the box under **Move issues here when...** marked **Closed** and then click on the green **Update automation** button.
+
+<br>
+
+![](images/gh_auto_close_when_done.png)
+
+<br>
+
+# Endnote
+
+**Congratulations!**
+
+You've now successfully done the following:
+
+* created a new repo on GitHub
+
+* edited your `README.md` file
+
+* created an issue
+
+* created a project
+
+* added some additional content to your repo
+
+* closed an issue
+
+* managed your project
+
+
+

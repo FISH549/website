@@ -1,0 +1,651 @@
+---
+title: "Set up a PostgreSQL database (Part 1)"
+author: "Jennifer Scheuerell, Mark Scheuerell"
+date: "3 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '70%')
+```
+
+<br>
+
+# Introduction
+
+This is a step-by-step guide to create a new database, user, and tables 
+for Lake Washington (Seattle, WA, USA) limnological data and the Pacific Decadal Oscillation (PDO) 
+climate variability index.
+
+## Requirements
+
+To begin, you should have **PostgreSQL** and **pgAdmin** installed. (Please note that the following steps were tested on **PostgreSQL** v13 and **pgAdmin** v4.3 running on macOS Big Sur.) 
+
+***
+
+# Getting oriented in pgAdmin
+
+Before we can create anything, we need to connect to **PostgreSQL** with our **pgAdmin** client. It is important to note that the current version of **pgAdmin** runs in your web browser. 
+
+The first time you open **pgAdmin** you will be prompted to set a password. 
+
+The **pgAdmin** dashboard provides a database object browser along the left side of the window. In the object brower click on `Servers`. Then click on `PostgreSQL 13`. You will be asked for the `postgres` superuser password you set up when you first installed **PostgreSQL**. Provide the password and **pgAdmin** will connect to the database. 
+
+Under `PostgreSQL 13` you will then see `Databases`, `Login/Group Roles`, and `Tablespaces`.
+
+## Databases
+
+- Click on `Databases` to see one database named `postgres`. The `postgres` database is the only database created automatically when **PostgreSQL** is installed.
+  
+- Click on the `postgres` database and then click on `Schemas` at the bottom of the submenu. You will see there is one schema in the database named `public`. 
+  
+- Click on the `public` schema to see the long list of database object types listed alphabetically.
+
+## Login/Group Roles
+
+- Click on `Login/Group Roles` to see eight roles that start with `pg_` and one user named `postgres`. 
+
+  - Roles and users can be distinguished by their different icons in the object browser. 
+  
+  - The `postgres` user is the superuser you are using to connect into the database. 
+
+## Tablespaces
+
+ - Tablespaces allow you to control where in the file system you database objects are stored. 
+ 
+ - Tablespaces are used for performance and disk space management. 
+ 
+ - We are using default tablespaces in this exercise, but you can learn more about adding and configuring tablespaces in the **PostgreSQL** [documentation](https://www.**PostgreSQL**.org/docs/current/manage-ag-tablespaces.html)
+
+***
+
+# Create a new user
+
+Right now we're connected to the database as the `postgres` super user, so we want to set up a new user for our project and then disconnect as `postgres` and sign in as our new user. To create a new user  
+
+- right click on `Login/Group Roles`  
+
+- click on `Create >`  
+
+- click on `Login/Group Roles ...`, which will open a window in **pgAdmin** to create a new Login/Group Role  
+
+<br>
+![](images/new_user_1.png)
+<br><br>
+
+- Under the `General` tab, give the new role a name (here we use `lake_wa`)
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/new_user_2.png")
+```
+<br><br>
+
+- Click on the `Definition` tab at the top of the window and provide a password for your user
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/new_user_3.png")
+```
+<br><br>
+
+- Click on the `Privileges` tab at the top of the window to assign permissions for the role
+
+  - Change `Can login?` to "Yes"  
+  
+  - Change `Create databases?` to "Yes" 
+
+- Click the blue **Save** button when you are done
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/new_user_4.png")
+```
+<br><br>
+
+- Click on the SQL tab to see the actual SQL that **pgAdmin** is generating for you (note that the SQL view masks the password you provided). Here's the SQL to create my new user:
+
+```
+CREATE ROLE lake_wa WITH
+	LOGIN
+	NOSUPERUSER
+	CREATEDB
+	NOCREATEROLE
+	INHERIT
+	NOREPLICATION
+	CONNECTION LIMIT -1
+	PASSWORD 'xxxxxx';
+```
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/new_user_5.png")
+```
+<br><br>
+
+- Click `Save` and then verify that your user now appears under `Login/Group Roles`
+
+***
+
+# Switch users
+
+- Right click on `PostgreSQL 13` in the object browser, and then click `Disconnect Server` 
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_a.png")
+```
+<br><br>
+
+- A window will pop up asking if you are sure you want to disconnect--click `Ok` 
+- Right click on `PostgreSQL 13` in the object browser and then select `Properties` 
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_b.png")
+```
+<br><br>
+
+- A window will pop up titled **PostgreSQL** 13; click the `Connection` tab at the top
+
+- Under `Username` change `postgres` to `lake_wa` (or whatever you named your user)
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_c.png")
+```
+<br><br>
+
+- Click the blue **Save** to close the window and save your changes
+
+- Double click on `PostgreSQL 13` in the object browser
+
+- A window will pop up asking for the password for the `lake_wa` user
+
+- Input the password and click the blue **OK** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_d.png")
+```
+<br><br>
+
+- You are now connected to **PostgreSQL** as your new user
+
+***
+
+# Creating a new database
+
+[**Note**: If at any point you feel like you want to return to this location in the workflow, [click here](#truman_1) for instructions on how to do so.]
+
+Next we are going to create a new database to hold our Lake Washington and PDO data. 
+
+- Right click on `Databases` and then select `Create > Database ...`
+
+<br>
+![](images/create_db_1.png)
+<br><br>
+
+- A window will pop up called **Create - Database**
+
+- Give your new database a name; here we called it `lake_wa` (note that **PostgreSQL** assumes we want the current user `lake_wa` to own the new database, which is OK, so there is nothing to change here) 
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_db_2.png")
+```
+<br><br>
+
+- Click on SQL to see the statement that **pgAdmin** is writing for you to create the database. 
+
+My create database statement looks like:
+
+```
+CREATE DATABASE lake_wa
+    WITH 
+    OWNER = lake_wa
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+```
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_db_3.png")
+```
+<br><br>
+
+- Click the blue **Save** button and then verify you now see `lake_wa` as a second database beside `postgres` in the object browser
+
+- Click on the `lake_wa` database to connect to it
+
+<br>
+![](images/create_db_4.png)
+<br><br>
+
+Now we have our user and our database, and we can next make the data tables that will hold our data. But before we start making the data tables, we need to inspect the data to know what their tables should look like.  
+
+## Create a new schema
+
+Before we import our data from the `.csv` files, we need to create a new *schema* that we'll use to stage and clean the Lake Washington limnology data.
+
+- Right-click on **Schemas** and select `Create > Schema...`
+
+<br>
+![](images/create_schema_1.png)
+<br><br>
+
+- In the dialogue box that opens up, click on the `General` tab and enter `staging` in the `Name` field
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_schema_2.png")
+```
+<br><br>
+
+- Click on the `SQL` tab and you should see the following SQL commands
+
+```
+CREATE SCHEMA staging
+    AUTHORIZATION lake_wa;
+```
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_schema_3.png")
+```
+<br><br>
+
+
+# The data
+
+The data for this example are available as two `.csv` files
+
+1. `lwa_limno.csv`
+
+2. `pdo_data.csv`
+
+which can be found in the `data` directory [here](https://github.com/sureL/postgres-tutorial). Download both data files to your local computer either directly from the repo or by cloning or forking the repo.
+
+Generally we need to know the field (column) names in the data files and what type of data are contained in each field before we can set up the tables. Fortunately for us, some nice people made a [free tool](https://www.convertcsv.com/csv-to-sql.htm) that will give you the **SQL** for a `.csv` file that we can use to quickstart the process.
+
+## Pacific Decadal Oscillation {#create_pdo}
+
+We'll begin by bringing in the PDO data located in `pdo_data`.
+
+- Open up the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
+
+- Under **Step 1**
+
+    - Choose any of the 3 following options to select the `pdo_data.csv` file:
+
+        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv)
+        
+        2) "Choose File" allows you to navigate to and select the location for your locally saved `pdo_data.csv` file
+        
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/pdo_data.csv) and paste it into the box  
+
+    - After selecting the input, the converter will read in the `.csv` file
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s0.png)
+    <br><br>
+    
+- (You can skip **Step 2**)
+
+- Under **Step 3**
+
+    - Leave everything as is in the **Field Name**, **Key**, and **Required** columns
+    
+    <br>
+    ![](images/sql_csv_convert_pdo_s1.png)
+    <br><br>
+    
+    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `public.pdo`
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s2.png)
+    <br><br>
+    
+    - Scroll down further and under **For INSERT**,
+    
+        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
+        2) enter 2005 for **How many?**
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s3.png)
+    <br><br>
+    
+- Under **Step 4**
+
+    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s4.png)
+    <br><br>
+    
+    - In the **Save your result** box, enter `pdo_data`
+
+    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
+
+    - Click the blue `Download Results` button to download the `pdo_data.sql` file to your computer 
+
+    <br>
+    ![](images/sql_csv_convert_pdo_s5.png)
+    <br><br>
+    
+## Lake Washington limnology {#create-lwa}
+
+- Return to **Step 1** of the [Convert CSV to SQL tool](https://www.convertcsv.com/csv-to-sql.htm)
+
+    - Click on the blue **Clear Input** button to clear all of the information from `pdo_data.csv`
+    
+    - Choose any of the 3 following options to select the `lwa_limno.csv` file:
+
+        1) "Enter Data" allows you to copy/paste from the raw csv format [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv)
+        
+        2) "Choose File" allows you to navigate to and select the location for your locally saved `lwa_limno.csv` file
+        
+        3) "Enter URL" allows you to copy the URL for the raw data [here](https://raw.githubusercontent.com/sureL/postgres-tutorial/main/data/lwa_limno.csv) and paste it into the box  
+
+    - After selecting the input, the converter will read in the `.csv` file
+
+- (You can skip **Step 2**)
+
+- Under **Step 3**
+
+    - add underscores (`_`) to 3 of the field names to separate words:
+
+        1) `Otheralgae` becomes `Other_algae`  
+        2) `Nondaphnidcladocerans` becomes `Non_daphnid_cladocerans`
+        3) `Noncolonialrotifers` becomes `Non_colonial_rotifers`
+
+    <br>
+    ![](images/sql_csv_convert_s1.png)
+    <br><br>
+    
+    - In the **Field Name** for `Year`, uncheck the box under **Key**
+    
+    <br>
+    ![](images/sql_csv_convert_s2.png)
+    <br><br>
+    
+    - In the **Required** column, leave the check marks for `Year` and `Month` and uncheck **all** of the rest of the fields
+
+    <br>
+    ![](images/sql_csv_convert_s3.png)
+    <br><br>
+    
+    - Under the `field name` and `data type` section, look for the option to specify the `Schema.Table` name and enter `staging.limno`
+
+    <br>
+    ![](images/sql_csv_convert_s4.png)
+    <br><br>
+    
+    - Scroll down further and under **For INSERT**,
+    
+        1) check the box next to **Use one INSERT/REPLACE statement with multiple VALUES clauses**, and  
+        2) enter 400 for **How many?**
+
+    <br>
+    ![](images/sql_csv_convert_s5.png)
+    <br><br>
+    
+- Under **Step 4**
+
+    - Click the **CSV To SQL Insert** button to bring in the new configuration options you just set
+
+    <br>
+    ![](images/sql_csv_convert_s6.png)
+    <br><br>
+    
+    - In the **Save your result** box, enter `lwa_limno`
+
+    <br>
+    ![](images/sql_csv_convert_s7.png)
+    <br><br>
+    
+    - For the line endings, choose either `CRLF` if you are on a Windows computer and `LF` otherwise
+
+    <br>
+    ![](images/sql_csv_convert_s8.png)
+    <br><br>
+    
+    - Click the blue `Download Results` button to download the `lwa_limno.sql` file to your computer 
+
+    <br>
+    ![](images/sql_csv_convert_s9.png)
+    <br><br>
+    
+***
+
+# Creating the tables
+
+## PDO
+
+We now need to create the tables for the data within the database. We'll begin with the PDO data.
+
+- In **pgAdmin**, click the `Tools` tab at the top and then select `Query Tool`
+
+<br>
+![](images/query_tool_1.png)
+<br><br>
+
+- A query editor window will open in **pgAdmin**
+
+- Click on the open folder icon, which will allow you to select the SQL file we [saved above](#create-pdo)
+
+<br>
+![](images/query_tool_2.png)
+<br><br>
+
+- Navigate to the location where you saved your `pdo_data.sql`, select it, and then click the blue **Select** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/query_tool_3a.png")
+```
+<br><br>
+
+- You will now see the SQL code in the editor window, that begins with 
+
+```
+CREATE TABLE public.pdo(
+   date INTEGER  NOT NULL PRIMARY KEY 
+  ,pdo  NUMERIC(5,2) NOT NULL
+);
+INSERT INTO public.pdo(date,pdo) VALUES
+ (185401,0.11)
+,(185402,-0.24)
+,(185403,-0.4)
+,(185404,-0.44)
+,(185405,-0.54)
+,(185406,-0.3)
+```
+
+<br>
+![](images/run_sql_1a.png)
+<br><br>
+
+- Click the triangular play button at the top to execute the **SQL**
+
+- The code should execute now and **pgAdmin** should respond
+
+```
+INSERT 0 2004
+
+Query returned successfully in 42 msec.
+```
+
+(Note that the time it took the query to run will depend on your computer resources.)
+
+<br>
+![](images/run_sql_2a.png)
+<br><br>
+
+- In the **pgAdmin** object browser, click on `Schemas > public > Tables > pdo` to see the contents of your new table `pdo`
+
+- Right click on the `pdo` table and then click `View/Edit Data` and then `All Rows`
+
+<br>
+![](images/view_table_1a.png)
+<br><br>
+
+- The query editor will show you the following query used to call all records for the table in the upper pane and show the result set for that query in the lower pane. 
+
+```
+SELECT * FROM public.pdo
+ORDER BY date ASC
+```
+
+<br>
+![](images/view_table_2a.png)
+<br><br>
+
+## Limnology 
+
+- In **pgAdmin**, click the `Tools` tab at the top and then select `Query Tool`
+
+<br>
+![](images/query_tool_1.png)
+<br><br>
+
+- A query editor window will open in **pgAdmin**
+
+- Click on the open folder icon, which will allow you to select the SQL file we [saved above](#create-lwa)
+
+<br>
+![](images/query_tool_2.png)
+<br><br>
+
+- Navigate to the location where you saved your `lwa_limno.sql`, select it, and then click the blue **Select** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/query_tool_3.png")
+```
+<br><br>
+
+- You will now see the SQL code in the editor window, that begins with 
+
+```
+CREATE TABLE staging.limno(
+   Year                  INTEGER  NOT NULL
+  ,Month                 INTEGER  NOT NULL
+```
+
+<br>
+![](images/run_sql_1.png)
+<br><br>
+
+- Click the triangular play button at the top to execute the **SQL**
+
+- The code should execute now and **pgAdmin** should respond
+
+```
+INSERT 0 396
+
+Query returned successfully in 58 msec.
+```
+
+(Note that the time it took the query to run will depend on your computer resources.)
+
+<br>
+![](images/run_sql_2.png)
+<br><br>
+
+- In the **pgAdmin** object browser, click on `Schemas > staging > Tables > limno` to see your new table `stage_lake_wa`
+
+- Right click on the `limno` table and then click `View/Edit Data` and then `All Rows`
+
+<br>
+![](images/view_table_1.png)
+<br><br>
+
+- The query editor will show you the following query used to call all records for the table in the upper pane and show the result set for that query in the lower pane. 
+
+```
+SELECT * FROM staging.limno
+```
+
+<br>
+![](images/view_table_2.png)
+<br><br>
+
+***
+
+# The Truman options
+
+There can be times when it simply seems easiest to burn it all down and start over, so don't feel bad if you find yourself here.
+
+## Delete a database{#truman_1}
+
+If, for whatever reason, you want to delete a database, do this in **pgAdmin**
+
+* Right-click on the `lake_wa` database and select `Delete/Drop`
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/db_drop.png")
+```
+<br>
+
+## Delete a user
+
+You cannot delete a user while you are logged in as that person. To remove the `lake_wa` user we created here, we'll have to first disconnect from the database, and then log back in as the `postgres` super user. To do so in **pgAdmin**, follow these steps
+
+1) Right-click on **PostgreSQL 13** in the object browser and select `Disconnect Server`
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/lwa_user_disconnect.png")
+```
+<br>
+
+2) Right-click on **PostgreSQL 13** again and select `Properties`
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_1.png")
+```
+<br>
+
+3) Click on the `Connection` tab and change `username` to `postgres`; when you are done, click the blue **Save** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_2.png")
+```
+<br>
+
+4) Right-click on **PostgreSQL 13** and select `Connect Server`
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_3.png")
+```
+<br>
+
+5) When prompted, enter the password you used when you first installed **PostgreSQL** and click the blue **OK** button
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/switch_user_4.png")
+```
+<br>
+
+6) Under **Login/Group Roles** in the object browser, right-click on `lake_wa` and select `Delete/Drop`
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/drop_lwa_user.png")
+```
+<br>
+

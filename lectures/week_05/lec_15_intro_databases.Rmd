@@ -1,0 +1,341 @@
+---
+title: "Set up a PostgreSQL database (Part 2)"
+author: "Jennifer Scheuerell, Mark Scheuerell"
+date: "5 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '70%')
+```
+
+<br>
+
+# Background 
+
+We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database where we brought in the limnology data from the `lwa_limno.csv` file. The `staging` schema provides a clear place in our workflow where we can now manipulate and clean up the limnology data before writing it into the final table form with numeric data types in the `public` schema.  Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
+
+Here we will learn how to:
+
+- Cast data into new data types
+
+- Clean up the data
+
+- Modify the data
+
+- Write data between tables
+
+- Join our tables together in a query
+
+- Create a view of our joined query
+
+SQL scripts for each step are available [here](https://github.com/sureL/postgres-tutorial/tree/main/sql/ecology_example). 
+As you've seen elsewhere in class, all of the SQL scripts have number prefixes to show the order in which they should be run.
+
+***
+
+# Looking at the data we have
+
+One of the essential elements necessary to join two data tables together is for both tables to have a common field upon which to join them. Both of our data tables contain monthly data, so we will join them using a year-month ocombination. When we look at our example data, the `lwa_limno.csv` has one field for `Year` and a second field for `Month`, but in the `pdo_data.csv` we have only one field called `Date`, which has the year and month concatenated together.
+
+Year/month format in `limno`
+
+```
+year | month
+------------
+1962 |     1 
+1962 |     2 
+```
+
+Year/month format in `pdo`
+
+```
+Date
+------
+196201
+196202
+```
+
+We could convert either data set to match the other, but here we'll convert the `limno` data to a concatenated year-month value to match `pdo`. 
+
+***
+
+# Create new field
+
+To standardize between the two tables, we are going to create a new field in the `limno` table where we can write a new `year_month` concatenation. To add a field to an existing table, we use the SQL `ALTER TABLE` command. Note that fields added to tables via the `ALTER TABLE` command are appended to the end of the existing table fields. 
+
+* Go back to **pgAdmin** and from the menu at the top, select `Tools > Query Tool` to open up the query editing tool
+
+![](images/create_field_1.png)
+<br>
+
+* Copy/paste the following SQL code into the editor window and then run it by pressing the triangular play button
+
+```
+ALTER TABLE staging.limno
+ADD COLUMN year_month text;
+```
+
+* [*Alternatively*] Use the open file button to select the saved SQL file `1_alter_table_staging_limno.sql` and then run it
+
+***
+
+# Concatenate fields
+
+Now that we have a field we can write our new year-month concatenation into, we need to write some SQL to concatenate two fields into one field. The PostgreSQL concatenation operator is double pipes `||`. Because the `year` and `month` fields in the table are integers, we need to cast their data types to text so that we can concatenate them together. To cast a field to a different data type in PostgreSQL, you follow the field name with double colons `::` and then the data type (eg, `Year::text`).
+
+If we query `limno` to test our concatenation, we can run the following to check if that gives us what we need for the concatenated field.
+
+```
+SELECT year::text || month::text FROM staging.limno
+```
+
+![](images/create_field_2.png)
+<br>
+
+That looks pretty good, but all of the `Date` values in `pdo_data.csv` are six digits--for single digit months the month is written `01` instead of `1`--and our `limno` concatenation doesn't match that. Therefore, we need to pad the month with a `0` in the concatenation, but only for January through September (ie, single digit months).
+
+To write conditional logic in SQL we use the `CASE` statement. The `CASE` statement context is
+
+```
+CASE WHEN XX THEN YY ELSE ZZ END
+```
+
+Note that we can make `CASE` statements more complicated by nesting additional `WHEN` clauses like
+
+```
+CASE WHEN XX THEN YY WHEN AA THEN BB ELSE ZZ END
+```
+
+We can check our conditional logic statement with the following SQL code:
+
+```
+SELECT
+  year::text || CASE WHEN month < 10 THEN '0' ELSE '' END || month::text
+  FROM staging.limno;
+```
+
+![](images/create_field_3.png)
+<br>
+
+That all looks good, so now we can add the new `year_month` column to our table with the `UPDATE` command
+
+* To update our table using the concatenation statement with conditional logic to include a `0` for single digit months, copy/paste the following SQl code into the editor and press play
+
+```
+UPDATE staging.limno
+SET year_month = year::text || CASE WHEN month < 10 THEN '0'
+ELSE '' END || month::text;
+```
+
+ * [*Alternatively*] Use the open file button to select the saved SQL file `2_update_staging_limno.sql` and then run it
+
+***
+
+# Changing `NA` to `NULL`
+
+Recall that the notion of a missing value in a SQL database is different than in **R**. In **R** we use `NA` to designate a missing values,but in SQL we use `NULL`. Therefore, we need to clean up the `limno` table by replacing the text `NA` with `NULL`. Because we are updating data in a table, we again will use the SQL `UPDATE` command. We can string all of our `UPDATE` commands together in one script and change all of the `NA` values for each field.
+
+* Copy/paste the following code into the SQL editor in **pgAdmin** (recall that you can use `/*` to delineate the start/end a comment in SQL) and then run it
+
+```
+/*
+column headings in limno table are:
+year, month, temp, tp, ph, cryptomonas, diatoms, greens, bluegreens,
+	unicells, other_algae, conochilus, cyclops, daphnia, diaptomus, epischura,
+	leptodora, neomysis, non_daphnid_cladocerans, non_colonial_rotifers
+*/
+UPDATE staging.limno SET temp = NULL WHERE temp = 'NA';
+UPDATE staging.limno SET tp = NULL WHERE tp = 'NA';
+UPDATE staging.limno SET ph = NULL WHERE ph = 'NA';
+UPDATE staging.limno SET cryptomonas = NULL WHERE cryptomonas = 'NA';
+UPDATE staging.limno SET diatoms = NULL WHERE diatoms = 'NA';
+UPDATE staging.limno SET greens = NULL WHERE greens = 'NA';
+UPDATE staging.limno SET bluegreens = NULL WHERE bluegreens = 'NA';
+UPDATE staging.limno SET unicells = NULL WHERE unicells = 'NA';
+UPDATE staging.limno SET other_algae = NULL WHERE other_algae = 'NA';
+UPDATE staging.limno SET conochilus = NULL WHERE conochilus = 'NA';
+UPDATE staging.limno SET cyclops = NULL WHERE cyclops = 'NA';
+UPDATE staging.limno SET daphnia = NULL WHERE daphnia = 'NA';
+UPDATE staging.limno SET diaptomus = NULL WHERE diaptomus = 'NA';
+UPDATE staging.limno SET epischura = NULL WHERE epischura = 'NA';
+UPDATE staging.limno SET leptodora = NULL WHERE leptodora = 'NA';
+UPDATE staging.limno SET neomysis = NULL WHERE neomysis = 'NA';
+UPDATE staging.limno SET non_daphnid_cladocerans = NULL WHERE non_daphnid_cladocerans = 'NA';
+UPDATE staging.limno SET non_colonial_rotifers = NULL WHERE non_colonial_rotifers = 'NA';
+```
+
+* [*Alternatively*] Use the open file button to select the saved SQL file `3_clean_up_NA_in_limno.sql` and then run it.
+
+***
+
+# Create final table
+
+Now that the `staging.limno` data are cleaned up and ready to go, we need to make our final data table where the cleaned up data will reside. This will be an otherwise identical table to `staging.limno` except we will
+
+1) Drop the `year` and `month` fields and instead include our newly created `year_month` field
+
+2) Set `year_month` as the primary key
+
+3) Change the data fields from `text` to `numeric`
+
+We'll use `CREATE TABLE` in SQL to do this.
+
+* Copy/paste the following code into **pgAdmin and press the play button
+
+```
+CREATE TABLE public.limno
+(
+    year_month integer primary key,
+    temp numeric,
+    tp numeric,
+    ph numeric,
+    cryptomonas numeric,
+    diatoms numeric,
+    greens numeric,
+    bluegreens numeric,
+    unicells numeric,
+    other_algae numeric,
+    conochilus numeric,
+    cyclops numeric,
+    daphnia numeric,
+    diaptomus numeric,
+    epischura numeric,
+    leptodora numeric,
+    neomysis numeric,
+    non_daphnid_cladocerans numeric,
+    non_colonial_rotifers numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.limno
+    OWNER to lake_wa;
+```
+
+* [*Alternatively*] Use the open file button to select the saved SQL file `4_create_table_public_limno.sql` and then run it
+
+***
+
+# Move from staging to public
+
+Our last step for the `limno` data is to write the data from `staging.limno` to `public.limno`. For this step, we'll use the `INSERT INTO` command in SQL. Copy the following code into the query editor and then run it.
+
+```
+INSERT INTO public.limno(
+	year_month, temp, tp, ph, cryptomonas, diatoms, greens, bluegreens,
+	unicells, other_algae, conochilus, cyclops, daphnia, diaptomus, epischura,
+	leptodora, neomysis, non_daphnid_cladocerans, non_colonial_rotifers)
+
+	SELECT year_month::integer,
+	       temp::numeric,
+	       tp::numeric,
+	       ph::numeric,
+	       cryptomonas::numeric,
+	       diatoms::numeric,
+	       greens::numeric,
+	       bluegreens::numeric,
+	       unicells::numeric,
+	       other_algae::numeric,
+	       conochilus::numeric,
+	       cyclops::numeric,
+	       daphnia::numeric,
+	       diaptomus::numeric,
+	       epischura::numeric,
+	       leptodora::numeric,
+	       neomysis::numeric,
+	       non_daphnid_cladocerans::numeric,
+	       non_colonial_rotifers::numeric
+	FROM staging.limno;
+```
+
+* [*Alternatively*] Use the open file button to select the saved SQL file `5_write_clean_data_into_public_limno.sql` and then run it
+
+***
+
+# Join `limno` and `pdo`
+
+We now have both the `pdo` and `limno` tables cleaned up, so we can join them together into a single result set for future analysis. To begin, let's run the following script to view the result set and verify that everything looks right.
+
+* Copy/paste the following code into the query editor in **pgAdmin** and then run it
+
+```
+SELECT 
+	LEFT(year_month::text, 4) AS year, 
+	RIGHT(year_month::text, 2) AS month,
+	pdo,
+	temp,
+	tp,
+	ph,
+	cryptomonas,
+	diatoms,
+	greens,
+	bluegreens,
+	unicells,
+	other_algae,
+	conochilus,
+	cyclops,
+	daphnia,
+	diaptomus,
+	epischura,
+	leptodora,
+	neomysis,
+	non_daphnid_cladocerans,
+	non_colonial_rotifers
+FROM public.limno JOIN public.pdo ON limno.year_month = pdo.date;
+```
+
+![](images/query_join_preview.png)
+<br>
+
+This looks good, so now we can use `CREATE VIEW` to create a *View* that we can use to access the joined data.
+
+* Copy/paste the following script into the query editor and run it
+
+```
+CREATE VIEW pdo_and_limno as
+SELECT 
+	LEFT(year_month::text, 4) AS year, 
+	RIGHT(year_month::text, 2) AS month,
+	pdo,
+	temp,
+	tp,
+	ph,
+	cryptomonas,
+	diatoms,
+	greens,
+	bluegreens,
+	unicells,
+	other_algae,
+	conochilus,
+	cyclops,
+	daphnia,
+	diaptomus,
+	epischura,
+	leptodora,
+	neomysis,
+	non_daphnid_cladocerans,
+	non_colonial_rotifers
+FROM public.limno JOIN public.pdo ON limno.year_month = pdo.date;
+```
+
+* [*Alternatively*] Use the open file button to select the saved SQL file `6_join_pdo_limno.sql` and then run it
+
+We can now check in the **pgAdmin** browser to see that our newly created view called `pdo_and_limno` is there.
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/create_view.png")
+```
+<br>
+
+
+ 

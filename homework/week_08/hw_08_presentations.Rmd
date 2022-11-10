@@ -1,0 +1,139 @@
+---
+title: "Creating presentations with R Markdown"
+subtitle: "Assignment #8"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "5 March 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Background
+
+This week we saw how to create an HTML presentation with **R Markdown**. Your assignment is to create a short presentation that introduces yourself and discusses some of the things you learned in class this quarter. Specifically, you will use the **ioslides** format for an HTML presentation.
+
+***
+
+# Setup
+
+Create a new repo on **GitHub** called `Assignment-8` and create a new project in **RStudio** based upon that repo. Make sure to include a short `README.md` file that briefly describe's the repo's contents. Then invite Mark as a collaborator to your repo.
+
+# Elements
+
+Please include the following elements in your presentation.
+
+### Slide 1: Title
+
+This should include the following:
+
+* Title: "Some things I learned this quarter"
+
+* Subtitle: "FISH 497"
+
+* Name:
+
+    1) Your first and last names  
+    2) Your email address
+
+### Slide 2: Section break
+
+This should include the word "Introduction".
+
+### Slide 3: About me
+
+This should include the following:
+
+* Title/Heading: "About me"
+
+* Subtitle: "Personal"
+
+* Unordered list:
+
+    - the state or country where you were born  
+    - favorite food(s)  
+    - favorite animal(s)
+
+### Slide 4: About me (continued)
+
+This should include the following:
+
+* Title/Heading: "About me"
+
+* Subtitle: "Academic"
+
+* Unordered list:
+
+    - Undergraduate institution    
+    - Undergraduate major    
+
+### Slide 5: About me (continued)
+
+This should include the following:
+
+* Title/Heading: "About me"
+
+* Subtitle: "Things I've missed during the pandemic"
+
+* Ordered list:
+
+    1) Something or someone I miss doing or seeing    
+    2) Something or someone I miss doing or seeing    
+    3) Something or someone I miss doing or seeing  
+
+### Slide 6: Section break
+
+This slide should the word "Data science".
+
+### Slide 7: Things I've learned
+
+This should include the following:
+
+* Title/Heading: "Course topics"
+
+* Subtitle: "3 things I enjoyed learning about"
+
+* Ordered list:
+
+    1) Something I learned    
+    2) Something I learned    
+    3) Something I learned  
+
+### Slide 8: Things I want to learn more about
+
+This should include the following:
+
+* Title/Heading: "Course topics"
+
+* Subtitle: "3 things I'd like to learn more about"
+
+* Ordered list:
+
+    1) A topic I'd like to learn more about    
+    2) A topic I'd like to learn more about    
+    3) A topic I'd like to learn more about  
+
+### Slide 9: Closing image
+
+Create a slide with *any* background image you'd like. The image/picture should fill the entire slide without any other text or annotations.
+
+***
+
+# Submission
+
+When you are finished with your presentation, commit and push any changes to **GitHub**. Create a new issue that briefly describes what you've done and tag Mark in the issue.
+
+
+
+
+
+

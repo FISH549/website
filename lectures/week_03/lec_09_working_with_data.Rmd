@@ -1,0 +1,206 @@
+---
+title: "Working with data"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "22 January 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goals for today
+
+* Understand the concept of "raw" vs "cleaned" data
+
+> - Understand the different forms of data
+
+> - Understand basic tenets for organizing data
+
+
+## What are data?
+
+Data are a set of values of qualitative or quantitative variables collected through observations
+
+
+## What are raw data?
+
+Raw data have **not** been "cleaned" to remove outliers, instrument/observation errors, or data entry errors
+
+
+## Raw data can be relative
+
+Data may be raw to you, but they may have been pre-processed by someone prior to you receiving them
+
+
+## Data chain of custody
+
+Data *chain of custody* refers to a process whereby every analyst should 
+
+1. keep a copy of the *raw* data  
+2. record all of the operations used to generate the *clean* data  
+3. document the contents of the *clean* data  
+
+This process insures reproducibility
+
+
+## Data formats
+
+There are many different *data formats*
+
+* flat files (`.csv`, `.txt`)
+
+> - spreadsheets (Excel, Google)
+
+> - **J**ava**S**cript **O**bject **N**otation (JSON)
+
+> - databases (SQL, Access)
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Be consistent
+
+* variable names (`female` and not `Female` or `F`)
+
+> - missing values (`NA` and not `N/A` or `-999`)
+
+> - date formats (`2021-01-22` and not `January 22, 2021`)
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Choose good names
+
+| Good name   | Alternative | Avoid |
+|:------------|:------------|:------|
+| fish_mass_g | FishMassG   | Fish mass (g) |
+| sex         | Sex         | M/F |
+| obs_01      | first_obs   | 1st Obs. |
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+No empty cells -- use `NA` or some other placeholder
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig2.png data-background-size=90%}
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+One thing per cell, for example
+
+* change `lat-lon` to `lat` and `lon`
+
+> - no notes or comments like "`0 (below detection limit)`"
+
+> - don't merge cells
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Use a *tidy* format where
+
+* the file is rectangular
+
+> - one variable per column
+
+> - one observation (record) per row
+
+> - one table for each kind of data
+
+> - linked IDs for columns
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig5.png data-background-size=90%}
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+These are *not* tidy
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-position="50% 60%" data-background-size=90%}
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+2 tables with linked IDs
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Create a *data dictionary*, which includes info like
+
+* exact variable name as in the data file  
+
+> - [optional] short variable name that might be used in plots  
+
+> - A detailed definition of what the variable is  
+
+> - measurement units  
+
+> - summary statistics (eg, min & max values)  
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig9.png data-background-position="50% 55%" data-background-size=80%}
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+Example data dictionary
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Be very cautious of Excel workbooks and Google sheets
+
+> - they allow for calculations within cells (`C1=A1+B1`)
+
+> - they allow for fonts, highlighting, shading, in-cell comments, etc
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/bad_sheets.png data-background-position="50% 45%" data-background-size=80%}
+
+<br><br><br><br><br><br><br><br>
+
+How many issues can you identify?
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+For data entry in Excel, consider *data validation* options
+
+(see how to do this [here](https://support.microsoft.com/en-us/office/apply-data-validation-to-cells-29fecbcc-d1b9-42c1-9d76-eff3ce5f7249))
+
+
+## Organizing data in spreadsheets | Broman & Woo (2018)
+
+Save the data in plain text
+
+* `.csv` files are generally preferred
+
+> - `.txt` with tabs or space delimiters are more popular in languages where a "`,`" indicates a decimal
+
+
+## Record your recipe
+
+A reproducible analysis should include step-by-step instructions for moving from raw to clean data
+
+Items to include:
+
+> - explicit instructions
+
+> - versions of software/packages
+
+> - values for non-constants
+
+
+## An example using R Markdown {data-background=images/recipe_ex.png data-background-position="50% 70%" data-background-size=55%}
+
+
+## What's next?
+
+We'll learn about reading data from different sources
+

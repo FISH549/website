@@ -1,0 +1,435 @@
+---
+title: "Creating R packages"
+subtitle: "Part 2"
+author: "Mark Scheuerell"
+date: "26 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r set_defaults, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+***
+
+# Background
+
+We saw [last time](lec_23_packages_1.html) how to create a basic package from a simple function, document its contents, and explore its functionality. In this exercise, we'll learn how to create formal tests for our functions, write vignettes, and publish our package to the web.
+
+***
+
+# Testing
+
+We spent just a bit of time testing out our `cats()` function, but we can formalize this process with so-called *unit tests*. This simply means we'll set up some expectations about the values our function should take given certain arguments. As [Wickham & Bryan](https://r-pkgs.org/tests.html) point out, there are four advantages to working with unit tests:
+
+1) Fewer bugs and errors
+
+2) More rigorous code structure
+
+3) Easier start/stop points
+
+4) Code that's robust to changes
+
+Fortunately, `{devtools}` helps us with this process via some built-in functions. To begin, we'll use `use_testthat()` to set up our framework for testing. This function:
+
+* adds `Suggests: testthat` to `DESCRIPTION`
+
+* creates the directory `tests/testthat/`
+
+* adds the script `tests/testthat.R`
+
+```{r testthat}
+## load devtools
+library(devtools)
+
+## set testing framework
+use_testthat()
+✓ Adding 'testthat' to Suggests field in DESCRIPTION
+✓ Setting Config/testthat/edition field in DESCRIPTION to '3'
+✓ Creating 'tests/testthat/'
+✓ Writing 'tests/testthat.R'
+● Call `use_test()` to initialize a basic test file and open it for editing.
+```
+
+Now that we have our testing framework, we need to write some actual test scripts. We'll use the `use_test()` function to create an empty script for testing our `cats()` function. 
+
+```{r use_test}
+use_test("cats")
+✓ Writing 'tests/testthat/test-cats.R'
+● Modify 'tests/testthat/test-cats.R'
+```
+
+You should now see a script called `test-cats.R` with the following example test in it.
+
+```{r test_that_default}
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+```
+
+This example shows the hierarchical nature of unit tests. So-called *expectations* are grouped into *tests*, which are then organized into *files*. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we associate with an `expect_` function. In the default example above, the expectation is `"multiplication works"`, and the test is whether or not `2 * 2 == 4`, which is written as `expect_equal(2 * 2, 4)`. You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+
+Let's go ahead and write some unit tests for `cats()`. Let's use these options:
+
+```{r unit_test_1}
+test_that("logical operators work", {
+  ## if TRUE
+  expect_equal(cats(TRUE), "I love cats!")
+  ## if alias for TRUE
+  expect_equal(cats(1), "I love cats!")
+  ## if FALSE
+  expect_equal(cats(FALSE), "I am not a cat person.")
+  ## if alias for FALSE
+  expect_equal(cats(0), "I am not a cat person.")
+})
+```
+
+and save our file when we're done entering the tests. Now we're set to run these tests with the `test()` function.
+
+```{r run_test}
+test()
+Loading pets
+Testing pets
+✓ |  OK F W S | Context
+⠏ |   0       | cats                                  [1] "I love cats!"
+⠋ |   1       | cats                                  [1] "I love cats!"
+[1] "I am not a cat person."
+[1] "I am not a cat person."
+✓ |   4       | cats [0.1 s]
+
+══ Results ═══════════════════════════════════════════════════
+Duration: 0.1 s
+
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]
+```
+
+The testing report indicates how many total tests were run, and how many of them failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`). Here we see that all four of our tests passed, which is good news indeed.
+
+Now is a good time to commit your changes and push them to **GitHub**.
+
+***
+
+# Packages on GitHub
+
+The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub** using either of these calls (replacing `YOUR_GITHUB_USERNAME` with your actual **GitHub** username):
+
+```{r install_gh}
+## original call using {devtools} still works
+devtools::install_github("YOUR_GITHUB_USERNAME/pets")
+
+## but {remotes} is the newer package with the function
+remotes::install_github("YOUR_GITHUB_USERNAME/pets")
+```
+
+Note that if you try either of these commands and get the following error
+
+```
+Using github PAT from envvar GITHUB_PAT
+Error: Failed to install 'pets' from GitHub:
+  HTTP error 401.
+  Bad credentials
+```
+
+go ahead a run `Sys.unsetenv("GITHUB_PAT")` and then try again.
+
+## Editing README
+
+Because our package now lives in a public space where others can find and use it, we should include some helpful information in the `README.md` file to describe the package contents and how it works. We can use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton for us add information about our package.
+
+```{r use_readme}
+use_readme_rmd()
+✓ Writing 'README.Rmd'
+✓ Adding '^README\\.Rmd$' to '.Rbuildignore'
+● Modify 'README.Rmd'
+✓ Writing '.git/hooks/pre-commit'
+```
+
+The output above indicates that the function
+
+* created `README.Rmd`
+
+* added some lines to `.Rbuildignore`
+
+* created a **Git** *pre-commit hook* to keep `README.Rmd` and `README.md` synced with one another
+
+Let's go ahead and inspect the content of `README.Rmd`. You will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. Note that comments in **Markdown** are denoted by `<!-- some comment here -->`.
+
+In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges). For example,
+
+```
+# pets
+
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.
+```
+
+In the next section on `## Installation`, delete the information about installing from **CRAN**, as our package doesn't exist there. You will note that the installation instructions for **GitHub** are already included.
+
+````
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("mdscheuerell/pets")
+```
+````
+
+In the `## Example` section, fill in some information with example calls to `cats()`. For example,
+
+````
+## Example
+
+Here are two simple examples that allow you to express your feelings about cats:
+
+`r ''````{r example}
+library(pets)
+
+## if you like cats
+cats(TRUE)
+
+## if you don't like cats
+cats(FALSE)
+```
+````
+
+When you are finished editing `README.Rmd`, you can either knit it directly from within **RStudio** or uee the `build_readme()` function.
+
+```{r build_ _readme}
+build_readme()
+Installing pets in temporary library
+Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd
+```
+
+Now go ahead and commit **both** `README.Rmd` **and** `README.md`, and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+
+***
+
+# Vignettes
+
+Vignettes offer a longer description of a pacakge's utility. They aren't at all a necessary component of a package, but rather one of the "bells and whistles". Vignettes are written in **Markdown** and can be accessed via `vignette(name)` where `name` is the name of the vignette. You can see a list of all of the vignettes within a particular package with `browseVignettes("packagename")`.
+
+To create a vignette, use the `use_vignette()` function by passing it the name of the vignette file to create.
+
+```{r vignette}
+use_vignette("example-usage")
+✓ Adding 'knitr' to Suggests field in DESCRIPTION
+✓ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
+✓ Adding 'inst/doc' to '.gitignore'
+✓ Creating 'vignettes/'
+✓ Adding '*.html', '*.R' to 'vignettes/.gitignore'
+✓ Adding 'rmarkdown' to Suggests field in DESCRIPTION
+✓ Writing 'vignettes/example-usage.Rmd'
+● Modify 'vignettes/example-usage.Rmd'
+```
+
+Running `use_vignette()` will
+
+* create a `vignettes/` directory
+
+* add the necessary dependencies to `DESCRIPTION`
+
+* create the skeleton file `vignettes/example-usage.Rmd`
+
+Go ahead and inspect the contents of `example-usage.Rmd` and you'll some `YAML` and two code chunks. The `YAML` looks like this
+
+```
+---
+title: "example-usage"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example-usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```
+
+Let's change the title to be a little more informative:
+
+```
+title: "Using the pets package"
+```
+
+and then change `%\VignetteIndexEntry{example-usage}` to match our new title
+
+```
+%\VignetteIndexEntry{Using the pets package}
+```
+
+Now let's add some more details to the body of the vignette. For example,
+
+````
+# Background
+
+The `{pets}` package was designed to allow people to express their feelings about pets. At present, the package is rather cat-centric, in that it only contains one function: `cats()`.
+
+# Usage
+
+To use `{pets}`, first load the package and then call the function `cats()` with a logical/boolean argument. For example, 
+
+`r ''````{r setup}
+## load pets package
+library(pets)
+
+## if you love cats
+cats(TRUE)
+
+## if you're not a big fan of cats
+cats(FALSE)
+```
+````
+
+When you are finished, go ahead and click on the **Knit** button in **RStudio** to preview the html version of the vignette.
+
+At this point, we've created our vignette, but we still need to build it into the package itself. To do so, we'll use the `build_vignettes()` function.
+
+```{r build_vignette}
+build_vignettes()
+Building pets vignettes
+--- re-building ‘example-usage.Rmd’ using rmarkdown
+--- finished re-building ‘example-usage.Rmd’
+
+✓ Creating 'doc/'
+✓ Adding '^doc$' to '.Rbuildignore'
+✓ Adding 'doc' to '.gitignore'
+Moving example-usage.html, example-usage.R to doc/
+Copying example-usage.Rmd to doc/
+✓ Creating 'Meta/'
+✓ Adding '^Meta$' to '.Rbuildignore'
+✓ Adding 'Meta' to '.gitignore'
+Building vignette index
+```
+
+We should now rebuild our package and run our checks.
+
+```{r rebuild}
+## re-build package
+build()
+✓  checking for file ‘/Users/scheuerl/Documents/GitHub/pets/DESCRIPTION’ ...
+─  preparing ‘pets’:
+✓  checking DESCRIPTION meta-information ...
+─  installing the package to build vignettes
+✓  creating vignettes (1.3s)
+─  checking for LF line-endings in source and make files and shell scripts
+─  checking for empty or unneeded directories
+─  building ‘pets_0.0.0.9000.tar.gz’
+```
+
+```{r run_checks}
+## run check
+check()
+── R CMD check results ────────────────────────────── pets 0.0.0.9000 ────
+Duration: 8.7s
+
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+```
+
+It looks like everything is in working order, so go ahead and commit your changes and push them to **GitHub**.
+
+***
+
+# Website
+
+If you've spent some time searching the web for information on packages, there's a good chance you come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
+
+To do so, we'll begin by configuring our package to use `{pkgdown}`.
+
+```{r init_pkgdown}
+## load library
+library(pkgdown)
+
+## initialize package to use pkgdown
+use_pkgdown()
+● Record your site's url in the pkgdown config file (optional, but recommended)
+● Modify '_pkgdown.yml'
+```
+
+This command will add a new file called `_pkgdown.yml`, which is empty at the moment.
+
+Now we can use `pkgdown::build_site()` to create the actual website for the package. When you call this function, you'll see a verbose response from **R** followed by a preview of your site opened in your web browser.
+
+Before doing so, however, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+
+
+```{r build_site}
+build_site()
+```
+
+Now let's commit our changes and push them to **GitHub**. After doing so, navigate to your `pets` repo on **GitHub** and click on the **Settings** tab. Scroll down to the section title **GitHub Pages** and under **Source** select `Branch: main` and `Select folder: /docs`.
+
+
+***
+
+# Hex sticker
+
+Let's be honest--[hex stickers](https://swag.rstudio.com/s/shop) are all the rage when it comes to **R** packages. We can make our own hex sticker for our `{pets}` package with the [`{hexSticker}`](https://github.com/GuangchuangYu/hexSticker) package. The function `sticker()` will do all of the work for us.
+
+Here we'll include an image of a silhouette cata and dog on our sticker. To do so, you will need to download the `cat_and_dog.png` image [here](https://github.com/FISH497/website/blob/main/lectures/week_08/cat_and_dog.png) and place it in the working directory for your `{pets}` package. Next load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
+
+```{r make_sticker}
+## load hexSticker
+library(hexSticker)
+
+## create sticker image
+sticker("cat_and_dog.png",
+        ## package name
+        package="pets",
+        ## heights & widths
+        p_size = 8, s_x = 0.95, s_y = 0.9, asp = 0.85,
+        s_width = 0.65, s_height = 0.65, p_y = 1.6,
+        ## text color
+        p_color = "#4b2e83",
+        ## fill color
+        h_fill = "white",
+        ## border color
+        h_color = "#85754d",
+        ## filename to save
+        filename="logo.png")
+```
+
+Now we can tell **R** to use our new image with `usethis::use_logo()`.
+
+```{r use_logo}
+usethis::use_logo("logo.png")
+✓ Creating 'man/figures/'
+✓ Resized 'logo.png' to 240x278
+● Add logo to your README with the following html:
+Warning: pkgdown config does not specify the site's url, which is optional but recommended
+  # pets <img src='man/figures/logo.png' align="right" height="139" />
+  [Copied to clipboard]
+```
+
+The last thing we need to do is edit our `README.Rmd` file to include a reference to the sticker. Go ahead and open the file and do two things. First, edit the `knitr::opts_chunk$set(...)` block at the top, such that `fig.path = "man/figures/"`
+
+````
+`r ''````{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/",
+  out.width = "100%"
+)
+```
+````
+
+and then add the following line of code to the right of the `# pets` heading.
+
+```
+# pets <img src="man/figures/logo.png" align="right" alt="" width="120" />
+```
+
+When you are finished, click the **Knit** button in **RStudio** to preview your new readme file.
+
+Lastly, we need to rebuild the website with `build_site()`.
+
+```{r}
+
+```
+
+When it finishes, go ahead and commit your changes and push them to **GitHub**. Next, navigate back to your `pets` repo on **GitHub** and preview your changes.

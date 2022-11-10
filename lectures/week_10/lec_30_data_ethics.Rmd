@@ -1,0 +1,205 @@
+---
+title: "Ethics in data science"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "12 March 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Ethics in data science
+
+Many people assume no connection between the two
+
+> - Data science is about math/stats and computer science
+
+> - Ethics is about social science and philosophy
+
+> - The reality is that they are completely intertwined
+
+
+## Data ethics
+
+*[S]tudies and evaluates moral problems related to data (including generation, recording, curation, processing, dissemination, sharing and use), algorithms (including artificial intelligence, artificial agents, machine learning and robots) and corresponding practices (including responsible innovation, programming, hacking and professional codes), in order to formulate and support morally good solutions*
+
+-- [Floridi & Taddeo (2016)](https://royalsocietypublishing.org/doi/10.1098/rsta.2016.0360#)
+
+
+## Ethics in data science
+
+Consider this statement:
+
+*Data are inherently objective, but people are not*
+
+
+## Ethics in data science
+
+Consider this statement:
+
+*Data are inherently objective, but people are not*
+
+<br>
+
+Do you agree? Why or why not?
+
+
+## FAIR principles | for scientific data management and stewardship
+
+* **F**indable
+
+> - **A**ccessible
+
+> - **I**nteroperable
+
+> - **R**eusable
+
+
+## Indigenous Peoples' rights & interests
+
+* FAIR principles largely focus on aspects that will facilitate increased data sharing
+
+> - They largely ignore power differentials and historical contexts
+
+> - This creates a tension for Indigenous Peoples who are asserting greater control over the application and use of Indigenous data & knowledge for collective benefit
+
+
+## CARE principles | for Indigenous data governance
+
+* **C**ollective benefit
+
+> - **A**uthority to control
+
+> - **R**esponsibility
+
+> - **E**thics
+
+
+# Predictive policing
+
+
+## Kristian Lum | What's an algorithm got to do with it? {data-background=img/lum_1.png data-background-size=80% data-background-position="50% 50%"}
+
+
+## Kristian Lum | Are police records a representative sample?
+
+* Variation in reporting rates
+
+> - Variation in police attention
+
+> - Variation in rates of enforcement
+
+> - Collecting a random sample is difficult
+
+
+## Kristian Lum | The punchline
+
+* ML will reproduce the biases in the data used to train it
+
+> - We need to think about what's missing from the training data and what types of biases the data encode
+
+> - We need to be aware of the consequences of reinforcing those biases
+
+
+# Faculty job market
+
+
+## A data‐based guide to the North American ecology faculty job market | [Fox (2020)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1624)
+
+Motivation
+
+* Provide ecology faculty job seekers info about the job market
+
+> - Evaluate whether current hiring is diverse & equitable
+
+
+## A data‐based guide to the North American ecology faculty job market | [Fox (2020)](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1624)
+
+Approach
+
+* Positions & applicants for 2016-2018 scraped from [ecoevojobs.net](https://docs.google.com/spreadsheets/d/1hf_q-3gdyOlsk97I3OW97w_cmQXsKQVC-ZGDMgFnL2I/edit#gid=1954069648)
+
+> - Determine who was hired into those jobs
+
+> - Infer genders from names & pictures
+
+
+## Discuss
+
+Do you see any ethical problems with this approach?
+
+
+## [Backlash](https://twitter.com/tpoi/status/1219074149798371329) {data-background=img/poisot_1.png data-background-size=80% data-background-position="50% 50%"}
+
+
+## [Backlash](https://twitter.com/tpoi/status/1219074333819187200) {data-background=img/poisot_2.png data-background-size=80% data-background-position="50% 50%"}
+
+
+## [Fox's initial response](https://www.biorxiv.org/content/10.1101/751867v1#comment-4619159394)
+
+*It is important to identify any systemic gender disparities in the ecology faculty job market, and to identify their causes so that the disparities can be remedied. Inferring a gender binary from a person's name, as I did, is standard practice in research on gender disparities in many areas, including in ecology and allied fields. This approach performs well. In cases of ambiguity, standard practice is to resolve the ambiguity where it is feasible to do so, by consulting publicly-available photographs and pronoun use in social media profiles. I did so.*
+
+
+## Fox's final response
+
+*Using a gender binary, and inferring the genders of some new hires from their names, is an imperfect approach. Gender is not binary, and ecologists who do not identify as men or women are our colleagues.*
+
+
+## [Community's response](https://twitter.com/JuniperLSimonis/status/1219354497769558016) {data-background=img/simonis.png data-background-size=80% data-background-position="50% 60%"}
+
+
+## My response
+
+<div class="centered">
+### *Always* consider the impact of your intentions
+</div>
+
+
+# Moving forward
+
+
+## Questions to ask yourself
+
+Are the data valid for their intended use?
+
+
+## Questions to ask yourself
+
+Have we identified & minimized any bias in the data or in the model?
+
+
+## Questions to ask yourself
+
+Have we identified & minimized any bias in the data scientist?
+
+
+## Questions to ask yourself
+
+Is the analysis transparent and reproducible?
+
+
+## Questions to ask yourself
+
+What are the likely misinterpretations of the results and what can be done to prevent them?
+
+
+## [Oxford-Munich code of conduct](http://www.code-of-ethics.org/code-of-conduct/) | for professional data scientists
+
+* Lawfulness
+
+> - Competence
+
+> - Dealing with data
+
+> - Algorithms and models
+
+> - Transparency objectivity and truth
+
+> - Working alone and with others
+
+
+

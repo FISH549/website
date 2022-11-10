@@ -1,0 +1,72 @@
+---
+title: "Publishing with R Markdown"
+subtitle: "Assignment #6 - Answer Key"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "19 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+<br>
+
+# Settings
+
+Here are the settings I used to generate my report.
+
+## YAML 
+
+```{r echo = TRUE, eval = FALSE}
+---
+title: "My Report for Assignment 6"
+author: "Mark Scheuerell"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: pdf_document
+documentclass: report
+geometry:
+- top=1.25in
+- bottom=1.25in
+- left=1in
+- right=1in
+linestretch: 1.5
+fontsize: 11pt
+toc: TRUE
+toc-depth: 2
+header-includes:
+- \usepackage{fancyhdr}
+bibliography: "references.bib"
+csl: "ecology.csl"
+---
+```
+
+
+## LaTeX
+
+This text goes in the body of the report.
+
+```
+\pagestyle{fancy}
+\fancyhead[LO,LE]{Scheuerell}
+\fancyhead[RO,RE]{Assignment 6}
+```
+
+## Code block
+
+```{r show_setup, echo = TRUE, eval = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+## load knitcitations
+library(knitcitations)
+
+## clean up any existing library
+cleanbib()
+
+## set print options
+options("citation_format" = "pandoc")
+```
+
+

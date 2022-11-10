@@ -1,0 +1,107 @@
+---
+title: "Introduction to relational databases"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Jennifer Scheuerell"
+date: "1 February 2021"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+## Jennifer Scheuerell
+
+**Education**
+
+* BS, Forestry, University of Washington
+
+* MS, SAFS, University of Washington
+
+**Appointments**
+
+* UW Alaska Salmon Program (2004-2007)
+
+* Founder, Sound Data Management (2008-present)
+
+* Co-founder, Sharper Informatics Solutions (2020-present)
+
+
+## Relational Theory | Definition from Wikipedia
+
+"A relational database is a digital database based on the relational model of data, as proposed by E. F. Codd in 1970."
+
+
+## High level concepts
+
+Relational databases are created and manipulated using Structured Query Language (SQL)
+
+Relational database software (RDBMS) allow users to create relational databases using SQL
+
+Some well know RDBMS include
+
+* PostgreSQL  
+* MySQL  
+* Oracle  
+* Microsoft SQL Server
+
+
+## Organizing data in tables
+
+Relational databases store data in tables
+
+* Each database table is a named collection of rows
+
+> - Each row of a given table has the same set of named columns
+
+> - Each column is of a specific data type
+
+
+## Jargon
+
+* Table, field/column, record  
+
+> - Primary and foreign keys  
+
+> - Joins  
+
+> - Atomic values  
+
+> - Null values  
+
+> - Query and result set  
+
+> - View  
+
+
+## Table concept
+
+* Data are stored in *tables*
+
+> - Columns in a table are fixed *fields*
+
+> - Fields have unique data types (eg, `INTEGER`, `TEXT`)
+
+> - Rows are unique *records*
+
+> - Columns have a fixed order in each table, but SQL does not guarantee the order of the rows within a table
+
+> - Tables are grouped into databases
+
+>- A collection of databases managed by a single PostgreSQL server instance constitutes a *database cluster*
+
+
+## An example table
+
+| Field_ID | Color | Smell | Count | Last_updated |
+|----------|:-----:|:-----:|:-----:|-------------:|
+| Record_one | Green | Pine trees | 13 | 2/1/2021 | 
+| Record_two | Yellow | Lemon | 20 | 1/21/2021 | 
+| Record_three | Red | Cherry | 4.5 | 2/1/2021 | 
+
+
+## Data Normalization | Third Normal Form
+
+"[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key, so help me Codd."

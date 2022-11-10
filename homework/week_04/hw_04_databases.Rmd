@@ -1,0 +1,55 @@
+---
+title: "Introduction to databases"
+subtitle: "Assignment #4"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "5 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Background
+
+This week we learned about some principles behind database design and we saw how to set up a **postgreSQL** database with the help of **pgAdmin**. We also learned how to bring data into a database and do some simple manipulations with it. Your assignment this week is to review the material from February 3rd and 5th, and demonstrate that you can repeat the steps outlined there. If you would like to restart from scratch, please see the information [here](../../lectures/week_05/lec_14_intro_databases.html#The_Truman_options) about starting over.
+
+# Task 1
+
+Review the information on creating a new user in **postgreSQL** with the help of **pgAdmin**, and verify that you can create the `lake_wa` user from the `postgres` super user account.
+
+# Task 2
+
+Review the information on creating a new database in **postgreSQL** with the help of **pgAdmin**, and verify that you can create the `lake_wa` database from the `lake_wa` user account.
+
+# Task 3
+
+Review the information on adding data to a new database in **postgreSQL** with the help of **pgAdmin**, and verify that you can create the `public.pdo` and `staging.limno` tables.
+
+# Task 4
+
+Review the information on creating a new field and concatenating fields, and then verify that you can do so with the `Year` and `Month` fields in the `staging.limno` table.
+
+# Task 5
+
+Review the information on changing `NA` to `NULL` and do so in your `staging.limno` table.
+
+# Task 6
+
+Create your final `public.limno` table and move it from `staging` to `public`,
+
+# Task 7
+
+Join your `limno` and `pdo` tables into a *view*. When you are finished, take a screen shot of your new view as shown in the **pgAdmin** object browser similar to one at the end of the document [here](../../lectures/week_05/lec_15_intro_databases.html#Join_limno_and_pdo).
+
+# Task 8
+
+Open a new issue called `Assignment 4` in your `fish497` repo that you created as part of [Assignment 1](../week_01/hw_01_github_remotes.html) and include the screen shot from Task 7. To do so, you can simply drag and drop the image into the issue editing window.

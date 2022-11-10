@@ -1,0 +1,379 @@
+---
+title: "Package reviews"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 1
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+For assignment #7 students were asked to provide a summary overview of any package they enjoyed or used frequently. Here is a list of some of their responses, provided with permission.
+
+***
+
+# `{broom}`
+
+<br>
+
+Contributed by M Feddern
+
+<br>
+
+### Location
+
+You can install this package directly from [CRAN](https://cran.r-project.org/web/packages/broom/index.html) or you can install it from [GitHub](https://github.com/cran/broom).
+
+### Vignettes
+
+This package has multiple vignettes
+
+##### Adding Tidiers 
+
+This vignette describes the process of adding a new tidiers to the broom package for package development. It also contains a link to the tidy model website which has a tutorial on how to create your own broom tidiers.
+
+##### Available Methods
+
+This vignette describes all of the different types of model output that broom is compatible with, from Arima to zoo, in alphabetical order of the package name. This is useful to see if your errors are because of the package/model object you are using -- or if it is something else. 
+
+##### Tidy Boostrapping
+
+This vignette describes how to apply bootstrap resampling to estimate uncertainty in model parameters. 
+
+##### Intro to broom
+
+This vignette introduces users to the concept of "tidy data" and how broom bridges the gap between "un-tidy" predictions and estimates from modelling packages and converts them to a tidy tibble. It is specifically designed to take a not tabular format (unlike reshape2 and tidyr) and convert it to a tibble.
+
+##### broom and dplyr
+
+This vignette focuses on high-throughput applications, where you can combine results from multiple analyses using other packages -- specifically `{purrr}`, `{dplyr}`, `{ggplot2}`, and `{tidyr}`.
+
+##### kmeans with dplyr and broom
+
+This vignette summarizes clustering characteristics and estimate the best number of clusters for a data set by combining broom with the tidymodels package.
+
+### Application(s)
+
+There are so many! Here are a few:
+
+1. One of my favorites is the "learn" section of the [Tidymodels website](https://www.tidymodels.org/learn/develop/broom/). 
+
+2. I personally have used [this application](https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html) that combines the package `{dotwhisker}` with `{broom}`. This application is great if you have multiple supported models and you want to put all of the coefficients of those models into a single plot.
+
+3. [This](https://socviz.co/modeling.html) is another example of how broom can be leveraged to make plots
+
+### Review
+
+The primary use of `{broom}` is to convety 'un-tidy' data that is not easily manipulated into a tabular format into a tidy tibble. Most other similar packages are designed to work with tabular data, but most modeling packages produce output that far from tabular and thus very challenging to analyze, manipulate, or plot the output further. This allows the user to manipulate model output into an easier to use format. This is particularly useful for:
+
+1) reporting results  
+2) creating plots  
+3) work with large numbers of models at once (particularly to compare their output)  
+4) bootstrapping model output  
+
+I personally use `{broom}` most frequently when I am plotting model output for multiple models and/or multiple coefficients. The package is easy to learn for users who are already familiar with tidyverse, the benefits of tidy data, and piping but may have a steeper learning curve for those who haven't used tidy before. Regardless its pretty simple, as most model objects can simply be put into a function. The vignettes also make it easier to leverage this package in more powerful ways, I would highly recommend this package to anyone conducting an analysis that involves comparing model output of multiple models. 
+
+***
+
+# `{corrplot}`
+
+<br>
+
+Contributed by Anonymous
+
+<br>
+
+### Location
+
+This package is located on [CRAN](https://cran.r-project.org/web/packages/corrplot/index.html)
+as well as [GitHub](https://github.com/taiyun/corrplot). 
+
+### Vignettes
+
+The `{corrplot}` package has [one formal vignette](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html) located on the CRAN website. It's a basic introduction to the package, including the seven visualization methods and three layout types of the correlation plot. There's also a section on reordering the correlation matrix, using different color spectra, and other ways to customize the correlation matrix plot.
+
+### Applications
+
+There are many example posts on twitter using the hashtag `#corrplot`. Some of the twitter posts are displaying data from `#tidytuesday` challenges and some users are displaying their own data.
+
+### Review
+
+The `{corrplot}` package is used for plotting correlation data and seems to be widely used among R users. I don't know of any other R package that creates correlation matrix plots. Since the package is located on CRAN, as well as GitHub, it must be very robust and well-tested. I like how easy it is to use the package (you don't have to enter a lot of arguments to get a beautiful plot). I think I'll have to spend more time using the package before I have things to improve about it. Yes, I would recommend this package to someone else, especially with the vignette to help.
+
+***
+
+# `{DESeq2}`
+
+<br>
+
+Contributed by A Coyle
+
+<br>
+
+### Location and Installation: 
+
+DESeq2 is hosted on Bioconductor, which provides open-source tools for analysis of bioinformatics data. To install DESeq2, you must first install the BiocManager package with `install.packages("BiocManager")`. Once BiocManager is installed, you can install DESeq2 with `BiocManager::install("DESeq2")`.
+
+### Vignettes
+
+At the time of writing, there is one vignette available for DESeq2. It demonstrates the workflow for analyzing RNA-seq data. The vignette can be seen with `browseVignettes("DESeq2")`.
+
+### Application
+
+[Here](https://rstudio-pubs-static.s3.amazonaws.com/329027_593046fb6d7a427da6b2c538caf601e1.html) is a good breakdown of how to format inputs for DESeq2 and some ways to interpret results.
+
+### Review
+
+`{DESeq2}` is an R package used to conduct analyses of RNA-seq data, thus providing the statistical significance of any observed differences in gene expression
+
+As input, you provide a table containing all contigs and their counts for each sample, with each sample as a different column. This means that prior to DESeq2, you must quantify your RNA-seq data. This can either be done by a variety of tools, including [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) or [kallisto](https://www.nature.com/articles/nbt.3519). You also must provide a dataframe mapping each sample (e.g. each column) to your experimental conditions. Of course, replication in experimental conditions is necessary for DESeq2 to be able to draw any statistical comparisons.
+
+DESeq2 can provide a large number of formats - PCA plots, MA plots, tables of contigs with p-values and adjusted p-values for differential expression, dispersion estimates, tables of differentially-expressed contigs, and more!
+
+As a warning to new users, the runtime for the `DESeq()` function can be quite long - on a laptop, it may be several hours until the function has finished running. If you have hundreds of samples, the runtime may be far, far longer. In that case, it may be optimal to switch to [limma-voom](https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/thursday/DE.html), which utilizes the voom package
+
+Overall, DESeq2 is quite an impressive package. It is powerful, can be easily streamlined, and is excellent at what it does. However, it does have some downsides. One of the biggest issues is that it isn't optimized for user-friendliness. To some degree, this makes sense. DESeq2 is an extremely specific package, with no uses beyond analyzing RNA-seq data. This means that generally, potential users will already have a general idea of what your potential inputs should be and how to generate them. However, the vignette is precisely detailed to an overwhelming degree, which can cause less-knowledgeable users to easily become lost in the details. This could be remedied by providing a tutorial for new users with some example data and a single workflow.
+
+There are several alternatives to DESeq2, most notably the package edgeR (also a Bioconductor package). Both are roughly equivalent in precision and use roughly the same process to determine differential expression. If you are deciding between the two, I suggest using whichever package is most often used by members of your lab in order to maximize help if you run into issues! If you're still having trouble deciding, [I suggest consulting this article](https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/)!
+
+***
+
+# `{ggplot2}`
+
+<br>
+
+Contributed by A Brewer, D Radcliffe & S Shorna
+
+<br>
+
+### Location
+
+This package is part of the Tidyverse which can be installed via [CRAN](https://cran.r-project.org/web/packages/ggplot2/index.html) or [GitHub](https://ggplot2.tidyverse.org/).
+
+### Vignettes
+
+The `{ggplot2}` package has three formal vignettes listed on the CRAN website that address different topics within the package:
+
+1) [This vignette](https://cran.r-project.org/web/packages/ggplot2/vignettes/extending-ggplot2.html) shows how to extend ggplot2 by creating a new stat, geom, or theme: 
+
+2) [This vignette](https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-in-packages.html) is intended for package developers who use ggplot2 within their package code: 
+
+3) [This vignette](https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-specs.html) summarizes the various formats that grid drawing functions take. 
+
+### Applications
+
+There are a vast number of applications of `{ggplot2}` in various puplications, twitter posts, websites and tutorials. It is likely one of the most popular packages in the Tidyverse.
+
+### Review
+
+[Brewer] The primary purpose of this package is a plotting package that is more streamlined than the base R plot function. When compared to the plot function, `{ggplot2}` has a wide variety of options and many R users have also made various aesthetic arguments that can be used such as custom color palettes. I'm still learning the ins and outs of `{ggplot2}`, along with many tidyverse packages but I have yet to find something I don't like. Since the R community that uses this package is so large, there are many resources for help, including the [RStudio community](https://community.rstudio.com/) and [Stack Overflow](https://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&pageSize=50).
+
+[Radcliffe] `{ggplot2}` is used for graphing and visualizing data that is supplied by the user, and is one of the most widely used tools for that purpose, at least in R.  I like that there are many options for customizability of graphs, and the fact that the package is common enough that help is easy to find.  There are several things I don't like about though, primarily that it was a bit weird and difficult to learn to use the full capability of `{ggplot2}`.  What is an 'aesthetic' and what is a 'theme' still isn't entirely clear to me, and often I need to trial and error with aes() calls to figure out where to put them in a new graph.  I think this could be because the people I learned `{ggplot2}` from were fairly new to it themselves, but I have done several other class tutorials and a full online class on ggplot since, where I've had these things 'explained', but still find some of those points confusing.  Maybe I need to check out that first vignette :)  However, after a couple years of consistent use I could usually code up a polished graph pretty quickly without Googling, so I think the code is simple enough to learn.  I first I found the ugly default settings pretty frustrating and wished they'd done those differently. But now I appreciate that it makes the user think critically about the graph they want to produce, and keeps everybody from making the same graph. I would recommend the package, but also that a systematic effort is required to learn it.
+
+[Shorna] `{ggplot2}` is a plotting package that makes it simple to create complex plots from data in a data frame. It provides a more programmatic interface for specifying what variables to plot, how they are displayed, and general visual properties. Therefore, we only need minimal changes if the underlying data change or if we decide to change from a bar plot to a scatterplot. This helps in creating publication quality plots with minimal amounts of adjustments and tweaking. As a beginner programmer I find this packages very useful while creating plots. This package was not very hard learn, but it has wide range of features which needs time to explore.
+
+***
+
+# `{janitor}`
+
+<br>
+
+Contributed by A DuVall
+
+<br>
+
+### Location
+
+This package can be installed in two ways:
+
+1) the most recent officially-released version can be installed from the CRAN using:
+
+```{r i1, eval = FALSE}
+install.packages("janitor")
+````
+
+2) the latest development version can be installed from GitHub using:
+
+```{r i2, eval = FALSE}
+install.packages("devtools")
+devtools::install_github("sfirke/janitor")
+```
+
+### Vignette
+
+A vignette that includes a full description of each function, organized by topic, can be found [here](http://sfirke.github.io/janitor/articles/janitor.html).
+
+### Application
+
+This package is compatible with the `tidyverse` and is useful for data cleaning and data exploration.
+
+### Review
+
+I discovered the `janitor` package a few months ago and I've quickly adopted it as a go-to package for cleaning messy data, where a lot of my work involves compiling multiple data sheets with different structures. The `clean_names()` function is a quick and easy way to standardize field names in a dataframe using a format that is friendly for analysis. The default case is snake but the `case=` argument can be used to select other options (e.g., camel, title, etc). I also use the `compare_df_cols()` function often to make sure that a set data frames have identical field names and field types prior to binding them into one master data frame. Similarly, the `get_dupes()` function will identify duplicate records in a data frame that need to be addressed. I am aware of another function (`taybl()`), which is a tidyverse-oriented replace for `table()`, but I have not used this function as often. This function counts combinations of one+ variables and prints a summary table that is compatible with the `knitr::kable()` function for building report-style tables. This function can also be combined with the `adorn_*` functions that specify the table output; for example `adorn_totals()` to sum values or `adorn_percentages()` to calculate percentages of select variables. Here is a code example available on the `tabyls()` vignette:
+</br>
+```{r tabyls, eval = FALSE}
+humans %>%
+  tabyl(gender, eye_color) %>%
+  adorn_totals(c("row", "col")) %>%
+  adorn_percentages("row") %>% 
+  adorn_pct_formatting(rounding = "half up", digits = 0) %>%
+  adorn_ns() %>%
+  adorn_title("combined") %>%
+  knitr::kable()
+```
+</br>
+I found this package to be useful and easy to learn. It has helped me save time while cleaning and compiling data frames and I wish I had found out about it sooner! I recommend it for anyone dealing with compiling messy data sets (which I suspect includes a lot of people in ecology).
+
+***
+
+# `{knitr}`
+
+<br>
+
+Contributed by Anonymous
+
+<br>
+
+### Vignettes 
+
+`knitr` has a collection of vignettes covering topics, such as an introduction to the package, custom print methods, and `knit_expand()` to name a few. 
+
+### Applications 
+
+The package `knitr` has a [website](https://yihui.org/knitr/), where many examples of `knitr` in use are included under the "Examples" tab. Not only is there a list of examples included on the site page, but there is also a link to a Github repository that holds an even larger collection of knitr examples and a link to applications curated by other users. 
+
+### Review 
+
+According to the creators, the `knitr` was created to generate dynamic reports with R, wherein the user has full access to the input and output components. Additionally, `knitr` tackles "some long-standing problems in Sweave and combines features in other add-on packages into one package." I was **super** impressed with the package's ability to incorporate the formating of various academic journals, on top of the creation of other documents like class materials and CVs. If this wasn't enough, I really liked the ability and ease of including chunks of code and equations within documents. I, an R novice in many respects, found the package  easy enough to learn and would deem it user-friendly. I did run into some snags along the way (to be expected), though I cannot pinpoint if those sangs resulted from an issue with the package, an issue within R, or my beginning stages R skills. All in all, I have no major problems to report. Though I've only taking my first steps into the exploration the `knitr` package, I am already stunned by its utility, especially when paired with the `knitcitations` package. I would have never considered writing documents in R Markdown prior to this class, but have already recommended doing so to others in my lab!
+
+***
+
+# `{magick}`
+
+<br>
+
+Contributed by R Stiling
+
+<br>
+
+### Location
+
+The package is available on CRAN via `install.packages("magick")` and also on [GitHub](https://github.com/ropensci/magick) (for development).
+
+### Vignettes
+
+The package has a vigniette that quickly, intuitively, and with a bit of humor, demostrates the basic functionality of the package. 
+https://cran.r-project.org/web/packages/magick/vignettes/intro.html
+
+### Applications
+
+Images of all types can be easily cropped, combined, and edited within R. Can also be used to construct and deconstruct gifs.
+
+### Review
+
+Although this package is used for advanced image manipulation, it is quite simple to use. I like it because it does precise image processing and annotating with simple functions. I discovered `{magick}` when I was unable to use another favorite package (`{patchwork}`) to compile a multi-panel plot. In my case, `{patchwork}` could not recognize ternary diagrams produced by `{ggtern}` because the usual ggplot geometry (ie x-y coordinates) had been overwritten and lost. With a few simple commands, I was able to take my two plots and put them together into a single figure with A,B annotation. The package `{magick}` allows for precise image manipulation that you might do with PowerPoint or Photoshop, but in an R code structure, which makes any steps taken to alter figures/images reproducible. With this package it is easy combine different file types (png, jpg, etc), cropping, resizing, layering, etc. I like that you store images as objects, and then combine them together in a number of different ways, and that you can see what you are doing the Plots pane of RStudio. I also like that you can use pipe syntax to make your code easily readable. 
+
+The vignettes and tutorials make it surprisingly simple to use. The main help page is organized extremely well, with **pictures**, so each thing you wish to do (re-size, stack, overlay, annotate, etc) it is simple to find at a glance by scaning the help page for pictures of what you may be trying to do with your images.
+
+Overall, I think this package is amazing, I highly recommend it, and it can do far more than I've used it for!
+
+***
+
+# `{patchwork}`
+
+Contributed by J Morris
+
+### Location
+
+Download from [**CRAN**](https://cloud.r-project.org/web/packages/patchwork/index.html) 
+
+```markdown
+install.packages('patchwork')
+```
+
+Development version from [**GitHub**](https://github.com/thomasp85/patchwork).
+
+```markdown
+# install.packages("devtools")
+devtools::install_github("thomasp85/patchwork")
+```
+
+### Vignettes
+
+[Reference manual](https://cran.r-project.org/web/packages/patchwork/patchwork.pdf):
+Describes package information and details main functions. 
+
+[Getting Started](https://cloud.r-project.org/web/packages/patchwork/vignettes/patchwork.html):
+Tutorial for working through the basics of using `patchwork`. Includes example plots, basic use, controlling layout, stacking and packing plots, and annotating the composition.
+
+[Plot Assembly](https://patchwork.data-imaginist.com/articles/guides/assembly.html):
+Tutorial of the different operators and functions available for plot assembly. Includes adding plots to the patchwork, nesting the left-hand side, and modifying patches.
+
+[Controlling Layouts](https://patchwork.data-imaginist.com/articles/guides/layout.html):
+Tutorial for controlling plot layouts. Includes adding an empty area, controlling the grid, moving beyond the grid, fixed aspect plots, insets, and controlling guides.
+
+[Adding Annotation and Style](https://patchwork.data-imaginist.com/articles/guides/annotation.html):
+Tutorial for adding titles, subtitles and captions, tagging, and styling the patchwork.
+
+[Multipage Alignment](https://patchwork.data-imaginist.com/articles/guides/multipage.html):
+Tutorial for aligning plots across pages, especially useful for designing slideshows.
+
+### Applications
+
+[Website](https://patchwork.data-imaginist.com/index.html):
+Provides instructions for download and installation, vignettes, and helpful references.
+
+### Review
+
+`{patchwork}` makes it simple to create complex (*& beautiful!*) plot layouts suitable for publication-worthy figures. Along with an extensive suite of helpful vignettes, `patchwork` has a very intuitive and readable coding syntax that makes it extremely easy to use. For example, to arrange two plots (`p1` & `p2`) side by side, you would 'add' the plots together using `p1 + p2`. Want them stacked vertically? Just 'divide' the plots using `p1 / p2`. Want a third plot (`p3`) to the right? 'Add' it to the nested plots using `(p1 / p2) + p3`. The possibilities are virtually endless.
+
+There are a lot of things I love about `patchwork`: 
+- The package automatically aligns plot dimensions, eliminating the need to painstakingly define plot coordinates. 
+- The plot layout options are very versatile, allowing you to easily control plot arrangement, size, orientation, and add blank space. 
+- The package allows for adding additional ggplot arguments (e.g., to unify themes across all plots)
+- Adding annotations is simple, including auto-tagging capabilities for subplots. 
+- `patchwork` can integrate components from other plotting packages like `cowplot` and `gridExtra`. 
+
+The main drawback to `patchwork` is that all plots must be ggplot objects. Regardless, *I would absolutely recommend this package* to anyone looking for a simple but powerful way to combine multiple plots into a single multipaneled figure.
+
+***
+
+# `{unmarked}`
+
+<br>
+
+Contributed by Y Hentati
+
+<br>
+
+Models for Data from Unmarked Animals. 
+
+### Location
+
+You can install {unmarked} through [GitHub](https://github.com/rbchan/unmarked) or [CRAN](https://cran.r-project.org/web/packages/unmarked/index.html).
+
+### Vignettes
+
+This package has 5 vignettes available for users.
+
+1) `cap-recap` covers capture-recapture methods
+2) `coltext` covers dynamic occupancy models  
+3) `distsamp` covers distance sampling analysis  
+4) `spp-dist` covers species distributions  
+5) `unmarked` is an overview of the whole package   
+
+### Application(s)
+
+I'm not sure if this is specifically talking about web applications (?) but I couldn't find any.
+
+### Review
+
+This package is used for statistical modeling; specifically, this package fits models for data from non-invasive survey methods. With this package, you can build single- and multi-season occupancy models, binomial N-mixture models, multinomial N-mixture models, and several other types of models. I am only familiar with the single- and multi- season occupancy models, and have found the package relatively easy to use in conjunction with occupancy model literature and reading papers using this specific package. The package uses an S4 class called an `unmarkedFrame` to store covariate and response data as well as metadata. The user reads in their data and calls the specific type of `unmarkedFrame` based on the model-fitting function they are using, then the `unmarkedFrame` is passed to the appropriate estimation function. I would recommend it to those looking to run  single-species models with camera trap data that account for imperfect detection (i.e. occupancy models). I haven't yet used it or other occupancy modeling packages/methods enough to know what I would like it to do differently yet. 
+
+
+

@@ -1,0 +1,58 @@
+---
+title: "Example template for exploring formatting options"
+author: "First Last"
+date: "2/19/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+Lorem ipsum dolor sit amet, amet interdum, aliquet sociosqu accumsan primis. Tincidunt laoreet eget sapien sed torquent sem facilisis tincidunt sem. Senectus, vulputate sit fusce eleifend sapien sit. Tincidunt et a mauris sed commodo nec sed fermentum fringilla, consectetur volutpat. Aliquet, ante, odio facilisis. Ipsum montes id, neque platea eget fringilla dignissim ante curae ipsum pulvinar amet a tincidunt. Habitasse vitae facilisi amet. Feugiat, volutpat metus sed feugiat! Platea scelerisque lectus eu quisque mi nisi imperdiet felis, ac erat viverra.
+
+Amet in diam sagittis ac non, arcu in. Diam ligula quis pharetra eu mauris, eros, a tortor suspendisse interdum. Non nunc, massa rhoncus libero ad sit feugiat proin turpis nam tellus. Feugiat arcu sed ut aliquam quis donec convallis et. Metus cursus ex! Purus tempus nec at. Tincidunt euismod, taciti cubilia sed euismod! Enim cras et at ex congue gravida ut. Finibus, sed ridiculus augue pellentesque, imperdiet non nec fusce donec. Tincidunt leo commodo, rhoncus in vel, litora ac. Commodo amet, ac.                                                                                                                 
+Tempor arcu commodo vehicula nullam sed aptent. Curabitur ante conubia, nibh magnis ornare nulla dis ut nunc. Malesuada risus accumsan in et primis porttitor tempor et. Volutpat non metus facilisi in risus iaculis per quis ante vel congue. Imperdiet, enim ligula sem ut mauris. Nulla, at amet nisl nisl, nulla nibh gravida, sit tincidunt vel? In arcu pharetra adipiscing in ut phasellus amet magna sociosqu, vel. Facilisis lacinia facilisis libero dapibus orci, egestas. Vel leo non dictumst tristique lectus. Morbi tempor, nam sed inceptos eros viverra gravida. Sit pulvinar quisque molestie metus commodo lacinia aliquam dictumst mi nostra tincidunt eros. A tempus et malesuada senectus est morbi platea arcu. In mus et sem diam sed nulla. Augue dictum maecenas. Taciti convallis nulla leo sit ut adipiscing ante euismod. Suscipit amet eget est et facilisis. Sem bibendum interdum tortor vulputate morbi nulla.
+
+# Methods
+
+## Study site
+
+Cum ex nunc cubilia nec magna quis. Non, eget fusce pellentesque gravida nec quis dis ornare mauris? Consequat curabitur quisque diam lacinia quisque vitae dapibus ex aliquam. Ullamcorper id magna neque malesuada leo magna. Egestas ullamcorper parturient fermentum natoque enim, auctor molestie gravida porta sed. Auctor ipsum quisque, eu tellus neque nunc. Pharetra vestibulum massa aptent nisl. Etiam accumsan enim odio. Sed rhoncus vel in. A aliquam fusce aenean. Sapien, varius nunc justo lobortis, malesuada leo sed. Ante mi natoque ullamcorper mollis in fringilla neque vitae, et quis. Est, a et maecenas laoreet, mauris, hac purus lacus nam.
+
+## Data
+
+Curae phasellus class eget habitasse nascetur fringilla pellentesque faucibus. Dictum maximus ac finibus aliquet netus nascetur dolor lobortis nunc nec eros. Malesuada, posuere nunc commodo at. Eros primis. Eleifend sed maecenas, aenean cras ornare sed, nec. Lacinia, facilisis euismod est curae malesuada non, est velit sit. Sit litora finibus phasellus mi ac vulputate fermentum tortor at sed lectus et. Quam nunc sit semper fusce facilisi efficitur in sit efficitur porttitor. Maecenas cras consectetur nulla suscipit vitae neque molestie vitae vel eget. Libero varius amet quis luctus ut erat morbi. Ac ad non nec pulvinar ut nam quis nulla in. Sed mi commodo mus eu eleifend, pulvinar, curae sapien. Ut, finibus sociis inceptos mus ut nullam posuere laoreet iaculis. Eu maximus ut turpis.
+
+# Results
+
+Magnis eu parturient et, in, massa purus. Natoque non, habitant bibendum at lorem tincidunt libero sollicitudin. Nunc donec phasellus maximus eget tellus. Et taciti senectus aliquam facilisi justo. Sit sapien nibh sem ridiculus eget eu sit. Hendrerit aliquam sed. Venenatis lobortis ac amet natoque facilisis luctus gravida lobortis. Aliquam in libero in. Et sociis dis curabitur vitae senectus nibh dignissim semper neque eu ex conubia. Dolor elit ac eget donec ut egestas eu in cum amet sit, id.
+
+```{r cars}
+summary(cars)
+```
+
+Nec placerat aliquam sed sed litora, lacus mauris, pellentesque nulla. Ac sodales primis nunc sed elit at sem dolor viverra non! Fusce dolor, integer in sed id. Varius in ut laoreet maximus in varius ultrices, et. Viverra feugiat mauris elementum convallis amet quam porttitor. Nunc proin vivamus sed massa amet facilisi, nam scelerisque tristique. Semper, vel efficitur, nam fames imperdiet. Habitasse lectus vestibulum leo eget, sit turpis. Bibendum, nunc morbi nunc a blandit. Efficitur sem sed volutpat risus eget, nullam pretium potenti ultricies dignissim. Ut non a, phasellus quisque tortor. Posuere sit sed penatibus. Ultricies velit sem libero taciti dolor eget laoreet. Non vehicula tortor dapibus purus mattis odio taciti, a convallis nec.
+
+\vspace{0.5in}
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Sollicitudin aliquet ante gravida curabitur, elementum. Vel in aptent neque, cubilia pellentesque arcu fames maximus, habitasse, hendrerit. Donec magna interdum sagittis odio sem. Tortor mauris luctus laoreet bibendum ullamcorper dapibus et, magnis eget sociis. Tincidunt sed eleifend nostra nec sollicitudin, mollis tellus leo mollis ridiculus. Bibendum leo at, et penatibus maecenas pellentesque sed viverra, dui volutpat. Sit cursus eleifend duis. Nec maecenas duis. Metus ut quis justo augue eleifend dui porttitor viverra mi vitae arcu risus. Id efficitur lorem vivamus vel ac purus tempus proin? Malesuada et potenti, lectus donec finibus quam quisque? Lorem nisl leo purus vitae nunc primis velit, faucibus hendrerit, pulvinar. Adipiscing sit risus curae, malesuada, lorem odio eu lacus sociosqu curabitur, dictum. Tellus a venenatis mi suscipit. Donec mattis nec tortor, conubia sapien pharetra. Dis pellentesque aptent pharetra tempus suspendisse.
+
+
+# Discusssion
+
+Neque et in eget, netus faucibus, nulla tincidunt. Odio porta sed, dictumst massa, etiam fringilla conubia. Posuere, vitae non in sed sit aenean. Eros ac urna ut vestibulum lobortis justo a amet parturient. Mi molestie, tortor torquent in non gravida erat ornare dapibus. Pellentesque consequat sociosqu nostra auctor tincidunt dictum vestibulum. Ipsum suscipit fringilla sed. Sed aliquet est venenatis cubilia leo nostra. Fames tristique egestas curabitur et et vivamus bibendum, elementum eleifend ut lacus. Odio phasellus ipsum sem sodales sed, diam. Senectus, malesuada neque non quis sit faucibus odio venenatis amet.
+
+Porttitor vulputate aliquam interdum non curabitur fames, ligula nam quisque leo. Sem dolor elit libero imperdiet montes conubia turpis! Inceptos erat, eu montes nec non. Dolor sapien vestibulum integer torquent ac arcu mauris sit, ornare. Integer sit imperdiet feugiat donec eu. Blandit lobortis purus at eget aenean nec in ac magna luctus. Congue massa leo aliquam placerat sed, ligula est sociis sed, sed. Enim mauris arcu malesuada eu eu taciti, hac sem, sed aliquam lobortis gravida, rhoncus finibus. Mauris felis vulputate vestibulum consequat dignissim nec. Feugiat ac fames hendrerit, ac purus. Lectus, lorem libero bibendum nisi sagittis. Ex risus curae, nibh.
+
+Eget arcu amet aptent, sed auctor ut blandit ac. Congue risus, vitae sapien platea gravida himenaeos donec at. Tincidunt ad, nulla metus, ultricies tempus class sociosqu libero eu a. Diam adipiscing suspendisse dictum non finibus eget aenean tempus. Auctor in ut ut vivamus fermentum quis. Velit fusce sed et eu aliquet, sit vehicula. Ut tempor sit eu. Consectetur, varius eu, mauris felis amet. Non mi nisi luctus tincidunt eu magnis. Donec efficitur enim justo phasellus diam in vel mus a ut sollicitudin. Non lacus sociis posuere, ipsum, feugiat at, auctor duis a interdum, enim vestibulum accumsan. In fames est vulputate, vestibulum eu sit magna senectus. Luctus, faucibus nec. Et lorem urna sed nec tempor inceptos. Erat ultricies commodo, et diam.
+
+Euismod mi diam potenti. Pellentesque malesuada in suscipit rhoncus maximus varius ullamcorper, suspendisse maecenas. Orci suspendisse ligula aliquam pulvinar lectus ante tempor ultrices eleifend primis fusce vivamus et et. Porta ac volutpat vel, a eget. Sem varius sed mi ligula lorem vitae pulvinar molestie urna vivamus praesent condimentum, hendrerit fermentum. Odio cubilia ipsum maximus posuere. Ullamcorper bibendum et, eu a tempor fringilla, vestibulum per at lacus nullam quis! Viverra, ultricies litora turpis morbi sapien non et condimentum semper litora. Elementum lacus, lorem nisl nunc duis finibus aliquet. Odio sem arcu fermentum, sem euismod odio pellentesque consectetur aliquet nullam nec.
+
+
