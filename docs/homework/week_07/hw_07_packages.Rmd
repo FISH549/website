@@ -1,0 +1,48 @@
+---
+title: "Exploring R packages"
+subtitle: "Assignment #7"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "26 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Background
+
+This week we saw how to build a basic **R** package, document its contents, write unit tests, and create a vignette and website to better display the package's purpose and contents. Your assignment this week is to write a short description of your favorite package or a package that you find yourself using quite often. Your write-up should include the following elements.
+
+### Package title
+
+What is the package's title?
+
+### Location
+
+From where can you install this package on the web? Is it on CRAN or GitHub or both?
+
+### Vignette(s)
+
+Does the package have any formal vignettes, or just the standard collection of help files? If there are one or more vignettes, what topics do they cover?
+
+### Application(s)
+
+Are there any applications of the package, as demonstrated on a website like we built, someone's blog, Twitter post, etc?
+
+### Review
+
+Write a short (<300 words) review of the package. What is the primary purpose of the package (eg, is used for plotting, reading or scraping data, manipulating data, statistical modeling, etc)? What are the things you like about the package? Are there things you don't like or wish it did differently? Was the package easy to learn how to use? Would you recommend this package to someone else?
+
+# Submission
+
+Please create a new repo called `assignment-7` and populate it with a `README.md`. You can then edit the `README.md` file to include the above information. When you are finished, invite Mark as a collaborator. After he accepts your invite, tag him in an issue that *briefly* introduces your assignment.
+

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Package reviews</title>
+
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">FISH 549</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="lectures.html">Schedule &amp; materials</a>
+</li>
+<li>
+  <a href="homework.html">Assignments</a>
+</li>
+<li>
+  <a href="references.html">References</a>
+</li>
+<li>
+  <a href="https://github.com/FISH549">
+    <span class="fab fa-github"></span>
+     
+    
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Package reviews</h1>
+
+</div>
+
+
+<p><br></p>
+<p>For assignment #7 students were asked to provide a summary overview of any package they enjoyed or used frequently. Here is a list of some of their responses, provided with permission.</p>
+<hr />
+<div id="broom" class="section level1">
+<h1><code>{broom}</code></h1>
+<p><br></p>
+<p>Contributed by M Feddern</p>
+<p><br></p>
+<div id="location" class="section level3">
+<h3>Location</h3>
+<p>You can install this package directly from <a href="https://cran.r-project.org/web/packages/broom/index.html">CRAN</a> or you can install it from <a href="https://github.com/cran/broom">GitHub</a>.</p>
+</div>
+<div id="vignettes" class="section level3">
+<h3>Vignettes</h3>
+<p>This package has multiple vignettes</p>
+<div id="adding-tidiers" class="section level5">
+<h5>Adding Tidiers</h5>
+<p>This vignette describes the process of adding a new tidiers to the broom package for package development. It also contains a link to the tidy model website which has a tutorial on how to create your own broom tidiers.</p>
+</div>
+<div id="available-methods" class="section level5">
+<h5>Available Methods</h5>
+<p>This vignette describes all of the different types of model output that broom is compatible with, from Arima to zoo, in alphabetical order of the package name. This is useful to see if your errors are because of the package/model object you are using – or if it is something else.</p>
+</div>
+<div id="tidy-boostrapping" class="section level5">
+<h5>Tidy Boostrapping</h5>
+<p>This vignette describes how to apply bootstrap resampling to estimate uncertainty in model parameters.</p>
+</div>
+<div id="intro-to-broom" class="section level5">
+<h5>Intro to broom</h5>
+<p>This vignette introduces users to the concept of “tidy data” and how broom bridges the gap between “un-tidy” predictions and estimates from modelling packages and converts them to a tidy tibble. It is specifically designed to take a not tabular format (unlike reshape2 and tidyr) and convert it to a tibble.</p>
+</div>
+<div id="broom-and-dplyr" class="section level5">
+<h5>broom and dplyr</h5>
+<p>This vignette focuses on high-throughput applications, where you can combine results from multiple analyses using other packages – specifically <code>{purrr}</code>, <code>{dplyr}</code>, <code>{ggplot2}</code>, and <code>{tidyr}</code>.</p>
+</div>
+<div id="kmeans-with-dplyr-and-broom" class="section level5">
+<h5>kmeans with dplyr and broom</h5>
+<p>This vignette summarizes clustering characteristics and estimate the best number of clusters for a data set by combining broom with the tidymodels package.</p>
+</div>
+</div>
+<div id="applications" class="section level3">
+<h3>Application(s)</h3>
+<p>There are so many! Here are a few:</p>
+<ol style="list-style-type: decimal">
+<li><p>One of my favorites is the “learn” section of the <a href="https://www.tidymodels.org/learn/develop/broom/">Tidymodels website</a>.</p></li>
+<li><p>I personally have used <a href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">this application</a> that combines the package <code>{dotwhisker}</code> with <code>{broom}</code>. This application is great if you have multiple supported models and you want to put all of the coefficients of those models into a single plot.</p></li>
+<li><p><a href="https://socviz.co/modeling.html">This</a> is another example of how broom can be leveraged to make plots</p></li>
+</ol>
+</div>
+<div id="review" class="section level3">
+<h3>Review</h3>
+<p>The primary use of <code>{broom}</code> is to convety ‘un-tidy’ data that is not easily manipulated into a tabular format into a tidy tibble. Most other similar packages are designed to work with tabular data, but most modeling packages produce output that far from tabular and thus very challenging to analyze, manipulate, or plot the output further. This allows the user to manipulate model output into an easier to use format. This is particularly useful for:</p>
+<ol style="list-style-type: decimal">
+<li>reporting results<br />
+</li>
+<li>creating plots<br />
+</li>
+<li>work with large numbers of models at once (particularly to compare their output)<br />
+</li>
+<li>bootstrapping model output</li>
+</ol>
+<p>I personally use <code>{broom}</code> most frequently when I am plotting model output for multiple models and/or multiple coefficients. The package is easy to learn for users who are already familiar with tidyverse, the benefits of tidy data, and piping but may have a steeper learning curve for those who haven’t used tidy before. Regardless its pretty simple, as most model objects can simply be put into a function. The vignettes also make it easier to leverage this package in more powerful ways, I would highly recommend this package to anyone conducting an analysis that involves comparing model output of multiple models.</p>
+<hr />
+</div>
+</div>
+<div id="corrplot" class="section level1">
+<h1><code>{corrplot}</code></h1>
+<p><br></p>
+<p>Contributed by Anonymous</p>
+<p><br></p>
+<div id="location-1" class="section level3">
+<h3>Location</h3>
+<p>This package is located on <a href="https://cran.r-project.org/web/packages/corrplot/index.html">CRAN</a> as well as <a href="https://github.com/taiyun/corrplot">GitHub</a>.</p>
+</div>
+<div id="vignettes-1" class="section level3">
+<h3>Vignettes</h3>
+<p>The <code>{corrplot}</code> package has <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">one formal vignette</a> located on the CRAN website. It’s a basic introduction to the package, including the seven visualization methods and three layout types of the correlation plot. There’s also a section on reordering the correlation matrix, using different color spectra, and other ways to customize the correlation matrix plot.</p>
+</div>
+<div id="applications-1" class="section level3">
+<h3>Applications</h3>
+<p>There are many example posts on twitter using the hashtag <code>#corrplot</code>. Some of the twitter posts are displaying data from <code>#tidytuesday</code> challenges and some users are displaying their own data.</p>
+</div>
+<div id="review-1" class="section level3">
+<h3>Review</h3>
+<p>The <code>{corrplot}</code> package is used for plotting correlation data and seems to be widely used among R users. I don’t know of any other R package that creates correlation matrix plots. Since the package is located on CRAN, as well as GitHub, it must be very robust and well-tested. I like how easy it is to use the package (you don’t have to enter a lot of arguments to get a beautiful plot). I think I’ll have to spend more time using the package before I have things to improve about it. Yes, I would recommend this package to someone else, especially with the vignette to help.</p>
+<hr />
+</div>
+</div>
+<div id="deseq2" class="section level1">
+<h1><code>{DESeq2}</code></h1>
+<p><br></p>
+<p>Contributed by A Coyle</p>
+<p><br></p>
+<div id="location-and-installation" class="section level3">
+<h3>Location and Installation:</h3>
+<p>DESeq2 is hosted on Bioconductor, which provides open-source tools for analysis of bioinformatics data. To install DESeq2, you must first install the BiocManager package with <code>install.packages("BiocManager")</code>. Once BiocManager is installed, you can install DESeq2 with <code>BiocManager::install("DESeq2")</code>.</p>
+</div>
+<div id="vignettes-2" class="section level3">
+<h3>Vignettes</h3>
+<p>At the time of writing, there is one vignette available for DESeq2. It demonstrates the workflow for analyzing RNA-seq data. The vignette can be seen with <code>browseVignettes("DESeq2")</code>.</p>
+</div>
+<div id="application" class="section level3">
+<h3>Application</h3>
+<p><a href="https://rstudio-pubs-static.s3.amazonaws.com/329027_593046fb6d7a427da6b2c538caf601e1.html">Here</a> is a good breakdown of how to format inputs for DESeq2 and some ways to interpret results.</p>
+</div>
+<div id="review-2" class="section level3">
+<h3>Review</h3>
+<p><code>{DESeq2}</code> is an R package used to conduct analyses of RNA-seq data, thus providing the statistical significance of any observed differences in gene expression</p>
+<p>As input, you provide a table containing all contigs and their counts for each sample, with each sample as a different column. This means that prior to DESeq2, you must quantify your RNA-seq data. This can either be done by a variety of tools, including <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie2</a> or <a href="https://www.nature.com/articles/nbt.3519">kallisto</a>. You also must provide a dataframe mapping each sample (e.g. each column) to your experimental conditions. Of course, replication in experimental conditions is necessary for DESeq2 to be able to draw any statistical comparisons.</p>
+<p>DESeq2 can provide a large number of formats - PCA plots, MA plots, tables of contigs with p-values and adjusted p-values for differential expression, dispersion estimates, tables of differentially-expressed contigs, and more!</p>
+<p>As a warning to new users, the runtime for the <code>DESeq()</code> function can be quite long - on a laptop, it may be several hours until the function has finished running. If you have hundreds of samples, the runtime may be far, far longer. In that case, it may be optimal to switch to <a href="https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/thursday/DE.html">limma-voom</a>, which utilizes the voom package</p>
+<p>Overall, DESeq2 is quite an impressive package. It is powerful, can be easily streamlined, and is excellent at what it does. However, it does have some downsides. One of the biggest issues is that it isn’t optimized for user-friendliness. To some degree, this makes sense. DESeq2 is an extremely specific package, with no uses beyond analyzing RNA-seq data. This means that generally, potential users will already have a general idea of what your potential inputs should be and how to generate them. However, the vignette is precisely detailed to an overwhelming degree, which can cause less-knowledgeable users to easily become lost in the details. This could be remedied by providing a tutorial for new users with some example data and a single workflow.</p>
+<p>There are several alternatives to DESeq2, most notably the package edgeR (also a Bioconductor package). Both are roughly equivalent in precision and use roughly the same process to determine differential expression. If you are deciding between the two, I suggest using whichever package is most often used by members of your lab in order to maximize help if you run into issues! If you’re still having trouble deciding, <a href="https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/">I suggest consulting this article</a>!</p>
+<hr />
+</div>
+</div>
+<div id="ggplot2" class="section level1">
+<h1><code>{ggplot2}</code></h1>
+<p><br></p>
+<p>Contributed by A Brewer, D Radcliffe &amp; S Shorna</p>
+<p><br></p>
+<div id="location-2" class="section level3">
+<h3>Location</h3>
+<p>This package is part of the Tidyverse which can be installed via <a href="https://cran.r-project.org/web/packages/ggplot2/index.html">CRAN</a> or <a href="https://ggplot2.tidyverse.org/">GitHub</a>.</p>
+</div>
+<div id="vignettes-3" class="section level3">
+<h3>Vignettes</h3>
+<p>The <code>{ggplot2}</code> package has three formal vignettes listed on the CRAN website that address different topics within the package:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://cran.r-project.org/web/packages/ggplot2/vignettes/extending-ggplot2.html">This vignette</a> shows how to extend ggplot2 by creating a new stat, geom, or theme:</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-in-packages.html">This vignette</a> is intended for package developers who use ggplot2 within their package code:</p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-specs.html">This vignette</a> summarizes the various formats that grid drawing functions take.</p></li>
+</ol>
+</div>
+<div id="applications-2" class="section level3">
+<h3>Applications</h3>
+<p>There are a vast number of applications of <code>{ggplot2}</code> in various puplications, twitter posts, websites and tutorials. It is likely one of the most popular packages in the Tidyverse.</p>
+</div>
+<div id="review-3" class="section level3">
+<h3>Review</h3>
+<p>[Brewer] The primary purpose of this package is a plotting package that is more streamlined than the base R plot function. When compared to the plot function, <code>{ggplot2}</code> has a wide variety of options and many R users have also made various aesthetic arguments that can be used such as custom color palettes. I’m still learning the ins and outs of <code>{ggplot2}</code>, along with many tidyverse packages but I have yet to find something I don’t like. Since the R community that uses this package is so large, there are many resources for help, including the <a href="https://community.rstudio.com/">RStudio community</a> and <a href="https://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&amp;pageSize=50">Stack Overflow</a>.</p>
+<p>[Radcliffe] <code>{ggplot2}</code> is used for graphing and visualizing data that is supplied by the user, and is one of the most widely used tools for that purpose, at least in R. I like that there are many options for customizability of graphs, and the fact that the package is common enough that help is easy to find. There are several things I don’t like about though, primarily that it was a bit weird and difficult to learn to use the full capability of <code>{ggplot2}</code>. What is an ‘aesthetic’ and what is a ‘theme’ still isn’t entirely clear to me, and often I need to trial and error with aes() calls to figure out where to put them in a new graph. I think this could be because the people I learned <code>{ggplot2}</code> from were fairly new to it themselves, but I have done several other class tutorials and a full online class on ggplot since, where I’ve had these things ‘explained’, but still find some of those points confusing. Maybe I need to check out that first vignette :) However, after a couple years of consistent use I could usually code up a polished graph pretty quickly without Googling, so I think the code is simple enough to learn. I first I found the ugly default settings pretty frustrating and wished they’d done those differently. But now I appreciate that it makes the user think critically about the graph they want to produce, and keeps everybody from making the same graph. I would recommend the package, but also that a systematic effort is required to learn it.</p>
+<p>[Shorna] <code>{ggplot2}</code> is a plotting package that makes it simple to create complex plots from data in a data frame. It provides a more programmatic interface for specifying what variables to plot, how they are displayed, and general visual properties. Therefore, we only need minimal changes if the underlying data change or if we decide to change from a bar plot to a scatterplot. This helps in creating publication quality plots with minimal amounts of adjustments and tweaking. As a beginner programmer I find this packages very useful while creating plots. This package was not very hard learn, but it has wide range of features which needs time to explore.</p>
+<hr />
+</div>
+</div>
+<div id="janitor" class="section level1">
+<h1><code>{janitor}</code></h1>
+<p><br></p>
+<p>Contributed by A DuVall</p>
+<p><br></p>
+<div id="location-3" class="section level3">
+<h3>Location</h3>
+<p>This package can be installed in two ways:</p>
+<ol style="list-style-type: decimal">
+<li>the most recent officially-released version can be installed from the CRAN using:</li>
+</ol>
+<pre class="r"><code>install.packages(&quot;janitor&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>the latest development version can be installed from GitHub using:</li>
+</ol>
+<pre class="r"><code>install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;sfirke/janitor&quot;)</code></pre>
+</div>
+<div id="vignette" class="section level3">
+<h3>Vignette</h3>
+<p>A vignette that includes a full description of each function, organized by topic, can be found <a href="http://sfirke.github.io/janitor/articles/janitor.html">here</a>.</p>
+</div>
+<div id="application-1" class="section level3">
+<h3>Application</h3>
+<p>This package is compatible with the <code>tidyverse</code> and is useful for data cleaning and data exploration.</p>
+</div>
+<div id="review-4" class="section level3">
+<h3>Review</h3>
+<p>I discovered the <code>janitor</code> package a few months ago and I’ve quickly adopted it as a go-to package for cleaning messy data, where a lot of my work involves compiling multiple data sheets with different structures. The <code>clean_names()</code> function is a quick and easy way to standardize field names in a dataframe using a format that is friendly for analysis. The default case is snake but the <code>case=</code> argument can be used to select other options (e.g., camel, title, etc). I also use the <code>compare_df_cols()</code> function often to make sure that a set data frames have identical field names and field types prior to binding them into one master data frame. Similarly, the <code>get_dupes()</code> function will identify duplicate records in a data frame that need to be addressed. I am aware of another function (<code>taybl()</code>), which is a tidyverse-oriented replace for <code>table()</code>, but I have not used this function as often. This function counts combinations of one+ variables and prints a summary table that is compatible with the <code>knitr::kable()</code> function for building report-style tables. This function can also be combined with the <code>adorn_*</code> functions that specify the table output; for example <code>adorn_totals()</code> to sum values or <code>adorn_percentages()</code> to calculate percentages of select variables. Here is a code example available on the <code>tabyls()</code> vignette: </br></p>
+<pre class="r"><code>humans %&gt;%
+  tabyl(gender, eye_color) %&gt;%
+  adorn_totals(c(&quot;row&quot;, &quot;col&quot;)) %&gt;%
+  adorn_percentages(&quot;row&quot;) %&gt;% 
+  adorn_pct_formatting(rounding = &quot;half up&quot;, digits = 0) %&gt;%
+  adorn_ns() %&gt;%
+  adorn_title(&quot;combined&quot;) %&gt;%
+  knitr::kable()</code></pre>
+<p></br> I found this package to be useful and easy to learn. It has helped me save time while cleaning and compiling data frames and I wish I had found out about it sooner! I recommend it for anyone dealing with compiling messy data sets (which I suspect includes a lot of people in ecology).</p>
+<hr />
+</div>
+</div>
+<div id="knitr" class="section level1">
+<h1><code>{knitr}</code></h1>
+<p><br></p>
+<p>Contributed by Anonymous</p>
+<p><br></p>
+<div id="vignettes-4" class="section level3">
+<h3>Vignettes</h3>
+<p><code>knitr</code> has a collection of vignettes covering topics, such as an introduction to the package, custom print methods, and <code>knit_expand()</code> to name a few.</p>
+</div>
+<div id="applications-3" class="section level3">
+<h3>Applications</h3>
+<p>The package <code>knitr</code> has a <a href="https://yihui.org/knitr/">website</a>, where many examples of <code>knitr</code> in use are included under the “Examples” tab. Not only is there a list of examples included on the site page, but there is also a link to a Github repository that holds an even larger collection of knitr examples and a link to applications curated by other users.</p>
+</div>
+<div id="review-5" class="section level3">
+<h3>Review</h3>
+<p>According to the creators, the <code>knitr</code> was created to generate dynamic reports with R, wherein the user has full access to the input and output components. Additionally, <code>knitr</code> tackles “some long-standing problems in Sweave and combines features in other add-on packages into one package.” I was <strong>super</strong> impressed with the package’s ability to incorporate the formating of various academic journals, on top of the creation of other documents like class materials and CVs. If this wasn’t enough, I really liked the ability and ease of including chunks of code and equations within documents. I, an R novice in many respects, found the package easy enough to learn and would deem it user-friendly. I did run into some snags along the way (to be expected), though I cannot pinpoint if those sangs resulted from an issue with the package, an issue within R, or my beginning stages R skills. All in all, I have no major problems to report. Though I’ve only taking my first steps into the exploration the <code>knitr</code> package, I am already stunned by its utility, especially when paired with the <code>knitcitations</code> package. I would have never considered writing documents in R Markdown prior to this class, but have already recommended doing so to others in my lab!</p>
+<hr />
+</div>
+</div>
+<div id="magick" class="section level1">
+<h1><code>{magick}</code></h1>
+<p><br></p>
+<p>Contributed by R Stiling</p>
+<p><br></p>
+<div id="location-4" class="section level3">
+<h3>Location</h3>
+<p>The package is available on CRAN via <code>install.packages("magick")</code> and also on <a href="https://github.com/ropensci/magick">GitHub</a> (for development).</p>
+</div>
+<div id="vignettes-5" class="section level3">
+<h3>Vignettes</h3>
+<p>The package has a vigniette that quickly, intuitively, and with a bit of humor, demostrates the basic functionality of the package. <a href="https://cran.r-project.org/web/packages/magick/vignettes/intro.html" class="uri">https://cran.r-project.org/web/packages/magick/vignettes/intro.html</a></p>
+</div>
+<div id="applications-4" class="section level3">
+<h3>Applications</h3>
+<p>Images of all types can be easily cropped, combined, and edited within R. Can also be used to construct and deconstruct gifs.</p>
+</div>
+<div id="review-6" class="section level3">
+<h3>Review</h3>
+<p>Although this package is used for advanced image manipulation, it is quite simple to use. I like it because it does precise image processing and annotating with simple functions. I discovered <code>{magick}</code> when I was unable to use another favorite package (<code>{patchwork}</code>) to compile a multi-panel plot. In my case, <code>{patchwork}</code> could not recognize ternary diagrams produced by <code>{ggtern}</code> because the usual ggplot geometry (ie x-y coordinates) had been overwritten and lost. With a few simple commands, I was able to take my two plots and put them together into a single figure with A,B annotation. The package <code>{magick}</code> allows for precise image manipulation that you might do with PowerPoint or Photoshop, but in an R code structure, which makes any steps taken to alter figures/images reproducible. With this package it is easy combine different file types (png, jpg, etc), cropping, resizing, layering, etc. I like that you store images as objects, and then combine them together in a number of different ways, and that you can see what you are doing the Plots pane of RStudio. I also like that you can use pipe syntax to make your code easily readable.</p>
+<p>The vignettes and tutorials make it surprisingly simple to use. The main help page is organized extremely well, with <strong>pictures</strong>, so each thing you wish to do (re-size, stack, overlay, annotate, etc) it is simple to find at a glance by scaning the help page for pictures of what you may be trying to do with your images.</p>
+<p>Overall, I think this package is amazing, I highly recommend it, and it can do far more than I’ve used it for!</p>
+<hr />
+</div>
+</div>
+<div id="patchwork" class="section level1">
+<h1><code>{patchwork}</code></h1>
+<p>Contributed by J Morris</p>
+<div id="location-5" class="section level3">
+<h3>Location</h3>
+<p>Download from <a href="https://cloud.r-project.org/web/packages/patchwork/index.html"><strong>CRAN</strong></a></p>
+<pre class="markdown"><code>install.packages(&#39;patchwork&#39;)</code></pre>
+<p>Development version from <a href="https://github.com/thomasp85/patchwork"><strong>GitHub</strong></a>.</p>
+<pre class="markdown"><code># install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;thomasp85/patchwork&quot;)</code></pre>
+</div>
+<div id="vignettes-6" class="section level3">
+<h3>Vignettes</h3>
+<p><a href="https://cran.r-project.org/web/packages/patchwork/patchwork.pdf">Reference manual</a>: Describes package information and details main functions.</p>
+<p><a href="https://cloud.r-project.org/web/packages/patchwork/vignettes/patchwork.html">Getting Started</a>: Tutorial for working through the basics of using <code>patchwork</code>. Includes example plots, basic use, controlling layout, stacking and packing plots, and annotating the composition.</p>
+<p><a href="https://patchwork.data-imaginist.com/articles/guides/assembly.html">Plot Assembly</a>: Tutorial of the different operators and functions available for plot assembly. Includes adding plots to the patchwork, nesting the left-hand side, and modifying patches.</p>
+<p><a href="https://patchwork.data-imaginist.com/articles/guides/layout.html">Controlling Layouts</a>: Tutorial for controlling plot layouts. Includes adding an empty area, controlling the grid, moving beyond the grid, fixed aspect plots, insets, and controlling guides.</p>
+<p><a href="https://patchwork.data-imaginist.com/articles/guides/annotation.html">Adding Annotation and Style</a>: Tutorial for adding titles, subtitles and captions, tagging, and styling the patchwork.</p>
+<p><a href="https://patchwork.data-imaginist.com/articles/guides/multipage.html">Multipage Alignment</a>: Tutorial for aligning plots across pages, especially useful for designing slideshows.</p>
+</div>
+<div id="applications-5" class="section level3">
+<h3>Applications</h3>
+<p><a href="https://patchwork.data-imaginist.com/index.html">Website</a>: Provides instructions for download and installation, vignettes, and helpful references.</p>
+</div>
+<div id="review-7" class="section level3">
+<h3>Review</h3>
+<p><code>{patchwork}</code> makes it simple to create complex (<em>&amp; beautiful!</em>) plot layouts suitable for publication-worthy figures. Along with an extensive suite of helpful vignettes, <code>patchwork</code> has a very intuitive and readable coding syntax that makes it extremely easy to use. For example, to arrange two plots (<code>p1</code> &amp; <code>p2</code>) side by side, you would ‘add’ the plots together using <code>p1 + p2</code>. Want them stacked vertically? Just ‘divide’ the plots using <code>p1 / p2</code>. Want a third plot (<code>p3</code>) to the right? ‘Add’ it to the nested plots using <code>(p1 / p2) + p3</code>. The possibilities are virtually endless.</p>
+<p>There are a lot of things I love about <code>patchwork</code>: - The package automatically aligns plot dimensions, eliminating the need to painstakingly define plot coordinates. - The plot layout options are very versatile, allowing you to easily control plot arrangement, size, orientation, and add blank space. - The package allows for adding additional ggplot arguments (e.g., to unify themes across all plots) - Adding annotations is simple, including auto-tagging capabilities for subplots. - <code>patchwork</code> can integrate components from other plotting packages like <code>cowplot</code> and <code>gridExtra</code>.</p>
+<p>The main drawback to <code>patchwork</code> is that all plots must be ggplot objects. Regardless, <em>I would absolutely recommend this package</em> to anyone looking for a simple but powerful way to combine multiple plots into a single multipaneled figure.</p>
+<hr />
+</div>
+</div>
+<div id="unmarked" class="section level1">
+<h1><code>{unmarked}</code></h1>
+<p><br></p>
+<p>Contributed by Y Hentati</p>
+<p><br></p>
+<p>Models for Data from Unmarked Animals.</p>
+<div id="location-6" class="section level3">
+<h3>Location</h3>
+<p>You can install {unmarked} through <a href="https://github.com/rbchan/unmarked">GitHub</a> or <a href="https://cran.r-project.org/web/packages/unmarked/index.html">CRAN</a>.</p>
+</div>
+<div id="vignettes-7" class="section level3">
+<h3>Vignettes</h3>
+<p>This package has 5 vignettes available for users.</p>
+<ol style="list-style-type: decimal">
+<li><code>cap-recap</code> covers capture-recapture methods</li>
+<li><code>coltext</code> covers dynamic occupancy models<br />
+</li>
+<li><code>distsamp</code> covers distance sampling analysis<br />
+</li>
+<li><code>spp-dist</code> covers species distributions<br />
+</li>
+<li><code>unmarked</code> is an overview of the whole package</li>
+</ol>
+</div>
+<div id="applications-6" class="section level3">
+<h3>Application(s)</h3>
+<p>I’m not sure if this is specifically talking about web applications (?) but I couldn’t find any.</p>
+</div>
+<div id="review-8" class="section level3">
+<h3>Review</h3>
+<p>This package is used for statistical modeling; specifically, this package fits models for data from non-invasive survey methods. With this package, you can build single- and multi-season occupancy models, binomial N-mixture models, multinomial N-mixture models, and several other types of models. I am only familiar with the single- and multi- season occupancy models, and have found the package relatively easy to use in conjunction with occupancy model literature and reading papers using this specific package. The package uses an S4 class called an <code>unmarkedFrame</code> to store covariate and response data as well as metadata. The user reads in their data and calls the specific type of <code>unmarkedFrame</code> based on the model-fitting function they are using, then the <code>unmarkedFrame</code> is passed to the appropriate estimation function. I would recommend it to those looking to run single-species models with camera trap data that account for imperfect detection (i.e. occupancy models). I haven’t yet used it or other occupancy modeling packages/methods enough to know what I would like it to do differently yet.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

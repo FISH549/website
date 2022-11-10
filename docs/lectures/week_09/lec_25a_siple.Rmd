@@ -1,0 +1,32 @@
+---
+title: "Introduction to Shiny"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Dr. Margaret Siple"
+date: "1 March 2021"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+## Dr. Margaret Siple
+
+**Education**
+
+* BA - Biological Sciences, University of Chicago
+
+* MS - Marine Science, University of Hawai‘i at Mānoa
+
+* PhD - Aquatic and Fishery Sciences, University of Washington
+
+**Appointments**
+
+* UC Santa Barbara (post doc)
+
+* NOAA Fisheries
+
+
+

@@ -1,0 +1,224 @@
+---
+title: "Getting help with errors in R"
+subtitle: "Answer Key for Assignment #3"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "29 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Background
+
+Your assignment was to create a reprex for use in a quest for help. It turns out that the problem was that the code was improperly indexing the values upon which we had hoped to compute the mean.
+
+## Setup
+
+Let's walk through the code to find out where our problem lies. Here's the script `01_summary_statistics.R`
+
+```{r problem_script, eval = FALSE}
+## this script loads the data and calculates some summary statistics
+
+## load libraries
+library("here")
+
+## set location of the data directory 
+data_dir <- here("data")
+
+## load data file
+pisaster_data <- readRDS(file.path(data_dir, "pisaster_data.Rds"))
+
+## peek at the data
+head(pisaster_data)
+
+## calculate mean counts across all years, sites, and plots
+mean_count <- mean(pisaster_data$count)
+```
+
+```{r problem_script_load, echo = FALSE}
+## this script loads the data and calculates some summary statistics
+
+## load libraries
+library("here")
+
+## set location of the data directory 
+data_dir <- here("homework", "week_03")
+
+## load data file
+pisaster_data <- readRDS(file.path(data_dir, "pisaster_data.Rds"))
+
+## peek at the data
+head(pisaster_data)
+
+## calculate mean counts across all years, sites, and plots
+mean_count <- mean(pisaster_data$count)
+```
+
+The warning message suggests that the object we're passing to `mean()` is not numeric, which seems odd at first glance because `count` does appear to be numeric in that its values are not surrounded by quotes as with `site`.
+
+<br>
+
+# Create a reprex
+
+Here's an example of what my reprex would look like. The key elements here are:
+
+* the question/problem is stated clearly and succinctly
+
+* a short code snippet with *only the info necessary to address the error*
+
+* the data provided as a `structure`
+
+* all of the information is contained here (question/problem, code, data)
+
+```
+I'm trying to compute the mean of a column in a data frame, but I get the following error:
+
+Warning in mean.default(ex_data$count): argument is not numeric or
+logical: returning NA
+
+Here is a shortened version of the data structure:
+
+## example data
+ex_data <- structure(list(2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 
+    2019, 2019, "a", "a", "a", "a", "a", "b", "b", "b", "b", 
+    "b", 1L, 2L, 3L, 4L, 5L, 1L, 2L, 3L, 4L, 5L, 
+    6L, 10L, 13L, 9L, 9L, 11L, 7L, 10L, 12L, 
+    8L), .Dim = c(10L, 4L), .Dimnames = list(
+    NULL, c("year", "site", "plot", "count")))
+
+Here is the problematic line of code:
+
+## calculate the mean count across all times/sites/plots
+mean_count <- mean(ex_data$count)
+
+Here is my `sessionInfo()`
+
+R version 4.0.3 (2020-10-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Mojave 10.14.6
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base  
+```
+
+<br>
+
+# Solution to the problem
+
+The warning itself suggests that there is something wrong with the object we're passing to `mean()` (i.e., `argument is not numeric or logical`), so the first thing to do would be to check on the class of the object.
+
+```{r}
+## get the example data
+ex_data <- structure(list(2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 
+    2019, 2019, "a", "a", "a", "a", "a", "b", "b", "b", "b", 
+    "b", 1L, 2L, 3L, 4L, 5L, 1L, 2L, 3L, 4L, 5L, 
+    6L, 10L, 13L, 9L, 9L, 11L, 7L, 10L, 12L, 
+    8L), .Dim = c(10L, 4L), .Dimnames = list(
+    NULL, c("year", "site", "plot", "count")))
+
+## peek at the data
+head(ex_data)
+
+## what's the class of the object?
+class(ex_data$count)
+```
+
+That's odd. We can clearly see there are integers in the `count` column (denoted by the `L` in the `structure(...)` command). What's the class of the larger object `ex_data` that `count` is a part of?
+
+```{r}
+## what's the class of the larger object?
+class(ex_data)
+```
+
+OK, `ex_data` is not actually a `data.frame`, but rather a `matrix` (or equivalently a 2D `array`). That means we can't index the columns with a dollar sign (`$`) and instead must use numeric or character row/column indexing (e.g., `ex_data[, 4]` or `ex_data[, "count"]`).
+
+Let's try to calculate the mean that way.
+
+```{r}
+## Trying a different indexing
+mean(ex_data[, "count"])
+```
+
+Hmm, still not working. Apparently the object is still not `numeric`. Let's examine the class of the object with the proper indexing.
+
+```{r}
+## inspect class
+class(ex_data[, "count"])
+```
+
+This is getting weird. The column of numbers in `count` is apparently a `list`. Let's take a look.
+
+```{r}
+## inspect the object
+ex_data[, "count"]
+```
+
+Sure enough. Each of the numbers in the `count` column is an element of a list, but we can't access the list with a standard `$` operator. How does that work?
+
+The trick here (and often elsewhere) is to examine the structure of the example data with `str()`.
+
+```{r}
+str(ex_data)
+```
+
+This clearly shows that `ex_data` is a list containing 40 objects, but unlike a standard list whose `dim()` should be `NULL`, this object has dimensions of 10 rows by 4 columns (i.e., `attr(*, "dim")= int [1:2] 10 4`). That's why `class(ex_data) == c("matrix", "array")` in the code above. The solution here is to use `unlist()` on `count()` before passing it to `mean()`.
+
+```{r}
+## load `magrittr` to get the pipe operator
+library(magrittr)
+
+## SOLUTION: calculate mean counts across all years, sites, and plots
+mean_count <- ex_data[,"count"] %>%
+  unlist() %>%
+  mean()
+mean_count
+```
+
+<br>
+
+# Endnote
+
+There are 3 more hints that `ex_data` is not a `data.frame`. First, the character values in `site` have quotes around them instead of simply being displayed as normal text. For example, here is a comparison of `ex_data` before and after converting it to a `data.frame`:
+
+```{r}
+## original
+ex_data
+
+## as a data frame
+as.data.frame(ex_data)
+```
+
+Second, the row names in a matrix appear as standard row notation (`[#,]`) rather than a simple integer (`#`) as in a data frame. Third, all of the values in the columns are left-justified in the original matrix form of `ex_data`, but right-justified in the data frame.
+
+The data structure I used here is rather uncommon and something that very few people would ever use. That is, I created a `matrix` wherein each element was itself a `list` with only one value in it. In so doing, I was able to combine integer/numeric and character values into the same matrix, which otherwise would not work. For example, the following line of code will convert the numeric `1` and `2` to the characters `"1"` and `"2"`.
+
+```{r}
+## create matrix
+(mm <- matrix(c(1, 2, "a", "b"), 2, 2))
+
+## check class of rows
+mm %>% apply(1, class)
+
+## check class of cols
+mm %>% apply(2, class)
+```
+
+<br><br><br><br><br>
+

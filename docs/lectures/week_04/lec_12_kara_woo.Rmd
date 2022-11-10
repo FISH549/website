@@ -1,0 +1,47 @@
+---
+title: "Data science for fun and non-profit"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Kara Woo"
+date: "29 January 2021"
+output: ioslides_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+## Kara Woo
+
+**Education**
+
+* BS, Brown University
+
+* MLIS, University of Washington
+
+**Appointments**
+
+* National Center for Ecological Analysis and Synthesis
+
+* Washington State University
+
+* RStudio
+
+* Sage Bionetworks
+
+
+## An influencer{data-background=woo_twitter.png data-background-position="50% 60%" data-background-size=70%}
+
+
+## An exemplar{data-background=woo_impactstory.png data-background-position="50% 70%" data-background-size=75%}
+
+
+## A curator{data-background=woo_aart.png data-background-position="50% 65%" data-background-size=80%}
+
+
+## {.flexbox .vcenter}
+
+<p style="font-size:2em">
+[**Data science for fun and nonprofit**](https://karawoo.com/data-science-for-fun-and-nonprofit/index.html#1)
+</p>

@@ -1,0 +1,328 @@
+---
+title: "Code reviews"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "10 March 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is a code review?
+
+Inspecting someone's code with an eye towards improvement
+
+
+## What is a code review?
+
+Inspecting someone's code with an eye towards improvement
+
+It's not unlike peer review of scientific publications
+
+
+## Actors
+
+**Author**: writes the code and sends it for review
+
+<br>
+
+**Reviewer**: reads the code and makes comments/suggestions
+
+
+## The ask
+
+Author and reviewer should be clear on roles & expectations
+
+> - Be specific ("Please look over my changes to function `f()` on lines 11-20")
+
+> - Be aware of subject expertise
+
+> - Be thoughtful of time ("This should only take a few minutes")
+
+
+## The response
+
+Be honest and direct
+
+> - address the intent of the review
+
+> - don't redo the analysis
+
+
+## Areas covered
+
+* correctness of the code (are there bugs or errors?)
+
+> - test coverage (do unit tests span the full range of options?)
+
+> - functionality changes (does change to `f()` affect `g()`?)
+
+> - coding guides (does it follow best practices?)
+
+
+## Tone
+
+"Be tough on the code, but easy on the author"
+
+> - be empathetic, kind & positive
+
+> - consider both intent and impact
+
+> - ask open-ended questions
+
+
+## Avoid "you"
+
+What you said:
+
+* "you misspelled `easy`"
+
+
+## Avoid "you"
+
+What you said:
+
+* "you misspelled `easy`"
+
+What they heard:
+
+* Option 1: "Oops--honest typo"
+
+> - Option 2: "You are dumb"
+
+
+## Requests vs commands
+
+Consider these 2 statements:
+
+1) "Change `A` to `a`"
+
+2) "Perhaps we could change uppercase parameter names to lowercase?"
+
+<br>
+
+\#1 is *combative* whereas \#2 is *cooperative*
+
+
+## Principles vs opinions
+
+Attach reasons to requests
+
+> - "We should consider lowercase letters for parameter names to distinguish them from variable names that are generally written in uppercase"
+
+
+## Bring solutions
+
+Receiving feedback can be tough, so offer concrete solutions to soften the blow
+
+> - "I found this code block hard to understand. What if we used pipes `%>%` instead of nested functions?"
+
+
+## High to low
+
+Begin reviews with high-level comments
+
+* "This might be more clear to others if we split `f()` into `g()` and `h()`"
+
+
+## High to low
+
+Begin reviews with high-level comments
+
+* "This might be more clear to others if we split `f()` into `g()` and `h()`"
+
+and then focus on details
+
+* "We could change line 11 to instead be `b <- a + 1`"
+
+
+## Keep it in scope
+
+You're asked to review function `f()`
+
+> - only consider `g()` if it affects `f()`
+
+> - avoid "`f()` looks great but I found a bug in `h()`"
+
+
+## Limit comments
+
+Imagine `easy` is misspelled everywhere
+
+> - Option 1: flag *every* occurrence with "change `eesy` to `easy`"
+
+> - Option 2: "Here (and elsewhere) we should change `eesy` to `easy`"
+
+
+## Nitpicks | Unimportant comments
+
+* often involve adherence to a style guide
+
+> - alphabetical or hierarchical structuring of declarations
+
+> - placement of comments, brackets, function args
+
+
+## Nitpicks {.smaller}
+
+```{r eval = FALSE, echo = TRUE}
+a <- 1
+b <- 2
+a + b
+c <- 3
+(c - a) / b
+```
+
+becomes
+
+```{r eval = FALSE, echo = TRUE}
+## parameter definitions
+a <- 1
+b <- 2
+c <- 3
+
+## step 1: addition
+a + b
+
+## step 2: division
+(c - a) / b
+```
+
+
+## A note of caution
+
+<br>
+
+<div class="centered" style="font-size:1.5em">
+**Nitpicks can be microaggressions**
+</div>
+
+
+## Humility
+
+*[P]rogrammers are very unlikable people... In aviation, for example, people who greatly overestimate their level of skill are all dead.*
+
+-- Philip Greenspun
+
+
+## The sweetest of all sounds is praise
+
+By design, reviews target faults
+
+Litter your review with the things you like
+
+> - "I'd never seen this trick before!"
+
+> - "This is a much more elegant solution than I would have used."
+
+> - "I really like how you broke this problem down."
+
+
+## Communication
+
+Most code reviews are done asynchronously (eg, pull request on GitHub)
+
+> - leave meaningful comments & ask judicious questions
+
+> - *N*<sub>comments</sub> $\propto$ level of misunderstanding
+
+> - at some point, a spoken conversation is best
+
+
+## New people
+
+Newcomers can be overwhelmed with styles, culture, people
+
+> - good reviews apply the same metrics/qualities to **everyone**
+
+> - try to place people in a position to succeed
+
+
+## Support
+
+Organizations or labs should set clear expectations and guidelines
+
+> - What are people's roles?
+
+> - What are expectations for people's time?
+
+> - Who has final say? Individual or Team?
+
+
+## Innovation
+
+Improvements should not be limited to code, but to processes as well
+
+> - "lots of people are confused by this"
+
+> - "we keep making the same mistake"
+
+
+# Reviews in practice
+
+
+## How?
+
+Embrace collaboration platforms like GitHub
+
+> - Issues
+
+> - Pull requests
+
+> - Gists
+
+
+## Simple requests
+
+Options include:
+
+* code snippet in an email
+
+* post to Slack
+
+
+## Formal requests
+
+Recall our discussion of *minimal working examples*
+
+> - general cry for help
+
+> - specific ask
+
+
+## rOpenSci
+
+"fosters a culture that values **open** and **reproducible** research using **shared** data and reusable software"
+
+
+## rOpenSci
+
+Uses GitHub's infrastructure with a focus on issues for package reviews
+
+
+## {data-background=img/ros_readme.png data-background-size=80% data-background-position="50% 40%"}
+
+
+## Reviewer {data-background=img/review_template.png data-background-size=60% data-background-position="75% 50%"}
+
+
+## Editor {data-background=img/editor_template.png data-background-size=75% data-background-position="50% 50%"}
+
+
+## Summary
+
+Be kind
+
+Be thorough
+
+Be honest
+
+Be supportive
+
+Be timely
+
+

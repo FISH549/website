@@ -1,0 +1,63 @@
+---
+title: "Forking a repo and submitting a pull request"
+subtitle: "Assignment #2"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "22 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Forking workflows
+
+This assignment will allow you to demonstrate your ability to "fork" a repository on **GitHub**, clone it to **RStudio**, make some local changes, push them to **GitHub**, and submit a "pull request". If you need a reminder as to how this process works, please refer to the notes [here](https://fish497.github.io/website/lectures/week_03/lec_08_workflows_ex.html#Forking_workflow).
+
+***
+
+# Task 1
+
+Navigate to the repo `https://github.com/FISH497/assignment-2` and fork it to your own **GitHub** account.
+
+***
+
+# Task 2
+
+Clone your forked copy of the repo to your own computer by creating a new project in **RStudio**.
+
+***
+
+# Task 3
+
+Create a new branch in your local repo called `develop`.
+
+***
+
+# Task 4
+
+In the `develop` branch, create a new **R** script with the following information:
+
+```
+## A simple function for adding 2 numbers
+add <- function(a, b) {
+  return(a + b)
+}
+```
+
+Save this script as `add.R` and then commit it to your local repo. When you are finished, push this file to your remote repo on **GitHub**.
+
+***
+
+# Task 5
+
+Navigate to your remote repo on **GitHub** to review your new file and submit a pull request (PR). Give your PR an informative title and leave a short description of what your new file does. When you're finished submit the PR for Mark's review.
+

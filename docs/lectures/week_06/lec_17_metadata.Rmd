@@ -1,0 +1,432 @@
+---
+title: "Metadata"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "10 February 2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '90%')
+```
+
+## Goals for today
+
+* Understand the concept of *metadata*
+
+> - Understand the different kinds of metadata
+
+> - Get an introduction to the *Ecological Metadata Language*
+
+
+## What is metadata? | Definition
+
+"data that provides information about other data"
+
+
+## What is metadata? | Definition
+
+"shorthand representation of the data to which they refer"
+
+
+## Metadata is everywhere | Book
+
+* title  
+* author  
+* publisher  
+* copyright  
+* table of contents / index  
+
+
+## Metadata is everywhere | Phone calls
+
+* number called or received from  
+* time initiated & ended  
+* location of callers  
+
+
+## Metadata is everywhere | Email
+
+* subject  
+* from  
+* to  
+* date & time sent  
+* sending & receiving IP addresses  
+
+
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+    > - long-term studies outlast investigators/students
+    
+    > - many scientists contribute info from many areas
+
+
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+2) increased data reuse & sharing 
+
+    > - info helps others know if/how they could them
+    
+    > - facilitates meta-analyses
+
+
+## Benefits of metadata
+
+Metadata benefits science by
+
+1) increased data longevity
+
+2) increased data reuse & sharing 
+
+3) expanded scales/scopes of analyses
+
+    > - short-term evolve into long-term
+    
+    > - facilitates creativity
+
+
+## Kinds of metadata | Descriptive
+
+*Descriptive metadata* is information about a resource that is used for searching & identification
+
+> - title  
+> - abstract  
+> - author  
+> - keywords
+
+
+## Kinds of metadata | Structural
+
+*Structural metadata* indicates how 2+ objects are connected
+
+> - tables    
+> - fields 
+> - keys  
+> - relationships  
+
+
+## Entity–relationship model
+
+Structural metadata are often conceptualized in an *entity–relationship model* 
+
+
+## Entity–relationship model | Entity
+
+An *entity* can be physical or logical
+
+> - physical entities *actually* exist (eg, lake, fish)
+
+> - logical entities *could* exist (eg, a sampling event)
+
+> - entities have attributes (eg, depth, mass, date)
+
+
+## Entity–relationship model | Relationship
+
+Entities are connected via a *relationship*
+
+> - relationships can be thought of as verbs
+
+> - Sarah *supervises* Mark
+
+> - Omar *samples* Lake Washington
+
+
+## Entity–relationship diagram
+
+ER models are usually drawn as boxes (entities) connected by lines (relationships)
+
+
+## Entity–relationship diagram{data-background=images/ER_model_1.png data-background-size=90%}
+
+
+## Entity–relationship diagram{data-background=images/ER_model_2.png data-background-size=90%}
+
+
+## Kinds of metadata | Administrative
+
+Administrative metadata refers to technical info about a data file
+
+> - file type (eg, `.csv`)  
+> - when the file was created
+> - how the file was created
+
+
+## Administrative metadata | Rights management
+
+> - Who has had custody/ownership of the data?  
+> - What intellectual property rights must be observed?
+
+
+## Administrative metadata | Preservation
+
+> - Where are the data stored?  
+> - How are they identified (eg, digitial object identifier)?  
+
+
+## Kinds of metadata | Reference
+
+Information about the contents and quality of statistical data
+
+> - description of fields  
+> - QA/QC
+
+
+## Kinds of metadata | Process
+
+Describes the collection and any processing of the data
+
+> - raw vs cleaned
+> - reproducible workflows
+
+
+## Process metadata | Michener (2005){data-background=images/eco_metadata.png data-background-position="50% 60%" data-background-size=90%}
+
+
+## Kinds of metadata | Accessibility
+
+Information about improved access to data
+
+> - audio transcripts  
+> - alternate text for an image  
+> - large print
+
+
+## Section 508{data-background=images/section508.png data-background-position="50% 60%" data-background-size=70%}
+
+
+## How much metadata is enough?
+
+Two factors to consider
+
+1) effort involved in creating the metadata
+
+2) value derived from it
+
+In general, assume that "more is better"
+
+
+## No metadata{data-background=images/metadata_ex1.png data-background-position="50% 40%" data-background-size=90%} 
+
+
+## Minimal metadata{data-background=images/metadata_ex2.png data-background-position="50% 40%" data-background-size=90%} 
+
+
+## Extensive{data-background=images/metadata_ex3.png data-background-position="70% 50%" data-background-size=50%} 
+
+
+# Ecological Metadata Language
+
+
+## Ecological Metadata Language | Fegraus et al (2005)
+
+EML describes a range of essential aspects of ecological data
+
+> - names & definitions of variables  
+> - units of measurement  
+> - date/time/location of data collection  
+> - identity/contact for individual who collected the data  
+> - sampling design
+
+
+## Ecological Metadata Language | Fegraus et al (2005)
+
+EML reduces ambiguity & uncertainty by formalizing metadata concepts
+
+> - uses comprehensive **and** standardized set of terms  
+> - uses definitions intended specifically for ecological data
+
+
+## Ecological Metadata Language | Categories
+
+1) General dataset
+
+2) Geographic
+
+3) Temporal
+
+4) Taxonomic
+
+5) Methods
+
+6) Data table
+
+
+## Ecological Metadata Language | General dataset
+
+Contains concepts that
+
+> - identify and name the dataset  
+> - describe the purpose of the data collection  
+> - describe the questions the data were intended to address
+
+
+## General{data-background=images/metadata_general.png data-background-position="80% 50%" data-background-size=65%} 
+
+
+## Ecological Metadata Language | Geographic
+
+Contains information about *where*
+
+> - the research project took place  
+> - the samples were collected  
+> - spatial or geographic references (UTM, lat/lon)
+
+
+## Geographic{data-background=images/metadata_geo.png data-background-position="50% 40%" data-background-size=85%} 
+
+
+## Ecological Metadata Language | Temporal
+
+Contains information about *when*
+
+> - range of dates (monthly between June 2019 and Dec 2020)  
+> - specific time periods (01 May 2019, 08:00–12:00)  
+> - gaps in time (no data from July 2020 because of power loss)
+
+
+## Temporal{data-background=images/metadata_temporal.png data-background-position="50% 30%" data-background-size=85%} 
+
+
+## Ecological Metadata Language | Taxonomic
+
+Contains information about
+
+> - taxonomic authority (book or system used to identify species)  
+> - taxonomic rank (family, genus, species)
+
+
+## Taxonomic{data-background=images/metadata_taxon.png data-background-position="50% 60%" data-background-size=85%} 
+
+
+## Ecological Metadata Language | Methods
+
+Contains information about *what happened*
+
+> - instruments or devices used to collect data  
+> - protocols
+> - units of the samples
+
+## Ecological Metadata Language | Methods
+
+Contains information about *what happened*
+
+* instruments or devices used to collect data  
+* protocols
+* units of the samples
+
+Unlike the Methods section of a publication, *fully detailed descriptions* can be included
+
+
+## Methods{data-background=images/metadata_methods.png data-background-position="50% 50%" data-background-size=85%} 
+
+
+## Ecological Metadata Language | Data table
+
+Contains information about a rectangular table
+
+> - file name  
+> - number of records
+> - structure of the table (attributes of fields/columns)
+
+
+## Ecological Metadata Language | Data table
+
+> - *name* is a unique name for the field/column (`date`)  
+> - *label* describes the field/column ("date of sample collection)  
+> - *definition* indicates what the values represent (length of a fish)  
+> - *units* (grams, meters)  
+> - *type* (`numeric`, `character`)  
+> - *precision* (mm)  
+> - *attribute domain description* defines codes & domain of values
+  > - `BVA = Bear Valley Creek`  
+  > - `Length` is a positive, real value
+  
+
+## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
+
+
+## &nbsp;{data-background=images/KNB.png data-background-position="50% 50%" data-background-size=100%} 
+
+
+## Knowledge Network for Biocomplexity
+
+The [KNB](https://knb.ecoinformatics.org/) is an international repository intended to facilitate ecological & environmental research
+
+> - you can upload/publish data with a DOI
+
+> - you can write EML
+
+
+## [\{dataone\}](https://github.com/DataONEorg/rdataone) package
+
+Provides read & write access to data and metadata from [DataONE network](https://www.dataone.org/)
+
+> - KNB Data Repository  
+> - Dryad  
+> - NEON
+> - USGS
+> - NOAA
+
+
+## [\{EML\}](https://docs.ropensci.org/EML/index.html) package
+
+```{r eval = FALSE}
+## username
+me <- list(individualName = list(givenName = "Mark",
+                                 surName = "Scheuerell"))
+
+## list of attributes
+my_eml <- list(
+  dataset = list(
+    title = "A Minimal Valid EML Dataset",
+    creator = me,
+    contact = me
+  )
+)
+
+## inspect the EML
+my_eml
+```
+
+
+## \{EML\} output {.smaller}
+
+```
+$dataset
+$dataset$title
+[1] "A Minimal Valid EML Dataset"
+
+$dataset$creator
+$dataset$creator$individualName
+$dataset$creator$individualName$givenName
+[1] "Mark"
+
+$dataset$creator$individualName$surName
+[1] "Scheuerell"
+
+
+
+$dataset$contact
+$dataset$contact$individualName
+$dataset$contact$individualName$givenName
+[1] "Mark"
+
+$dataset$contact$individualName$surName
+[1] "Scheuerell"
+```
+
+
+## What's next?
+
+We'll discuss data analysis and visualization
+

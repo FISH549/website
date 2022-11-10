@@ -1,0 +1,92 @@
+---
+title: "Installing Git on Windows"
+author: "Mark Scheuerell"
+date: "13 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Installation notes
+
+Here are some tips for installing Git in Windows. You can find the most recent version of the software [here](https://git-scm.com/download/win). The following screenshots show the options I recommend selecting during the installation process.
+
+After agreeing to the terms of service, click **Next**.
+
+### Select components
+
+![](git_install/git_win_01.png)
+
+<br>
+
+### Select Start Menu Folder
+
+![](git_install/git_win_02.png)
+
+<br>
+
+### Choosing the default editor
+
+![](git_install/git_win_03.png)
+
+<br>
+
+### Adjusting the name of the initial branch
+
+![](git_install/git_win_04.png)
+
+<br>
+
+### Adjusting your PATH Environment
+
+![](git_install/git_win_05.png)
+
+<br>
+
+### Choosing HTTPS transport backend
+
+![](git_install/git_win_06.png)
+
+<br>
+
+### Configuring the terminal emulator
+
+![](git_install/git_win_08.png)
+
+<br>
+
+### Choose the default behavior of git pull
+
+![](git_install/git_win_09.png)
+
+<br>
+
+### Choose a credential helper
+
+![](git_install/git_win_10.png)
+
+<br>
+
+### Configuring extra options
+
+![](git_install/git_win_11.png)
+
+<br>
+
+### Configuring experimental options
+
+![](git_install/git_win_12.png)
+
+<br>
+
+

@@ -1,0 +1,125 @@
+---
+title: "Working with GitHub remotes"
+subtitle: "Assignment #1"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "15 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Remote repositories
+
+This assignment will allow you to demonstrate your ability to set up a remote repository on **GitHub**, clone it to **RStudio**, and use **Git** for some version control.
+
+***
+
+# Task 1
+
+Create a new repository on **GitHub** called `fish497`. When setting up your repo, select the following features:
+
+* Make the repo **Private**
+
+* Add a `README.md`
+    
+* Add a `.gitignore` file, selecting **R** from the .gitignore template dropdown menu that appears when you check the box (you can type "R" in the filter box to jump there quickly)
+
+***
+
+# Task 2
+
+After you create your new `fish497` repo,
+
+* Click on the Settings tab
+
+* Click on "Manage access" from the menu on the left
+
+* Click on the green button labeled **Invite a collaborator** (note that you may be prompted to enter your **GitHub** password)
+
+* In the search box that appears, type `mdscheuerell` and select Mark's name/username
+
+* Click on the green button that says **Add mdscheuerell to this repository**
+
+**Note**: This task will trigger a message to Mark with your invitation to join your newly created repo. You will have to wait for Mark to accept your invitation before you can complete Tasks 8 & 9.
+
+***
+
+# Task 3
+
+Create a new project in **RStudio** with a connection to the **GitHub** repo you just created. Recall that Mark strongly suggests you put this project folder in a location not under some other form of version control (e.g., Dropbox, Google Docs).
+
+***
+
+# Task 4
+
+Add, commit, and push the `.gitgnore` and `fish497.Rproj` files to your remote repo on **GitHub**.
+
+***
+
+# Task 5
+
+Begin a simple research compendium. Start by creating a folder called `analysis`. You have several options to do so:
+
+* Use a command line function
+
+* Add a folder inside your new project folder created in Task 3 using Finder (Mac) or Explorer (Windows)
+
+* Click on the "New Folder" button located in the upper left of the **Files** pane of **RStudio**
+
+Now add an **R** script named `01_read-data.R` to the `/analysis/` folder with the following contents (you can use as few/many `#` for comments as you'd like):
+
+```
+## This script will read in the raw data
+
+## load libraries
+library(here)
+
+## set data directory
+data_dir <- here("data")
+```
+
+Add, commit, and push this **R** script to your remote repo on **GitHub**.
+
+***
+
+# Task 6
+
+Create a folder called `data` using any of the methods mentioned in Task 5. Download the data set on Palmer penguins located [here](palmer_penguins.csv) and place it in the `/data/` folder you just created.
+
+Add, commit, and push this data file to your remote repo on **GitHub**.
+
+***
+
+# Task 7
+
+Edit your `README.md` file to describe the current contents of your repo. This should include something about the folders and files (you don't have to describe the `.gitignore` or `.Rproj` files).
+
+Add, commit, and push this data file to your remote repo on **GitHub**.
+
+***
+
+# Task 8
+
+When you are finished, create a new issue in your repo with the title:
+
+`Assignment 1`
+
+Leave a comment on the issue that *briefly* describes what you've done for this assignment. After doing so, assign Mark to the issue by selecting his username from the dropdown menu under **Assignees**. Also assign the "help wanted" label from the **Labels**. Finally, click on the green **Submit new issue** button.
+
+***
+
+# Task 9
+
+Navigate back to your **GitHub** repo and create a new Project based on a "basic kanban" template and name it "Assignments". Delete the 3 default cards that automatically populated the project and then add the issue you created in Task 8 to the **To do** column.
+
+

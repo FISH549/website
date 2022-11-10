@@ -1,0 +1,361 @@
+---
+title: "Organization and styles"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "8 January 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goals for today
+
+* Understand the elements of a *research compendium*
+
+> - Understand conventions for coding styles
+
+
+
+## The reproducibility crisis in science
+
+We are witnessing an increasing number of examples where the original analysis cannot be reproduced
+
+> - For example, a group of Amgen scientists could only confirm the results in 6 out of 53 cancer studies (Begley & Ellis 2012) 
+
+
+## What does it mean to be reproducible?
+
+According to the National Science Foundation:
+
+The calculation of quantitative scientific results by independent researchers using the original data and methods
+
+
+## What does it mean to be reproducible?
+
+Reproducibility can be further broken down
+
+> - empirical (eg, sample IDs, sampling gear, instrument settings)
+
+> - statistical (eg, which statistical tests, what model parameters)
+
+> - computational (eg, code, software, hardware)
+
+
+## What is a research compendium?
+
+"A standard and easily recognizable way for organizing the digital materials of a project to enable others to inspect, reproduce, and extend the research." (Marwick et al. 2018)
+
+
+## 3 principles of research compendia
+
+1. Project organization should follow the conventions of the scientific community
+
+    > - The community might be a lab group
+
+    > - The convention(s) support tool building
+
+
+## 3 principles of research compendia
+
+1. Project organization should follow the conventions of the scientific community
+
+2. Maintain a clear separation of data, methods and output
+
+    > - Separate data from code
+
+    > - Separate cleaning, analysis & output code
+
+
+## Example file structure
+
+```
+|-code
+  |-01_data-ingest.R
+  |-02_data-cleaning.R
+  |-03_data-QAQC.R
+  |-04_model-fitting.R
+  |-05_create-figures.R
+|-data
+  |-skagit_steelhead-escapement.csv
+  |-skagit_river-flow.csv
+```
+
+
+
+## 3 principles of research compendia
+
+1. Project organization should follow the conventions of the scientific community
+
+2. Maintain a clear separation of data, methods and output
+
+3. Specify the computational environment
+
+    > - Which software/package(s) and what version(s)?
+
+    > - Ranges from simple text description to self-contained environments
+
+
+## Why use a research compendium?
+
+> - Increased efficiency, simplified file management and streamlined workflows
+
+> - Increased visibility and scientific impact
+
+> - Ability to return later and understand the process
+
+
+## Creating a research compendium | Key principle
+
+Organize your compendium so another person knows what to expect from the plain meaning of the file and directory names
+
+
+## Simple compendium {data-background=images/compendium_1.png data-background-size=45% .citation}
+
+Marwick et al (2018)
+
+
+## Simple compendium {data-background=images/compendium_2.png data-background-size=45% .citation}
+
+Marwick et al (2018)
+
+
+## Medium compendium {data-background=images/compendium_3.png data-background-size=30% .citation}
+
+Marwick et al (2018)
+
+
+## Large {data-background=images/compendium_4.png data-background-size=30% .citation}
+
+Marwick et al (2018)
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+    > - Who can (re)use the work?
+
+    > - Are there restrictions?
+
+    > - Many depositories require Creative Commons licenses
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+    > - Facilitates private collaboration among colleagues on the project
+
+    > - Allows for distribution and maintenance of the compendium in the future
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+3. Persistence
+
+    > - Consider the "life span" of the analysis
+ 
+    > - A Digital Object Identifier (DOI) is more permanent than a URL
+
+
+
+## Sharing a research compendium | 4 things to consider
+
+1. Licensing
+
+2. Version control
+
+3. Persistence
+
+4. Metadata
+
+    > - Publishing data with a DOI requires a description of the data themselves
+
+    > - Who, what, where, when, how
+
+
+## Tools for creating a compendium
+
+One could always create a structure from scratch
+
+Alternatively, consider some existing tools
+
+> - Jeff Hollister's [{manuscriptPackage}](https://github.com/jhollist/manuscriptPackage)
+
+> - Carl Boettiger's [{template}](https://github.com/cboettig/template)
+
+> - Ben Marwick's [{rrtools}](https://github.com/benmarwick/rrtools)
+
+
+# Coding styles
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+Do you see any problems with this approach?
+
+
+## A note on directory structure | Does your code begin with something like this? {.smaller}
+
+`setwd("/Users/Mark/Documents/projects/salmon/final_code")`
+
+This won't work unless your directory structure matches mine
+
+
+## Relative vs absolute paths
+
+Use relative paths to your work
+
+The [{here}](https://cran.r-project.org/web/packages/here/index.html) package makes this really easy
+
+```
+## Absolute path
+## /Users/Mark/Documents/projects/salmon/data
+
+## Relative path
+> data_dir <- here::here("data")
+> data_dir
+> [1] "/Users/Mark/Documents/projects/salmon/data"
+```
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+    > - The name should convey concise info
+
+    > - Longer is better
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+2. Machine readable
+
+    > - Easy to ID with *regular expressions* or *globbing*
+
+    > - Avoid spaces, capitalization, punctuation, special characters
+
+    > - Consider `_` and `-` as delimiters
+
+
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+
+## A cautionary tale from the real world
+
+Consider all of these special characters
+
+~`!@#$%^&()+={}[]|\:";'<,>.?/*
+
+The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database **because all the others had been used in variable names**.
+
+
+## Example file names
+
+### Bad
+
+* `resume.docx`
+
+* `Mark's data.xlsx`
+
+* `figure 1.pdf`
+
+
+## Example file names
+
+### Bad
+
+* `resume.docx`
+
+* `Mark's data.xlsx`
+
+* `figure 1.pdf`
+
+### Good
+
+* `scheuerell_resume_2021-01-01.docx`
+
+* `marks_skagit_steelhead_age-composition.xlsx`
+
+* `figure-01_scatterplot-length-mass.pdf`
+
+
+## File & code names | 3 principles
+
+1. Human readable
+
+2. Machine readable
+
+3. Works with default ordering
+
+    > - Use a number at the beginning of a name
+
+    > - Use the ISO standard for dates (YYYY-MM-DD)
+
+    > - "zero-pad" numbers
+
+
+## Example file names
+
+### Chronological order
+
+```
+2019-10-20_skagit_harvest-commerical.csv
+2019-10-20_skagit_harvest-recreational.csv
+2020-09-18_nooksack_harvest-commerical.csv
+2020-09-18_nooksack_harvest-recreational.csv
+```
+
+
+## Example file names
+
+### Logical order
+
+```
+01_data-ingest.R
+02_data-cleaning.R
+03_data-QAQC.R
+04_model-fitting.R
+05_create-figures.R
+```
+
+## An investment rather than an order
+
+Taking the time to invest in these styles and strategies can save you a lot of time in the future, but in the end it's up to you
+
+
+## What's next?
+
+We'll learn about GitHub and how to use it for personal and collaborative projects
+
+
+
+
+
+
+
+

@@ -1,0 +1,535 @@
+---
+title: "Creating R packages"
+subtitle: "Part 1"
+author: "Mark Scheuerell"
+date: "24 February 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+***
+
+# Background
+
+Many of us use some sort of script for our analyses in **R**, but the real backbone of **R** is *functions*. **R** *packages* are collections of functions that are designed to serve a specific purpose. In many ways, packages are similar to scientific articles in that they are the standard way we communicate scientific results, and readers expect them to be in a certain format. The format is generally the same: text, formulas, and figures set together in a logical order. Some articles are intended for a broad audience while others are written for a very small audience. Just as an article conveys scientific ideas to others, a package allows us to distribute a set methodology to others.
+
+For most of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** (eg, `mean()`, `print()`). Packages allow people to expand the functionality of **R** while still enforcing some standards. Packages are also a convenient way to maintain personal functions and share them with your colleagues. Packages also offer many advantages from a system administration point of view. Packages can be dynamically loaded and unloaded on runtime and hence only occupy memory when actually used. 
+
+Here is some common terminology with respect to **R** packages:
+
+* *Package*: An extension of the base **R** system with code, data, and documentation combined together in a standard format
+
+* *Library*: A directory/folder containing installed packages
+
+* *Repository*: A website providing packages for installation
+
+* *Source*: The original version of a package with human-readable text and code
+
+* *Binary*: A compiled version of a package with computer-readable text and code
+
+* *Base packages*: Part of the **R** source tree, maintained by **R Core**
+
+* *Recommended packages*: Part of every **R** installation, but not necessarily maintained by **R Core**
+
+* *Contributed packages*: All of the remaining packages contributed by the user community
+
+***
+
+# Functions
+
+The array of packages available in **R** is pretty mind boggling, which means there are innumerable functions out there underlying these packages. In general, an **R** function has the following structure
+
+```{r package_layout, eval = FALSE}
+function_name <- function(arguments) {
+  error checks
+  commands to execute
+  return(something)
+}
+```
+
+So, for example, here is a simple function that adds 2 numbers together and returns the result:
+
+```{r func_add}
+add <- function(x, y) {
+  ## verify x & y are numbers
+  if(!is.numeric(x) | !is.numeric(y)) {
+    stop("`x` and `y` must be numbers")
+  }
+  ## add the 2 numbers
+  z <- x + y
+  ## return the result
+  return(z)
+}
+```
+
+When building packages, we will also include some additional information that describes what the function does and how it works. This information will become part of the documentation that is returned when someone types `?function_name`.
+
+***
+
+# Getting started
+
+## GitHub repository
+
+Fortunately for us, there are variety of tools available to assist us in developing and producing packages. We'll begin by creating a new, public repository on **GitHub** called `pets`. Populate the repo with 
+
+1) a brief `README.md`
+
+2) a `.gitignore` file
+
+You can skip the license for now. Once you are finished, create a new project in **RStudio** based upon this repo.
+
+## Rstudio project
+
+At the command prompt in **RSudio**, type
+
+```{r load_devtools, message = FALSE}
+library(devtools)
+```
+
+which will allow us to access the package development tools in `devtools`.
+
+***
+
+# Create package framework
+
+We're now ready to create a framework for building our package. Before doing so, however, note the folder/directory where you created the `pets` project. For example, mine is located in `~/Documents/GitHub/FISH497/pets`. If you are unsure, go ahead and type `getwd()` at the command prompt. You can copy/paste the result into the next step. Now execute the following command at the prompt:
+
+```{r create_pkg, eval = FALSE}
+create_package("~/Documents/GitHub/FISH497/pets")
+```
+
+You should see **R** responding with a bunch of information about your new package framework, followed by a prompt asking if you'd like to overwrite the pre-existing file `pets.Rproj`. Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc (note that these options will vary each time you do this, so don't worry if yours don't mirror the options below). After doing so, **RStudio** will open a new instance of your `pets` project.
+
+```{r create_pkg_results, eval = FALSE}
+✓ Setting active project to '/Users/scheuerl/Documents/GitHub/FISH497/pets'
+✓ Creating 'R/'
+✓ Writing 'DESCRIPTION'
+Package: pets
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R (parsed):
+    * First Last <first.last@example.com> [aut, cre] (YOUR-ORCID-ID)
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+✓ Writing 'NAMESPACE'
+Overwrite pre-existing file 'pets.Rproj'?
+
+1: Definitely
+2: Negative
+3: Nope
+
+Selection: 3
+✓ Leaving 'pets.Rproj' unchanged
+✓ Adding '^pets\\.Rproj$' to '.Rbuildignore'
+✓ Adding '.Rproj.user' to '.gitignore'
+✓ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
+✓ Opening '/Users/scheuerl/Documents/GitHub/FISH497/pets/' in new RStudio session
+✓ Setting active project to '<no active project>'
+```
+
+## Directory structure
+
+Wow, that's a lot of information. What just happened here? First, you should notice that several new files and a folder have been added to your directory (note that if you cannot see the hidden files below that begin with a `.`, go to the **Files** pane in **RStudio** and select `More > Show Hidden Files` to display them). These include:
+
+```
+.Rbuildignore
+DESCRIPTION
+NAMESPACE
+/R/
+```
+
+* `.Rbuildignore`: a list of files that we'll need to have around, but that should be excluded when building the package from source; at present this contains `^pets\.Rproj$` and `^\.Rproj\.user$`
+
+* `DESCRIPTION`: provides metadata about your package, the contents of which were shown above when you ran `create_package()`
+
+* `NAMESPACE`: declares the functions your package exports for external use and the external functions your package imports from other packages
+
+* `/R/`: an empty folder where we'll put our `.R` files that contain our function definitions
+
+## Restart RStudio
+
+At this point, go ahead and quit both instances of the **RStudio** `pets` project. Navigate to the `pets.Rproj` file in the folder/directory where you set up the project initially, and double-click it to restart your project. After doing so, you will need to reload `devtools`.
+
+```{r reload_devtools}
+library(devtools)
+```
+
+***
+
+# Write a function
+
+As mentioned above, the basis of **R** packages is functions. Let's go ahead and create a new function called `cats()`. To do so, we'll use the `use_r()` function to open up a new blank `.R` file within the `/R/` directory where we can define our new function.
+
+```{r use_r, eval = FALSE}
+use_r("cats")
+```
+
+Now we can write our function definition. Go ahead and copy/paste the following code into the `cats.R` file. When you are finished, save the file.
+
+```{r define_cats, eval = FALSE}
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
+```
+
+## Try it out
+
+Now that we've defined a new function, it's a good idea to try it out. Although we could just highlight the code and execute it in the normal **R** environment, there is a function `load_all()` that will help us better simulate the building, installing, and attaching our new `cats` package. As a package accumulates more functions, `load_all()` gives you a much more accurate sense of how the package is developing than simply testing functions defined in the global workspace. `load_all()` also allows much faster iteration than actually going through the process of building, installing, and attaching the package.
+
+```{r load_all, eval = FALSE}
+load_all()
+```
+
+The function should respond with a message that the package `pets` has been loaded.
+
+```{r load_all_msg, eval = FALSE}
+ℹ Loading pets
+```
+
+Let's try out our new function.
+
+```{r define_cats_2, echo = FALSE}
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
+```
+
+```{r try_cats}
+cats(TRUE)
+cats(FALSE)
+cats(1)
+cats("a")
+```
+
+The last 2 examples might not make sense to you because they don't involve a logical argument `TRUE` or `FALSE`. In the first case, `1` is equivalent to `TRUE` in **R**, so it returns the result as if `cats(TRUE)`. In the second case, our function definition only involves a check whether the argument is `TRUE`, and if not, it returns the result `"I am not a cat person."`
+
+```{r remove_cats, echo = FALSE}
+rm(list = c("cats"))
+```
+
+Note that `load_all()` has made the `cats()` function available for us to use, but it does not exist in the global workspace. For example, you can test that this is indeed true with the following:
+
+```{r cats_available}
+exists("cats", where = globalenv(), inherits = FALSE)
+```
+
+## Commit our changes
+
+This is a good time to go ahead and commit the files we created as part of `create_package()` and our definition of the `cats()` function. Make sure to give your commit(s) a short but descriptive name(s).
+
+***
+
+# Checking a function
+
+At this point, we have every reason to believe that `cats()` works as expected, but should really verify that all of the elements of the `pets` package indeed work. This may seem silly to check, after such a small addition, but it's good to establish the habit of checking this often.
+
+The standard method for checking a package's functionality is to execute `R CMD check` in the **terminal** or **bash**. However, we can make us of the `check()` function to do so without leaving **RStudio**. Note that `check()` produces ***a lot*** of output. Here is a peek at the last of it (your results may vary slightly).
+
+```{r run_check, eval = FALSE}
+check()
+```
+
+```
+── R CMD check results ─────────────────────────────────────── pets 0.0.0.9000 ────
+Duration: 11.2s
+
+> checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+  Standardizable: FALSE
+
+0 errors ✓ | 1 warning x | 0 notes ✓
+```
+
+It is **very important** to read over all of this information, as it will report the things that passed the check as well as any warnings or errors encountered in the process. Here we see that we have 0 errors, 1 warning, and 0 notes. The warning says,
+
+`Non-standard license specification`
+
+which is OK for now, as we'll address that later.
+
+Note that you can also run a package check via the **Build** pane in **RStudio**.
+
+***
+
+# Edit `DESCRIPTION`
+
+The `DESCRIPTION` file provides some metadata about your package, including the package name, its title, author, etc. Here are the current content of our `DESCRIPTION` file:
+
+```
+Package: pets
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+```
+
+Let's go ahead and make the following changes:
+
+Give the package a title:
+
+`Evaluates Your Feelings About Pets`
+
+Enter your first and last names, and your email address. You can leave the `role` as is and delete the `comment` field asking about your `ORCID`.
+
+Write some descriptive text `Description` field. For example,
+
+`Pets are awesome companions. Some people are fans of cats, others not so much.`
+
+When finished, your `DESCRIPTION` file should look something like this:
+
+```
+Package: pets
+Title: Evaluates Your Feelings About Pets
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Mark",
+           family = "Scheuerell",
+           role = c("aut", "cre"),
+           email = "scheuerl@uw.edu")
+Description: Pets are awesome companions. Some people are fans of cats, others not so much.
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+```
+
+***
+
+# Add a license
+
+We should add a license to our package, as it's considered a best practice (here we'll use the MIT license). We'll use the helper function `use_mit_license()` to do so. Make sure to use your own name in the argument.
+
+```{r add_license, eval = FALSE}
+use_mit_license("Mark Scheuerell")
+✔ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
+✔ Writing 'LICENSE'
+✔ Writing 'LICENSE.md'
+✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
+```
+
+Go ahead and open the newly created `LICENSE` file and confirm it has the current year and your name.
+
+```
+YEAR: 2021
+COPYRIGHT HOLDER: Mark Scheuerell
+```
+
+`use_mit_license()` will also put a copy of the full license in `LICENSE.md` and adds this file to `.Rbuildignore`.
+
+***
+
+# Writing documentation
+
+If you're like me, you often rely on a function's documentation to help understand the arguments to a function and the value(s) that the function returns. This is typically done via a question mark preceding the function name (eg, `?print`). Writing this documentation used to be a bit onerous, but now we can easily add documentation to our package using the `roxygen2` package.
+
+To do so, we'll add a special form of comment above our function definition in `cats.R`, which we'll denote with a `#'`. Go ahead and open `cats.R` and then from your **RStudio** menu, select `Code > Insert Roxygen Skeleton`. Your `cats.R` file should now look like this:
+
+```
+#' Title
+#'
+#' @param love 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
+```
+
+Let's go over the different elements of the function's documentation.
+
+* `Title`: a short descriptive phrase of what the function does
+
+* `@param`: one or more arguments to the function (here there is only one: `love`) and its/their description(s)
+
+* `@return`: a description of what the function returns
+
+* `@export`: tells `roxygen2` to add this function to the `NAMESPACE` file so it's accessible to users 
+
+* `@examples`: one or more examples of how the function is used
+
+### Title
+
+Go ahead and add a title to the `cats()` function. Here's one possibility:
+
+```
+#' Expresses your opinion about cats
+```
+
+### Parameters
+
+Our `roxygen` skeleton already contains the one parameter in our function, but we can go ahead and add a description of the argument. It's often a good idea to also include what, if any, the default argument is.
+
+```
+#' @param love A logical argument indicating whether or not you love cats (default = `TRUE`)
+```
+
+### Return
+
+It's good practice to tell the user what they should expect from a function. This is admittedly a rather simple function, which is easy to decipher, but other functions will not be nearly as transparent.
+
+```
+#' @return One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`).
+```
+
+### Examples
+
+This is an optional element of the documentation. If you include `@examples` without any actual code, you will get a warning about `@examples requires a value`. In this case, we can add a really simple example:
+
+```
+#' @examples cats(TRUE)
+```
+
+## Assemble it
+
+Now that we've written the function's documentation, we need to pass it along to the `cats.Rd` file in the help manual. To do so, we can use the `document()` function.
+
+```{r document_help, eval = FALSE}
+document()
+Updating pets documentation
+ℹ Loading pets
+Writing NAMESPACE
+Writing NAMESPACE
+Writing cats.Rd
+```
+
+We can check that everything worked as planned by previewing our help file.
+
+```{r test_help, eval = FALSE}
+?cats
+```
+
+You should also notice that there is a new folder in our project directory called `/man/`, which stands for "manual". This is where the help files live. Go ahead and open `cats.Rd` and it should look like this:
+
+```
+% Generated by roxygen2: do not edit by hand
+% Please edit documentation in R/cats.R
+\name{cats}
+\alias{cats}
+\title{Expresses your opinion about cats}
+\usage{
+cats(love = TRUE)
+}
+\arguments{
+\item{`love`}{A logical argument indicating whether or not you love cats (default = \code{TRUE})}
+}
+\value{
+One of two possible character strings (\code{"I love cats!"} or \code{"I am not a cat person."}).
+}
+\description{
+Expresses your opinion about cats
+}
+\examples{
+cats(TRUE)
+}
+```
+
+### `NAMESPACE`
+
+In addition to converting `cats()`'s special comments into `man/cats.Rd`, the call to `document()` also updates the `NAMESPACE` file, based on the `@export` line found in the `roxygen` comments. Go ahead and open up your `NAMESPACE` file and verify that its contents look like this:
+
+```
+# Generated by roxygen2: do not edit by hand
+
+export(cats)
+```
+
+***
+
+# Check & install
+
+Now is a good time to run our diagnostic checks. Go ahead a execute `check()`, which should return no errors or warnings.
+
+```{r re-check, eval = FALSE}
+check()
+```
+
+```
+── R CMD check results ──────────────────────────────────────────────────── pets 0.0.0.9000 ────
+Duration: 6.8s
+
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+```
+
+Now that we've verified that our package builds correctly, we can install our package and try it out with `install()`.
+
+```{r install_pkg, eval = FALSE}
+install()
+```
+
+```
+✓  checking for file ‘/Users/scheuerl/Documents/GitHub/FISH497/pets/DESCRIPTION’ ...
+─  preparing ‘pets’:
+✓  checking DESCRIPTION meta-information ...
+─  checking for LF line-endings in source and make files and shell scripts
+─  checking for empty or unneeded directories
+─  building ‘pets_0.0.0.9000.tar.gz’
+   
+Running /Library/Frameworks/R.framework/Resources/bin/R CMD INSTALL \
+  /var/folders/t4/nzmg35y56kx8jlvpd38xmvt00000gn/T//RtmpHWEk8a/pets_0.0.0.9000.tar.gz --install-tests 
+* installing to library ‘/Users/scheuerl/Rlibs’
+* installing *source* package ‘pets’ ...
+** using staged installation
+** R
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pets)
+```
+
+At this point, you can run `install(pets)` to load the package and use the `cats()` function.
+
+```{r load_pkg, eval = FALSE}
+library(pets)
+```
+
+Note that you can also install your package via the **Build** pane in **RStudio**.

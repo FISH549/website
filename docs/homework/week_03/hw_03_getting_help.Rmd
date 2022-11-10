@@ -1,0 +1,70 @@
+---
+title: "Getting help with errors in R"
+subtitle: "Assignment #3"
+author: "FISH 497 - Intro to Environmental Data Science"
+date: "29 January 2021"
+output:
+  html_document:
+    theme: readable
+    highlight: textmate
+    toc: false
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Getting help
+
+This assignment will allow you to demonstrate that you can create a minimal, reproducible example (reprex) in a quest for help.
+
+# Task 1
+
+Navigate to the **Pisaster** repo [here](https://github.com/FISH497/pisaster) and fork it to your own **GitHub** account.
+
+# Task 2
+
+Create a new **RStudio** project from your forked copy of the **Pisaster** repo.
+
+# Task 3
+
+Open up the script `01_summary_statistics.R` and run all of the code. The last line of code will issue a warning and if you inspect the value of `mean_count`, you will (perhaps unexpectedly) find a peculiar result.
+
+# Task 4
+
+Assume that you do not understand the source of the warning and resulting value for `mean_count` (and it's OK if you don't). Create a [new Gist](https://gist.github.com/) that asks for help in resolving the error. Make sure to
+
+* Give your Gist a meaningful description
+
+* In the box that says "Filename including extension...", enter `problem_with_mean.md`, which will allow you to use Markdown to mix text and code in the body of the message below just as you would with a repo's `README.md` file.
+
+* In the body of the Gist, include *all of the information that someone would need to assist you* without the need to load additional files, navigate elsewhere, etc.
+
+**Hint**: You can denote R code in Markdown documents in 1 of 2 ways:
+
+1. For a single line of code, enclose the statement with a single back-tick (\`) like \``a <- 1`\`
+
+2. For a block of code, enclose the statements with three back-ticks (\`\`\`) like
+
+````
+```
+a <- 1
+b <- 2
+a / b
+```
+````
+
+* When you are finished typing all of your information, click on the green **Create secret gist** button.
+
+Note that you can make edits to a Gist after you've created it by clicking on the **Edit** button in the upper right.
+
+# Task 5
+
+After you've created your new Gist with your request for help and a reprex, copy/paste the URL for the Gist into an email message, and send it to Mark with a short note asking for help. (Note that the URL should look something like `https://gist.github.com/USERNAME/59376e6f58a97d08f068edb015286891`.)
+
+
+

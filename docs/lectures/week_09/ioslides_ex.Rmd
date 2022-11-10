@@ -1,0 +1,165 @@
+---
+title: "My very first presentation using ioslides"
+subtitle: "FISH 497"
+author: "First Last<br>School of Aquatic and Fishery Sciences<br>University of Washington"
+date: "5 March 2021"
+output:
+  ioslides_presentation:
+    css: custom_styles.css
+---
+
+# Introduction
+
+## R Markdown | Worship
+
+- Such an amazing tool  
+- The possibilities seem endless
+
+    1) publishing  
+    2) presentations  
+    3) Shiny apps  
+    4) websites
+
+## Slide title
+
+> * Something here
+
+> * Another point to make
+
+---
+
+Some content without a title
+
+## Adding code
+
+```{r simple_code, echo = TRUE}
+a <- 1
+b <- 2
+a / b
+```
+
+
+## Adding hidden code
+
+```{r simple_code_2, echo = FALSE}
+a <- 1
+b <- 2
+a / b
+```
+
+
+## Adding code that doesn't evaluate
+
+```{r simple_code_3, echo = TRUE, eval = FALSE}
+a <- 1
+b <- 2
+a / b
+```
+
+
+## Highlighting code
+
+The third line of code appears in bold
+
+Press `h` to make the non-bold lines fade away
+
+```{r simple_code_4, echo = TRUE, eval = FALSE}
+a <- 1
+b <- 2
+### <b>
+a / b
+### </b>
+```
+
+
+## Adding plots
+
+```{r plot_cars, fig.cap="A simple scatterplot", echo=FALSE}
+plot(cars)
+```
+
+
+## Adding plots
+
+```{r plot_cars_2, fig.cap="A simple scatterplot", echo=FALSE, fig.align = "center", fig.height = 3, fig.width = 5}
+plot(cars)
+```
+
+## Adding equations
+
+A standalone equation
+
+$$
+y_i = \alpha + \beta x_i + \epsilon_i
+$$
+
+An inline equation where $\epsilon_i \sim \text{N}(0, \sigma^2)$
+
+
+## {data-background=img/rmarkdown.png data-background-size=cover}
+
+
+## A smaller, off-centered image {data-background=img/rmarkdown.png data-background-size="50%" data-background-position="0% 50%"}
+
+
+## Smaller code block {.smaller}
+
+```{r small_code, echo = TRUE}
+## a simple regression model
+fit <- lm(dist ~ speed, data = cars)
+## model summary
+summary(fit)
+```
+
+## {.flexbox .vcenter}
+
+### Some centered content
+
+
+## A slide with some centered content
+
+<div class="centered">
+This text is centered
+</div>
+
+This text is not
+
+## Two-column layout
+
+<div class="columns-2">
+  ![](img/dw.png)
+
+  * A photo
+  * of David Schindler
+  * taken by Mark Boyce
+</div>
+
+## A slide with colored text
+
+<div class="red2">
+This text is red
+</div>
+
+<div class="blue">
+This text is blue
+</div>
+
+
+## Future Steps {.blue-text .bigger}
+
+This is blue and bigger
+
+
+## Slide with presenter notes
+
+<div class="notes">
+Here are my notes for this slide:
+
+* mention optional notes
+
+* don't forget to exit
+</div>
+
+This slide has some notes, but they're hidden from view
+
+

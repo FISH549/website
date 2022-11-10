@@ -1,0 +1,330 @@
+---
+title: "Steps & software for analysis"
+subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+author: "Mark Scheuerell"
+date: "6 January 2021"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Goals for today
+
+* Outline the steps to a data science analysis
+
+> - Understand the software requirements for the course
+
+
+## Credits
+
+This content draws upon material developed by Jeff Leek & Roger Peng for their Advanced Data Science Course at the Johns Hopkins Bloomberg School of Public Health.
+
+
+## Steps to an analysis
+
+1. Define the question  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+
+
+## Steps to an analysis
+
+1. Define the question  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+
+**Make your analysis reproducible!**
+
+
+## Steps to an analysis | 1. Define the question of interest  
+
+What makes a good Q?
+
+> - It should be specific  
+> - It should be answerable with available data
+> - It should come with a definition of success  
+> - It should not be designed to discriminate or cause harm
+
+
+## Steps to an analysis | 2. Get the data  
+
+Data sources (in order of confidence):
+
+> - You collected your own  
+> - Collaborators  
+> - Public repositories
+
+
+## Steps to an analysis | 3. Clean the data  
+
+This is usually the most time intensive step
+
+It's also the most important & the hardest to teach
+
+
+## &nbsp; {data-background=images/twitter_data_cleaning.png data-background-size=80% .futnote}
+
+[See this on Twitter](https://twitter.com/vboykis/status/1089920316644704256)
+
+
+## Steps to an analysis | 4. Explore the data  
+
+Do the data meet your expectations?
+
+> - Make judicious use of plots
+
+> - Also consider correlation matrics (eg, [{corrplot}](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html))
+
+> - Beware of data mining!
+
+
+## Steps to an analysis | 5. Fit statistical models  
+
+Where to start?
+
+> - Start with first principles
+
+> - Keep it simple
+
+
+## Steps to an analysis | 6. Communicate the results  
+
+Who's your audience? What's your medium?
+
+> - Lab group
+
+> - Social media, blog posts
+
+> - Presentation
+
+> - Publication
+
+
+## Steps to an analysis | Make your analysis reproducible  
+
+Consider these real scenarios
+
+> - "Can you re-run the analysis with these new data?"
+
+> - "Your closest collaborator is you six months ago, but you don’t reply to emails" (Karl Broman)
+
+
+## Types of analysis | Raw
+
+The goal is to explore the data 
+
+This is your "sandbox"
+
+
+## Types of analysis | Informal
+
+Soften the edges of the raw results
+
+> - Focus the analysis ("refine the arc")
+
+> - Improve the presentation
+
+> - Narrow your conclusions
+
+
+## &nbsp; {data-background=images/tt_logo.png data-background-size=90% .futnote}
+
+[TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+
+
+## &nbsp; {data-background=images/siple_tt_post.jpeg data-background-size=75% .futnote}
+
+[M Siple on Twitter](https://twitter.com/margaretsiple/status/1332827208721821698)
+
+
+## Types of analysis | Formal
+
+A refined analysis and presentation
+
+> - Code in supplementary materials (**GitHub**, **Zenodo**, **figshare**)
+
+> - High quality figures
+
+
+## A rubric for analyses
+
+Here are some useful questions to ask yourself
+
+
+## A rubric | Answering the question
+
+> - Could the question be answered with the available data?
+
+> - Did you understand the context for the question and the scientific application?
+
+> - Did you record the experimental design?
+
+
+## A rubric | Cleaning the data
+
+> - Are the data "tidy"?
+
+> - Did you record the recipe for moving from raw to tidy data?
+
+> - Did you record all parameters, units, and functions applied to the data?
+
+
+## A rubric | Exploratory analysis
+
+> - Did you make univariate plots (histograms, density plots, boxplots)?
+
+> - Did you consider correlations between variables (scatterplots)?
+
+> - Did you check the units of all data points to make sure they are in the right range?
+
+> - Did you try to identify any errors or miscoding of variables?
+
+
+## A rubric | Statistical analysis
+
+> - Did you identify the quantities of interest in your model?
+
+> - How did you select your model(s) (eg, information theory, cross validation)?
+
+> - Is this a correlative or causative study?
+
+
+## A rubric | Communication
+
+> - Did you describe the data set, experimental design, and question you are answering?
+
+> - Did you specify the model you are fitting?
+
+> - Does each table/figure communicate an important piece of information?
+
+
+## A rubric | Reproducibility
+
+> - Did you create a script that reproduces all your analyses?
+
+> - Did you save the raw and processed versions of your data?
+
+> - Did you record all versions of the software you used to process the data?
+
+> - Did you try to have someone else run your analysis code?
+
+
+# Software requirements
+
+
+## Software in this course
+
+Is free
+
+Is well supported by the user community
+
+
+## R Software | An environment for statistical computing and graphics
+
+> - Enormous developer & support communities
+
+> - [Learn more here](https://www.r-project.org/about.html)
+
+
+## R packages
+
+Most of R's current capabilities come from *packages*
+
+> - We'll use a variety of them for many different tasks
+
+> - We'll also learn how to create our own!
+
+
+## RStudio | An integrated development environment (IDE) for R
+
+> - Syntax highlighting, code completion, smart indentation  
+
+> - Easily manage multiple working directories using projects  
+
+> - Extensive package development tools  
+
+> - Built-in tools & GUIs for **Git** & **R Markdown**
+
+
+## &nbsp; {data-background=images/RStudio_desktop.png data-background-size=cover}
+
+
+## RStudio benefits
+
+### [Cheat sheets](https://rstudio.com/resources/cheatsheets/)
+
+<br>
+
+### [Webinars, links, etc](https://resources.rstudio.com/)
+
+
+## &nbsp; {data-background=images/RStudio_cheatsheet.png data-background-size=cover}
+
+
+## GitHub | Cloud-based code repository & collaboration platform
+
+> - Store, manage, track changes to code
+
+> - Communicate with other team members
+
+> - Uses **Git** for version control
+
+
+## &nbsp; {data-background=images/gh_signup.png data-background-size=100%}
+
+
+## &nbsp; {data-background=images/GitHub_repo.png data-background-size=100%}
+
+
+## Git | Version control system (VCS)
+
+[Git](https://git-scm.com/about) records changes to a file or set of files over time so that you can recall specific versions later
+
+
+## PostgreSQL | Open source relational database system
+
+> - Uses & extends the SQL language
+
+> - Highly extensible (eg, define your own data types)
+
+> - Active user community
+
+
+## R Markdown
+
+Notebook interface to weave together text, equations, and code into nicely formatted output
+
+Allows you to create and document fully reproducible workflows
+
+
+## R Markdown
+
+Supports dozens of static and dynamic output formats
+
+* HTML  
+* PDF  
+* MS Word  
+* HTML5 slides  
+* Books  
+* Shiny apps  
+* Scientific articles  
+* websites
+
+[Gallery here](https://rmarkdown.rstudio.com/gallery.html)
+
+
+## What's next?
+
+We'll learn about research compendia and style conventions for coding and naming
+
+
