@@ -5,13 +5,20 @@ output: html_document
 
 <br>
 
-### Meeting information
-
-M/W/F from 11:30-12:20 in FSH 213
+###  Please note that the schedule and topics may change as the course progresses.
 
 <br>
 
-#### Please note that the schedule and topics may change as the course progresses.
+#### Navigating through a slide deck
+
+* Use the arrow keys (&#8592;/&#8594;) on your keyboard to go forward or backward
+
+* Press the "o" key on any slide to show you an overview of the slide deck
+
+* In overview mode, click on a slide or press "esc" to zoom in on it
+
+* You can also print the slides to a pdf by selecting the "print" option from your browser's File menu.
+
 
 ```{r child = "_timeline.Rmd", include=FALSE}
 ```
