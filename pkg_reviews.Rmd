@@ -195,7 +195,7 @@ This package can be installed in two ways:
 
 ```{r i1, eval = FALSE}
 install.packages("janitor")
-````
+```
 
 2) the latest development version can be installed from GitHub using:
 
