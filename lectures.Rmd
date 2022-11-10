@@ -24,44 +24,44 @@ M/W/F from 11:30-12:20 in FSH 213
 week_lecs <- vector("list", 30)
 names(week_lecs) <- paste0("L", seq(30))
 ## lecture topics
-## week 1: Jan 4-8
+## week 1: Jan 4-6
 week_lecs$L1 <- intro
 week_lecs$L2 <- analysis_steps
 week_lecs$L3 <- organization_styles
-## week 2: Jan 11-15
+## week 2: Jan 9-13
 week_lecs$L4 <- github
 week_lecs$L5 <- version_control
 week_lecs$L6 <- remotes
-## week 3: Jan 18-22
+## week 3: Jan 16-20
 week_lecs$L7 <- holiday_1
 week_lecs$L8 <- workflows
 week_lecs$L9 <- working_with_data
-## week 4: Jan 25-29
+## week 4: Jan 23-27
 week_lecs$L10 <- data_ingest
 week_lecs$L11 <- getting_help
 week_lecs$L12 <- guest_woo
-## week 5: Feb 1-5
+## week 5: Jan 30 - Feb 3
 week_lecs$L13 <- databases_1
 week_lecs$L14 <- databases_2
 week_lecs$L15 <- databases_3
-## week 6: Feb 8-12
-week_lecs$L16 <- review
-week_lecs$L17 <- metadata
-week_lecs$L18 <- analysis_visualization
-## week 7: Feb 15-19
-week_lecs$L19 <- holiday_2
-week_lecs$L20 <- markdown_1
-week_lecs$L21 <- markdown_2
-## week 8: Feb 22-26
-week_lecs$L22 <- guest_stawitz
+## week 6: Feb 6-10
+week_lecs$L16 <- metadata
+week_lecs$L17 <- analysis_visualization
+week_lecs$L18 <- markdown_1
+## week 7: Feb 13-17
+week_lecs$L19 <- markdown_2
+week_lecs$L20 <- markdown_3
+week_lecs$L21 <- markdown_4
+## week 8: Feb 20-24
+week_lecs$L22 <- holiday_2
 week_lecs$L23 <- packages_1
 week_lecs$L24 <- packages_2
-## week 9: Mar 1-5
-week_lecs$L25 <- shiny_1
-week_lecs$L26 <- shiny_2
-week_lecs$L27 <- markdown_3
-## week 10: Mar 8-12
-week_lecs$L28 <- markdown_4
+## week 9: Feb 27 - Mar 3
+week_lecs$L25 <- guest_holmes
+week_lecs$L26 <- shiny_1
+week_lecs$L27 <- shiny_2
+## week 10: Mar 6-10
+week_lecs$L28 <- docker
 week_lecs$L29 <- code_reviews
 week_lecs$L30 <- ethics
 ```

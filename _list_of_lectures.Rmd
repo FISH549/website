@@ -16,7 +16,7 @@ intro <- list(
   rmd = c("lectures/week_01/lec_01_class_overview.Rmd"),
   html = c("lectures/week_01/lec_01_class_overview.html"),
   background = c("[Leek & Peng (2015)](references/Leek_Peng_2015_what_is_the_Q.pdf)", "[D’Agostino McGowan (2020)](https://docs.google.com/presentation/d/1pZe8Sp350iYzsKsweZzR374179gvRwpI3cAX_NObgj8/edit#slide=id.p)", "[Peng (2018)](https://simplystatistics.org/2018/06/04/trustworthy-data-analysis/)"),
-  zoom = "https://washington.zoom.us/rec/share/Ydi_QbEEGi9MPbnZ7uu1ktIfqzgjFu6OMKmf-ryTmQDdvvOmN1HLuljzOUdXlJEc.FA3tieV9K1Bm_irQ"
+  zoom = ""
 )
 
 ## day 2 ####
@@ -27,7 +27,7 @@ analysis_steps <- list(
   rmd = c("lectures/week_01/lec_02_analysis_steps_software.Rmd"),
   html = c("lectures/week_01/lec_02_analysis_steps_software.html"),
   background = c("[Cooper & Hsing (2017)](references/BES_guide_to_reproducible_code.pdf)"),
-  zoom = "https://washington.zoom.us/rec/share/CuDs50KvFqJYIpY6FS5YkDKCXxXHkqE87389Jmgp-iMvu-0TScoMEED6iANgScFe.XiNQdClLe7mKZ_jc"
+  zoom = ""
 )
 
 ## day 3 ####
@@ -39,7 +39,7 @@ organization_styles <- list(
   html = c("lectures/week_01/lec_03_orgs_styles.html"),
   background = c("[Marwick et al (2018)](references/Marwick_etal_2018_research_compendia.pdf)",
                  "[Tidyverse Style Guide](https://style.tidyverse.org/)"),
-  zoom = "https://washington.zoom.us/rec/share/2ixFr_g--goTtgQqWNyKnIhugg-5cbdPIEvGfxLXEZ-UHkj1LaT_HQemFbcrq-xA.HQXzvtUQ5J0Q80ls"
+  zoom = ""
 )
 
 ## day 4 ####
@@ -50,7 +50,7 @@ github <- list(
   rmd = c("lectures/week_02/lec_04_intro_github.Rmd"),
   html = c("lectures/week_02/lec_04_intro_github.html"),
   background = c("[Intro to GitHub](https://guides.github.com/activities/hello-world/)"),
-  zoom = "https://washington.zoom.us/rec/share/G2495j6sl9XrUNDDjv1Crp4HGrp87C076SuiyALx4C4mvI-PebUYl6GVhsdJ-XyV.SDEAhBm7UVDk0rNq"
+  zoom = ""
 )
 
 ## day 5 ####
@@ -62,7 +62,7 @@ version_control <- list(
   html = c("lectures/week_02/lec_05_intro_git.html"),
   background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)",
                  "[Chap 20 of HGG](https://happygitwithr.com/git-basics.html)"),
-  zoom = "https://washington.zoom.us/rec/share/g2aCswhrEwnWd2CqwuZm4VC3lpvQfOD43_UOystrUX8Gf5HouQzx7FqL9Ih702Ms.TcuTyAWmlncnFpD-"
+  zoom = ""
 )
 
 ## day 6 ####
@@ -74,7 +74,7 @@ remotes <- list(
   html = c("lectures/week_02/lec_06_git_remotes.html"),
   background = c("[RStudio cheatsheet](references/rstudio_cheatsheet.pdf)",
                  "[Chaps 9 & 10 of HGG](https://happygitwithr.com/)"),
-  zoom = "https://washington.zoom.us/rec/share/tHfuTE4jFXIwk3hmNTPOgaLfIb3l0zazWBkYPCAQXMw9i5GFzigIZiCIO5-dp69h.HGCrSO0Lj5tGNUar"
+  zoom = ""
 )
 
 ## day 7 ####
@@ -99,7 +99,7 @@ workflows <- list(
            "lectures/week_03/lec_08_workflows_ex.html"),
   background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
                  "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
-  zoom = "https://washington.zoom.us/rec/share/Yp03AKOsgLghHHIQWofxEpf6hehdYFdDwJBzJ9ZEXmIKxzYIjsa8VMbVstD-FOnd.NYOvESQX8eDj11fb"
+  zoom = ""
 )
 
 ## day 9 ####
@@ -111,7 +111,7 @@ working_with_data <- list(
   html = "lectures/week_03/lec_09_working_with_data.html",
   background = c("[Ellis & Leek (2017)](references/Ellis_Leek_2017_how_to_share_data.pdf)",
                  "[Broman & Woo (2018)](references/Broman_Woo_2018_data_in_spreadsheets.pdf)"),
-  zoom = "https://washington.zoom.us/rec/share/CiPCUFYjxOKhbFHXjCsbeg9Kc4JK3EMn6H4_Vv2ccyPI17TJRuVbXayJ59ehQZod.JdT2X4wtWiEHbvBX"
+  zoom = ""
 )
 
 ## day 10 ####
@@ -125,7 +125,7 @@ data_ingest <- list(
                  "[readxl pkg](https://readxl.tidyverse.org/)",
                  "[googlesheets pkg](https://googlesheets4.tidyverse.org/index.html)",
                  "[jsonlite pkg](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html)"),
-  zoom = "https://washington.zoom.us/rec/share/hlJqbcxGwXB_XdGUM1qQw4VXdJuinBv4bVUQGa57Cz7KZV_MFx-u_gpUeMcSQeyB.Bxiw7wIOazetcAOu"
+  zoom = ""
 )
 
 ## day 11 ####
@@ -148,7 +148,7 @@ getting_help <- list(
   html = "lectures/week_04/lec_11_getting_help.html",
   background = c("[Maelle Salmon's blog](https://masalmon.eu/2018/07/22/wheretogethelp/)",
                  "[Reprex do's & don'ts](https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html)"),
-  zoom = "https://washington.zoom.us/rec/share/VtnEOSz3M_QO2KQkM6IQfSQeyTmzjWdMbdDim04wZyffJ5jYNuCwbBBBXbw1VfJm.uIQc0GOOEYtb_3h1"
+  zoom = ""
 )
 
 ## day 12 ####
@@ -160,7 +160,7 @@ guest_woo <- list(
   rmd = "",
   html = "lectures/week_04/lec_12_kara_woo.html",
   background = "[Kara's website](https://karawoo.com/)",
-  zoom = "https://washington.zoom.us/rec/share/gfb6c0AWKY9EbTNxVgyoRDKyjohZwuaGarfNUaalAcPnk-dD8x12jADwayLmFhS_.Dc3bJ2QYK1Q52MGj"
+  zoom = ""
 )
 
 ## day 13 ####
@@ -173,7 +173,7 @@ databases_1 <- list(
   background = c("[About PostgreSQL](https://www.postgresql.org/about/)",
                  "[Installing PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/4)",
                  "[Troubleshooting PostgreSQL](https://github.com/sureL/postgres-tutorial/issues/23)"),
-  zoom = "https://washington.zoom.us/rec/share/AU0_6ez03Nx_S6gJN2t9DlgaIeGsyh8TnFXAg_MXO78WNI8DsEh_nxLD2MDih-rB.epOCnzJqi_vx0Ov9"
+  zoom = ""
 )
 
 ## day 14 ####
@@ -184,7 +184,7 @@ databases_2 <- list(
   rmd = "lectures/week_05/lec_14_intro_databases.Rmd",
   html = "lectures/week_05/lec_14_intro_databases.html",
   background = "",
-  zoom = "https://washington.zoom.us/rec/share/gMupKoeq-H2bZcwzj8zbodoUfLvGWwqQQ5A6_sm7_LBpIHe_UJqgl3B8ZZm1UsSb.JsTUGKA81pnLBMOc"
+  zoom = ""
 )
 
 ## day 15 ####
@@ -195,7 +195,7 @@ databases_3 <- list(
   rmd = "lectures/week_05/lec_15_intro_databases.Rmd",
   html = "lectures/week_05/lec_15_intro_databases.html",
   background = "",
-  zoom = "https://washington.zoom.us/rec/share/3qznqH_bNpYf5_itme7PGOuNUdGZaqknSKk98MP9VTTfuYpbxqS-DgWjf72z-tbz.Z73gHgrdUvYmO5pG"
+  zoom = ""
 )
 
 ## day 16 ####
@@ -206,7 +206,7 @@ review <- list(
   rmd = "",
   html = "",
   background = "",
-  zoom = "https://washington.zoom.us/rec/share/dofKQ94pbeLgSeR7FqiQVhYpQYqyNK6vHQguZcq7w4cGvPGLGrtdMDPxVyX0c4SN.ay324bng75auPu22"
+  zoom = ""
 )
 
 ## day 17 ####
@@ -220,7 +220,7 @@ metadata <- list(
                  "[Fegraus et al (2005)](references/Fegraus_2005_intro_EML.pdf)",
                  "[EML specification](https://eml.ecoinformatics.org/)",
                  "[EML package]()"),
-  zoom = "https://washington.zoom.us/rec/share/7jutnTJtdxq_b5ZIrmLNaDbmqju6pWbIgT9jevHYixXFcfssentuxGGkYMLfLIUo._7SSKy-t0zhQxw_N"
+  zoom = ""
 )
 
 ## day 18a ####
@@ -243,7 +243,7 @@ analysis_visualization <- list(
   html = "lectures/week_06/lec_18_analysis_viz.html",
   background = c("[R Graph Gallery](https://www.r-graph-gallery.com/)",
                  "[High Quality Graphics in R](https://web.stanford.edu/class/bios221/book/Chap-Graphics.html)"),
-  zoom = "https://washington.zoom.us/rec/share/s5YfpRvm4KmodyPyiQXryHHqw5DeZbL7lAdnu0UCa0Nf4W91eU1JXJlhgVtIqCUK.xv-3d00E-6911Nk_"
+  zoom = ""
 )
 
 ## day 19 ####
@@ -265,7 +265,7 @@ markdown_1 <- list(
   rmd = "lectures/week_07/lec_20_markdown_1.Rmd",
   html = "lectures/week_07/lec_20_markdown_1.html",
   background = "[Intro to R Markdown](lectures/week_07/intro_rmarkdown.html)",
-  zoom = "https://washington.zoom.us/rec/share/QF-zGzZK-aSZfl2xOkO5wFeDof7A42z3naC5okXGNxAbAKzC8tNztYtBmfZSZfXx.KLbWIwsJcBdOGI5o"
+  zoom = ""
 )
 
 ## day 21 ####
@@ -276,19 +276,19 @@ markdown_2 <- list(
   rmd = "lectures/week_07/lec_21_markdown_2.Rmd",
   html = "lectures/week_07/lec_21_markdown_2.html",
   background = "[Chap 6 of Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html)",
-  zoom = "https://washington.zoom.us/rec/share/8gEgJTfkcIhFieTuEqmSe9DeMGlv3yaGwDwiCDk7njLzhKJri1qboFyBGALhkj-B.nei0dsPjr8H-u5xe"
+  zoom = ""
 )
 
 ## day 22 ####
-guest_stawitz <- list(
+guest_holmes <- list(
   title = "Guest presentation",
-  topics = c("<i>Dr. Christine Stawitz</i>", "<b>Data science skills for a career in fisheries management</b>",
+  topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science skills for a career in fisheries management</b>",
              "Guest presentation"),
   pdf = c(""),
   rmd = "",
   html = "lectures/week_08/lec_22_stawitz.html",
   background = "",
-  zoom = "https://washington.zoom.us/rec/share/CSvg9I-vr88ff2-Wg37pkPutfcs7kr6Hl7hdPXJwRXxgeR2huvPG9NAeu_klZ_Nw.ZWwkVgXfJOBcdvuT"
+  zoom = ""
 )
 
 ## day 23 ####
@@ -299,7 +299,7 @@ packages_1 <- list(
   rmd = "lectures/week_08/lec_23_packages_1.Rmd",
   html = "lectures/week_08/lec_23_packages_1.html",
   background = "[Wickham & Bryan (2020)](https://r-pkgs.org/index.html)",
-  zoom = "https://washington.zoom.us/rec/share/_Ib7UQ-ZvANkMQLt3Xz8NuUv3uQ0hqD4zlqNoaZrmb6m7skvYHvbK7U1CN4YolPm.3qUZMSKGOIpc3fQJ"
+  zoom = ""
 )
 
 ## day 24 ####
@@ -310,7 +310,7 @@ packages_2 <- list(
   rmd = "lectures/week_08/lec_24_packages_2.Rmd",
   html = "lectures/week_08/lec_24_packages_2.html",
   background = "[Wickham & Bryan (2020)](https://r-pkgs.org/index.html)",
-  zoom = "https://washington.zoom.us/rec/share/34RWvi3M_c4mjEOYNVODr36dXGz5eK1ukSstXWely5TfcwXthOgOmI69DIQqJGx0.EGyG4PDRl_GDu05-"
+  zoom = ""
 )
 
 ## day 25 ####
@@ -322,7 +322,7 @@ shiny_1 <- list(
   html = "lectures/week_09/lec_25_intro_shiny_1.html",
   background = c("[RStudio Shiny apps](https://shiny.rstudio.com/)",
                  "[Sievert (2019)](https://plotly-r.com/)"),
-  zoom = "https://washington.zoom.us/rec/share/i9PPdoq-VwdBae-aYoooGcsG0h4Eida1igeMDTM-uVqlpho24SAZBK6b9azH8yWp.07ASvnI98cjij7-H"
+  zoom = ""
 )
 
 ## day 26 ####
@@ -333,7 +333,7 @@ shiny_2 <- list(
   rmd = "lectures/week_09/lec_26_intro_shiny_2.Rmd",
   html = "lectures/week_09/lec_26_intro_shiny_2.html",
   background = "[Shiny App Contest](https://blog.rstudio.com/2020/07/13/winners-of-the-2nd-shiny-contest/)",
-  zoom = "https://washington.zoom.us/rec/share/_Tw0mwNHyf2SvoqH4lWPMd8avlPEkZI9hCY186Q_N2amq5GhV25rt6N9kWvnBz4a.t6oMeARozWdnMRu5"
+  zoom = ""
 )
 
 ## day 27 ####
@@ -344,7 +344,7 @@ markdown_3 <- list(
   rmd = "lectures/week_09/lec_27_presentations.Rmd",
   html = "lectures/week_09/lec_27_presentations.html",
   background = ("[Chap 4 of Xie et al. (2014)](https://bookdown.org/yihui/rmarkdown/presentations.html)"),
-  zoom = "https://washington.zoom.us/rec/share/Ni7iNj1hIRn96chAVOIcL8M_zFB9BfFSv9o8clmauIad00V_aHzyOYDPTAM0BKiW.pCEB5Bylr9_ICc59"
+  zoom = ""
 )
 
 ## day 28 ####
@@ -356,7 +356,18 @@ markdown_4 <- list(
   html = "lectures/week_10/lec_28_websites.html",
   background = c("[GitHub Pages](https://pages.github.com/)",
                  "[Chap 17 of HGG](https://happygitwithr.com/existing-github-last.html)"),
-  zoom = "https://washington.zoom.us/rec/share/cvw0vd4mEmi4XVrJ1ofebGhwuhr9OCw2DG3JH-r5J_SdQPlaZbirW_Vrf4kCY_b8.h16lsErJXauP_-rl"
+  zoom = ""
+)
+
+## day ?? ####
+docker <- list(
+  title = "Dockers",
+  topics = c("<i>Dr. Dara Farrell</i>", "<b>Dockers</b>", "Containers", "Images"),
+  pdf = c(""),
+  rmd = "",
+  html = "",
+  background = c(""),
+  zoom = ""
 )
 
 ## day 29 ####
@@ -367,7 +378,7 @@ code_reviews <- list(
   rmd = "lectures/week_10/lec_29_code_reviews.Rmd",
   html = "lectures/week_10/lec_29_code_reviews.html",
   background = c("[rOpenSci Guide](https://devguide.ropensci.org/index.html)"),
-  zoom = "https://washington.zoom.us/rec/share/x1gjVBS3JV-ppHUMrUaW2zrcAz7T684HBJWBn3_V9jFzrSM29E3TKwWnnbhXFLr5.87of5JJdYt5n3Z4B"
+  zoom = ""
 )
 
 ## day 30 ####
@@ -381,7 +392,7 @@ ethics <- list(
                  "[CARE data principles](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/5da9f4479ecab221ce848fb2/1571419335217/CARE+Principles_One+Pagers+FINAL_Oct_17_2019.pdf)",
                  "[Lum (2018) Bias in data](https://www.youtube.com/watch?v=5zxDwA99soA)",
                  "[Fox (2020) Faculty job market](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1624)"),
-  zoom = "https://washington.zoom.us/rec/share/mfLndwhlTCPRDEt7Wxw0pb-Ysmm6nXIZtGHIXXTEhzgHGEP5FMx_67PabnU_7gKA.udvgmxJvDrgP5vjP"
+  zoom = ""
 )
 ```
 
