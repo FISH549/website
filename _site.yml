@@ -1,20 +1,20 @@
 name: "docs"
 navbar:
-  title: "FISH 497"
+  title: "FISH 549"
   right:
+    - text: "Syllabus"
+      href: syllabus.html
     - text: "Schedule & materials"
       href: lectures.html
     - text: "Assignments"
       href: homework.html
     - text: "References"
       href: references.html
-    - text: "Pkg reviews"
-      href: pkg_reviews.html
     - text: ""
       icon: fab fa-github
-      href: https://github.com/FISH497
+      href: https://github.com/FISH549
 output_dir: "docs"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
