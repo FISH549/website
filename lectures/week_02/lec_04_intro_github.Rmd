@@ -1,7 +1,7 @@
 ---
 title: "Introduction to GitHub"
 author: "Mark Scheuerell"
-date: "11 January 2021"
+date: "11 January 2023"
 output:
   html_document:
     theme: spacelab
@@ -22,6 +22,60 @@ knitr::opts_chunk$set(echo = TRUE)
 GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere. GitHub itself is not a development tool, but rather a file hosting and collaboration site. In many ways, a social network like Facebook. You can build a profile, create projects to share with others, and follow the accounts of other users. GitHub is not linked to any one programming language like **R**, as you can find all kinds of projects based upon different languages there.
 
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
+
+***
+
+# Signup for GitHub
+
+Signing up for a free account on GitHub is easy and straightforward. Begin by navigating to [https://github.com](https://github.com).
+
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard', height='20px')` Click on the **Sign up** button in the upper right.
+</div>
+
+![](images/gh_new_signup_0.png)
+
+<br>
+
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard', height='20px')` Enter the email address you'd like to associate with your account.
+</div>
+
+<div class="alert alert-warning">
+`r fontawesome::fa('lightbulb', height='20px')` **Tip:** You can change your email address or add another one later.
+</div>
+
+![](images/gh_new_signup_email.png)
+
+<br>
+
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard', height='20px')` Enter a password.
+</div>
+
+
+![](images/gh_new_signup_pwd.png)
+
+<br>
+
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard', height='20px')` Select a username for your account. This will form part of the URL where you will access your account (i.e., `https://github.com/USERNAME`).
+</div>
+
+![](images/gh_new_signup_username.png)
+
+<br>
+
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard', height='20px')` You will then have to answer a question about electing to receive notices and info from GitHub. Feel free to choose no ("n").<br>
+
+`r fontawesome::fa('clipboard', height='20px')` After you solve a quick puzzle to confirm you are, in fact, a human being, GitHub will send you an email with a 6-digit code to enter.
+</div>
+
+![](images/gh_new_signup_code.png)
+
+<br>
+
 
 ***
 
