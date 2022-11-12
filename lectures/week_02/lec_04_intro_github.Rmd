@@ -30,7 +30,7 @@ GitHub also runs **Git** in the background. Git is a version control software, w
 Signing up for a free account on GitHub is easy and straightforward. Begin by navigating to [https://github.com](https://github.com).
 
 <div class="alert alert-info">
-`r fontawesome::fa('clipboard', height='20px')` Click on the **Sign up** button in the upper right.
+`r fontawesome::fa('clipboard-list', height='20px')` Click on the **Sign up** button in the upper right.
 </div>
 
 ![](images/gh_new_signup_0.png)
@@ -38,7 +38,7 @@ Signing up for a free account on GitHub is easy and straightforward. Begin by na
 <br>
 
 <div class="alert alert-info">
-`r fontawesome::fa('clipboard', height='20px')` Enter the email address you'd like to associate with your account.
+`r fontawesome::fa('clipboard-list', height='20px')` Enter the email address you'd like to associate with your account.
 </div>
 
 <div class="alert alert-warning">
@@ -50,7 +50,7 @@ Signing up for a free account on GitHub is easy and straightforward. Begin by na
 <br>
 
 <div class="alert alert-info">
-`r fontawesome::fa('clipboard', height='20px')` Enter a password.
+`r fontawesome::fa('clipboard-list', height='20px')` Enter a password.
 </div>
 
 
@@ -59,7 +59,7 @@ Signing up for a free account on GitHub is easy and straightforward. Begin by na
 <br>
 
 <div class="alert alert-info">
-`r fontawesome::fa('clipboard', height='20px')` Select a username for your account. This will form part of the URL where you will access your account (i.e., `https://github.com/USERNAME`).
+`r fontawesome::fa('clipboard-list', height='20px')` Select a username for your account. This will form part of the URL where you will access your account (i.e., `https://github.com/USERNAME`).
 </div>
 
 ![](images/gh_new_signup_username.png)
@@ -67,9 +67,9 @@ Signing up for a free account on GitHub is easy and straightforward. Begin by na
 <br>
 
 <div class="alert alert-info">
-`r fontawesome::fa('clipboard', height='20px')` You will then have to answer a question about electing to receive notices and info from GitHub. Feel free to choose no ("n").<br>
+`r fontawesome::fa('clipboard-list', height='20px')` You will then have to answer a question about electing to receive notices and info from GitHub. Feel free to choose no ("n").<br>
 
-`r fontawesome::fa('clipboard', height='20px')` After you solve a quick puzzle to confirm you are, in fact, a human being, GitHub will send you an email with a 6-digit code to enter.
+`r fontawesome::fa('clipboard-list', height='20px')` After you solve a quick puzzle to confirm you are, in fact, a human being, GitHub will send you an email with a 6-digit code to enter.
 </div>
 
 ![](images/gh_new_signup_code.png)
@@ -87,58 +87,62 @@ A repository (or "repo" for short) is a directory or storage space for your proj
 
 Creating a repository is quite easy. Follow these steps to do so:
 
-1. Log into your account on GitHub
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` Log into your account on GitHub.
+</div>
 
-2. Click on the **+** sign in the upper right and select **New repository**
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` Click on the **+** sign in the upper right and select **New repository**.
+</div>
 
 ![](images/gh_new_repo.png)
 <br><br>
 
-3. Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
+</div>
 
 ![](images/gh_name_repo.png)
 
 <br>
 
-4. Enter some descriptive text in the **Description** field. This can be changed later, so you can keep it simple for now.
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` Enter some descriptive text in the **Description** field. This can be changed later, so you can keep it simple for now.
+</div>
 
 ![](images/gh_repo_description.png)
 
 <br>
 
-5. GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo. Go ahead and set it to the default **Public**.
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
 
-<br>
+Go ahead and set it to the default **Public**.
+</div>
 
 ![](images/gh_repo_public.png)
 
 <br>
 
-6. When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
+</div>
 
 ![](images/gh_repo_readme.png)
 
 <br>
 
-7. When you are finished, click on the green **Create repository** button.
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` When you are finished, click on the green **Create repository** button.
+</div>
 
 ![](images/gh_repo_create.png)
 
 <br>
 
-8. You now have a new repo that is ready to be populated with folders, code, data sets, etc.
-
-<br>
+<div class="alert alert-info">
+`r fontawesome::fa('clipboard-list', height='20px')` You now have a new repo that is ready to be populated with folders, code, data sets, etc.
+</div>
 
 ![](images/gh_new_repo_view.png)
 
