@@ -6,6 +6,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -29,28 +30,28 @@ GitHub also runs **Git** in the background. Git is a version control software, w
 
 Signing up for a free account on GitHub is easy and straightforward. Begin by navigating to [https://github.com](https://github.com).
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Click on the **Sign up** button in the upper right.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Sign up** button in the upper right.
 </div>
 
 ![](images/gh_new_signup_0.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Enter the email address you'd like to associate with your account.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Enter the email address you'd like to associate with your account.
 </div>
 
-<div class="alert alert-warning">
-`r fontawesome::fa('lightbulb', height='20px')` **Tip:** You can change your email address or add another one later.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can change your email address or add another one later.
 </div>
 
 ![](images/gh_new_signup_email.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Enter a password.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Enter a password.
 </div>
 
 
@@ -58,18 +59,24 @@ Signing up for a free account on GitHub is easy and straightforward. Begin by na
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Select a username for your account. This will form part of the URL where you will access your account (i.e., `https://github.com/USERNAME`).
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select a username for your account.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** This will form part of the URL where you will access your account (`https://github.com/USERNAME`).
 </div>
 
 ![](images/gh_new_signup_username.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` You will then have to answer a question about electing to receive notices and info from GitHub. Feel free to choose no ("n").<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Answer a question about electing to receive notices and info from GitHub (you can choose "n").<br>
+</div>
 
-`r fontawesome::fa('clipboard-list', height='20px')` After you solve a quick puzzle to confirm you are, in fact, a human being, GitHub will send you an email with a 6-digit code to enter.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Solve a puzzle to confirm you are a human being & GitHub will send you an email with a 6-digit code to enter.
 </div>
 
 ![](images/gh_new_signup_code.png)
@@ -87,61 +94,75 @@ A repository (or "repo" for short) is a directory or storage space for your proj
 
 Creating a repository is quite easy. Follow these steps to do so:
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Log into your account on GitHub.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Log into your account on GitHub.
 </div>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Click on the **+** sign in the upper right and select **New repository**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **+** sign in the upper right and select **New repository**.
 </div>
 
 ![](images/gh_new_repo.png)
 <br><br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Name your new repository **testing**
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
 </div>
 
 ![](images/gh_name_repo.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` Enter some descriptive text in the **Description** field. This can be changed later, so you can keep it simple for now.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Enter some simple descriptive text in the **Description** field.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** This can be changed later, so don't worry about its content.
 </div>
 
 ![](images/gh_repo_description.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
+</div>
 
-Go ahead and set it to the default **Public**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and set it to the default **Public**.
 </div>
 
 ![](images/gh_repo_public.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** For now, just check the box next to **Add a README file**.
 </div>
 
 ![](images/gh_repo_readme.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` When you are finished, click on the green **Create repository** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, click on the green **Create repository** button.
 </div>
 
 ![](images/gh_repo_create.png)
 
 <br>
 
-<div class="alert alert-info">
-`r fontawesome::fa('clipboard-list', height='20px')` You now have a new repo that is ready to be populated with folders, code, data sets, etc.
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a new repo that is ready to be populated with folders, code, data sets, etc.
 </div>
 
 ![](images/gh_new_repo_view.png)
@@ -326,7 +347,7 @@ Inserting links to images works much the same as for websites, but you add an ex
 
 which will yield this
 
-![](images/hexsticker.png)
+![](images/FISH549_hex_sticker.png)
 
 ## Displaying R code
 
