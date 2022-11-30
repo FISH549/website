@@ -190,10 +190,10 @@ You can specify different levels of headings using the hash tag (pound) symbol `
 
 will render to 
 
-# Level-1 header
-## Level-2 header 
-### Level-3 header
-#### Level-4 header 
+<p style="font-weight:500; font-size:34px">Level-1 header</p>
+<p style="font-weight:500; font-size:30px">Level-2 header</p>
+<p style="font-weight:500; font-size:24px">Level-3 header</p>
+<p style="font-weight:500; font-size:18px">Level-4 header</p> 
 
 <br>
 
@@ -389,17 +389,21 @@ I assigned the the temporary data frame to the variable `tmp`.
 
 ## Edit the README
 
-Let's edit our `README.md` file by clicking on the pencil icon in the upper right.
-
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Edit your `README.md` file by clicking on the pencil icon in the upper right.
+</div>
 
 ![](images/gh_edit_readme.png)
 
 <br>
 
-This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. 
 
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can preview a formatted version of your text by clicking the **Preview changes** tab.
+</div>
 
 ![](images/gh_edit_readme_md.png)
 
@@ -413,7 +417,12 @@ When you are done editing the text, you need to "commit" the changes. To do so, 
 
 <br>
 
-This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+</div>
+
+
 
 <br>
 
