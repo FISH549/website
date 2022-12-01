@@ -71,7 +71,7 @@ There are several ways to connect a remote repository to your local computer. He
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the **Repository URL** box, copy/paste the full repo address from GitHub.
+**Task:** In the **Repository URL** box, paste the full repo address from GitHub that you copied above.
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
@@ -85,11 +85,11 @@ There are several ways to connect a remote repository to your local computer. He
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Tab to the next box **Project directory name**, which should auto-fill with the repo name `testing`.
+**Task:** Tab to the next box, **Project directory name**, which should auto-fill with the repo name `testing`.
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select the directory location where you'd like this to live.
+**Task:** Select the directory location where you'd like this project to live.
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
