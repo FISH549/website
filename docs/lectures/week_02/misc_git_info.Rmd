@@ -1,10 +1,10 @@
 ---
 title: "Introduction to GitHub remotes"
 author: "Mark Scheuerell"
-date: "15 January 2021"
+date: "15 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true

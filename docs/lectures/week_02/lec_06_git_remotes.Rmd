@@ -1,10 +1,10 @@
 ---
 title: "Introduction to GitHub remotes"
 author: "Mark Scheuerell"
-date: "15 January 2021"
+date: "15 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -27,9 +27,9 @@ Remote repositories like GitHub allow you to store you code, data, and other inf
 
 # Create a project in **RStudio**
 
-There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within **RStudio**. **RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
+There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within **RStudio**. **RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](https://FISH549.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
 
-1. Navigate to the **testing** repo we created on GitHub in the lesson on [Intro to GitHub](https://fish497.github.io/website/lectures/week_02/lec_04_intro_github.html). Highlight and copy the full URL from your browser's address bar.
+1. Navigate to the **testing** repo we created on GitHub in the lesson on [Intro to GitHub](https://FISH549.github.io/website/lectures/week_02/lec_04_intro_github.html). Highlight and copy the full URL from your browser's address bar.
 
 ![](images/gh_copy_address.png)
 

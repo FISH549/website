@@ -1,10 +1,10 @@
 ---
 title: "Introduction to Git"
 author: "Mark Scheuerell"
-date: "13 January 2021"
+date: "13 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
