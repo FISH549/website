@@ -1,11 +1,12 @@
 ---
 title: "Introduction to GitHub"
 author: "Mark Scheuerell"
-date: "11 January 2021"
+date: "11 January 2023"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -23,6 +24,10 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
 
+<div class="boxy boxy-orange boxy-exclamation">
+**Warning:** You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](../../references/github_signup.html) for creating one.
+</div>
+
 ***
 
 # Repositories
@@ -33,58 +38,76 @@ A repository (or "repo" for short) is a directory or storage space for your proj
 
 Creating a repository is quite easy. Follow these steps to do so:
 
-1. Log into your account on GitHub
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Log into your account on GitHub.
+</div>
 
-2. Click on the **+** sign in the upper right and select **New repository**
-
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **+** sign in the upper right and select **New repository**.
+</div>
 
 ![](images/gh_new_repo.png)
 <br><br>
 
-3. Give your new repository a name. You can use underscores `_` and hypens `-` as text delimiters if you'd like. For now, call it **testing**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Name your new repository **testing**
+</div>
 
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
+</div>
 
 ![](images/gh_name_repo.png)
 
 <br>
 
-4. Enter some descriptive text in the **Description** field. This can be changed later, so you can keep it simple for now.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Enter some simple descriptive text in the **Description** field.
+</div>
 
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** This can be changed later, so don't worry about its content.
+</div>
 
 ![](images/gh_repo_description.png)
 
 <br>
 
-5. GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo. Go ahead and set it to the default **Public**.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
+</div>
 
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and set it to the default **Public**.
+</div>
 
 ![](images/gh_repo_public.png)
 
 <br>
 
-6. When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license. For now, just check the box next to **Add a README file**.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license.
+</div>
 
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** For now, just check the box next to **Add a README file**.
+</div>
 
 ![](images/gh_repo_readme.png)
 
 <br>
 
-7. When you are finished, click on the green **Create repository** button.
-
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, click on the green **Create repository** button.
+</div>
 
 ![](images/gh_repo_create.png)
 
 <br>
 
-8. You now have a new repo that is ready to be populated with folders, code, data sets, etc.
-
-<br>
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a new repo that is ready to be populated with folders, code, data sets, etc.
+</div>
 
 ![](images/gh_new_repo_view.png)
 
@@ -111,10 +134,10 @@ You can specify different levels of headings using the hash tag (pound) symbol `
 
 will render to 
 
-# Level-1 header
-## Level-2 header 
-### Level-3 header
-#### Level-4 header 
+<p style="font-weight:500; font-size:34px">Level-1 header</p>
+<p style="font-weight:500; font-size:30px">Level-2 header</p>
+<p style="font-weight:500; font-size:24px">Level-3 header</p>
+<p style="font-weight:500; font-size:18px">Level-4 header</p> 
 
 <br>
 
@@ -268,7 +291,7 @@ Inserting links to images works much the same as for websites, but you add an ex
 
 which will yield this
 
-![](images/hexsticker.png)
+![](images/FISH549_hex_sticker.png)
 
 ## Displaying R code
 
@@ -285,7 +308,7 @@ b <- 2
 ```
 ````
 
-such that above code block would look like
+that would look like
 
 ```{r, eval=FALSE}
 a <- 1
@@ -310,17 +333,21 @@ I assigned the the temporary data frame to the variable `tmp`.
 
 ## Edit the README
 
-Let's edit our `README.md` file by clicking on the pencil icon in the upper right.
-
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Edit your `README.md` file by clicking on the pencil icon in the upper right.
+</div>
 
 ![](images/gh_edit_readme.png)
 
 <br>
 
-This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. You can preview a formatted version of your text by clicking the **Preview changes** tab.
+This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. 
 
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can preview a formatted version of your text by clicking the **Preview changes** tab.
+</div>
 
 ![](images/gh_edit_readme_md.png)
 
@@ -334,7 +361,12 @@ When you are done editing the text, you need to "commit" the changes. To do so, 
 
 <br>
 
-This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+</div>
+
+
 
 <br>
 
