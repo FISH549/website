@@ -24,65 +24,9 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
 
-***
-
-# Signup for GitHub
-
-Signing up for a free account on GitHub is easy and straightforward. Begin by navigating to [https://github.com](https://github.com).
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Sign up** button in the upper right.
+<div class="boxy boxy-orange boxy-exclamation">
+**Warning:** You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](https://FISH549.github.io/website/references/github_signup.html) for creating one.
 </div>
-
-![](images/gh_new_signup_0.png)
-
-<br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Enter the email address you'd like to associate with your account.
-</div>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can change your email address or add another one later.
-</div>
-
-![](images/gh_new_signup_email.png)
-
-<br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Enter a password.
-</div>
-
-
-![](images/gh_new_signup_pwd.png)
-
-<br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select a username for your account.
-</div>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** This will form part of the URL where you will access your account (`https://github.com/USERNAME`).
-</div>
-
-![](images/gh_new_signup_username.png)
-
-<br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Answer a question about electing to receive notices and info from GitHub (you can choose "n").<br>
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Solve a puzzle to confirm you are a human being & GitHub will send you an email with a 6-digit code to enter.
-</div>
-
-![](images/gh_new_signup_code.png)
-
-<br>
-
 
 ***
 
@@ -364,7 +308,7 @@ b <- 2
 ```
 ````
 
-such that above code block would look like
+that would look like
 
 ```{r, eval=FALSE}
 a <- 1
