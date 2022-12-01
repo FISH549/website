@@ -25,7 +25,7 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
 
 <div class="boxy boxy-orange boxy-exclamation">
-**Warning:** You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](https://FISH549.github.io/website/references/github_signup.html) for creating one.
+**Warning:** You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](../../references/github_signup.html) for creating one.
 </div>
 
 ***
