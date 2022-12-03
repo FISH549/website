@@ -384,7 +384,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Track the new file with `git add filename`, where `filename` is the name ouf our R script.
+**Task:** Track the new file with `git add filename`, where `filename` is the name of our R script.
 </div>
 
 **Input**
@@ -404,7 +404,7 @@ $
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** cCheck the status of our repo.
+**Task:** Check the status of our repo.
 </div>
 
 **Input**
@@ -955,7 +955,7 @@ You've now successfully done the following:
 
 * Staged and added files to be tracked
 
-* Commited a file to the Git history
+* Committed a file to the Git history
 
 * Compared changes to previous versions of a file
 
