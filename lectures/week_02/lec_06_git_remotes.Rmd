@@ -1,6 +1,5 @@
 ---
 title: "Introduction to GitHub remotes"
-author: "Mark Scheuerell"
 date: "15 January 2023"
 output:
   html_document:
