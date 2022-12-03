@@ -1,0 +1,135 @@
+---
+title: "Installing Git on Windows"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+Here are some tips for installing Git in Windows. You can find the most recent version of the software [here](https://git-scm.com/download/win). The following screenshots show the options I recommend selecting during the installation process.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** After agreeing to the terms of service, click **Next**.
+</div>
+
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the components to be installed.
+</div>
+
+<br>
+
+![](git_install/git_win_01.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the start menu folder.
+</div>
+
+<br>
+
+![](git_install/git_win_02.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Choose the default editor to be used by Git.
+</div>
+
+<br>
+
+
+![](git_install/git_win_03.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the name of the initial branch in new repositories.
+</div>
+
+<br>
+
+![](git_install/git_win_04.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select how you would like to use Git from the command line.
+</div>
+
+<br>
+
+
+![](git_install/git_win_05.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the SSL/TLS library that you want Git to use.
+</div>
+
+<br>
+
+![](git_install/git_win_06.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the terminal editor to use with Git Bash.
+</div>
+
+<br>
+
+![](git_install/git_win_08.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Choose the default behavior of `git pull`.
+</div>
+
+<br>
+
+![](git_install/git_win_09.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Choose the credential helper.
+</div>
+
+<br>
+
+![](git_install/git_win_10.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Configure the extra options.
+</div>
+
+<br>
+
+![](git_install/git_win_11.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Configure the experimental options.
+</div>
+
+<br>
+
+![](git_install/git_win_12.png)
+
+<br>
+
+
