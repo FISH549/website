@@ -1,6 +1,5 @@
 ---
 title: "Introduction to GitHub"
-author: "Mark Scheuerell"
 date: "11 January 2023"
 output:
   html_document:

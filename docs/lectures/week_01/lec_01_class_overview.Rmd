@@ -21,9 +21,13 @@ WHO AM I?
 
 ## Mark Scheuerell
 
-* Asst Unit Leader, USGS WACFWRU
+### Assistant Unit Leader
+#### _U.S. Geological Survey Washington Cooperative Fish and Wildlife Research Unit_
 
-* Assoc Professor, School of Aquatic and Fishery Sciences
+<br>
+
+### Associate Professor
+#### _School of Aquatic and Fishery Sciences_
 
 
 ## My role as course instructor
@@ -258,6 +262,6 @@ The trick is to strike a balance to achieve trust and belief
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
-[__Course information__](https://fish497.github.io/website)
+[__Course information__](https://fish549.github.io/website/)
 </font>
 

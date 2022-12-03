@@ -1,11 +1,11 @@
 ---
 title: "Introduction to GitHub remotes"
-author: "Mark Scheuerell"
 date: "15 January 2023"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -27,49 +27,99 @@ Remote repositories like GitHub allow you to store you code, data, and other inf
 
 # Create a project in **RStudio**
 
-There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within **RStudio**. **RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](https://FISH549.github.io/website/lectures/week_02/lec_04_intro_github.html#Projects).
+There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within **RStudio**. **RStudio** provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](lec_04_intro_github.html#Projects).
 
-1. Navigate to the **testing** repo we created on GitHub in the lesson on [Intro to GitHub](https://FISH549.github.io/website/lectures/week_02/lec_04_intro_github.html). Highlight and copy the full URL from your browser's address bar.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to the **testing** repo we created on GitHub in the lesson on [_Intro to GitHub_](lec_04_intro_github.html).
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Highlight and copy the full URL from your browser's address bar.
+</div>
+
+<br>
 
 ![](images/gh_copy_address.png)
 
-2. Start **RStudio**
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Start **RStudio**
+</div>
 
-3. Select *File* --> *New Project...*, which will bring up a dialogue box.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select *File* --> *New Project...*, which will bring up a dialogue box.
+</div>
 
-4. Select **Version Control**
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select **Version Control**
+</div>
+
+<br>
 
 ![](images/rstudio_create_project.png)
 
 <br>
 
-5. Select **Git**
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select **Git**
+</div>
+
+<br>
 
 ![](images/rstudio_create_project_kind.png)
 
 <br>
 
-6. In the **Repository URL** box, copy/paste the full repo address from GitHub (note that `YOUR_USERNAME` in the location below should be *your* **GitHub** user name):
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Repository URL** box, paste the full repo address from GitHub that you copied above.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** `YOUR_USERNAME` in the location below should be *your* **GitHub** user name.
+</div>
+
+<br>
 
 ![](images/rstudio_create_project_url.png)
 
 <br>
 
-7. Tab to the next box **Project directory name**, which should auto-fill with the repo name `testing`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Tab to the next box, **Project directory name**, which should auto-fill with the repo name `testing`.
+</div>
 
-8. Select the directory location where you'd like this to live. I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the directory location where you'd like this project to live.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
+</div>
+
+<br>
 
 ![](images/rstudio_create_project_dir.png)
 
 <br>
 
-9. Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
+</div>
+
+<br>
 
 ![](images/rstudio_create_project_new.png)
 
 <br>
 
-10. **RStudio** will open a new instance with all of the project files listed. You are now ready to do work with your project in **RStudio**. (Note that the files shown in your project may look different than the image below.)
+<div class="boxy boxy-success boxy-check">
+**Success:** **RStudio** will open a new instance with all of the project files listed. 
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Note that the files shown in your project may look different than the image below.
+</div>
+
+<br>
 
 ![](images/rstudio_new_proj.png)
 
