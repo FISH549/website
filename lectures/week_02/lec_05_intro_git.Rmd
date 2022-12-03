@@ -1,11 +1,11 @@
 ---
 title: "Introduction to Git"
-author: "Mark Scheuerell"
 date: "13 January 2023"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -24,6 +24,8 @@ Git is a version control software, which means it records changes to a file or s
 ***
 
 # Git vocabulary
+
+<br>
 
 **repository (repo)**: folder containing all tracked files as well as the version control history
 
@@ -126,19 +128,29 @@ On a Mac this returns
 
 # Configuring Git
 
-Before using Git for version control, you'll need to configure it to use your name and email address. The first step is to tell Git who you are. Replace `first last` with your first and last names, and be sure to include the quotation marks. (Note these command line instructions will just begin with a `$` so as to be platform independent.) 
+Before using Git for version control, you'll need to configure it to use your name and email address. (Note that the following command line instructions will just begin with a `$` so as to be platform independent.) The first step is to tell Git who you are. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Replace `first last` with your first and last names, and be sure to include the quotation marks.
+</div>
 
 ```
 $ git config --global user.name "first last"
 ```
 
-The next step is to give Git your email address. Replace `your_email` with your actual email address and again be sure to include the quotation marks.
+The next step is to give Git your email address.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Replace `your_email` with your actual email address and again be sure to include the quotation marks.
+</div>
 
 ```
 $ git config --global user.email "your_email"
 ```
 
-You can now check that your user name and email are set correctly with the following command
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Verify that your user name and email are set correctly.
+</div>
 
 ```
 $ git config --list
@@ -150,13 +162,21 @@ $ git config --list
 
 ## Create a new folder
 
-We'll begin by creating a new folder/directory from the command line. Go ahead and type the following command to create a new directory called `tryout`:
+We'll begin by creating a new folder/directory from the command line.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new directory called `tryout`.
+</div>
 
 ```
 $ mkdir ~/tryout
 ```
 
-The function `mkdir` is short for "make directory"; it's not a Git command, so we don't have to preface it with `git`. The `~/` before `tryout` simply tells the operating system to create the new directory in the user's root directory. Now navigate into the new `tryout` folder by typing
+The function `mkdir` is short for "make directory"; it's not a Git command, so we don't have to preface it with `git`. The `~/` before `tryout` simply tells the operating system to create the new directory in the user's root directory.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:**  Change directories to the new `tryout` folder.
+</div>
 
 ```
 $ cd tryout
@@ -177,7 +197,9 @@ username@computername /c/tryout
 $
 ```
 
-You can type `ls` to list the contents of a directory. If you do that now, nothing happens because the folder is empty
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can type `ls` to list the contents of a directory.
+</div>
 
 **Input**
 
@@ -191,9 +213,17 @@ $ ls
 $
 ```
 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In this case, nothing happened because the folder is empty.
+</div>
+
 ## Initialize the repo
 
-Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder. To do so, type
+Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:**  Go ahead and initialize the folder.
+</div>
 
 **Input**
 
@@ -217,7 +247,15 @@ hint: 	git branch -m <name>
 Initialized empty Git repository in /Users/username/tryout/.git/
 ```
 
-You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well. Let's go ahead and change our branch name to `main` (note that this is another silent command, so it won't return anything). The `-m` option for `git branch` is short for "rename".
+You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:**  Go ahead and change your branch name to `main`.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `-m` option for `git branch` is short for "rename".
+</div>
 
 **Input**
 
@@ -231,11 +269,13 @@ $ git branch -m main
 $
 ```
 
-The command `git status` will report all kinds of information related to the contents of a repo. Running that now shows the following:
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** `git branch` is another silent command, so it won't return anything.
+</div>
 
-* you are on the main branch  
-* there are no commits  
-* there is nothing to commit at the moment
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The command `git status` will report all kinds of information related to the contents of a repo.
+</div>
 
 **Input**
 
@@ -257,7 +297,11 @@ nothing to commit (create/copy files and use "git add" to track)
 
 # Adding files
 
-Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something. We'll use a built-in text editor called **nano** to create a simple R script as an example. Type the following
+Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something. We'll use a built-in text editor called **nano** to create a simple R script as an example.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Start **nano** with an empty file.
+</div>
 
 **Input**
 
@@ -265,13 +309,17 @@ Before you can commit a file to the tracking history, you need to "add" it to th
 $ nano test_script.R
 ```
 
-which will automatically open **nano** with a blank slate. You will see the software name in the upper left and the name of the file at the top (`File: test_script.R`). There is also a block cursor in the upper left and a note at the bottom that this is a new file (`[ New File ]`). There are also some commands listed at the bottom. The caret `^` refers to the "control" key on your keyboard, so for example, `control+X` will exit **nano** (the `X` can be lowercase `x`). (Note that your text and background color for **nano** may be different than the examples below.)
+You will see the software name in the upper left and the name of the file at the top (`File: test_script.R`). There is also a block cursor in the upper left and a note at the bottom that this is a new file (`[ New File ]`). There are also some commands listed at the bottom. The caret `^` refers to the "control" key on your keyboard, so for example, `control+X` will exit **nano** (the `X` can be lowercase `x`). (Note that your text and background color for **nano** may be different than the examples below.)
 
 ![](images/nano_blank.png)
 
 <br>
 
-Now go ahead and add the following lines of code to your new test script:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** And add the following lines of code to your new test script.
+</div>
+
+**Input**
 
 ```
 ## a test script
@@ -283,9 +331,23 @@ b <- 2
 
 <br>
 
-You can see that now **nano** sees this file as modified as indicated in the upper right (`Modified`). When you are finished, hit `control+X`, which will bring up a message asking if you want to save the modified file. Press `Y` (or `y`) to save your changes and then hit `return` to accept the same file name you set at its creation.
+You can see that now **nano** sees this file as modified as indicated in the upper right (`Modified`).
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Press `control+X`, which will bring up a message asking if you want to save the modified file.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Press `Y` (or `y`) to save your changes.
+</div>
 
 ![](images/nano_file_save.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Press `return` to accept the same file name you set at its creation.
+</div>
 
 ![](images/nano_file_save_name.png)
 
@@ -293,7 +355,9 @@ You can see that now **nano** sees this file as modified as indicated in the upp
 
 At this point you will be returned to the regular terminal window.
 
-Now that we have a new file in our `tryout` folder, we can check the status of Git.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now that we have a new file in our `tryout` folder, check the status of Git.
+</div>
 
 **Input**
 
@@ -315,7 +379,13 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Here Git is reporting that `test_script.R` is "untracked" and it suggests that you use `git add` to track it. Let's do that by using `git add filename` where `filename` is the name ouf our R script (we'll see other ways to add files later).
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Here Git is reporting that `test_script.R` is "untracked" and it suggests that you use `git add` to track it.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Track the new file with `git add filename`, where `filename` is the name ouf our R script.
+</div>
 
 **Input**
 
@@ -329,7 +399,13 @@ $ git add test_script.R
 $
 ```
 
-Again this command doesn't return anything, so we should check the status of our repo.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** `git add` is another silent command that doesn't return anything.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** cCheck the status of our repo.
+</div>
 
 **Input**
 
@@ -350,15 +426,21 @@ Changes to be committed:
 
 ```
 
-Now we're getting somewhere. Git reports back that our new file `test_script.R` is "staged" and ready to be committed to the Git history.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Git reports back that our new file `test_script.R` is "staged" and ready to be committed to the Git history.
+</div>
 
 ### Other options for `git add`
 
-Here we've been adding only one file at a time. Here are some additional options for `git add` that afford you more flexibility in adding multiple files.
+So far we've added only one file at a time.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Here are some additional options for `git add` that afford you more flexibility in adding multiple files.
+</div>
 
 * `git add *.R` will stage all .R files  
 
-* `git add data/` will stage the data folder and its contents
+* `git add data/` will stage the folder `data` and its contents
 
 * `git add .` will stage all new and modified files, but does not remove any deleted files
 
@@ -376,15 +458,19 @@ Committing files in Git is the backbone of the whole version control process. To
 * "started work on background info for analysis"
 * "added new year of data to samples.csv"  
 
-Let's go ahead and commit our new R script with the following (you must include the quotes):
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your new R script and don't forget the quotes.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `-m` flag stands for "message".
+</div>
 
 **Input**
 
 ```
 $ git commit -m "created test R script"
 ```
-
-The `-m` flag stands for "message".
 
 **Output**
 
@@ -396,7 +482,9 @@ The `-m` flag stands for "message".
 
 When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory. This permanent copy is called a commit and its short identifier is `5e40183` (note that your commit will likely have a different identifier).
 
-We can now check the status of our repo and see where things stand.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check the status of your repo and see where things stand.
+</div>
 
 **Input**
 
@@ -411,7 +499,15 @@ On branch main
 nothing to commit, working tree clean
 ```
 
-Now Git is reporting that everything is up to date. If you want a report of your recent activity, you can ask Git to show you the project's history using `git log`.
+Now Git is reporting that everything is up to date. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you want a report of your recent activity, you can ask Git to show you the project's history using `git log`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check the log.
+</div>
 
 **Input**
 
@@ -424,21 +520,35 @@ $ git log
 ```
 commit 5e401831a92cf9e6980d0ee78a19966d6b310b78 (HEAD -> main)
 Author: First Last <email@domain.edu>
-Date:   Tue Jan 12 07:05:06 2021 -0800
+Date:   Tue Jan 13 07:05:06 2023 -0800
 
     created test R script
 ```
 
-The log lists all commits made to a repository in reverse chronological order. The listing for each commit includes:
-
-* a full 40-character identifier (i.e., the "SHA-1 checksum"), starting with the same 7 characters as the short identifier printed by the `git commit` command we used earlier  
-* the commit author's name and email address  
-* the date/time stamp of when it was created  
-* the commit message passed to Git
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** The log lists all commits made to a repository in reverse chronological order, which includes::
+<ul>
+  <li>a full 40-character identifier (i.e., the "SHA-1 checksum"), starting with the same 7 characters as the short identifier printed by the `git commit` command we used earlier</li>
+  <li>the commit author's name and email address</li>
+  <li>the date/time stamp of when it was created</li>
+  <li>the commit message passed to Git</li>
+</ul>
+</div>
 
 ### Summary
 
-At this point you've seen how to initialize a Git repository, add (stage) a file to be committed, and committed a file to the repository. This figure from [Blischak et al. (2018)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668) shows that process graphically.
+<div class="boxy boxy-success boxy-check">
+&nbsp; **Success:** At this point you've seen how to
+<ul>
+  <li>initialize a Git repository</li>
+  <li>add (stage) a file to be committed</li>
+  <li>commit a file to the repository</li>
+</ul>
+</div>
+
+This figure from [Blischak et al. (2018)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668) shows that process graphically.
+
+<br>
 
 ![](images/git_workflow.png)
 
