@@ -479,7 +479,11 @@ Note that there is now a number "1" inside a circle next to the Issues tab, whic
 
 # Projects
 
-So-called **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, etc. Click on the **Projects** tab at the top of the page.
+So-called **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, etc. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Projects** tab at the top of the page.
+</div>
 
 <br>
 
@@ -487,7 +491,11 @@ So-called **Projects** in GitHub are a great way to organize your issues, set ta
 
 <br>
 
-Here you will see some information about Projects and all of the things you can do with them. Go ahead and click on the green **Create a project** button in the upper right.
+Here you will see some information about Projects and all of the things you can do with them.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green **Create a project** button in the upper right.
+</div>
 
 <br>
 
