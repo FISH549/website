@@ -38,7 +38,7 @@ getting_help <- list(
   rmd = "homework/week_03/hw_03_getting_help.Rmd",
   html = "homework/week_03/hw_03_getting_help.html",
   data = "",
-  key = "homework/week_03/hw_03_getting_help_key.html"
+  key = "" # "homework/week_03/hw_03_getting_help_key.html"
 )
 
 ## week 5
@@ -71,7 +71,7 @@ publishing <- list(
   rmd = "homework/week_06/hw_06_publishing.Rmd",
   html = "homework/week_06/hw_06_publishing.html",
   data = "homework/week_06/hw_06_template.Rmd",
-  key = "homework/week_06/hw_06_publishing_key.Rmd"
+  key = "" # "homework/week_06/hw_06_publishing_key.Rmd"
 )
 
 ## week 8
