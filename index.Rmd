@@ -27,7 +27,7 @@ h3 {
 
 <br>
 
-<center>&copy; Mark Scheuerell 2022</center>
+<center>&copy; Mark Scheuerell 2023</center>
 
 <br>
 
