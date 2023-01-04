@@ -1,0 +1,69 @@
+---
+title: "Course overview"
+subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
+author: "Mark Scheuerell"
+output:
+  ioslides_presentation:
+    css: lecture_slides.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## {.flexbox .vcenter .bigger}
+
+<font size="10">
+WHO AM I? 
+</font>
+
+
+## Mark Scheuerell
+
+### Assistant Unit Leader
+#### _U.S. Geological Survey Washington Cooperative Fish and Wildlife Research Unit_
+
+<br>
+
+### Associate Professor
+#### _School of Aquatic and Fishery Sciences_
+
+
+## My role as course instructor
+
+> - Help you learn the material
+
+> - Help you learn how to ask for help
+
+> - Be a future resource
+
+
+## My role as course instructor
+
+> - I plan to fail
+
+> - A lot
+
+> - In public
+
+
+## {.flexbox .vcenter .bigger}
+
+<font size="10">
+WHO ARE YOU? 
+</font>
+
+
+## Introduce yourself
+
+1. Your school/department
+
+2. Your area of study
+
+
+## {.flexbox .vcenter .bigger}
+
+<font size="10">
+[__Course information__](https://fish549.github.io/website/)
+</font>
+
