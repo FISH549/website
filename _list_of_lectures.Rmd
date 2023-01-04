@@ -8,10 +8,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-## day 1 ####
-intro <- list(
+## day 0 ####
+intro_1 <- list(
   title = "Introduction",
-  topics = c("<b>Course overview</b>", "What is data science?", "Types of questions", "Storytelling"),
+  topics = c("<b>Course overview</b>"),
+  pdf = c(""),
+  rmd = c("lectures/week_01/lec_00_class_overview.Rmd"),
+  html = c("lectures/week_01/lec_00_class_overview.html"),
+  background = c(""),
+  zoom = ""
+)
+
+## day 1 ####
+intro_2 <- list(
+  title = "Introduction",
+  topics = c("<b>What is data science?</b>", "Types of questions", "Storytelling"),
   pdf = c(""),
   rmd = c("lectures/week_01/lec_01_class_overview.Rmd"),
   html = c("lectures/week_01/lec_01_class_overview.html"),
@@ -282,11 +293,11 @@ markdown_2 <- list(
 ## day 22 ####
 guest_holmes <- list(
   title = "Guest presentation",
-  topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science skills for a career in fisheries management</b>",
+  topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science teamwork and data science sprints</b>",
              "Guest presentation"),
   pdf = c(""),
   rmd = "",
-  html = "lectures/week_08/lec_22_stawitz.html",
+  html = "",
   background = "",
   zoom = ""
 )
