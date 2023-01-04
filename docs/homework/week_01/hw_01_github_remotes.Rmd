@@ -1,8 +1,8 @@
 ---
 title: "Working with GitHub remotes"
 subtitle: "Assignment #1"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "15 January 2021"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "13 January 2023"
 output:
   html_document:
     theme: readable
@@ -26,7 +26,7 @@ This assignment will allow you to demonstrate your ability to set up a remote re
 
 # Task 1
 
-Create a new repository on **GitHub** called `fish497`. When setting up your repo, select the following features:
+Create a new repository on **GitHub** called `fish549`. When setting up your repo, select the following features:
 
 * Make the repo **Private**
 
@@ -38,7 +38,7 @@ Create a new repository on **GitHub** called `fish497`. When setting up your rep
 
 # Task 2
 
-After you create your new `fish497` repo,
+After you create your new `fish549` repo,
 
 * Click on the Settings tab
 
@@ -62,7 +62,7 @@ Create a new project in **RStudio** with a connection to the **GitHub** repo you
 
 # Task 4
 
-Add, commit, and push the `.gitgnore` and `fish497.Rproj` files to your remote repo on **GitHub**.
+Add, commit, and push the `.gitgnore` file to your remote repo on **GitHub**.
 
 ***
 
@@ -102,7 +102,7 @@ Add, commit, and push this data file to your remote repo on **GitHub**.
 
 # Task 7
 
-Edit your `README.md` file to describe the current contents of your repo. This should include something about the folders and files (you don't have to describe the `.gitignore` or `.Rproj` files).
+Edit your `README.md` file to describe the current contents of your repo. This should include something about the folders and files (you don't have to describe the `.gitignore` file).
 
 Add, commit, and push this data file to your remote repo on **GitHub**.
 
