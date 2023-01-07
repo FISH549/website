@@ -467,7 +467,7 @@ Below you can see where I've added some details about this issue.
 </div>
  
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can create checkboxes in Markdown with a `[ ]`.
+**Tip:** You can create checkboxes in Markdown with `* [ ]`.
 </div>
 
 <br>
@@ -476,7 +476,15 @@ Below you can see where I've added some details about this issue.
 
 <br>
 
-You have some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. These labels are also searchable from the main **Issues** page.
+Just like when editing the `README.md` file, you can preview the Markdown in an issue's description by clicking on the **Preview** tab.
+
+<br>
+
+![](images/gh_issue_description-preview.png)
+
+<br>
+
+There are some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. Notably, these labels are also searchable from the main **Issues** page.
 
 <br>
 
@@ -484,13 +492,39 @@ You have some additional options on the righthand side for assigning collaborato
 
 <br>
 
-You can see below that I've added the following labels to the issue:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Assignees** link and then click on your username to select yourself.
+</div>
+ 
+<br>
+
+![](images/gh_issue_assignees.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Labels** link to see a list of preset labels.
+</div>
+ 
+<br>
+
+![](images/gh_issue_labels.png)
+
+<br>
+
+In this case I've added the following labels to the issue:
 
 - **documentation**
 
 - **enhancement**
 
-- **good frist issue**
+- **good first issue**
+
+<br>
+
+![](images/gh_issue_labels-chosen.png)
+
+<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
@@ -500,13 +534,17 @@ You can see below that I've added the following labels to the issue:
 
 ![](images/gh_issue_submit.png)
 
-<br>
-
-You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
+<div class="boxy boxy-success boxy-check">
+**Success:** You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
+</div>
 
 <br>
 
 ![](images/gh_issue_one.png)
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The checkboxes we added are dynamic and can be checked as tasks are completed.
+</div>
 
 <br>
 
@@ -514,13 +552,23 @@ You will now see your new issue as a formatted Markdown document with lots of in
 **Task:** Click on the **Issues** tab in the upper left, which will bring you back to the main **Issue** page.
 </div>
 
-Note that there is now a number "1" inside a circle next to the Issues tab, which means there is one open issue at the moment. From here you can add more issues, or click on existing issues to bring up their details. 
-
 <br>
 
 ![](images/gh_issues_page.png)
 
-<br>
+There are a few things to note here:
+
+* there is now a number "1" inside a circle next to the Issues tab, which means there is one open issue at the moment
+
+* you can filter issues by clicking on the **Filters** dropdown menu on the left side
+
+* you can use the search bar to the right of the **Filters** dropdown menu to find specific words or topics
+
+* when there are multiple open issues, you can sort by **Author**, **Label**, etc by clicking on the column heading
+
+* you can see there are 3 tasks within this issue below the issue's title 
+
+From here you can add more issues, or click on an existing issue to bring up its details. 
 
 ***
 
