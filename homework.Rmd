@@ -27,13 +27,13 @@ week_hw <- vector("list", 8)
 names(week_hw) <- paste0("L", seq(8))
 ## hw topics
 week_hw$L1 <- github
-week_hw$L2 <- NA
-week_hw$L3 <- NA
-week_hw$L4 <- NA
-week_hw$L5 <- NA
-week_hw$L6 <- NA
-week_hw$L7 <- NA
-week_hw$L8 <- NA
+week_hw$L2 <- NA # forking_workflows
+week_hw$L3 <- NA # getting_help
+week_hw$L4 <- NA # databases
+week_hw$L5 <- NA # data_viz
+week_hw$L6 <- NA # publishing
+week_hw$L7 <- NA # packages
+week_hw$L8 <- NA # presentations
 ```
 
 ```{r topics, include = FALSE}

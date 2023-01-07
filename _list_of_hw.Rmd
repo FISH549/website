@@ -75,7 +75,7 @@ publishing <- list(
 )
 
 ## week 8
-markdown <- list(
+packages <- list(
   title = "R packages",
   topics = c("R packages"),
   pdf = "",
