@@ -56,7 +56,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 **Tip:** Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
 </div>
 
-![](images/gh_name_repo.png)
+![](images/gh_repo_name.png)
 
 <br>
 
@@ -108,7 +108,7 @@ Creating a repository is quite easy. Follow these steps to do so:
 **Success:** You now have a new repo that is ready to be populated with folders, code, data sets, etc.
 </div>
 
-![](images/gh_new_repo_view.png)
+![](images/gh_repo_new-view.png)
 
 ***
 
