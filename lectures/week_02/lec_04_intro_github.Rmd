@@ -300,12 +300,12 @@ One of the truly great features of Markdown is the ability to include code withi
 
 The most common method for including code in your document is via code blocks, which can be numerous and separated by text, images, etc. Code blocks are delimited at the beginning and end by three back-ticks (\`\`\`). So, for example, here is a really basic code block
 
-````
-`r ''````
-a <- 1
-b <- 2
-```
-````
+<!-- ```` -->
+<!-- `r ''```` -->
+<!-- a <- 1 -->
+<!-- b <- 2 -->
+<!-- ``` -->
+<!-- ```` -->
 
 that would look like
 
@@ -330,7 +330,9 @@ I assigned the the temporary data frame to the variable `tmp`.
 
 <br>
 
-## Edit the README
+# Edit the README
+
+You can treat the `README.md` file as a "landing page" for your repo. Because it's a Markdown document, you can display images, lists, emphasis, etc. Similarly, you could add another `README.md` file inside a folder within a repo to describe the contents of the folder.
 
 <br>
 
@@ -344,11 +346,21 @@ I assigned the the temporary data frame to the variable `tmp`.
 
 This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can preview a formatted version of your text by clicking the **Preview changes** tab.
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add some Markdown to your `README.md` file.
 </div>
 
-![](images/gh_edit_readme_md.png)
+![](images/gh_edit_readme-text.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can preview a formatted version of your text by clicking the **Preview** tab.
+</div>
+
+![](images/gh_edit_readme-preview.png)
 
 <br>
 
@@ -361,11 +373,16 @@ When you are done editing the text, you need to "commit" the changes. To do so, 
 <br>
 
 This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. 
+
+<br>
+
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Go ahead and type a commit message in the box and then click the green **Commit changes** button.
 </div>
 
-
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Good commit messages are no more than 50 characters long.
+</div>
 
 <br>
 
