@@ -56,6 +56,8 @@ Creating a repository is quite easy. Follow these steps to do so:
 **Tip:** Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
 </div>
 
+<br>
+
 ![](images/gh_repo_name.png)
 
 <br>
@@ -390,7 +392,9 @@ This is your first introduction to **Git**. When committing a file, you need to 
 
 <br>
 
-You will now see your repo with the edited and formatted `README.md` file.
+<div class="boxy boxy-success boxy-check">
+**Success:** Your repo has a newly formatted `README.md` file.
+</div>
 
 <br>
 
@@ -402,7 +406,9 @@ You will now see your repo with the edited and formatted `README.md` file.
 
 # Issues
 
-Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards".
+Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards". Let's see how to add an issue to a repo.
+
+<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
@@ -414,7 +420,13 @@ Issues are used to track to-do items, bugs, feature requests, and more. Some peo
 
 <br>
 
-You will now see a blank slate with a message from GitHub telling you a bit about Issues. 
+At this point the **Issues** page is empty except for a message from GitHub telling you a bit about Issues. 
+
+<br>
+
+![](images/gh_issue_landing-page.png)
+
+<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Click on the green **New issue** button in the upper right.
@@ -422,11 +434,17 @@ You will now see a blank slate with a message from GitHub telling you a bit abou
 
 <br>
 
-![](images/gh_issues_blank.png)
+![](images/gh_issue_new.png)
 
 <br>
 
 Now you will see a window for you to enter details about the issue.
+
+<br>
+
+![](images/gh_issue_new-blank.png)
+
+<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Give your issue an informative title.
@@ -434,11 +452,23 @@ Now you will see a window for you to enter details about the issue.
 
 <br>
 
-![](images/gh_new_issue_title.png)
+![](images/gh_issue_new-title.png)
 
 <br>
 
-Most people also include some details concerning a new issue. For example, you might describe a problem you're having or a bug you've encountered that will need to be fixed later. The issue description can also contain formatted text via the same Markdown we used on our `README.md` file. You can also make use of the tool bar to help you with formatting, inserting links, etc.
+It's common to include some details concerning an issue. For example, you might describe a problem you're having or a bug you've encountered that will need to be fixed later. The issue description can also contain formatted text via the same Markdown we used on our `README.md` file. You can also make use of the tool bar to help you with formatting, inserting links, etc.
+
+Below you can see where I've added some details about this issue.
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add some details in the description box.
+</div>
+ 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can create checkboxes in Markdown with a `[ ]`.
+</div>
 
 <br>
 
