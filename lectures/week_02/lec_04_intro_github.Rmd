@@ -553,15 +553,13 @@ From here you can add more issues, or click on an existing issue to bring up its
 
 # Projects
 
-<br>
-
-So-called **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, etc. 
+**Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, and work with a team. 
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Click on the **Projects** tab at the top of the page.
 </div>
 
-![](images/gh_goto_projects.png)
+![](images/gh_project_select.png)
 
 <br>
 
@@ -571,93 +569,62 @@ Here you will see some information about Projects and all of the things you can 
 **Task:** Click on the green **Create a project** button in the upper right.
 </div>
 
-<br>
-
-![](images/gh_projects_blank.png)
+![](images/gh_project_new.png)
 
 <br>
 
-You will now see a window for creating a new project. Go ahead and give your project an informative title and add a short description as well.
+![](images/gh_project_welcome.png)
 
 <br>
 
-![](images/gh_project_name.png)
+![](images/gh_project_table.png)
 
 <br>
 
-One of the nice features about Projects is that you can use templates for their structure. You're welcome to create your own from scratch, but for now lets use one of the built-in templates from GitHub. Click on the pull-down **Template** button on the bottom, which will show you a list of template options. Go ahead and select **Basic kanban**.
+![](images/gh_project_board.png)
 
 <br>
 
-![](images/gh_project_template.png)
+![](images/gh_project_empty.png)
 
 <br>
 
-Lastly, click on the green **Create project** button.
+![](images/gh_project_settings.png)
 
 <br>
 
-![](images/gh_project_create.png)
+
+![](images/gh_project_settings-top.png)
 
 <br>
 
-You now have a new project to which you can add "cards". By default, GitHub has added 3 cards to the **To do** column on the lefthand side. You will also see an option to **Add cards** on the righthand side, including the new issue we created earlier. This is one of the great features of GitHub. Not only can you create cards from scratch, but you can pull in issues as well to help you manage what's happening, who's doing it, and when it's completed.
-
-You are welcome to follow the tutorial in the first card under the **To do** column, but we'll ignore that for now.
+![](images/gh_project_settings-danger.png)
 
 <br>
 
-![](images/gh_project_ex.png)
+![](images/gh_project_name-description.png)
 
 <br>
 
-Go ahead and click on the **X** on the righthand side of the blue banner across the top of the page that says "Project created from Basic kanban template".
-
-Let's add the issue we created earlier to this project by clicking and dragging it over to the **To do** column under the existing **Automation** card.
+![](images/gh_project_readme.png)
 
 <br>
 
-![](images/gh_project_add_issue.png)
+![](images/gh_project_access.png)
 
 <br>
 
-Let's delete the default cards from our project, as they don't really offer any specific information here. To do so, click on the 3 dots in the upper right of a card and select **Delete note**. Let's also close the **Add cards** tab on the righthand side by clicking on the **X**, so we can see the third column of our project board.
+![](images/gh_project_status.png)
 
 <br>
 
-![](images/gh_project_delete_card.png)
+![](images/gh_project_return.png)
 
 <br>
 
-You now have a complete Project board with one issue already set to go.
+![](images/gh_project_empty-updated.png)
 
 <br>
-
-![](images/gh_project_complete.png)
-
-<br>
-
-When you are ready to work on or resolve an issue, drag it over to the **In progress** column.
-
-<br>
-
-![](images/gh_project_in_progress.png)
-
-<br>
-
-At any point here you can click on the name of the issue and the details will appear off to the righthand side. If you want to work on this issue, click on the button in the lower right titled **Go to issue for full details** and GitHub will redirect you to the issues page with that issue open.
-
-<br>
-
-![](images/gh_project_issue_details.png)
-
-<br>
-
-You will now see the issue opened under the **Issues** tab with some additional information related to its addition to our new project.
-
-<br>
-
-![](images/gh_project_issue_redirect.png)
 
 <br>
 
