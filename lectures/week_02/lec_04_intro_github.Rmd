@@ -555,6 +555,8 @@ From here you can add more issues, or click on an existing issue to bring up its
 
 **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, and work with a team. 
 
+<br>
+
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Click on the **Projects** tab at the top of the page.
 </div>
@@ -565,15 +567,29 @@ From here you can add more issues, or click on an existing issue to bring up its
 
 Here you will see some information about Projects and all of the things you can do with them.
 
+<br>
+
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green **Create a project** button in the upper right.
+**Task:** Click on the green downarrow next to the **Link a project** button on the right and select **New project**. Then click the green **New project** button.
 </div>
 
 ![](images/gh_project_new.png)
 
 <br>
 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If this is your first project, you should see a welcome window like the one below.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green **Jump right in** button.
+</div>
+
 ![](images/gh_project_welcome.png)
+
+<br>
+
+You should now see a pop-up window for selecting a template with **Table** as the default.
 
 <br>
 
@@ -581,7 +597,15 @@ Here you will see some information about Projects and all of the things you can 
 
 <br>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on **Board** on the the left side and then click the green **Create** button.
+</div>
+
 ![](images/gh_project_board.png)
+
+<br>
+
+You now have an untitled and empty project template with 3 gray boxes labeled **Todo**, **In Progress**, and **Done**.
 
 <br>
 
@@ -589,12 +613,23 @@ Here you will see some information about Projects and all of the things you can 
 
 <br>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on link at the top labeled **\@username's untitled project** (where username is your GitHub username) to bring up the project settings.
+</div>
+
 ![](images/gh_project_settings.png)
 
 <br>
 
+On the **Project settings** tab you can add a **name**, **description**, and **README**.
+
+<br>
 
 ![](images/gh_project_settings-top.png)
+
+<br>
+
+If you scroll down you will see the **Danger zone** where you can change the project visibility from private to public, close the project, or delete it.
 
 <br>
 
@@ -602,27 +637,121 @@ Here you will see some information about Projects and all of the things you can 
 
 <br>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Scroll back to the top and add a project name and description. Click the green **Save** button when you are done.
+</div>
+
 ![](images/gh_project_name-description.png)
 
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now add some text to the **README** and click the green **Save** button when you are done.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Just as with other **README** sections, you can use Markdown for emphasis, lists, links, etc.
+</div>
 
 ![](images/gh_project_readme.png)
 
 <br>
 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the **Manage access** link on the left to open up the project access tab. Here you can invite collaborators and set their role. </div>
+
 ![](images/gh_project_access.png)
 
 <br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the **Status** link on the left to open up the field settings tab, which allows you to rename the column headings in your project or add other columns/fields as well. </div>
 
 ![](images/gh_project_status.png)
 
 <br>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the left arrow in the upper left to return to your project's main page.
+</div>
+
 ![](images/gh_project_return.png)
 
 <br>
 
+Your project now has a better name.
+
+<br>
+
 ![](images/gh_project_empty-updated.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **+ Add item** link at the bottom of the **Todo** field.
+</div>
+
+![](images/gh_project_add-item.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the link to **Add item from repository**.
+</div>
+
+![](images/gh_project_add-issue.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select **testing** from the dropdown menu and then check the box next to the Issue you created earlier. Click the green **Add selected items** button when you are done.
+</div>
+
+![](images/gh_project_add-from-repo.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **X** in the upper right to return to the project board.
+</div>
+
+![](images/gh_project_issue-added.png)
+
+<br>
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a new project with one todo item.
+</div>
+
+![](images/gh_project_to-do.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the issue title in the todo column to see its details. Click on the **X** in the upper right to close the preview window.
+</div>
+
+![](images/gh_project_to-do-peek.png)
+
+<br>
+
+Now let's address our todo items in our open issue.
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click-and-drag the issue from **Todo** to **In progress**.
+</div>
+
+![](images/gh_project_in-progress.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click in the **Search or jump to...** box at the top and select your testing repository to take you back there.
+</div>
+
+![](images/gh_testing_redirect.png)
 
 <br>
 
