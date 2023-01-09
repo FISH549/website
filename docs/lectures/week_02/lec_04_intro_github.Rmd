@@ -299,12 +299,12 @@ One of the truly great features of Markdown is the ability to include code withi
 
 The most common method for including code in your document is via code blocks, which can be numerous and separated by text, images, etc. Code blocks are delimited at the beginning and end by three back-ticks (\`\`\`). So, for example, here is a really basic code block
 
-<!-- ```` -->
-<!-- `r ''```` -->
-<!-- a <- 1 -->
-<!-- b <- 2 -->
-<!-- ``` -->
-<!-- ```` -->
+````
+`r ''````
+a <- 1
+b <- 2
+```
+````
 
 that would look like
 
@@ -888,67 +888,83 @@ Manion, Lance, student
 
 # Closing an Issue
 
-Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. To do so, click on the **Issues** tab on the top of the page to take you back to our open issue.
+Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. 
 
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Issues** tab on the top of the page to take you back to our open issue.
+</div>
 
 ![](images/gh_open_issue_return.png)
 
 <br>
 
-Click on the issue's title, which will open it up and show you all of the details. At the bottom of the issue you will see a comment box with two buttons below it: **Close issue** and **Comment**. You don't need to add a comment when closing an issue, but it's often helpful to do so. Go ahead and add a comment and then click the **Close with comment** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the issue's title, which will open it up and show you all of the details. 
+</div>
+
+![](images/gh_issue_return-open.png)
 
 <br>
 
-![](images/gh_close_issue_comment.png)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check the boxes next to the 3 open tasks.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** As you check off boxes next to tasks, GitHub will automatically update the number completed under the issue's title.
+</div>
+
+![](images/gh_issue_return-checked.png)
 
 <br>
 
-You'll now see that GitHub has marked the issue with a red "Closed" label under the issue name.
+At the bottom of the issue you will see a comment box with two buttons below it: **Close issue** and **Comment**. You don't need to add a comment when closing an issue, but it's often helpful to do so.
 
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add a comment and then click the **Close with comment** button.
+</div>
+
+![](images/gh_issue_close-comment.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You'll now see that GitHub has marked the issue with a purple "Closed" label under the issue name.
+</div>
 
 ![](images/gh_issue_closed.png)
 
 <br>
 
-Now click on the **Issues** tab to return to the Issues page. GitHub is now informing you that there aren't any open issues.
-
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Issues** tab to return to the Issues page where GitHub informs you that there aren't any open issues.
+</div>
 
 ![](images/gh_issues_main_none_open.png)
 
 <br>
 
-Now let's return to our project and move our closed issue to the "Done" column. Click on the **Projects** tab to take you back to the main Projects page where your project is listed. Click on the project name to open it back up.
+# Closing a project
+
+Let's return to our project and check on our progress now that we've closed the open issue.
 
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Projects** tab to take you back to the main Projects page where your project is listed and then click on the project name to open it back up.
+</div>
 
 ![](images/gh_project_main.png)
 
 <br>
 
-Now drag the closed issue card from the **In progress** column over to the **Done** column.
+<div class="boxy boxy-success boxy-check">
+**Success:** GitHub automatically moved the open issue to the **Done** column when you closed it earlier.
+</div>
 
-<br>
-
-![](images/gh_project_issue_done.png)
-
-<br>
-
-In the future, you can skip this final step by selecting an automation feature in your project. Go ahead and click on the three dots `...` in the upper right of the **Done** column and select **Manage automation**.
-
-<br>
-
-![](images/gh_project_automate.png)
-
-<br>
-
-Now check the box under **Move issues here when...** marked **Closed** and then click on the green **Update automation** button.
-
-<br>
-
-![](images/gh_auto_close_when_done.png)
+![](images/gh_project_done.png)
 
 <br>
 
