@@ -755,71 +755,97 @@ Now let's address our todo items in our open issue.
 
 <br>
 
-<br>
-
 ***
 
 # Adding files and folders
 
-Let's address our open issue by adding some more content to our repo. To do so, we'll navigate back to the main page of our repo by clicking on either the **Code** tab or on the **testing** link in the upper left.
+Let's address our open issue by adding some more content to our repo. To do so, we'll work entirely within GitHub, but later in the course we'll see how to add files from other locations like a local directory on your computer.
 
 <br>
 
-![](images/gh_redirect_home.png)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Add file** button next to the green **Code** button and then select **Create new file**.
+</div>
+
+![](images/gh_file_create-new.png)
 
 <br>
 
-We now have the option of either creating files from scratch within GitHub or uploading them from another location on a computer. Let's create a new file by clicking on the **Add file** button next to the green **Code** button and then selecting **Create new file**.
+We now have a window for editing the file contents similar to the one we saw earlier when editing our `README.md` file. At the top left is a box where you can type in the name of the file you'd like to create.
 
 <br>
 
-![](images/gh_create_file.png)
+![](images/gh_file_new-blank.png)
 
 <br>
 
-We now have a window for editing the files contents similar to the one we saw earlier when editing our `README.md` file. At the top left is a box where you can type in the name of the file you'd like to create. If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and the file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and then file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+</div>
 
-Let's create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+</div>
 
-<br>
-
-![](images/gh_file_create_name.png)
-
-<br>
-
-Now navigate to the editing box and add some simple **R** code.
+![](images/gh_file_new-name.png)
 
 <br>
 
-![](images/gh_file_create_code.png)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to the editing box and add some simple **R** code (it doesn't matter what code you add).
+</div>
+
+![](images/gh_file_create-code.png)
 
 <br>
 
-When you are finished, scroll down to the bottom, enter a brief but informative commit message, and click on the green **Commit new file** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
+</div>
+
+![](images/gh_file_create-commit.png)
 
 <br>
 
-![](images/gh_file_create_commit.png)
+<div class="boxy boxy-success boxy-check">
+**Success:** You can now see the contents of the new `/R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** In addition to the file name, you can see the commit message you used when committing the file ("created test R script for demo") and when the file was committed ("now").
+</div>
+
+![](images/gh_folder_R-contents.png)
 
 <br>
 
-You can now see the contents of the new `R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the file name to inspect the file's contents.
+</div>
+
+![](images/gh_file_new-inspect.png)
 
 <br>
 
-![](images/gh_new_folder_contents.png)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Code** tab in the upper left, which will take you back the repo's main page. 
+</div>
 
-<br>
-
-Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Here you can see our new `R` folder just above our existing `README.md` file.
-
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Here you can see our new `R` folder just above our existing `README.md` file.
+</div>
 
 ![](images/gh_repo_home_r.png)
 
 <br>
 
-Now let's add a simple data file called `example_data.csv` and place it within a new folder called `data`. Again, click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+Now let's add a simple data file called `example_data.csv` and place it within a new folder called `data`.
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+</div>
 
 ```
 last_name, first_name, role
@@ -830,29 +856,29 @@ Manion, Lance, student
 
 <br>
 
-![](images/gh_create_data_file.png)
+![](images/gh_file_create-data.png)
 
 <br>
 
-When you are finished, scroll down to the bottom and commit the file by adding a brief but informative commit message, and clicking on the green **Commit new file** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
+</div>
+
+![](images/gh_file_data-commit.png)
 
 <br>
 
-![](images/gh_data_file_commit.png)
-
-<br>
-
-Just as when we created our **R** script within the `R` folder, you can now see the new `example_data.csv` file we just created within the `data` folder
-
-<br>
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Just as when we created our **R** script within the `/R` folder, you can now see the new `example_data.csv` file we just created within the `/data` folder.
+</div>
 
 ![](images/gh_data_folder_view.png)
 
 <br>
 
-Go ahead and click on the **Code** tab in the upper left, which will take you back the repo's main page. Now you will see the new `data` folder just below our existing `R` folder.
-
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Code** tab in the upper left, which will take you back the repo's main page where you will see the new `/data` folder just below our existing `/R` folder.
+</div>
 
 ![](images/gh_repo_home_data.png)
 
