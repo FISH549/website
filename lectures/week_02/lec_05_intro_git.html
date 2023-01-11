@@ -6201,23 +6201,30 @@ since then we’ve added 4 new lines of code.</p>
 <div id="recovering-an-old-version" class="section level1">
 <h1>Recovering an old version</h1>
 <p>Let’s imagine we weren’t happy with the current version of our test
-script because perhaps we broke something or simply can’t get it to
+script because perhaps we broke something or we simply can’t get it to
 work. Because Git is a version control system, we can easily restore
-files to a state they were in at some previous commit. We can use
-<code>git checkout</code> to restore a previous version of a file by
-referencing it with <code>HEAD~n</code> where <code>n</code> refers to
-the version we’d like.</p>
+files to a state they were in at some previous commit.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> We can use <code>git checkout</code> to restore
+a previous version of a file by referencing it with <code>HEAD~n</code>
+where <code>n</code> refers to the version we’d like.</p>
+</div>
 <p>The last operation we added to our file will clearly create some
-problems for us because it contains a divide-by-zero. Let’s revert our
-script to the version just prior to that when everything was working
-properly.</p>
+problems for us because it contains a divide-by-zero.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Let’s revert our script to the version just
+prior to that when everything was working properly.</p>
+</div>
 <p><strong>Input</strong></p>
 <pre><code>$ git checkout HEAD~1 test_script.R</code></pre>
 <p><strong>Output</strong></p>
 <pre><code>Updated 1 path from b478816</code></pre>
-<p>That did something, but it’s not immediately clear if it was what we
-wanted. Let’s inspect the script to see if it was indeed switched back
-to the prior version.</p>
+<p>Hmm. That did something, but it’s not immediately clear if it was
+what we wanted.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Use <code>cat</code> to inspect the script to
+see if it was indeed switched back to the prior version.</p>
+</div>
 <p><strong>Input</strong></p>
 <pre><code>$ cat test_script.R</code></pre>
 <p><strong>Output</strong></p>
@@ -6227,8 +6234,13 @@ b &lt;- 2
 ## an operation
 a + b
 </code></pre>
-<p>Alright, our script is back to the previous working version. Let’s
-check on the status of things.</p>
+<div class="boxy boxy-success boxy-check">
+<p><strong>Success:</strong> Our script is back to the previous working
+version.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Check on the status of the directory.</p>
+</div>
 <p><strong>Input</strong></p>
 <pre><code>$ git status</code></pre>
 <p><strong>Output</strong></p>
@@ -6237,21 +6249,28 @@ Changes to be committed:
   (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
     modified:   test_script.R
 </code></pre>
-<p>Once again Git is telling us that we still need to commit the changes
-to our file, so let’s do that.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> Once again Git is telling us that we still need
+to commit the changes to our file, so let’s do that.</p>
+</div>
 <p><strong>Input</strong></p>
 <pre><code>$ git commit -m &quot;changed test script back to version before division op&quot;</code></pre>
 <p><strong>Output</strong></p>
 <pre><code>[main 2743b47] changed test script back to version before division op
  1 file changed, 1 insertion(+), 2 deletions(-)</code></pre>
-<p>Finally, let’s run <code>git status</code> again to make sure we’ve
-gotten everything cleaned up.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Lastly, run <code>git status</code> again to
+make sure we’ve gotten everything cleaned up.</p>
+</div>
 <p><strong>Input</strong></p>
 <pre><code>$ git status</code></pre>
 <p><strong>Output</strong></p>
 <pre><code>On branch main
 nothing to commit, working tree clean</code></pre>
-<p>Super. Everything seems to be in proper working order.</p>
+<div class="boxy boxy-success boxy-check">
+<p><strong>Success:</strong> Everything seems to be in proper working
+order!</p>
+</div>
 <hr />
 </div>
 <div id="git-clients" class="section level1">

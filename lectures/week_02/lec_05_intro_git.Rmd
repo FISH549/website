@@ -908,9 +908,17 @@ Here you can see that the first version had only 3 lines of code and since then 
 
 # Recovering an old version
 
-Let's imagine we weren't happy with the current version of our test script because perhaps we broke something or simply can't get it to work. Because Git is a version control system, we can easily restore files to a state they were in at some previous commit. We can use `git checkout` to restore a previous version of a file by referencing it with `HEAD~n` where `n` refers to the version we'd like.
+Let's imagine we weren't happy with the current version of our test script because perhaps we broke something or we simply can't get it to work. Because Git is a version control system, we can easily restore files to a state they were in at some previous commit. 
 
-The last operation we added to our file will clearly create some problems for us because it contains a divide-by-zero. Let's revert our script to the version just prior to that when everything was working properly.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can use `git checkout` to restore a previous version of a file by referencing it with `HEAD~n` where `n` refers to the version we'd like.
+</div>
+
+The last operation we added to our file will clearly create some problems for us because it contains a divide-by-zero. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Let's revert our script to the version just prior to that when everything was working properly.
+</div>
 
 **Input**
 
@@ -924,7 +932,11 @@ $ git checkout HEAD~1 test_script.R
 Updated 1 path from b478816
 ```
 
-That did something, but it's not immediately clear if it was what we wanted. Let's inspect the script to see if it was indeed switched back to the prior version.
+Hmm. That did something, but it's not immediately clear if it was what we wanted.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `cat` to inspect the script to see if it was indeed switched back to the prior version.
+</div>
 
 **Input**
 
@@ -943,7 +955,13 @@ a + b
 
 ```
 
-Alright, our script is back to the previous working version. Let's check on the status of things.
+<div class="boxy boxy-success boxy-check">
+**Success:** Our script is back to the previous working version. 
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check on the status of the directory.
+</div>
 
 **Input**
 
@@ -961,7 +979,9 @@ Changes to be committed:
 
 ```
 
-Once again Git is telling us that we still need to commit the changes to our file, so let's do that.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Once again Git is telling us that we still need to commit the changes to our file, so let's do that.
+</div>
 
 **Input**
 
@@ -976,7 +996,9 @@ $ git commit -m "changed test script back to version before division op"
  1 file changed, 1 insertion(+), 2 deletions(-)
 ```
 
-Finally, let's run `git status` again to make sure we've gotten everything cleaned up.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Lastly, run `git status` again to make sure we've gotten everything cleaned up.
+</div>
 
 **Input**
 
@@ -991,7 +1013,10 @@ On branch main
 nothing to commit, working tree clean
 ```
 
-Super. Everything seems to be in proper working order.
+<div class="boxy boxy-success boxy-check">
+**Success:** Everything seems to be in proper working order!
+</div>
+
 
 ***
 
