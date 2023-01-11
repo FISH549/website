@@ -556,7 +556,13 @@ This figure from [Blischak et al. (2018)](https://journals.plos.org/ploscompbiol
 
 # Making changes to a file
 
-Let's now imagine you wanted to return to the R script we created earlier and add some more lines of code, or make some changes to the existing code. Again, we can use **nano** to edit our script.
+Let's now imagine you wanted to return to the R script we created earlier and add some more lines of code, or make some changes to the existing code.
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use **nano** to edit our script.
+</div>
 
 **Input**
 
@@ -564,7 +570,9 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 $ nano test_script.R
 ```
 
-Go ahead and add the following lines of r code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the following lines of R code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
+</div>
 
 ```
 ## an operation
@@ -575,7 +583,13 @@ a + b
 
 <br>
 
-You can inspect the contents of a file from the terminal with `cat`. Use that to inspect your R script to make sure the changes took effect.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can inspect the contents of a file from the terminal with `cat`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `cat` to inspect your R script to make sure the changes took effect.
+</div>
 
 **Input**
 
@@ -594,7 +608,9 @@ a + b
 
 ```
 
-Let's now check on the status of our repo.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check on the status of your repo.
+</div>
 
 **Input**
 
@@ -616,7 +632,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 This output indicates that there is one file (`test_script.R`) that has been modified, but importantly, nothing has yet been added to the staging area. This is what the last line of the output is telling us.
 
-Before adding the file to staging, it's a good idea to inspect the changes that we made to a file. To do this in Git, we'll use `git diff`, which is short for "difference".
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Before adding a file to staging, it's a good idea to inspect the changes that were made to it. To do this in Git, we'll use `git diff`, which is short for "difference".
+</div>
 
 **Input**
 
@@ -647,7 +665,11 @@ Hmm, this output is definitely a bit cryptic.
 * The third and fourth lines once again show the name of the file being changed (`test_script.R`).  
 * The remaining lines show the actual differences and the lines on which they occur; the `+` sign in the first column shows the lines that were added most recently (note that the last line of the R script is blank).
     
-That all sounds OK, so let's commit the new changes to our R script.
+All of this is good information and everything is okay.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit the new changes to our R script.
+</div>
 
 **Input**
 
@@ -667,7 +689,13 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-Oops! We forgot to add our file to the staging area, so nothing happened. Git suggests that we either use `git add` and/or `git commit -a`. Let's use `git add` for now and return to the other option later. After adding the file, we can commit it.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** We forgot to add our file to the staging area, so nothing happened. Git suggests that we either use `git add` and/or `git commit -a`. 
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Let's use `git add` for now and return to the other option later. After adding the file, we can commit it.
+</div>
 
 **Input**
 
@@ -698,7 +726,13 @@ On branch main
 nothing to commit, working tree clean
 ```
 
-Everything seems to be in working order. Once again, we can check out the history of what we've done so far.
+<div class="boxy boxy-success boxy-check">
+**Success:** Everything seems to be in working order.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Once again, we can check out the history of what we've done so far.
+</div>
 
 **Input**
 
@@ -724,7 +758,9 @@ Date:   Tue Jan 12 07:05:06 2021 -0800
 
 Now we can see both of our commits, with the most recent one at the top.
 
-Let's add another operation to our R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add another operation to your R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
+</div>
 
 ```
 ## another operation
@@ -743,7 +779,13 @@ $ nano test_script.R
 
 <br>
 
-When you are finished, press `control+x` to exit and `y` to save the file with the same name. Now it's time to add this file and commit it.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, press `control+x` to exit and `y` to save the file with the same name.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add this file and commit it.
+</div>
 
 **Input**
 
@@ -765,7 +807,11 @@ $ git commit -m "added a division operation to R test script"
 
 One of the major advantages to using a formal version control system like Git is that you can go back in time and examine changes that were made to files. We saw previously that we can use `git diff` to inspect the changes that were made to a staged file. Here we'll expand that functionality to look back further in time.
 
-Let's examine the changes to our R script with `git diff`.
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Examine the changes to our R script with `git diff`.
+</div>
 
 **Input**
 
@@ -779,9 +825,15 @@ $ git diff test_script.R
 $
 ```
 
-In this case there have been no new changes to our file, so the output is blank.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In this case there have been no new changes to our file, so the output is blank. 
+</div>
 
-Git refers to the most recent version of a file as its `HEAD`. Earlier versions of a file are referenced with the tilde `~` and an integer, such that `HEAD~1` is the version that immediately precedes the current version. Similarly, `HEAD~10` refers to the version 10 steps prior to the current version. We can use `git diff HEAD filename` to inspect changes to the current version, but in this case it will yield the same thing as `git diff filename`.
+Git refers to the most recent version of a file as its `HEAD`. Earlier versions of a file are referenced with the tilde `~` and an integer, such that `HEAD~1` is the version that immediately precedes the current version. Similarly, `HEAD~10` refers to the version 10 steps prior to the current version. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can use `git diff HEAD filename` to inspect changes to the current version, but in this case it will yield the same thing as `git diff filename`.
+</div>
 
 **Input**
 
@@ -795,7 +847,9 @@ $ git diff HEAD test_script.R
 $
 ```
 
-Now let's take a peek back at the version prior to our current version and compare their differences.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Take a peek back at the version prior to your current version and compare their differences.
+</div>
 
 **Input**
 
@@ -821,7 +875,9 @@ index 4cdf1a7..faed447 100644
 
 Here we can see that we deleted the blank line at the end of the script as indicated by the `-`, and replaced it with the 2 lines beginning with `## another operation`.
 
-Let's go back and look at the changes relative to our first version of the script.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go back and look at the changes relative to your first version of the script.
+</div>
 
 **Input**
 
@@ -852,9 +908,17 @@ Here you can see that the first version had only 3 lines of code and since then 
 
 # Recovering an old version
 
-Let's imagine we weren't happy with the current version of our test script because perhaps we broke something or simply can't get it to work. Because Git is a version control system, we can easily restore files to a state they were in at some previous commit. We can use `git checkout` to restore a previous version of a file by referencing it with `HEAD~n` where `n` refers to the version we'd like.
+Let's imagine we weren't happy with the current version of our test script because perhaps we broke something or we simply can't get it to work. Because Git is a version control system, we can easily restore files to a state they were in at some previous commit. 
 
-The last operation we added to our file will clearly create some problems for us because it contains a divide-by-zero. Let's revert our script to the version just prior to that when everything was working properly.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can use `git checkout` to restore a previous version of a file by referencing it with `HEAD~n` where `n` refers to the version we'd like.
+</div>
+
+The last operation we added to our file will clearly create some problems for us because it contains a divide-by-zero. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Let's revert our script to the version just prior to that when everything was working properly.
+</div>
 
 **Input**
 
@@ -868,7 +932,11 @@ $ git checkout HEAD~1 test_script.R
 Updated 1 path from b478816
 ```
 
-That did something, but it's not immediately clear if it was what we wanted. Let's inspect the script to see if it was indeed switched back to the prior version.
+Hmm. That did something, but it's not immediately clear if it was what we wanted.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `cat` to inspect the script to see if it was indeed switched back to the prior version.
+</div>
 
 **Input**
 
@@ -887,7 +955,13 @@ a + b
 
 ```
 
-Alright, our script is back to the previous working version. Let's check on the status of things.
+<div class="boxy boxy-success boxy-check">
+**Success:** Our script is back to the previous working version. 
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check on the status of the directory.
+</div>
 
 **Input**
 
@@ -905,7 +979,9 @@ Changes to be committed:
 
 ```
 
-Once again Git is telling us that we still need to commit the changes to our file, so let's do that.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Once again Git is telling us that we still need to commit the changes to our file, so let's do that.
+</div>
 
 **Input**
 
@@ -920,7 +996,9 @@ $ git commit -m "changed test script back to version before division op"
  1 file changed, 1 insertion(+), 2 deletions(-)
 ```
 
-Finally, let's run `git status` again to make sure we've gotten everything cleaned up.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Lastly, run `git status` again to make sure we've gotten everything cleaned up.
+</div>
 
 **Input**
 
@@ -935,7 +1013,10 @@ On branch main
 nothing to commit, working tree clean
 ```
 
-Super. Everything seems to be in proper working order.
+<div class="boxy boxy-success boxy-check">
+**Success:** Everything seems to be in proper working order!
+</div>
+
 
 ***
 
