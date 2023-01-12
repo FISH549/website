@@ -120,24 +120,25 @@ names(key_links_html) <- NULL
 ```{r generate_table, echo=FALSE}
 ## data frame with dates & topics
 syl_txt <- data.frame(
-  date = sub("0(\\d)", "\\1", format(fri[2:9], "%d %b")),
+  assign_date = sub("0(\\d)", "\\1", format(fri[2:9], "%d %b")),
+  due_date = sub("0(\\d)", "\\1", format(fri[2:9] + 9, "%d %b")),
   topics = topics_html,
   assignment_links = assignment_links_html,
   # template_links = template_links_html,
   data_links = data_links_html,
   key_links = key_links_html
 )
-colnames(syl_txt) <- c("Date", "Topic(s)", "Instructions", "Data", "Answer key")
+colnames(syl_txt) <- c("Assigned", "Due", "Topic(s)", "Instructions", "Data", "Answer key")
 rownames(syl_txt) <- NULL
 
 ## generate table
 kable(syl_txt, format = "html", caption = " ",
-      align = "clcc", escape = FALSE) %>%
+      align = "cclccc", escape = FALSE) %>%
   kable_styling(bootstrap_options = "striped",
                 full_width = FALSE,
                 position = "left") %>%
-  column_spec(1, width = "6em") %>%
-  column_spec(c(3,4), width = "7em") %>%
-  column_spec(5, width = "8em")
+  column_spec(c(1, 2), width = "6em") %>%
+  column_spec(c(4, 5), width = "7em") %>%
+  column_spec(6, width = "8em")
 ```
 
