@@ -2,7 +2,7 @@
 title: "Understanding workflows"
 subtitle: "Intro to Environmental Data Science<br>FISH 497A"
 author: "Mark Scheuerell"
-date: "20 January 2021"
+date: "20 January 2023"
 output:
   ioslides_presentation:
     css: lecture_slides.css
