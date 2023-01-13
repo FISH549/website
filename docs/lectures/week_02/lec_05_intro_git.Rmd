@@ -101,26 +101,26 @@ We'll start by using Git via its standard command line interface, which means yo
 
 **Mac OS**
 
-```
+```sh
 computername:~ username$
 ```
 
 **Windows**
 
-```
+```sh
 username@computername ~
 $
 ```
 
 The tilde `~` indicates that you are in your root directory. You can check check the full path name with `pwd`, which stands for "print working directory".
 
-```
+```sh
 $ pwd
 ```
 
 On a Mac this returns
 
-```
+```sh
 /Users/username
 ```
 
@@ -134,7 +134,7 @@ Before using Git for version control, you'll need to configure it to use your na
 **Task:** Replace `first last` with your first and last names, and be sure to include the quotation marks.
 </div>
 
-```
+```sh
 $ git config --global user.name "first last"
 ```
 
@@ -144,7 +144,7 @@ The next step is to give Git your email address.
 **Task:** Replace `your_email` with your actual email address and again be sure to include the quotation marks.
 </div>
 
-```
+```sh
 $ git config --global user.email "your_email"
 ```
 
@@ -152,7 +152,7 @@ $ git config --global user.email "your_email"
 **Task:** Verify that your user name and email are set correctly.
 </div>
 
-```
+```sh
 $ git config --list
 ```
 
@@ -168,7 +168,7 @@ We'll begin by creating a new folder/directory from the command line.
 **Task:** Create a new directory called `tryout`.
 </div>
 
-```
+```sh
 $ mkdir ~/tryout
 ```
 
@@ -178,7 +178,7 @@ The function `mkdir` is short for "make directory"; it's not a Git command, so w
 **Task:**  Change directories to the new `tryout` folder.
 </div>
 
-```
+```sh
 $ cd tryout
 ```
 
@@ -186,13 +186,13 @@ The command `cd` is short for "change directory". Notice that the `~` has now ch
 
 **Mac OS**
 
-```
+```sh
 computername:tryout username$
 ```
 
 **Windows**
 
-```
+```sh
 username@computername /c/tryout
 $
 ```
@@ -203,13 +203,13 @@ $
 
 **Input**
 
-```
+```sh
 $ ls
 ```
 
 **Output**
 
-```
+```sh
 $
 ```
 
@@ -227,13 +227,13 @@ Before Git will start tracking the changes to files and folders, you need to "in
 
 **Input**
 
-```
+```sh
 $ git init
 ```
 
 **Output**
 
-```
+```sh
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
@@ -259,13 +259,13 @@ You can see that Git responded to your command with a helpful reminder about bra
 
 **Input**
 
-```
+```sh
 $ git branch -m main
 ```
 
 **Output**
 
-```
+```sh
 $
 ```
 
@@ -279,13 +279,13 @@ $
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 
 No commits yet
@@ -305,7 +305,7 @@ Before you can commit a file to the tracking history, you need to "add" it to th
 
 **Input**
 
-```
+```sh
 $ nano test_script.R
 ```
 
@@ -321,7 +321,7 @@ You will see the software name in the upper left and the name of the file at the
 
 **Input**
 
-```
+```sh
 ## a test script
 a <- 1
 b <- 2
@@ -361,13 +361,13 @@ At this point you will be returned to the regular terminal window.
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 
 No commits yet
@@ -389,13 +389,13 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 **Input**
 
-```
+```sh
 $ git add test_script.R
 ```
 
 **Output**
 
-```
+```sh
 $
 ```
 
@@ -409,13 +409,13 @@ $
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 
 No commits yet
@@ -468,13 +468,13 @@ Committing files in Git is the backbone of the whole version control process. To
 
 **Input**
 
-```
+```sh
 $ git commit -m "created test R script"
 ```
 
 **Output**
 
-```
+```sh
 [main (root-commit) 5e40183] created test R script
  1 file changed, 3 insertions(+)
  create mode 100644 test_script.R
@@ -488,13 +488,13 @@ When we run `git commit`, Git takes everything we have told it to save by using 
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 nothing to commit, working tree clean
 ```
@@ -511,13 +511,13 @@ Now Git is reporting that everything is up to date.
 
 **Input**
 
-```
+```sh
 $ git log
 ```
 
 **Output**
 
-```
+```sh
 commit 5e401831a92cf9e6980d0ee78a19966d6b310b78 (HEAD -> main)
 Author: First Last <email@domain.edu>
 Date:   Tue Jan 13 07:05:06 2023 -0800
@@ -566,7 +566,7 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 
 **Input**
 
-```
+```sh
 $ nano test_script.R
 ```
 
@@ -574,7 +574,7 @@ $ nano test_script.R
 **Task:** Add the following lines of R code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
 </div>
 
-```
+```sh
 ## an operation
 a + b
 ```
@@ -593,13 +593,13 @@ a + b
 
 **Input**
 
-```
+```sh
 $ cat test_script.R
 ```
 
 **Output**
 
-```
+```sh
 ## a test script
 a <- 1
 b <- 2
@@ -614,7 +614,7 @@ a + b
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
@@ -638,13 +638,13 @@ This output indicates that there is one file (`test_script.R`) that has been mod
 
 **Input**
 
-```
+```sh
 $ git diff
 ```
 
 **Output**
 
-```
+```sh
 diff --git a/test_script.R b/test_script.R
 index 05922e5..4cdf1a7 100644
 --- a/test_script.R
@@ -673,13 +673,13 @@ All of this is good information and everything is okay.
 
 **Input**
 
-```
+```sh
 $ git commit -m "added an addition operation to test R script"
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
@@ -699,14 +699,14 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 **Input**
 
-```
+```sh
 $ git add test_script.R
 $ git commit -m "added an addition operation to test R script"
 ```
 
 **Output**
 
-```
+```sh
 [main 07eaad4] added an addition operation to test R script
  1 file changed, 3 insertions(+)
 ```
@@ -715,13 +715,13 @@ OK, it looks like that worked, but it's a good idea to check on the status of th
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 nothing to commit, working tree clean
 ```
@@ -736,13 +736,13 @@ nothing to commit, working tree clean
 
 **Input**
 
-```
+```sh
 $ git log
 ```
 
 **Output**
 
-```
+```sh
 commit 07eaad4b2fcbe4be7068c47612dcc4f3f7c6373d (HEAD -> main)
 Author: First Last <email@domain.edu>
 Date:   Tue Jan 12 16:33:32 2021 -0800
@@ -762,14 +762,14 @@ Now we can see both of our commits, with the most recent one at the top.
 **Task:** Add another operation to your R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
 </div>
 
-```
+```sh
 ## another operation
 (a + b) / 0
 ```
 
 **Input**
 
-```
+```sh
 $ nano test_script.R
 ```
 
@@ -789,14 +789,14 @@ $ nano test_script.R
 
 **Input**
 
-```
+```sh
 $ git add test_script.R
 $ git commit -m "added a division operation to R test script"
 ```
 
 **Output**
 
-```
+```sh
 [main 17c1a74] added a division operation to R test script
  1 file changed, 2 insertions(+), 1 deletion(-)
 ```
@@ -815,13 +815,13 @@ One of the major advantages to using a formal version control system like Git is
 
 **Input**
 
-```
+```sh
 $ git diff test_script.R
 ```
 
 **Output**
 
-```
+```sh
 $
 ```
 
@@ -837,13 +837,13 @@ Git refers to the most recent version of a file as its `HEAD`. Earlier versions 
 
 **Input**
 
-```
+```sh
 $ git diff HEAD test_script.R
 ```
 
 **Output**
 
-```
+```sh
 $
 ```
 
@@ -853,13 +853,13 @@ $
 
 **Input**
 
-```
+```sh
 $ git diff HEAD~1 test_script.R
 ```
 
 **Output**
 
-```
+```sh
 diff --git a/test_script.R b/test_script.R
 index 4cdf1a7..faed447 100644
 --- a/test_script.R
@@ -881,13 +881,13 @@ Here we can see that we deleted the blank line at the end of the script as indic
 
 **Input**
 
-```
+```sh
 $ git diff HEAD~2 test_script.R
 ```
 
 **Output**
 
-```
+```sh
 diff --git a/test_script.R b/test_script.R
 index 05922e5..faed447 100644
 --- a/test_script.R
@@ -922,13 +922,13 @@ The last operation we added to our file will clearly create some problems for us
 
 **Input**
 
-```
+```sh
 $ git checkout HEAD~1 test_script.R
 ```
 
 **Output**
 
-```
+```sh
 Updated 1 path from b478816
 ```
 
@@ -940,13 +940,13 @@ Hmm. That did something, but it's not immediately clear if it was what we wanted
 
 **Input**
 
-```
+```sh
 $ cat test_script.R
 ```
 
 **Output**
 
-```
+```sh
 ## a test script
 a <- 1
 b <- 2
@@ -965,13 +965,13 @@ a + b
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
@@ -985,13 +985,13 @@ Changes to be committed:
 
 **Input**
 
-```
+```sh
 $ git commit -m "changed test script back to version before division op"
 ```
 
 **Output**
 
-```
+```sh
 [main 2743b47] changed test script back to version before division op
  1 file changed, 1 insertion(+), 2 deletions(-)
 ```
@@ -1002,13 +1002,13 @@ $ git commit -m "changed test script back to version before division op"
 
 **Input**
 
-```
+```sh
 $ git status
 ```
 
 **Output**
 
-```
+```sh
 On branch main
 nothing to commit, working tree clean
 ```
