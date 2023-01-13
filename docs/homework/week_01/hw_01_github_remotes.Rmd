@@ -5,7 +5,7 @@ author: "FISH 549 - Best Practices in Environmental Data Science"
 date: "13 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: false
     toc_float: true
@@ -120,6 +120,6 @@ Leave a comment on the issue that *briefly* describes what you've done for this 
 
 # Task 9
 
-Navigate back to your **GitHub** repo and create a new Project based on a "basic kanban" template and name it "Assignments". Delete the 3 default cards that automatically populated the project and then add the issue you created in Task 8 to the **To do** column.
+Navigate back to your **GitHub** repo and create a new Project using the default template and name it "Assignments". Add the issue you created in Task 8 to the **Todo** column.
 
 
