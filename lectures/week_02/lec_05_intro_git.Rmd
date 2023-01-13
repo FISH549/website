@@ -316,7 +316,7 @@ You will see the software name in the upper left and the name of the file at the
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** And add the following lines of code to your new test script.
+**Task:** Add the following lines of code to your new test script.
 </div>
 
 **Input**
@@ -452,7 +452,7 @@ So far we've added only one file at a time.
 
 # Committing a file
 
-Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose. Some examples might be:
+Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose. Mark also recommends beginning your commit message with a past tense verb. Some examples might be:
 
 * "created new R script for data ingest"  
 * "started work on background info for analysis"
@@ -520,7 +520,7 @@ $ git log
 ```sh
 commit 5e401831a92cf9e6980d0ee78a19966d6b310b78 (HEAD -> main)
 Author: First Last <email@domain.edu>
-Date:   Tue Jan 13 07:05:06 2023 -0800
+Date:   Fri Jan 13 09:05:06 2023 -0800
 
     created test R script
 ```
@@ -745,13 +745,13 @@ $ git log
 ```sh
 commit 07eaad4b2fcbe4be7068c47612dcc4f3f7c6373d (HEAD -> main)
 Author: First Last <email@domain.edu>
-Date:   Tue Jan 12 16:33:32 2021 -0800
+Date:   Fri Jan 13 09:33:32 2023 -0800
 
     added an addition operation to test R script
 
 commit 5e401831a92cf9e6980d0ee78a19966d6b310b78
 Author: First Last <email@domain.edu>
-Date:   Tue Jan 12 07:05:06 2021 -0800
+Date:   Fri Jan 13 09:39:32 2023 -0800
 
     created test R script
 ```
