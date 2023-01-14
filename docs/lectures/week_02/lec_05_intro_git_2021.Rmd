@@ -95,104 +95,43 @@ When you’re done working on a branch, you can merge your changes back to the m
 
 ***
 
-# Getting set up
+# Using the command line
 
-## Create a sandbox
+We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. Begin by opening either **Terminal** (Mac OS) or **Bash** (Windows). The command shell will look a bit different depending on which OS you are using. In either case, `$` marks the beginning of the command line where you can start typing commands.
 
-We'll begin by creating a so-called "sandbox" for playing around with the various features of Git. In this case, it is simply a folder (directory).
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Using the MacOS Finder or Windows Explorer, create a new folder (directory) on your Desktop and call it `tryout`.
-</div>
-
-## Set working directory
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open RStudio and set your working directory to the `tryout` folder (directory) you just created using the command line or menu options.
-</div>
-
-### Command line
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** `username` below is your user name on your computer.
-</div>
-
-**Mac**
+**Mac OS**
 
 ```sh
-> setwd("/Users/username/Desktop/tryout")
+computername:~ username$
 ```
 
 **Windows**
 
 ```sh
-> setwd("C:/Desktop/tryout")
+username@computername ~
+$
 ```
 
-### RStudio menu
-
-![](images/rstudio_setwd.png)
-
-<br>
-
-***
-
-# Using the command line
-
-We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. In the future, you may very well choose to use Git via a graphical client (e.g., [GitHub Desktop](https://desktop.github.com/), [GitKraken](https://www.gitkraken.com/)) or directly within Rstudio, which you'll see in the next lesson. You might then be asking yourself, "Why do it via the command line?" As you start using Git more in your workflows, there is a very real possibility that you will want some assistance to fix a problem or undo a change. The advice you receive, either from someone you know or via online searches, will very likely involve direct Git syntax.
-
-Although you can use any suitable terminal interface (e.g.,  **Terminal** on Mac OS or Windows), we will use the terminal within RStudio itself. 
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Terminal** tab to switch from the R console to the terminal.
-</div>
-
-![](images/term_open.png)
-
-<br>
-
-If you haven't used the Terminal before, the text may look a bit confusing. The information you see is
+The tilde `~` indicates that you are in your root directory. You can check check the full path name with `pwd`, which stands for "print working directory".
 
 ```sh
-[computer-name]:[directory] [user-name]$
+$ pwd
 ```
 
-where `[computer-name]` is the name of your computer (`Marks-MacBook-Pro-4` in the example above), `[directory]` is the current terminal directory (`~` indicates the root directory in the example above), and `[user-name]` is your user name on your computer (`mark` in the example above). The `$` marks the beginning of the command line where you can start typing commands.
+On a Mac this returns
 
-At this point our R working directory and our terminal directory are different, so we need to fix that.
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the "Terminal 1" downarrow and select "Go to Current Directory".
-</div>
-
-![](images/term_current_dir.png)
-
-<br>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The terminal will echo the actual command you would use to change directories (`cd ~/Desktop/tryout`) and the directory has switched from `[computer-name]:~` to `[computer-name]:tryout`.
-</div>
-
-![](images/term_dir_set.png)
-
-<br>
-
-
+```sh
+/Users/username
+```
 
 ***
 
 # Configuring Git
 
-Before using Git for version control, you'll need to configure it to use your name and email address.
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** The following command line instructions will just begin with a `$` instead of the full path `[computer-name]:[directory] [user-name]$`
-</div>
-
-The first step is to tell Git who you are.
+Before using Git for version control, you'll need to configure it to use your name and email address. (Note that the following command line instructions will just begin with a `$` so as to be platform independent.) The first step is to tell Git who you are. 
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Set your user name. Replace `first last` with your first and last names, and be sure to include the quotation marks.
+**Task:** Replace `first last` with your first and last names, and be sure to include the quotation marks.
 </div>
 
 ```sh
@@ -202,7 +141,7 @@ $ git config --global user.name "first last"
 The next step is to give Git your email address.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Set your email address. Replace `your_email` with your actual email address and again be sure to include the quotation marks.
+**Task:** Replace `your_email` with your actual email address and again be sure to include the quotation marks.
 </div>
 
 ```sh
@@ -217,20 +156,70 @@ $ git config --global user.email "your_email"
 $ git config --list
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You should see something like the output below with your name and email address. Don't be alarmed if Git also returns some additional information.
+***
+
+# Setting up a repo
+
+## Create a new folder
+
+We'll begin by creating a new folder/directory from the command line.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new directory called `tryout`.
 </div>
 
 ```sh
-user.name=First Last
-user.email=email@uw.edu
+$ mkdir ~/tryout
 ```
 
-***
+The function `mkdir` is short for "make directory"; it's not a Git command, so we don't have to preface it with `git`. The `~/` before `tryout` simply tells the operating system to create the new directory in the user's root directory.
 
-# Initialize the repo
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:**  Change directories to the new `tryout` folder.
+</div>
 
-Before Git will start tracking the changes to files and folders, you need to "initialize" your project folder.
+```sh
+$ cd tryout
+```
+
+The command `cd` is short for "change directory". Notice that the `~` has now changed to `tryout` to indicate you are in the `tryout` folder.
+
+**Mac OS**
+
+```sh
+computername:tryout username$
+```
+
+**Windows**
+
+```sh
+username@computername /c/tryout
+$
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can type `ls` to list the contents of a directory.
+</div>
+
+**Input**
+
+```sh
+$ ls
+```
+
+**Output**
+
+```sh
+$
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In this case, nothing happened because the folder is empty.
+</div>
+
+## Initialize the repo
+
+Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:**  Go ahead and initialize the folder.
@@ -245,8 +234,44 @@ $ git init
 **Output**
 
 ```sh
-Initialized empty Git repository in /Users/[user-name]/Desktop/tryout/.git/
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /Users/username/tryout/.git/
 ```
+
+You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:**  Go ahead and change your branch name to `main`.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `-m` option for `git branch` is short for "rename".
+</div>
+
+**Input**
+
+```sh
+$ git branch -m main
+```
+
+**Output**
+
+```sh
+$
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** `git branch` is another silent command, so it won't return anything.
+</div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** The command `git status` will report all kinds of information related to the contents of a repo.
@@ -268,33 +293,33 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-<div class="boxy boxy-red boxy-exclamation">
-&nbsp; **Note:** Here Git is telling us 3 things of interest:
-<ol>
-  <li>Our branch is set to `main`</li>
-  <li>We have not yet made any commits</li>
-  <li>There is nothing in the folder to commit</li>
-</ol>
-</div>
-
-
 ***
 
 # Adding files
 
-Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add` as Git suggested when we typed `git status` above, but at the moment our folder is empty so we need to populate it with something. 
+Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something. We'll use a built-in text editor called **nano** to create a simple R script as an example.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open a new R script by selecting **File > New File > R Script** from the RStudio menu.
+**Task:** Start **nano** with an empty file.
 </div>
 
-![](images/R_script_new.png)
+**Input**
+
+```sh
+$ nano test_script.R
+```
+
+You will see the software name in the upper left and the name of the file at the top (`File: test_script.R`). There is also a block cursor in the upper left and a note at the bottom that this is a new file (`[ New File ]`). There are also some commands listed at the bottom. The caret `^` refers to the "control" key on your keyboard, so for example, `control+X` will exit **nano** (the `X` can be lowercase `x`). (Note that your text and background color for **nano** may be different than the examples below.)
+
+![](images/nano_blank.png)
 
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add the following lines of code to your new script.
+**Task:** Add the following lines of code to your new test script.
 </div>
+
+**Input**
 
 ```sh
 ## a test script
@@ -302,17 +327,33 @@ a <- 1
 b <- 2
 ```
 
-![](images/R_script_add_1.png)
+![](images/nano_script_init.png)
+
+<br>
+
+You can see that now **nano** sees this file as modified as indicated in the upper right (`Modified`).
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Press `control+X`, which will bring up a message asking if you want to save the modified file.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Press `Y` (or `y`) to save your changes.
+</div>
+
+![](images/nano_file_save.png)
 
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Save your R script to your `tryout` folder as `test_script.R` .
+**Task:** Press `return` to accept the same file name you set at its creation.
 </div>
 
-![](images/R_script_saved_1.png)
+![](images/nano_file_save_name.png)
 
 <br>
+
+At this point you will be returned to the regular terminal window.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Now that we have a new file in our `tryout` folder, check the status of Git.
@@ -394,33 +435,35 @@ Changes to be committed:
 So far we've added only one file at a time.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-&nbsp; **Tip:** Here are some options for `git add` that allow you to add multiple files at once:
-<ul>
-  <li>`git add *.R` will stage all .R files</li>
-  <li>`git add data/` will stage the folder `data` and its contents</li>
-  <li>`git add .` will stage all new and modified files, but does not remove any deleted files</li>
-  <li>`git add -u` will stage all modified and deleted files, but does not stage any new files</li>
-  <li>`git add -A` stages all new, modified and deleted files</li>
-</ul>
+**Tip:** Here are some additional options for `git add` that afford you more flexibility in adding multiple files.
 </div>
+
+* `git add *.R` will stage all .R files  
+
+* `git add data/` will stage the folder `data` and its contents
+
+* `git add .` will stage all new and modified files, but does not remove any deleted files
+
+* `git add -u` will stage all modified and deleted files, but does not stage any new files  
+
+* `git add -A` stages all new, modified and deleted files
 
 ***
 
 # Committing a file
 
-Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose.
+Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose. Mark also recommends beginning your commit message with a past tense verb. Some examples might be:
 
-<div class="boxy boxy-orange boxy-lightbulb">
-&nbsp; **Tip:** Mark recommends beginning your commit message with a past tense verb. For example,
-<ul>
-  <li>"created new R script for data ingest"</li>
-  <li>"started work on background info for analysis"</li>
-  <li>"added new year of data to samples.csv"</li>
-</ul>
-</div>
+* "created new R script for data ingest"  
+* "started work on background info for analysis"
+* "added new year of data to samples.csv"  
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Commit your new R script and don't forget the quotes (the `-m` flag stands for "message").
+**Task:** Commit your new R script and don't forget the quotes.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `-m` flag stands for "message".
 </div>
 
 **Input**
@@ -483,7 +526,7 @@ Date:   Fri Jan 13 09:05:06 2023 -0800
 ```
 
 <div class="boxy boxy-red boxy-exclamation">
-&nbsp; **Note:** The log lists all commits made to a repository in reverse chronological order, which includes:
+&nbsp; **Note:** The log lists all commits made to a repository in reverse chronological order, which includes::
 <ul>
   <li>a full 40-character identifier (i.e., the "SHA-1 checksum"), starting with the same 7 characters as the short identifier printed by the `git commit` command we used earlier</li>
   <li>the commit author's name and email address</li>
@@ -518,7 +561,17 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add the following lines of new code to `test_script.R` and save the file when you are done.
+**Task:** Use **nano** to edit our script.
+</div>
+
+**Input**
+
+```sh
+$ nano test_script.R
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the following lines of R code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
 </div>
 
 ```sh
@@ -526,9 +579,34 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 a + b
 ```
 
-![](images/R_script_add_2.png)
+![](images/nano_script_edit.png)
 
 <br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can inspect the contents of a file from the terminal with `cat`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `cat` to inspect your R script to make sure the changes took effect.
+</div>
+
+**Input**
+
+```sh
+$ cat test_script.R
+```
+
+**Output**
+
+```sh
+## a test script
+a <- 1
+b <- 2
+## an operation
+a + b
+
+```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Check on the status of your repo.
@@ -615,8 +693,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 **Note:** We forgot to add our file to the staging area, so nothing happened. Git suggests that we either use `git add` and/or `git commit -a`. 
 </div>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `git add` to add the file to staging and then commit it.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Let's use `git add` for now and return to the other option later. After adding the file, we can commit it.
 </div>
 
 **Input**
@@ -681,7 +759,7 @@ Date:   Fri Jan 13 09:39:32 2023 -0800
 Now we can see both of our commits, with the most recent one at the top.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add another operation to your R script with the following lines of code and save the file when done. (For now ignore the fact that this code is problematic--we'll return to that later.)
+**Task:** Add another operation to your R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
 </div>
 
 ```sh
@@ -689,9 +767,21 @@ Now we can see both of our commits, with the most recent one at the top.
 (a + b) / 0
 ```
 
-![](images/R_script_add_3.png)
+**Input**
+
+```sh
+$ nano test_script.R
+```
+
+**Output**
+
+![](images/nano_script_edit_2.png)
 
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, press `control+x` to exit and `y` to save the file with the same name.
+</div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Add this file and commit it.
@@ -774,9 +864,7 @@ diff --git a/test_script.R b/test_script.R
 index 4cdf1a7..faed447 100644
 --- a/test_script.R
 +++ b/test_script.R
-@@ -3,4 +3,5 @@
- ## a test script
- a <- 1
+@@ -3,4 +3,5 @@ a <- 1
  b <- 2
  ## an operation
  a + b
@@ -846,8 +934,8 @@ Updated 1 path from b478816
 
 Hmm. That did something, but it's not immediately clear if it was what we wanted.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can use `cat` to inspect a file's contents and see if it was indeed switched back to the prior version.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `cat` to inspect the script to see if it was indeed switched back to the prior version.
 </div>
 
 **Input**
@@ -864,19 +952,12 @@ a <- 1
 b <- 2
 ## an operation
 a + b
+
 ```
 
 <div class="boxy boxy-success boxy-check">
 **Success:** Our script is back to the previous working version. 
 </div>
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** Your open R script in RStudio should have also reverted to the previous version.
-</div>
-
-![](images/R_script_add_2.png)
-
-<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Check on the status of the directory.
@@ -947,13 +1028,16 @@ It can be tricky to learn all of the ins and outs of Git, especially when typing
 
 # Endnote
 
-<div class="boxy boxy-success boxy-check">
-&nbsp; **Success:** You've now done the following:
-<ul>
-  <li>Initialized a Git repository</li>
-  <li>Staged and added files to be tracked</li>
-  <li>Committed a file to the Git history</li>
-  <li>Compared changes to previous versions of a file</li>
-  <li>Reverted a file back to a previous version</li>
-</ul>
-</div>
+**Congratulations!**
+
+You've now successfully done the following:
+
+* Initialized a Git repository
+
+* Staged and added files to be tracked
+
+* Committed a file to the Git history
+
+* Compared changes to previous versions of a file
+
+* Reverted a file back to a previous state
