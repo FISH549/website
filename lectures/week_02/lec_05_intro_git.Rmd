@@ -135,38 +135,49 @@ We'll begin by creating a so-called "sandbox" for playing around with the variou
 
 <br>
 
+***
+
 # Using the command line
 
 We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. In the future, you may very well choose to use Git via a graphical client (e.g., [GitHub Desktop](https://desktop.github.com/), [GitKraken](https://www.gitkraken.com/)) or directly within Rstudio, which you'll see in the next lesson. You might then be asking yourself, "Why do it via the command line?" As you start using Git more in your workflows, there is a very real possibility that you will want some assistance to fix a problem or undo a change. The advice you receive, either from someone you know or via online searches, will very likely involve direct Git syntax.
 
 Although you can use any suitable terminal interface (e.g.,  **Terminal** on Mac OS or Windows), we will use the terminal within RStudio itself. 
 
-In either case, `$` marks the beginning of the command line where you can start typing commands.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Terminal** tab to switch from the R console to the terminal.
+</div>
 
-**Mac OS**
+![](images/term_open.png)
 
-```sh
-computername:~ username$
-```
+<br>
 
-**Windows**
-
-```sh
-username@computername ~
-$
-```
-
-The tilde `~` indicates that you are in your root directory. You can check check the full path name with `pwd`, which stands for "print working directory".
+If you haven't used the Terminal before, the text may look a bit confusing. The information you see is
 
 ```sh
-$ pwd
+[computer-name]:[directory] [user-name]$
 ```
 
-On a Mac this returns
+where `[computer-name]` is the name of your computer (`Marks-MacBook-Pro-4` in the example above), `[directory]` is the current terminal directory (`~` indicates the root directory in the example above), and `[user-name]` is your user name on your computer (`mark` in the example above). The `$` marks the beginning of the command line where you can start typing commands.
 
-```sh
-/Users/username
-```
+At this point our R working directory and our terminal directory are different, so we need to fix that.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the "Terminal 1" downarrow and select "Go to Current Directory".
+</div>
+
+![](images/term_current_dir.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The terminal will echo the actual command you would use to change directories (`cd ~/Desktop/tryout`) and the directory has switched from `[computer-name]:~` to `[computer-name]:tryout`.
+</div>
+
+![](images/term_dir_set.png)
+
+<br>
+
+
 
 ***
 
