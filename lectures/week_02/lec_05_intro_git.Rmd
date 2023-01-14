@@ -183,10 +183,16 @@ At this point our R working directory and our terminal directory are different, 
 
 # Configuring Git
 
-Before using Git for version control, you'll need to configure it to use your name and email address. (Note that the following command line instructions will just begin with a `$` so as to be platform independent.) The first step is to tell Git who you are. 
+Before using Git for version control, you'll need to configure it to use your name and email address.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The following command line instructions will just begin with a `$` instead of the full path `[computer-name]:[directory] [user-name]$`
+</div>
+
+The first step is to tell Git who you are.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Replace `first last` with your first and last names, and be sure to include the quotation marks.
+**Task:** Set your user name. Replace `first last` with your first and last names, and be sure to include the quotation marks.
 </div>
 
 ```sh
@@ -196,7 +202,7 @@ $ git config --global user.name "first last"
 The next step is to give Git your email address.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Replace `your_email` with your actual email address and again be sure to include the quotation marks.
+**Task:** Set your email address. Replace `your_email` with your actual email address and again be sure to include the quotation marks.
 </div>
 
 ```sh
@@ -209,6 +215,15 @@ $ git config --global user.email "your_email"
 
 ```sh
 $ git config --list
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You should see something like the output below with your name and email address. Don't be alarmed if Git also returns some additional information.
+</div>
+
+```sh
+user.name=First Last
+user.email=email@uw.edu
 ```
 
 ***
