@@ -296,6 +296,12 @@ Before you can commit a file to the tracking history, you need to "add" it to th
 **Task:** Add the following lines of code to your new script.
 </div>
 
+```sh
+## a test script
+a <- 1
+b <- 2
+```
+
 ![](images/R_script_add_1.png)
 
 <br>
@@ -512,17 +518,7 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use **nano** to edit our script.
-</div>
-
-**Input**
-
-```sh
-$ nano test_script.R
-```
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add the following lines of R code to the script. When you are finished, press `control+x` to exit, followed by `y` to save the file, and `return` to accept the same file name.
+**Task:** Add the following lines of new code to `test_script.R` and save the file when you are done.
 </div>
 
 ```sh
@@ -530,34 +526,9 @@ $ nano test_script.R
 a + b
 ```
 
-![](images/nano_script_edit.png)
+![](images/R_script_add_2.png)
 
 <br>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can inspect the contents of a file from the terminal with `cat`.
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `cat` to inspect your R script to make sure the changes took effect.
-</div>
-
-**Input**
-
-```sh
-$ cat test_script.R
-```
-
-**Output**
-
-```sh
-## a test script
-a <- 1
-b <- 2
-## an operation
-a + b
-
-```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Check on the status of your repo.
@@ -644,8 +615,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 **Note:** We forgot to add our file to the staging area, so nothing happened. Git suggests that we either use `git add` and/or `git commit -a`. 
 </div>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Let's use `git add` for now and return to the other option later. After adding the file, we can commit it.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `git add` to add the file to staging and then commit it.
 </div>
 
 **Input**
@@ -710,7 +681,7 @@ Date:   Fri Jan 13 09:39:32 2023 -0800
 Now we can see both of our commits, with the most recent one at the top.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add another operation to your R test script with the following lines of code. (For now ignore the fact that this code is problematic--we'll return to that later.)
+**Task:** Add another operation to your R script with the following lines of code and save the file when done. (For now ignore the fact that this code is problematic--we'll return to that later.)
 </div>
 
 ```sh
@@ -718,21 +689,9 @@ Now we can see both of our commits, with the most recent one at the top.
 (a + b) / 0
 ```
 
-**Input**
-
-```sh
-$ nano test_script.R
-```
-
-**Output**
-
-![](images/nano_script_edit_2.png)
+![](images/R_script_add_3.png)
 
 <br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished, press `control+x` to exit and `y` to save the file with the same name.
-</div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Add this file and commit it.
@@ -815,7 +774,9 @@ diff --git a/test_script.R b/test_script.R
 index 4cdf1a7..faed447 100644
 --- a/test_script.R
 +++ b/test_script.R
-@@ -3,4 +3,5 @@ a <- 1
+@@ -3,4 +3,5 @@
+ ## a test script
+ a <- 1
  b <- 2
  ## an operation
  a + b
@@ -885,8 +846,8 @@ Updated 1 path from b478816
 
 Hmm. That did something, but it's not immediately clear if it was what we wanted.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `cat` to inspect the script to see if it was indeed switched back to the prior version.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can use `cat` to inspect a file's contents and see if it was indeed switched back to the prior version.
 </div>
 
 **Input**
@@ -903,12 +864,19 @@ a <- 1
 b <- 2
 ## an operation
 a + b
-
 ```
 
 <div class="boxy boxy-success boxy-check">
 **Success:** Our script is back to the previous working version. 
 </div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Your open R script in RStudio should have also reverted to the previous version.
+</div>
+
+![](images/R_script_add_2.png)
+
+<br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Check on the status of the directory.
@@ -979,16 +947,13 @@ It can be tricky to learn all of the ins and outs of Git, especially when typing
 
 # Endnote
 
-**Congratulations!**
-
-You've now successfully done the following:
-
-* Initialized a Git repository
-
-* Staged and added files to be tracked
-
-* Committed a file to the Git history
-
-* Compared changes to previous versions of a file
-
-* Reverted a file back to a previous state
+<div class="boxy boxy-success boxy-check">
+&nbsp; **Success:** You've now done the following:
+<ul>
+  <li>Initialized a Git repository</li>
+  <li>Staged and added files to be tracked</li>
+  <li>Committed a file to the Git history</li>
+  <li>Compared changes to previous versions of a file</li>
+  <li>Reverted a file back to a previous version</li>
+</ul>
+</div>
