@@ -269,10 +269,12 @@ nothing to commit (create/copy files and use "git add" to track)
 ```
 
 <div class="boxy boxy-red boxy-exclamation">
-**Note:** Here Git is telling us 3 things of interest:  
-&nbsp; &nbsp; 1. Our branch is set to `main`  
-&nbsp; &nbsp; 2. We have not yet made any commits  
-&nbsp; &nbsp; 3. There is nothing in the folder to commit
+&nbsp; **Note:** Here Git is telling us 3 things of interest:
+<ol>
+  <li>Our branch is set to `main`</li>
+  <li>We have not yet made any commits</li>
+  <li>There is nothing in the folder to commit</li>
+</ol>
 </div>
 
 
@@ -280,63 +282,31 @@ nothing to commit (create/copy files and use "git add" to track)
 
 # Adding files
 
-Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add`, but at the moment our folder is empty so we need to populate it with something. We'll use a built-in text editor called **nano** to create a simple R script as an example.
+Before you can commit a file to the tracking history, you need to "add" it to the list of things for Git to track. To do so, we'll use `git add` as Git suggested when we typed `git status` above, but at the moment our folder is empty so we need to populate it with something. 
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Start **nano** with an empty file.
+**Task:** Open a new R script by selecting **File > New File > R Script** from the RStudio menu.
 </div>
 
-**Input**
-
-```sh
-$ nano test_script.R
-```
-
-You will see the software name in the upper left and the name of the file at the top (`File: test_script.R`). There is also a block cursor in the upper left and a note at the bottom that this is a new file (`[ New File ]`). There are also some commands listed at the bottom. The caret `^` refers to the "control" key on your keyboard, so for example, `control+X` will exit **nano** (the `X` can be lowercase `x`). (Note that your text and background color for **nano** may be different than the examples below.)
-
-![](images/nano_blank.png)
+![](images/R_script_new.png)
 
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add the following lines of code to your new test script.
+**Task:** Add the following lines of code to your new script.
 </div>
 
-**Input**
-
-```sh
-## a test script
-a <- 1
-b <- 2
-```
-
-![](images/nano_script_init.png)
-
-<br>
-
-You can see that now **nano** sees this file as modified as indicated in the upper right (`Modified`).
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Press `control+X`, which will bring up a message asking if you want to save the modified file.
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Press `Y` (or `y`) to save your changes.
-</div>
-
-![](images/nano_file_save.png)
+![](images/R_script_add_1.png)
 
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Press `return` to accept the same file name you set at its creation.
+**Task:** Save your R script to your `tryout` folder as `test_script.R` .
 </div>
 
-![](images/nano_file_save_name.png)
+![](images/R_script_saved_1.png)
 
 <br>
-
-At this point you will be returned to the regular terminal window.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Now that we have a new file in our `tryout` folder, check the status of Git.
@@ -418,35 +388,33 @@ Changes to be committed:
 So far we've added only one file at a time.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Here are some additional options for `git add` that afford you more flexibility in adding multiple files.
+&nbsp; **Tip:** Here are some options for `git add` that allow you to add multiple files at once:
+<ul>
+  <li>`git add *.R` will stage all .R files</li>
+  <li>`git add data/` will stage the folder `data` and its contents</li>
+  <li>`git add .` will stage all new and modified files, but does not remove any deleted files</li>
+  <li>`git add -u` will stage all modified and deleted files, but does not stage any new files</li>
+  <li>`git add -A` stages all new, modified and deleted files</li>
+</ul>
 </div>
-
-* `git add *.R` will stage all .R files  
-
-* `git add data/` will stage the folder `data` and its contents
-
-* `git add .` will stage all new and modified files, but does not remove any deleted files
-
-* `git add -u` will stage all modified and deleted files, but does not stage any new files  
-
-* `git add -A` stages all new, modified and deleted files
 
 ***
 
 # Committing a file
 
-Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose. Mark also recommends beginning your commit message with a past tense verb. Some examples might be:
-
-* "created new R script for data ingest"  
-* "started work on background info for analysis"
-* "added new year of data to samples.csv"  
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Commit your new R script and don't forget the quotes.
-</div>
+Committing files in Git is the backbone of the whole version control process. To do so, we'll use `git commit` with some additional information about what we're committing via a "commit message". Commit messages should be "short but informative", which means they should include enough information to help you and others understand what was done without being verbose.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The `-m` flag stands for "message".
+&nbsp; **Tip:** Mark recommends beginning your commit message with a past tense verb. For example,
+<ul>
+  <li>"created new R script for data ingest"</li>
+  <li>"started work on background info for analysis"</li>
+  <li>"added new year of data to samples.csv"</li>
+</ul>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your new R script and don't forget the quotes (the `-m` flag stands for "message").
 </div>
 
 **Input**
@@ -509,7 +477,7 @@ Date:   Fri Jan 13 09:05:06 2023 -0800
 ```
 
 <div class="boxy boxy-red boxy-exclamation">
-&nbsp; **Note:** The log lists all commits made to a repository in reverse chronological order, which includes::
+&nbsp; **Note:** The log lists all commits made to a repository in reverse chronological order, which includes:
 <ul>
   <li>a full 40-character identifier (i.e., the "SHA-1 checksum"), starting with the same 7 characters as the short identifier printed by the `git commit` command we used earlier</li>
   <li>the commit author's name and email address</li>
