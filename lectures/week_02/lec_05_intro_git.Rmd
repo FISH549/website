@@ -95,9 +95,53 @@ When you’re done working on a branch, you can merge your changes back to the m
 
 ***
 
+# Getting set up
+
+## Create a sandbox
+
+We'll begin by creating a so-called "sandbox" for playing around with the various features of Git. In this case, it is simply a folder (directory).
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Using the MacOS Finder or Windows Explorer, create a new folder (directory) on your Desktop and call it `tryout`.
+</div>
+
+## Set working directory
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open RStudio and set your working directory to the `tryout` folder (directory) you just created using the command line or menu options.
+</div>
+
+### Command line
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** `username` below is your user name on your computer.
+</div>
+
+**Mac**
+
+```sh
+> setwd("/Users/username/Desktop/tryout")
+```
+
+**Windows**
+
+```sh
+> setwd("C:/Desktop/tryout")
+```
+
+### RStudio menu
+
+![](images/rstudio_setwd.png)
+
+<br>
+
 # Using the command line
 
-We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. Begin by opening either **Terminal** (Mac OS) or **Bash** (Windows). The command shell will look a bit different depending on which OS you are using. In either case, `$` marks the beginning of the command line where you can start typing commands.
+We'll start by using Git via its standard command line interface, which means you'll have to do a bit of typing. In the future, you may very well choose to use Git via a graphical client (e.g., [GitHub Desktop](https://desktop.github.com/), [GitKraken](https://www.gitkraken.com/)) or directly within Rstudio, which you'll see in the next lesson. You might then be asking yourself, "Why do it via the command line?" As you start using Git more in your workflows, there is a very real possibility that you will want some assistance to fix a problem or undo a change. The advice you receive, either from someone you know or via online searches, will very likely involve direct Git syntax.
+
+Although you can use any suitable terminal interface (e.g.,  **Terminal** on Mac OS or Windows), we will use the terminal within RStudio itself. 
+
+In either case, `$` marks the beginning of the command line where you can start typing commands.
 
 **Mac OS**
 
