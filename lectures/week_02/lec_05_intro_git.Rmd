@@ -228,68 +228,9 @@ user.email=email@uw.edu
 
 ***
 
-# Setting up a repo
+# Initialize the repo
 
-## Create a new folder
-
-We'll begin by creating a new folder/directory from the command line.
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Create a new directory called `tryout`.
-</div>
-
-```sh
-$ mkdir ~/tryout
-```
-
-The function `mkdir` is short for "make directory"; it's not a Git command, so we don't have to preface it with `git`. The `~/` before `tryout` simply tells the operating system to create the new directory in the user's root directory.
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:**  Change directories to the new `tryout` folder.
-</div>
-
-```sh
-$ cd tryout
-```
-
-The command `cd` is short for "change directory". Notice that the `~` has now changed to `tryout` to indicate you are in the `tryout` folder.
-
-**Mac OS**
-
-```sh
-computername:tryout username$
-```
-
-**Windows**
-
-```sh
-username@computername /c/tryout
-$
-```
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can type `ls` to list the contents of a directory.
-</div>
-
-**Input**
-
-```sh
-$ ls
-```
-
-**Output**
-
-```sh
-$
-```
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** In this case, nothing happened because the folder is empty.
-</div>
-
-## Initialize the repo
-
-Before Git will start tracking the changes to files and folders, you need to "initialize" the project folder.
+Before Git will start tracking the changes to files and folders, you need to "initialize" your project folder.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:**  Go ahead and initialize the folder.
@@ -304,44 +245,8 @@ $ git init
 **Output**
 
 ```sh
-hint: Using 'master' as the name for the initial branch. This default branch name
-hint: is subject to change. To configure the initial branch name to use in all
-hint: of your new repositories, which will suppress this warning, call:
-hint: 
-hint: 	git config --global init.defaultBranch <name>
-hint: 
-hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
-hint: 	git branch -m <name>
-Initialized empty Git repository in /Users/username/tryout/.git/
+Initialized empty Git repository in /Users/[user-name]/Desktop/tryout/.git/
 ```
-
-You can see that Git responded to your command with a helpful reminder about branch names. In the not so distant past, Git and GitHub used the term "master" to refer to the main branch of a repo. However, in light of the negative connotations of the word, many have advocated to change it to "main", so Git is suggesting you might want to do that as well.
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:**  Go ahead and change your branch name to `main`.
-</div>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The `-m` option for `git branch` is short for "rename".
-</div>
-
-**Input**
-
-```sh
-$ git branch -m main
-```
-
-**Output**
-
-```sh
-$
-```
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** `git branch` is another silent command, so it won't return anything.
-</div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** The command `git status` will report all kinds of information related to the contents of a repo.
@@ -362,6 +267,14 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 ```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Here Git is telling us 3 things of interest:  
+&nbsp; &nbsp; 1. Our branch is set to `main`  
+&nbsp; &nbsp; 2. We have not yet made any commits  
+&nbsp; &nbsp; 3. There is nothing in the folder to commit
+</div>
+
 
 ***
 
