@@ -119,7 +119,7 @@ Alternatively, you can click through the following sequences from your profile p
 &nbsp; **Note:** There are 2 important things here:
 <ol>
   <li>Your PAT is just like a password. **DO NOT share it with anyone** (the example below has much of the PAT grayed out);</li>
-  <li>Make sure to copy/paste your PAT elsewhere before navigating away from this page.</li>
+  <li>Make sure to copy & paste your PAT elsewhere before navigating away from this page.</li>
 </ol>
 </div>
 
@@ -131,81 +131,133 @@ Alternatively, you can click through the following sequences from your profile p
 
 <br>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Jump down to the section on [storing your PAT](#store-your-pat) for future use and follow the instructions for doing so.
+</div>
+
+<br>
 
 ## PAT via `{usethis}`
 
-If you do not already have the `{usethis}` package installed, 
+You can also generate a PAT directly from within R by using the `{usethis}` package.
 
- `usethis::create_github_token()`
+<br>
 
-```{r eval = FALSE}
-usethis::create_github_token()
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you do not already have the `{usethis}` package installed, you will need to do so. Copy the code below, paste it into the R console, and run it.
+</div>
+
+```{r install_usethis, eval = FALSE}
+if(!require("usethis")) {
+  install.packages("usethis")
+}
 ```
 
-The usethis approach takes you to a pre-filled form where we have pre-selected some recommended scopes, which you can look over and adjust before clicking "Generate token".
-At the time of writing, the usethis-recommended scopes are "repo", "user", "gist", and "workflow".
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `create_github_token()` to open up the new tokens on GitHub.
+</div>
 
-```{r eval = FALSE}
-#| echo  = FALSE, fig.align='center', out.width="100%",
-#| fig.alt = "Screenshot: Getting a new personal access token on GitHub"
-knitr::include_graphics("img/new-personal-access-token-screenshot.png")
+**Input**
+
+```{r create_token, eval = FALSE}
+> usethis::create_github_token()
 ```
 
-It is a very good idea to describe the token's purpose in the *Note* field, because one day you might have multiple PATs.
-We recommend naming each token after its use case, such as the computer or project you are using it for, e.g. "personal-macbook-air" or "vm-for-project-xyz".
-In the future, you will find yourself staring at this list of tokens, because inevitably you'll need to re-generate or delete one of them.
-Make it easy to figure out which token you've come here to fiddle with.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Executing the above R command will respond with the following message and automatically open a new token page in GitHub specified by the URL. 
+</div>
 
-GitHub encourages the use of perishable tokens, with a default *Expiration* period of 30 days.
-Unless you have a specific reason to fight this, I recommend accepting this default.
-I assume that GitHub's security folks have good reasons for their recommendation.
-But, of course, you can adjust the *Expiration* behaviour as you see fit, including "No expiration".
+**Output**
 
-Once you're happy with the token's *Note*, *Expiration*, and *Scopes*, click "Generate token".
+```{r create_token_response, eval = FALSE}
+• Call `gitcreds::gitcreds_set()` to register this token in the local Git credential store
+  It is also a great idea to store this token in any password-management software that you use
+✔ Opening URL 'https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=DESCRIBE THE TOKEN\'S USE CASE'
+```
 
-You won't be able to see this token again, so don't close or navigate away from this browser window until you store the PAT locally.
-Copy the PAT to the clipboard, anticipating what we'll do next: trigger a prompt that lets us store the PAT in the Git credential store.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Note** field, give your new token an informative title that indicates its intended use.
+</div>
 
-Treat this PAT like a password!
-Do not ever hard-wire your PAT into your code!
-A PAT should always be retrieved implicitly, for example, from the Git credential store.
-We're about to help you store the PAT in a safe place, where command line Git, RStudio, and R packages can discover it.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** From the **Expiration** dropdown menu, select "60 days", which will be long enough to carry you through the quarter.
+</div>
 
-If you use a password management app, such as 1Password or LastPass (highly recommended!), you might want to also add this PAT (and its *Note*) to the entry for GitHub, where you're already storing your username and password.
-Storing your PAT in the Git credential store is a semi-persistent convenience, sort of like a browser cache or "remember me" on a website[^remember-me-haha] and it's conceivable you will need to re-enter your PAT in the future.
-You could decide to embrace the impermanence of your PAT and, if it somehow goes missing, you'll just [re-generate the PAT and re-store it](#regenerate-pat).
-If you accept the default 30-day expiration period, this is a workflow you'll be using often anyway.
-But if you create long-lasting tokens or want to feel free to play around with the functions for setting or clearing your Git credentials, it can be handy to have your own record of your PAT in a secure place, like 1Password or LastPass.
+![](images/gh_token_new_note.png)
 
-[^remember-me-haha]: Haha! We all know how well "remember me" works.
+<br>
 
-## Store your PAT {#store-pat}
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** The `create_github_token()` command will auto-select the following scopes: 
+<ul>
+  <li>**repo**</li>
+  <li>**workflow**</li>
+  <li>**gist**</li>
+  <li>**user**</li>
+</ul>
+</div>
 
-At this point, I assume you've generated a PAT and have it available, in one or both of these ways:
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down to the **Select scopes** section and check these additional boxes:
+<ul>
+  <li>**notifications**</li>
+  <li>**delete_repo**</li>
+  <li>**project**</li>
+</ul>
+</div>
 
-  * In a secure, long-term system for storing secrets, like 1Password or LastPass
-  * For the next few minutes, in a browser window or on the clipboard
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can read more about scopes and their definitions [here](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps).
+</div>
 
-There are a couple ways to get your PAT into the Git credential store:
+![](images/gh_token_scopes_3.png)
 
-  * Call an R function to explicitly store (or update) your credentials.
-  * Do something in command line Git or RStudio that triggers a credential
-    challenge.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When finished, click the green **Generate token** button.
+</div>
 
-### Call an R function to store your credentials
+![](images/gh_token_scopes_2.png)
 
-There are two R packages for accessing the Git credential store:
+<br>
 
-  * [gitcreds](https://r-lib.github.io/gitcreds/)
-  * [credentials](https://docs.ropensci.org/credentials/)
-    
-It is likely that these packages will eventually combine into one and, even now, they are largely interoperable.
-You don't need to follow the instructions for both packages -- pick one!
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** There are 2 important things here:
+<ol>
+  <li>Your PAT is just like a password. **DO NOT share it with anyone** (the example below has much of the PAT grayed out);</li>
+  <li>Make sure to copy & paste your PAT elsewhere before navigating away from this page.</li>
+</ol>
+</div>
 
-#### gitcreds package
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the blue double-boxes to copy your PAT to the clipboard.
+</div>
 
-If you don't have gitcreds installed, install via `install.packages("gitcreds")`.
-If you've installed usethis, you will already have gitcreds, because usethis uses gh and gh uses gitcreds.
+![](images/gh_token_warning.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Proceed to the next section and [store your PAT](#store-your-pat) for future use.
+</div>
+
+# Store your PAT
+
+Now that you've generated a PAT and have copied it to the clipboard, you need to store it for later use when interacting with GitHub via RStudio or the command line.
+
+If you use a password management app (e.g., **1Password**, **LastPass**) you might want to add your new PAT to the entry for GitHub, where presumably you've already stored your username and password when you created your account.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you misplace your PAT or it doesn't seem to be working, go ahead and [generate a new one](#generating-a-pat).
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you set an expiration date for your PAT (e.g., 60 days), you might want to set a calendar reminder to generate a new one in the future, so as to avoid the potential head-scratching problem of not being able to push commits to GitHub.
+</div>
+
+## Using `{gitcreds}`
+
+The [`{gitcreds}`](https://r-lib.github.io/gitcreds/) package was created specifically for reading and writing Git credentials from within R. It will have been installed along with the `{usethis}` package.
+
 
 Call `gitcreds::gitcreds_set()`.
 If you don't have a PAT stored already, it will prompt you to enter your PAT. Paste!
