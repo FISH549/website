@@ -17,6 +17,8 @@ Students are not required to purchase any materials for the course, as we will r
 
 [Creating a GitHub account](./references/github_signup.html)
 
+[Creating a GitHub Personal Access Token](./references/github_pat_creation.html)
+
 [Installing Git on Windows](./references/git_install_windows.html)
 
 <br>
