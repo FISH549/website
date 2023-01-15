@@ -1,0 +1,323 @@
+---
+title: "Creating a Personal Access Token (PAT)"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Personal Access Token (PAT)
+
+Personal access tokens (PATs) are an alternative to using passwords for authentication to GitHub when using the GitHub application programming interface (API) or the command line. Personal access tokens are intended to access GitHub resources on your behalf and **should never be shared with anyone else**.
+
+***
+
+# Generating a PAT
+
+Generating a PAT from within GitHub is relatively straightforward; there are two different ways shown below to access the settings. Once upon a time, PATs never expired, but now for security reasons there are options to have them expire after a set period of time, which you can set.
+
+## PAT via GitHub
+
+You can navigate directly to the tokens page in GitHub via https://github.com/settings/tokens.
+
+Alternatively, you can click through the following sequences from your profile page on GitHub.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on your profile pic (or default avatar) and select **Settings**.
+</div>
+
+![](images/gh_select_settings.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Scroll down to the bottom of the lefthand menu and select **<> Developer settings**.
+</div>
+
+![](images/gh_select_settings-dev-settings.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select **Tokens (classic)** from the lefthand menu.
+</div>
+
+![](images/gh_dev_settings_tokens.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Generate new token** dropdown menu and select **Generate new token (classic)**.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You will likely be prompted for your GitHub password. If so, enter into the box and click the green **Submit** button.
+</div>
+
+![](images/gh_new_token.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Note** field, give your new token an informative title that indicates its intended use.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** From the **Expiration** dropdown menu, select "60 days", which will be long enough to carry you through the quarter.
+</div>
+
+![](images/gh_token_new_note.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down to the **Select scopes** section and check the following boxes:
+<ul>
+  <li>**repo**</li>
+  <li>**workflow**</li>
+  <li>**gist**</li>
+  <li>**notifications**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can read more about scopes and their definitions [here](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps).
+</div>
+
+
+![](images/gh_token_scopes_1.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down further and check the following boxes:
+<ul>
+  <li>**user**</li>
+  <li>**delete_repo**</li>
+  <li>**project**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When finished, click the green **Generate token** button.
+</div>
+
+![](images/gh_token_scopes_2.png)
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** There are 2 important things here:
+<ol>
+  <li>Your PAT is just like a password. **DO NOT share it with anyone** (the example below has much of the PAT grayed out);</li>
+  <li>Make sure to copy & paste your PAT elsewhere before navigating away from this page.</li>
+</ol>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the blue double-boxes to copy your PAT to the clipboard.
+</div>
+
+![](images/gh_token_warning.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Jump down to the section on [storing your PAT](#store-your-pat) for future use and follow the instructions for doing so.
+</div>
+
+<br>
+
+## PAT via `{usethis}`
+
+You can also generate a PAT directly from within R by using the `{usethis}` package.
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you do not already have the `{usethis}` package installed, you will need to do so. Copy the code below, paste it into the R console, and run it.
+</div>
+
+```{r install_usethis, eval = FALSE}
+if(!require("usethis")) {
+  install.packages("usethis")
+}
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `usethis::create_github_token()` to open up the new tokens on GitHub.
+</div>
+
+**Input**
+
+```{r create_token, eval = FALSE}
+> usethis::create_github_token()
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Executing the above R command will respond with the following message and automatically open a new token page in GitHub specified by the URL. 
+</div>
+
+**Output**
+
+```{r create_token_response, eval = FALSE}
+• Call `gitcreds::gitcreds_set()` to register this token in the local Git credential store
+  It is also a great idea to store this token in any password-management software that you use
+✔ Opening URL 'https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=DESCRIBE THE TOKEN\'S USE CASE'
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Note** field, give your new token an informative title that indicates its intended use.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** From the **Expiration** dropdown menu, select "60 days", which will be long enough to carry you through the quarter.
+</div>
+
+![](images/gh_token_new_note.png)
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** The `create_github_token()` command will auto-select the following scopes: 
+<ul>
+  <li>**repo**</li>
+  <li>**workflow**</li>
+  <li>**gist**</li>
+  <li>**user**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down through the **Select scopes** section and check these additional boxes:
+<ul>
+  <li>**notifications**</li>
+  <li>**delete_repo**</li>
+  <li>**project**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can read more about scopes and their definitions [here](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps).
+</div>
+
+![](images/gh_token_scopes_3.png)
+
+![](images/gh_token_scopes_2.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When finished, click the green **Generate token** button.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** There are 2 important things here:
+<ol>
+  <li>Your PAT is just like a password. **DO NOT share it with anyone** (the example below has much of the PAT grayed out);</li>
+  <li>Make sure to copy & paste your PAT elsewhere before navigating away from this page.</li>
+</ol>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the blue double-boxes to copy your PAT to the clipboard.
+</div>
+
+![](images/gh_token_warning.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Proceed to the next section and [store your PAT](#store-your-pat) for future use.
+</div>
+
+***
+
+# Store your PAT
+
+Now that you've generated a PAT and have copied it to the clipboard, you need to store it for later use when interacting with GitHub via RStudio or the command line.
+
+If you use a third-party password manager (e.g., **1Password**), you might want to add your new PAT to the entry for GitHub, where presumably you've already stored your username and password when you created your account.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you misplace your PAT or it doesn't seem to be working, go ahead and [generate a new one](#generating-a-pat).
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you set an expiration date for your PAT (e.g., 60 days), you might want to set a calendar reminder to generate a new one in the future, so as to avoid the potential head-scratching problem of not being able to push commits to GitHub.
+</div>
+
+## Using `{gitcreds}`
+
+The [`{gitcreds}`](https://r-lib.github.io/gitcreds/) package was created specifically for reading and writing Git credentials from within R. It will have been installed along with the `{usethis}` package.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Before proceeding, make sure you have created a PAT and copied it to the clipboard.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `gitcreds::gitcreds_set()` to store your PAT. At the prompt, paste your newly created PAT and press 'return' ('enter') when you are ready.
+</div>
+
+**Input**
+
+```{r set_gitcreds, eval = FALSE}
+> gitcreds::gitcreds_set()
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The pasted PAT in the example below is `ghp_` followed by a string of `x`'s; your PAT will look different.
+</div>
+
+**Output**
+
+```{r paste_gitcreds, eval = FALSE}
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you already have a stored PAT, `gitcreds::gitcreds_set()` will respond with the following information. `[your-user-name]` will be your GitHub username. 
+</div>
+
+```{r gitcreds_already_set, eval = FALSE}
+-> Your current credentials for 'https://github.com':
+  protocol: https
+  host    : github.com
+  username: [your-user-name]
+  password: <-- hidden -->
+
+-> What would you like to do? 
+
+1: Keep these credentials
+2: Replace these credentials
+3: See the password / token
+
+Selection: 2
+-> Removing current credentials...
+? Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you have reason to believe your PAT was compromised or it's simply expired, first create a new one using the steps in this guide, and then select option `2: Replace these credentials` when calling `gitcreds::gitcreds_set()`. 
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can check that you've stored a credential with `gitcreds::gitcreds_get()`.
+</div>
+
