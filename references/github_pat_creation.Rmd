@@ -26,8 +26,111 @@ Generating a PAT is relatively straightforward and can be done from within GitHu
 
 ## PAT via GitHub
 
-On github.com, assuming you're signed in, you can manage your personal access tokens from <https://github.com/settings/tokens>, also reachable via *Settings > Developer settings > Personal access tokens*.
-You could click on "Generate new token" here or, 
+You can navigate directly to the tokens page in GitHub via
+
+https://github.com/settings/tokens
+
+Alternatively, you can click through the following sequences from your profile page on GitHub.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on your profile pic (or default avatar) and select **Settings**.
+</div>
+
+![](images/gh_select_settings.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Scroll down to the bottom of the lefthand menu and select **<> Developer settings**.
+</div>
+
+![](images/gh_select_settings-dev-settings.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select **Tokens (classic)** from the lefthand menu.
+</div>
+
+![](images/gh_dev_settings_tokens.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Generate new token** dropdown menu and select **Generate new token (classic)**.
+</div>
+
+![](images/gh_new_token.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When prompted, enter your GitHub password and click the green **Submit** button.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Note** field, give your new token an informative title that indicates its intended use.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** From the **Expiration** dropdown menu, select "60 days", which will be long enough to carry you through the quarter.
+</div>
+
+![](images/gh_token_new_note.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down to the **Select scopes** section and check the following boxes:
+<ul>
+  <li>**repo**</li>
+  <li>**gist**</li>
+  <li>**notifications**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can read more about scopes and their definitions [here](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps).
+</div>
+
+
+![](images/gh_token_scopes_1.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Scroll down further and check the following boxes:
+<ul>
+  <li>**user**</li>
+  <li>**delete_repo**</li>
+  <li>**project**</li>
+</ul>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When finished, click the green **Generate token** button.
+</div>
+
+![](images/gh_token_scopes_2.png)
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** There are 2 important things here:
+<ol>
+  <li>Your PAT is just like a password. **DO NOT share it with anyone** (the example below has much of the PAT grayed out);</li>
+  <li>Make sure to copy/paste your PAT elsewhere before navigating away from this page.</li>
+</ol>
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the blue double-boxes to copy your PAT to the clipboard.
+</div>
+
+![](images/gh_token_warning.png)
+
+<br>
+
 
 ## PAT via `{usethis}`
 
