@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GitHub remotes"
-date: "15 January 2023"
+date: "18 January 2023"
 output:
   html_document:
     theme: spacelab
@@ -42,11 +42,7 @@ There are several ways to connect a remote repository to your local computer. He
 ![](images/gh_copy_address.png)
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Start **RStudio**
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select *File* --> *New Project...*, which will bring up a dialogue box.
+**Task:** Open **RStudio** and select *File* > *New Project...*, which will bring up a dialogue box.
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
@@ -73,8 +69,8 @@ There are several ways to connect a remote repository to your local computer. He
 **Task:** In the **Repository URL** box, paste the full repo address from GitHub that you copied above.
 </div>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** `YOUR_USERNAME` in the location below should be *your* **GitHub** user name.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** `YOUR_USERNAME` in the location below should be *your* **GitHub** user name.
 </div>
 
 <br>
@@ -92,7 +88,7 @@ There are several ways to connect a remote repository to your local computer. He
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** I **strongly** suggest choosing a location that is not under some other version control software such as **Dropbox**.
+**Tip:** Mark **strongly** suggests choosing a location that is not under some other version control software such as **Dropbox**.
 </div>
 
 <br>
