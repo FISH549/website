@@ -1,0 +1,158 @@
+---
+title: "Creating a Personal Access Token (PAT)"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Personal Access Token (PAT)
+
+Personal access tokens (PATs) are an alternative to using passwords for authentication to GitHub when using the GitHub application programming interface (API) or the command line. Personal access tokens are intended to access GitHub resources on your behalf and **should never be shared with anyone else**.
+
+# Generating a PAT
+
+Generating a PAT is relatively straightforward and can be done from within GitHub itself or within R using the `{usethis}` package. Once upon a time, PATs never expired, but now for security reasons there are options to have them expire after a set period of time, which you can set.
+
+## PAT via GitHub
+
+On github.com, assuming you're signed in, you can manage your personal access tokens from <https://github.com/settings/tokens>, also reachable via *Settings > Developer settings > Personal access tokens*.
+You could click on "Generate new token" here or, 
+
+## PAT via `{usethis}`
+
+If you do not already have the `{usethis}` package installed, 
+
+ `usethis::create_github_token()`
+
+```{r eval = FALSE}
+usethis::create_github_token()
+```
+
+The usethis approach takes you to a pre-filled form where we have pre-selected some recommended scopes, which you can look over and adjust before clicking "Generate token".
+At the time of writing, the usethis-recommended scopes are "repo", "user", "gist", and "workflow".
+
+```{r eval = FALSE}
+#| echo  = FALSE, fig.align='center', out.width="100%",
+#| fig.alt = "Screenshot: Getting a new personal access token on GitHub"
+knitr::include_graphics("img/new-personal-access-token-screenshot.png")
+```
+
+It is a very good idea to describe the token's purpose in the *Note* field, because one day you might have multiple PATs.
+We recommend naming each token after its use case, such as the computer or project you are using it for, e.g. "personal-macbook-air" or "vm-for-project-xyz".
+In the future, you will find yourself staring at this list of tokens, because inevitably you'll need to re-generate or delete one of them.
+Make it easy to figure out which token you've come here to fiddle with.
+
+GitHub encourages the use of perishable tokens, with a default *Expiration* period of 30 days.
+Unless you have a specific reason to fight this, I recommend accepting this default.
+I assume that GitHub's security folks have good reasons for their recommendation.
+But, of course, you can adjust the *Expiration* behaviour as you see fit, including "No expiration".
+
+Once you're happy with the token's *Note*, *Expiration*, and *Scopes*, click "Generate token".
+
+You won't be able to see this token again, so don't close or navigate away from this browser window until you store the PAT locally.
+Copy the PAT to the clipboard, anticipating what we'll do next: trigger a prompt that lets us store the PAT in the Git credential store.
+
+Treat this PAT like a password!
+Do not ever hard-wire your PAT into your code!
+A PAT should always be retrieved implicitly, for example, from the Git credential store.
+We're about to help you store the PAT in a safe place, where command line Git, RStudio, and R packages can discover it.
+
+If you use a password management app, such as 1Password or LastPass (highly recommended!), you might want to also add this PAT (and its *Note*) to the entry for GitHub, where you're already storing your username and password.
+Storing your PAT in the Git credential store is a semi-persistent convenience, sort of like a browser cache or "remember me" on a website[^remember-me-haha] and it's conceivable you will need to re-enter your PAT in the future.
+You could decide to embrace the impermanence of your PAT and, if it somehow goes missing, you'll just [re-generate the PAT and re-store it](#regenerate-pat).
+If you accept the default 30-day expiration period, this is a workflow you'll be using often anyway.
+But if you create long-lasting tokens or want to feel free to play around with the functions for setting or clearing your Git credentials, it can be handy to have your own record of your PAT in a secure place, like 1Password or LastPass.
+
+[^remember-me-haha]: Haha! We all know how well "remember me" works.
+
+## Store your PAT {#store-pat}
+
+At this point, I assume you've generated a PAT and have it available, in one or both of these ways:
+
+  * In a secure, long-term system for storing secrets, like 1Password or LastPass
+  * For the next few minutes, in a browser window or on the clipboard
+
+There are a couple ways to get your PAT into the Git credential store:
+
+  * Call an R function to explicitly store (or update) your credentials.
+  * Do something in command line Git or RStudio that triggers a credential
+    challenge.
+
+### Call an R function to store your credentials
+
+There are two R packages for accessing the Git credential store:
+
+  * [gitcreds](https://r-lib.github.io/gitcreds/)
+  * [credentials](https://docs.ropensci.org/credentials/)
+    
+It is likely that these packages will eventually combine into one and, even now, they are largely interoperable.
+You don't need to follow the instructions for both packages -- pick one!
+
+#### gitcreds package
+
+If you don't have gitcreds installed, install via `install.packages("gitcreds")`.
+If you've installed usethis, you will already have gitcreds, because usethis uses gh and gh uses gitcreds.
+
+Call `gitcreds::gitcreds_set()`.
+If you don't have a PAT stored already, it will prompt you to enter your PAT. Paste!
+
+```{sh eval = FALSE}
+> gitcreds::gitcreds_set()
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+If you already have a stored credential, `gitcreds::gitcreds_set()` reveals this and will even let you inspect it.
+This helps you decide whether to keep the existing credential or replace it.
+When in doubt, embrace a new, known-to-be-good credential over an old one, of dubious origins.
+
+```{sh eval = FALSE}
+> gitcreds::gitcreds_set()
+-> Your current credentials for 'https://github.com':
+  protocol: https
+  host    : github.com
+  username: PersonalAccessToken
+  password: <-- hidden -->
+-> What would you like to do? 
+1: Keep these credentials
+2: Replace these credentials
+3: See the password / token
+Selection: 2
+-> Removing current credentials...
+? Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+You can check that you've stored a credential with `gitcreds_get()`:
+
+```{r eval = FALSE}
+gitcreds_get()
+#> <gitcreds>
+#>   protocol: https
+#>   host    : github.com
+#>   username: PersonalAccessToken
+#>   password: <-- hidden -->
+```
+
+Other functions that can help you feel confident about your PAT setup include:
+
+```{r eval = FALSE}
+usethis::gh_token_help()
+usethis::git_sitrep()
+gh::gh_whoami()
+```
