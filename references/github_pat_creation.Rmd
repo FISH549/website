@@ -20,15 +20,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Personal access tokens (PATs) are an alternative to using passwords for authentication to GitHub when using the GitHub application programming interface (API) or the command line. Personal access tokens are intended to access GitHub resources on your behalf and **should never be shared with anyone else**.
 
+***
+
 # Generating a PAT
 
-Generating a PAT is relatively straightforward and can be done from within GitHub itself or within R using the `{usethis}` package. Once upon a time, PATs never expired, but now for security reasons there are options to have them expire after a set period of time, which you can set.
+Generating a PAT from within GitHub is relatively straightforward; there are two different ways shown below to access the settings. Once upon a time, PATs never expired, but now for security reasons there are options to have them expire after a set period of time, which you can set.
 
 ## PAT via GitHub
 
-You can navigate directly to the tokens page in GitHub via
-
-https://github.com/settings/tokens
+You can navigate directly to the tokens page in GitHub via https://github.com/settings/tokens.
 
 Alternatively, you can click through the following sequences from your profile page on GitHub.
 
@@ -60,13 +60,13 @@ Alternatively, you can click through the following sequences from your profile p
 **Task:** Click on the **Generate new token** dropdown menu and select **Generate new token (classic)**.
 </div>
 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You will likely be prompted for your GitHub password. If so, enter into the box and click the green **Submit** button.
+</div>
+
 ![](images/gh_new_token.png)
 
 <br>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When prompted, enter your GitHub password and click the green **Submit** button.
-</div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** In the **Note** field, give your new token an informative title that indicates its intended use.
@@ -84,6 +84,7 @@ Alternatively, you can click through the following sequences from your profile p
 &nbsp; **Task:** Scroll down to the **Select scopes** section and check the following boxes:
 <ul>
   <li>**repo**</li>
+  <li>**workflow**</li>
   <li>**gist**</li>
   <li>**notifications**</li>
 </ul>
@@ -154,7 +155,7 @@ if(!require("usethis")) {
 ```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `create_github_token()` to open up the new tokens on GitHub.
+**Task:** Use `usethis::create_github_token()` to open up the new tokens on GitHub.
 </div>
 
 **Input**
@@ -198,7 +199,7 @@ if(!require("usethis")) {
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-&nbsp; **Task:** Scroll down to the **Select scopes** section and check these additional boxes:
+&nbsp; **Task:** Scroll down through the **Select scopes** section and check these additional boxes:
 <ul>
   <li>**notifications**</li>
   <li>**delete_repo**</li>
@@ -212,13 +213,13 @@ if(!require("usethis")) {
 
 ![](images/gh_token_scopes_3.png)
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When finished, click the green **Generate token** button.
-</div>
-
 ![](images/gh_token_scopes_2.png)
 
 <br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When finished, click the green **Generate token** button.
+</div>
 
 <div class="boxy boxy-red boxy-exclamation">
 &nbsp; **Note:** There are 2 important things here:
@@ -240,11 +241,13 @@ if(!require("usethis")) {
 **Task:** Proceed to the next section and [store your PAT](#store-your-pat) for future use.
 </div>
 
+***
+
 # Store your PAT
 
 Now that you've generated a PAT and have copied it to the clipboard, you need to store it for later use when interacting with GitHub via RStudio or the command line.
 
-If you use a password management app (e.g., **1Password**, **LastPass**) you might want to add your new PAT to the entry for GitHub, where presumably you've already stored your username and password when you created your account.
+If you use a third-party password manager (e.g., **1Password**), you might want to add your new PAT to the entry for GitHub, where presumably you've already stored your username and password when you created your account.
 
 <div class="boxy boxy-red boxy-exclamation">
 **Note:** If you misplace your PAT or it doesn't seem to be working, go ahead and [generate a new one](#generating-a-pat).
