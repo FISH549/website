@@ -258,33 +258,50 @@ If you use a password management app (e.g., **1Password**, **LastPass**) you mig
 
 The [`{gitcreds}`](https://r-lib.github.io/gitcreds/) package was created specifically for reading and writing Git credentials from within R. It will have been installed along with the `{usethis}` package.
 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Before proceeding, make sure you have created a PAT and copied it to the clipboard.
+</div>
 
-Call `gitcreds::gitcreds_set()`.
-If you don't have a PAT stored already, it will prompt you to enter your PAT. Paste!
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `gitcreds::gitcreds_set()` to store your PAT. At the prompt, paste your newly created PAT and press 'return' ('enter') when you are ready.
+</div>
 
-```{sh eval = FALSE}
+**Input**
+
+```{r set_gitcreds, eval = FALSE}
 > gitcreds::gitcreds_set()
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The pasted PAT in the example below is `ghp_` followed by a string of `x`'s; your PAT will look different.
+</div>
+
+**Output**
+
+```{r paste_gitcreds, eval = FALSE}
 ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 -> Adding new credentials...
 -> Removing credentials from cache...
 -> Done.
 ```
 
-If you already have a stored credential, `gitcreds::gitcreds_set()` reveals this and will even let you inspect it.
-This helps you decide whether to keep the existing credential or replace it.
-When in doubt, embrace a new, known-to-be-good credential over an old one, of dubious origins.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you already have a stored PAT, `gitcreds::gitcreds_set()` will respond with the following information. `[your-user-name]` will be your GitHub username. 
+</div>
 
-```{sh eval = FALSE}
-> gitcreds::gitcreds_set()
+```{r gitcreds_already_set, eval = FALSE}
 -> Your current credentials for 'https://github.com':
   protocol: https
   host    : github.com
-  username: PersonalAccessToken
+  username: [your-user-name]
   password: <-- hidden -->
+
 -> What would you like to do? 
+
 1: Keep these credentials
 2: Replace these credentials
 3: See the password / token
+
 Selection: 2
 -> Removing current credentials...
 ? Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -293,21 +310,11 @@ Selection: 2
 -> Done.
 ```
 
-You can check that you've stored a credential with `gitcreds_get()`:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you have reason to believe your PAT was compromised or it's simply expired, first create a new one using the steps in this guide, and then select option `2: Replace these credentials` when calling `gitcreds::gitcreds_set()`. 
+</div>
 
-```{r eval = FALSE}
-gitcreds_get()
-#> <gitcreds>
-#>   protocol: https
-#>   host    : github.com
-#>   username: PersonalAccessToken
-#>   password: <-- hidden -->
-```
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can check that you've stored a credential with `gitcreds::gitcreds_get()`.
+</div>
 
-Other functions that can help you feel confident about your PAT setup include:
-
-```{r eval = FALSE}
-usethis::gh_token_help()
-usethis::git_sitrep()
-gh::gh_whoami()
-```
