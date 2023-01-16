@@ -36,7 +36,7 @@ As its name might suggest, a `.gitignore` file specifies folders or files that G
     
     - All paths are relative to the location of the `.gitignore` file (e.g., `data/science/` matches the `data/science` directory, but not the `x/data/science` directory_.
 
-* An asterisk `*` is a wild card that matches anything except a forward slash `/` (e.g., `data/*` would ignore everything in the data folder). The question mark `?` matches any **single** character except a forward slash `/`.
+* An asterisk `*` is a wild card that matches anything except a forward slash `/` (e.g., `data/*` would ignore everything in the data folder). The question mark `?` matches any _single_ character except a forward slash `/`.
 
 ***
 
@@ -46,5 +46,8 @@ There are several reasons you might use a `.gitignore` file. At a philosophical 
 
 ***
 
+# How to use a `.gitignore` file?
+
+When you place a folder/directory under version control via Git (e.g., `git init`), Git does not automatically create a `.gitignore` file so you have to do so manually. In general, the exclusions you include in any `.gitignore` file should be specific to the project and its associated folders/directories and files. When you create a new repo in GitHub, you have the option of creating a `.gitignore` file based upon a variety of templates for common project or coding types (e.g., R, Python).
 
 
