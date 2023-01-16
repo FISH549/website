@@ -46,8 +46,112 @@ There are several reasons you might use a `.gitignore` file. At a philosophical 
 
 ***
 
-# How to use a `.gitignore` file?
+# Using a `.gitignore` file
 
 When you place a folder/directory under version control via Git (e.g., `git init`), Git does not automatically create a `.gitignore` file so you have to do so manually. In general, the exclusions you include in any `.gitignore` file should be specific to the project and its associated folders/directories and files. When you create a new repo in GitHub, you have the option of creating a `.gitignore` file based upon a variety of templates for common project or coding types (e.g., R, Python).
+
+***
+
+# Global `.gitignore` file
+
+There may be some files or file types that you would _never_ want to track via Git. Fortunately, Git allows you to specify a global `.gitignore` file, such that any exclusions listed in it will apply to _any_ folder/directory under Git's version control.
+
+### Locating your global `.gitignore`
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can check if you have a global `.gitignore` file, and where it's located, with the following command.
+</div>
+
+```sh
+git config --get core.excludesfile
+```
+
+The default location for the global file is typically one of the following (where `[user-name]` is your user name on your computer).
+
+**Mac or Linux**
+
+```sh
+/Users/[user-name]/.config/git/ignore
+```
+
+**Windows**
+
+```sh
+C:\Users\[user-name]\.config\git\ignore
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If the above command returns a different path/file, make note of the location, as you will need to edit it below.
+</div>
+
+### Defining your global `.gitignore`
+
+If you don't have a global `.gitignore` file defined, or if you'd like to change it, you can use the following code to do so.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Switch to the user's root directory.
+</div>
+
+```sh
+$ cd ~
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new global ignore file called `.gitignore_global`
+</div>
+
+```sh
+$ touch .gitignore_global
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Tell Git where to find the global ignore file.
+</div>
+
+```sh
+$ git config --global core.excludesfile ~/.gitignore_global
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to your newly created `.gitignore_global` and open (double-click) on it.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Files beginning with a period `.` are generally hidden from view. <br>
+
+&nbsp; To see hidden files on a Mac, press `shift + command + .`. <br>
+
+&nbsp; On Windows, do the following:
+<ol>
+  <li>Open **File Explorer**.</li>
+  <li>Select _View_ > _Options_ > _Change folder and search options_.</li>
+  <li>Select the **View** tab and, in **Advanced settings**, select _Show hidden files, folders, and drives_.</li>
+  <li>Click **OK**.</li>
+</ol>
+</div>
+
+![](images/global_gitignore_location.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the following lines to `.gitignore_global` and save it.
+</div>
+
+```sh
+## Mac temporary file
+.DS_Store
+
+## Windows temporary thumbnail file
+Thumbs.db
+
+## Studio project file
+*.Rproj
+```
+
+![](images/gitignore_global_edit.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a global excludes file for ignoring files you don't want Git to track.
+</div>
+
 
 
