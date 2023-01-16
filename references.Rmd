@@ -21,6 +21,8 @@ Students are not required to purchase any materials for the course, as we will r
 
 [Installing Git on Windows](./references/git_install_windows.html)
 
+[Ignoring files in Git](./references/set_global_gitignore.html)
+
 <br>
 
 ## Online books
