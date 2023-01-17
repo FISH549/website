@@ -1,5 +1,5 @@
 ---
-title: "Creating a global `.gitignore` file"
+title: "Ignoring files in Git"
 output:
   html_document:
     theme: spacelab
