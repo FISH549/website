@@ -59,7 +59,7 @@ There may be some files or file types that you would _never_ want to track via G
 ### Locating your global `.gitignore`
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can check if you have a global `.gitignore` file, and where it's located, with the following command.
+**Tip:** You can check if you have a global `.gitignore` file, and where it's located, by typing the following command in the **Terminal**.
 </div>
 
 ```sh
@@ -89,7 +89,11 @@ C:\Users\[user-name]\.config\git\ignore
 If you don't have a global `.gitignore` file defined, or if you'd like to change it, you can use the following code to do so.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Switch to the user's root directory.
+**Task:** Open RStudio and switch to the **Terminal** window.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Switch folders/directories to the user's root folder/directory.
 </div>
 
 ```sh
