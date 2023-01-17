@@ -5479,7 +5479,7 @@ a backslash (i.e., <code>\#</code>).</p></li>
 other lines or blocks of code and improve readability.</p></li>
 <li><p>Trailing spaces are ignored unless they are preceded by a
 backslash (e.g., <code>\</code>).</p></li>
-<li><p>Use a forward slash <code>/</code> to separate directories.</p>
+<li><p>Use a forward slash (<code>/</code>) to separate directories.</p>
 <ul>
 <li><p>A <code>/</code> may occur at the beginning, middle or end of the
 <code>.gitignore</code> search pattern.</p></li>
@@ -5495,7 +5495,7 @@ the <code>data/science</code> directory, but not the
 <code>x/data/science</code> directory_.</p></li>
 </ul></li>
 <li><p>An asterisk <code>*</code> is a wild card that matches anything
-except a forward slash <code>/</code> (e.g., <code>data/*</code> would
+except a forward slash (<code>/</code>) (e.g., <code>data/*</code> would
 ignore everything in the data folder). The question mark <code>?</code>
 matches any <em>single</em> character except a forward slash
 <code>/</code>.</p></li>
@@ -5520,7 +5520,7 @@ updated and shared with your team members via different means.</p>
 <h1>Using a <code>.gitignore</code> file</h1>
 <p>When you place a folder/directory under version control via Git
 (e.g., <code>git init</code>), Git does not automatically create a
-<code>.gitignore</code> file so you have to do so manually. In general,
+<code>.gitignore</code> file, so you have to do so manually. In general,
 the exclusions you include in any <code>.gitignore</code> file should be
 specific to the project and its associated folders/directories and
 files. When you create a new repo in GitHub, you have the option of
@@ -5567,6 +5567,12 @@ if you’d like to change it, you can use the following code to do so.</p>
 <p><strong>Task:</strong> Switch folders/directories to the user’s root
 folder/directory.</p>
 </div>
+<div class="boxy boxy-red boxy-exclamation">
+<p><strong>Note:</strong> Here we are going to place the global ignore
+file in the user’s root directory, which is designated by <code>~</code>
+(i.e., <code>/Users/[user-name]/</code> or
+<code>C:\Users\[user-name]\</code>).</p>
+</div>
 <pre class="sh"><code>$ cd ~</code></pre>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Create a new global ignore file called
@@ -5580,7 +5586,7 @@ file.</p>
 <pre class="sh"><code>$ git config --global core.excludesfile ~/.gitignore_global</code></pre>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Navigate to your newly created
-<code>.gitignore_global</code> and open (double-click) on it.</p>
+<code>.gitignore_global</code> and open (double-click) it.</p>
 </div>
 <div class="boxy boxy-orange boxy-lightbulb">
 <p><strong>Tip:</strong> Files beginning with a period <code>.</code>
