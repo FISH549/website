@@ -56,7 +56,7 @@ It *should not* be a burden
 ![](images/central_work.svg)
 
 
-## Centralized workflow | John works on his code
+## Centralized workflow | Juan works on his code
 
 ![](images/central_ex_1.svg)
 
@@ -69,7 +69,7 @@ It *should not* be a burden
 ![](images/central_ex_2.svg)
 
 
-## Centralized workflow | John pushes his commits `(git push origin main)`
+## Centralized workflow | Juan pushes his commits `(git push origin main)`
 
 ![](images/central_ex_3.svg)
 
@@ -158,12 +158,12 @@ git checkout -b marys-feature main
 ![](images/branch_ex_3.svg)
 
 
-## Feature branch | John receives pull request
+## Feature branch | Juan receives pull request
 
 ![](images/branch_ex_4.svg)
 
 
-## Feature branch | John & Mary discuss changes
+## Feature branch | Juan & Mary discuss changes
 
 ![](images/branch_ex_4.svg)
 
@@ -173,7 +173,7 @@ git checkout -b marys-feature main
 ![](images/branch_ex_5.svg)
 
 
-## Feature branch | Changes are accepted & merged (by John or Mary)
+## Feature branch | Changes are accepted & merged (by Juan or Mary)
 
 ![](images/branch_ex_6.svg)
 
