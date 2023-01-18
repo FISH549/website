@@ -219,33 +219,50 @@ Now let's take the advice we received earlier about creating a "pull request".
 
 <br>
 
-Go ahead and click on the green **Compare & pull request** button, which will take you to a page to *open a pull request*. At the top you will see some information about the branches from which and to where the changes will be merged, along with a note about the branches being okay to merge. If you scroll down the page, you'll see the changes that were committed, when they were made, and who did it.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green **Compare & pull request** button, which will take you to a page to *open a pull request*.
+</div>
 
-![](images/feature_gh_pr_top.png)
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** At the top you will see some information about the branches from which and to where the changes will be merged, along with a note about the branches being okay to merge. If you scroll down the page, you'll see the changes that were committed, when they were made, and who did it.
+</div>
 
-![](images/feature_gh_pr_bottom.png)
+![](images/feature_gh_pr_page.png)
 
 <br>
 
-Now click on the green **Create pull request** button, which will take you to another page where you can review any comments (here there are none) and merge the pull request. In the middle of the page, you'll see a note about **This branch has no conflicts with the base branch** and a green button labeled **Merge pull request**. Go ahead and push that button.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If your pull request involves multiple files, features, etc, it's a good idea to include some additional information in the comment box (this can include Markdown flavored text).
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green **Create pull request** button, which will take you to another page where you can review any comments (here there are none) and merge the pull request. In the middle of the page, you'll see a note about **This branch has no conflicts with the base branch** and a green button labeled **Merge pull request**. Go ahead and push that button.
+</div>
+
 
 ![](images/feature_gh_pr_merge.png)
 
 <br>
 
-At this point, the window will switch over to asking you to confirm the merge. Go ahead and click on the green **Confirm merge** button.
+At this point, the window will switch over to asking you to confirm the merge.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and click on the green **Confirm merge** button.
+</div>
 
 ![](images/feature_gh_pr_merge_confirm.png)
 
 <br>
 
-After doing so, GitHub will now report **Pull request successfully merged and closed** (you'll also notice that the green **Open** oval below the name of the pull request has changed to a purple **Merged** oval). GitHub also tells you that "You’re all set—the `develop` branch can be safely deleted."
+After doing so, GitHub will now report **Pull request successfully merged and closed** (you'll also notice that the green **Open** oval below the name of the pull request has changed to a purple **Merged** oval). GitHub also tells you that "You’re all set--the `develop` branch can be safely deleted."
 
 ![](images/feature_gh_pr_merge_success.png)
 
 <br>
 
-If your branch was created solely for the purpose of working on a specific feature, then you can go ahead and delete it. If, however, you want to maintain a development (or other) branch, then you can just ignore this message and keeping working on it as well.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If your branch was created solely for the purpose of working on a specific feature, then you can go ahead and delete it. If, however, you want to maintain a development (or other) branch, then you can just ignore this message and keeping working on it as well.
+</div>
 
 ***
 
