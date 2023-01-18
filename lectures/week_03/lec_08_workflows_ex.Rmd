@@ -34,7 +34,7 @@ Imagine Juan sits down to work on his new **testing** project that Mary and Aish
 
 <br>
 
-Everything is up to date, so Juan works on the **R** script for doing some simple math operations. He adds 2 lines to the script to demonstrate a subtraction operation, and then saves his changes.
+Everything is up to date, so Juan works on the R script for doing some simple math operations. He adds 2 lines to the script to demonstrate a subtraction operation, and then saves his changes.
 
 ![](images/central_new_lines_code.png)
 
@@ -56,7 +56,9 @@ The last step before Juan takes a break is to **push** his local commit up to th
 
 <br>
 
-Oops--that did not go as expected! What went wrong? Well, Git is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Mary was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Mary made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from Git, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
+Oops--that did not go as expected!
+
+What went wrong? Git is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Mary was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Mary made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from Git, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
 
 Juan goes ahead and pulls Mary's recent changes to his local repo, which issues another warning about a so-called *merge conflict* in `R/00_testing.R` that Juan will have to fix.
 
@@ -64,9 +66,11 @@ Juan goes ahead and pulls Mary's recent changes to his local repo, which issues 
 
 <br>
 
+## Merge conflicts
+
 When Juan inspects his version of `00_testing.R` he sees that Git has added some information to the script, which brackets the new changes that both Juan and Mary made:
 
-```
+```{r eval = FALSE}
 <<<<<<< HEAD
 ## subtraction
 num - den
@@ -80,9 +84,21 @@ num + demo
 
 <br>
 
-You can think of these new lines as "conflict dividers". The `=======` line is the center of the conflict. Everything between `<<<<<<< HEAD` and `=======` is content that exists in the local repo to which the `HEAD` ref is pointing. Everything between `=======` and `>>>>>>> d1ab55e3cf1979efd0a61954305f742cfbb38e11` is content that is present in the remote repo.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can think of these new lines as "conflict dividers".
+</div>
 
-At this point, it would be a good idea for Juan to contact Mary and find out what her plans are, so he can avoid this problem in the future. After confirming that Mary is done making changes for awhile, Juan can return to resolving the current merge conflict. To do so, Juan inspects the new changes that Mary made and decides if he wants to merge them into his version of the file, or whether he wants to discard them. In this case, Juan is happy with the new addition operation that Mary made, so he accepts them by simply deleting the conflict dividers.
+The `=======` line is the center of the conflict.
+
+Everything between `<<<<<<< HEAD` and `=======` is content that exists in the *local* repo to which the `HEAD` ref is pointing.
+
+Everything between `=======` and `>>>>>>> d1ab55e3cf1979efd0a61954305f742cfbb38e11` is content that is present in the *remote* repo.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** At this point, it would be a good idea for Juan to contact Mary and find out what her plans are, so he can avoid this problem in the future.
+</div>
+
+After confirming that Mary is done making changes for awhile, Juan can return to resolving the current merge conflict. To do so, Juan inspects the new changes that Mary made and decides if he wants to merge them into his version of the file, or whether he wants to discard them. In this case, Juan is happy with the new addition operation that Mary made, so he accepts them by simply deleting the conflict dividers.
 
 ![](images/central_merge_resolve.png)
 
@@ -100,7 +116,11 @@ Now Juan can commit his resolved changes and push them to the remote repo.
 
 Now Juan is all set on his side, but Mary should make sure that she pulls Juan's changes to her local repo before she starts working on the script again.
 
-This scenario does not necessarily require two or more collaborators. For example, I know from personal experience that someone can do some work on a computer in their office, commit those changes, and then forget to push them before heading home. Upon arriving home, you could pull your changes to your laptop, make additional changes, and then commit and push them to the remote. Upon returning back to the office, you can encounter problems with committing a pushing those changes you forgot about the day before.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** This scenario does not necessarily require two or more collaborators. 
+</div>
+
+For example, Mark knows from personal experience that someone can do some work on a computer in their office, commit those changes, and then forget to push them before heading home. Upon arriving home, they could pull their changes to their laptop, make additional changes, commit them, and then push them to the remote repo. Upon returning back to the office, they can encounter problems with committing and pushing those changes they forgot about the day before.
 
 ***
 
@@ -108,10 +128,12 @@ This scenario does not necessarily require two or more collaborators. For exampl
 
 The feature branch workflow is designed around multiple *branches* within a repo. These branches can contain copies of files on the `main` branch, and are typically used for the development of specific features.
 
+# Create a branch
+
 Let's look at two different ways to create a new branch.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Skip the following instructions for creating a new branch from within GitHub. We'll use the second approach here.
+**Task:** Review these instructions for creating a new branch from within GitHub, but don't follow through with them. We'll instead use the second approach shown below.
 </div>
 
 The first is from GitHub itself. To do so, navigate to the remote repo and click on the button marked **main** in the upper left. This will open a dialogue box with a line for you to find or create a branch. Type the name of the new branch (e.g., "develop") and then hit "return".
@@ -134,17 +156,24 @@ The second option for creating a new branch, which we'll follow here, is to do s
 &nbsp; **Note:** At this point, you'll see a message window from Git with the following information:
 <ul>
   <li>lines 1-2: Git created a new branch and switched over to it with `git checkout -B develop`</li>
-  <li>lines 3-10: Git pushed all of your local files to the `develop` branch on the remote GitHub repo.</li>
+  <li>lines 3-10: Git pushed all of your local files to a newly created `develop` branch on the remote GitHub repo.</li>
 </ul>
 You should also note that Git is suggesting you create a so-called *pull request* to move changes from the `develop` branch into the `main` branch by navigating to your remote repo on GitHub.
 </div>
   
-
 ![](images/feature_new_branch_rstudio_window.png)
 
 <br>
 
-Let's go ahead and make a small change to our **R** test script (note that the following assumes you have not already made these changes in the above section on **Centralized workflow**). After doing so, we'll commit and push the changes on the `develop` branch up to our remote repo on GitHub.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you navigate back to the **testing** repo on GitHub and refresh your browser, you will see that there are now 2 branches there: main and develop.
+</div>
+
+![](images/gh_repo_both_branches.png)
+
+<br>
+
+Let's go ahead and make a small change to our R test script (note that the following assumes you have not already made these changes in the above section on **Centralized workflow**). After doing so, we'll commit and push the changes on the `develop` branch up to our remote repo on GitHub.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Add the following 2 lines of code to the `00_testing.R` script. Save the changes when you are finished.
@@ -384,7 +413,7 @@ Go ahead and close the window and you will see that the branch name in the **Git
 
 Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH497`).
 
-Go ahead and make a simple **R** script and commit it (I'm calling mine `simple_addition.R`).
+Go ahead and make a simple R script and commit it (I'm calling mine `simple_addition.R`).
 
 ![](images/gh_fork_ex_script.png)
 
