@@ -6,6 +6,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -49,13 +50,13 @@ After basking in the glow of his wonderful new code, Juan decides he should take
 
 <br>
 
-The last step before Juan takes a break is to **push** his local commit up to the shared repo on **GitHub**.
+The last step before Juan takes a break is to **push** his local commit up to the shared repo on GitHub.
 
 ![](images/central_push_fail.png)
 
 <br>
 
-Oops--that did not go as expected! What went wrong? Well, **Git** is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Mary was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Mary made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from **Git**, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
+Oops--that did not go as expected! What went wrong? Well, Git is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Mary was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Mary made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from Git, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
 
 Juan goes ahead and pulls Mary's recent changes to his local repo, which issues another warning about a so-called *merge conflict* in `R/00_testing.R` that Juan will have to fix.
 
@@ -63,7 +64,7 @@ Juan goes ahead and pulls Mary's recent changes to his local repo, which issues 
 
 <br>
 
-When Juan inspects his version of `00_testing.R` he sees that **Git** has added some information to the script, which brackets the new changes that both Juan and Mary made:
+When Juan inspects his version of `00_testing.R` he sees that Git has added some information to the script, which brackets the new changes that both Juan and Mary made:
 
 ```
 <<<<<<< HEAD
@@ -107,35 +108,83 @@ This scenario does not necessarily require two or more collaborators. For exampl
 
 The feature branch workflow is designed around multiple *branches* within a repo. These branches can contain copies of files on the `main` branch, and are typically used for the development of specific features.
 
-There are two different ways to create a new branch. The first is from **GitHub** itself. To do so, navigate to the remote repo and click on the button marked **main** in the upper left. This will open a dialogue box with a line for you to find or create a branch. Go ahead and type the name of the new branch (e.g., `develop`) and then hit "return".
+Let's look at two different ways to create a new branch.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Skip the following instructions for creating a new branch from within GitHub. We'll use the second approach here.
+</div>
+
+The first is from GitHub itself. To do so, navigate to the remote repo and click on the button marked **main** in the upper left. This will open a dialogue box with a line for you to find or create a branch. Type the name of the new branch (e.g., "develop") and then hit "return".
 
 ![](images/feature_new_branch_gh.png)
 
 <br>
 
-The second option for creating a new branch, which we'll follow here, is to do so from within **RStudio**. Go ahead and click on the purple button with 2 rectangles and a diamond in the **Git** pane, which will bring up a dialogue window where you can enter the name of the new branch. We'll call it `develop` and press the **Create** button when we're done.
+The second option for creating a new branch, which we'll follow here, is to do so from within RStudio.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the purple button with 2 rectangles and a diamond in the **Git** pane, which will bring up a dialogue window where you can enter the name of your new branch (we'll call it "develop"). Press the **Create** button when you're done.
+</div>
 
 ![](images/feature_new_branch_rstudio.png)
 
 <br>
 
-At this point, you'll see a message window from **Git** telling you it created a new branch and switched over to it with `git checkout -B develop`. The next line says that **Git** pushed all of your local files to the `develop` branch on the remote **GitHub** repo. You should also note that **Git** is suggesting you create a so-called *pull request* to move changes from the `develop` branch into the `main` branch by navigating to your remote repo on GitHub. 
+<div class="boxy boxy-red boxy-exclamation">
+&nbsp; **Note:** At this point, you'll see a message window from Git with the following information:
+<ul>
+  <li>lines 1-2: Git created a new branch and switched over to it with `git checkout -B develop`</li>
+  <li>lines 3-10: Git pushed all of your local files to the `develop` branch on the remote GitHub repo.</li>
+</ul>
+You should also note that Git is suggesting you create a so-called *pull request* to move changes from the `develop` branch into the `main` branch by navigating to your remote repo on GitHub.
+</div>
+  
 
 ![](images/feature_new_branch_rstudio_window.png)
 
 <br>
 
-Let's go ahead and make a small change to our **R** test script (note that the following assumes you have not already made these changes in the above section on **Centralized workflow**). After doing so, we'll commit and push the changes on the `develop` branch up to our remote repo on **GitHub**.
+Let's go ahead and make a small change to our **R** test script (note that the following assumes you have not already made these changes in the above section on **Centralized workflow**). After doing so, we'll commit and push the changes on the `develop` branch up to our remote repo on GitHub.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the following 2 lines of code to the `00_testing.R` script. Save the changes when you are finished.
+</div>
 
 ![](images/feature_new_lines_in_testing.png)
 
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the file to staging and commit it. Include a _short but informative_ commit message and click the **Commit** button when ready.
+</div>
+
 ![](images/feature_new_commit.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green uparrow next to "Push" to push your changes to GitHub.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** RStudio will pop open a window echoing your push command and the destination.
+</div>
 
 ![](images/feature_new_commit_push.png)
 
 <br>
 
-Now let's take the advice we received earlier and navigate to our repo on **GitHub**. Upon arriving there, we see a message that "**develop** had recent pushes less than a minute ago". To the right of that is a green button marked **Compare & pull request**.
+## Pull requests
+
+Now let's take the advice we received earlier about creating a "pull request".
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to your testing repo on GitHub.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Upon arriving there, we see a message that "**develop** had recent pushes less than a minute ago". To the right of that is a green button marked **Compare & pull request**.
+</div>
 
 ![](images/feature_gh_pr_notice.png)
 
@@ -161,7 +210,7 @@ At this point, the window will switch over to asking you to confirm the merge. G
 
 <br>
 
-After doing so, **GitHub** will now report **Pull request successfully merged and closed** (you'll also notice that the green **Open** oval below the name of the pull request has changed to a purple **Merged** oval). **GitHub** also tells you that "You’re all set—the `develop` branch can be safely deleted."
+After doing so, GitHub will now report **Pull request successfully merged and closed** (you'll also notice that the green **Open** oval below the name of the pull request has changed to a purple **Merged** oval). GitHub also tells you that "You’re all set—the `develop` branch can be safely deleted."
 
 ![](images/feature_gh_pr_merge_success.png)
 
@@ -173,7 +222,7 @@ If your branch was created solely for the purpose of working on a specific featu
 
 # Forking workflow
 
-Recall that a forking workflow is commonly used when a developer is *not* a member of the project/organization on **GitHub**. This workflow allows the developer to work with a copy of the owner's repo and potentially submit a pull request for the owner to consider adopting the changes.
+Recall that a forking workflow is commonly used when a developer is *not* a member of the project/organization on GitHub. This workflow allows the developer to work with a copy of the owner's repo and potentially submit a pull request for the owner to consider adopting the changes.
 
 ## Step 1: Fork the repo
 
@@ -181,7 +230,7 @@ Recall that a forking workflow is commonly used when a developer is *not* a memb
 
 <br>
 
-To fork a repo, navigate to its location on **GitHub** and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and **GitHub** will do the rest.
+To fork a repo, navigate to its location on GitHub and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and GitHub will do the rest.
 
 ![](images/gh_fork_orig_repo.png)
 
@@ -199,7 +248,7 @@ You will now see a new forked version of the original repository with some infor
 
 <br>
 
-Now you should clone the remote repo to a local repo by creating a new project in **RStudio** based upon the newly forked repo. Click [here](https://fish497.github.io/website/lectures/week_02/lec_06_git_remotes.html) if you need a reminder as to how to do that.
+Now you should clone the remote repo to a local repo by creating a new project in RStudio based upon the newly forked repo. Click [here](https://fish497.github.io/website/lectures/week_02/lec_06_git_remotes.html) if you need a reminder as to how to do that.
 
 <br>
 
@@ -231,7 +280,7 @@ git remote add upstream https://github.com/FISH497/ex-fork
 
 ### Option 2: RStudio
 
-Open up your project in **Rstudio** and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
+Open up your project in RStudio and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
 
 ![](images/gh_fork_rs_add_remote_1.png)
 
@@ -286,7 +335,7 @@ upstream        https://github.com/FISH497/ex-fork (push)
 
 Now you are ready to make any changes you'd like to the files or folders in your local repo. However, **before doing so**, make sure to **pull** any changes that might have been made to the owner's `upstream` remote. 
 
-To do so, again navigate to the **Terminal** tab in **RStudio** and type:
+To do so, again navigate to the **Terminal** tab in RStudio and type:
 
 ```
 $ git pull upstream main --ff-only
@@ -303,7 +352,7 @@ Already up to date.
 
 ### Setting the local branch
 
-In this example, if you examine either the owner's original repo or your forked copy on **GitHub**, you'll notice that they both contain 2 branches: `main` and `develop`. However, if you inspect the branches in your current project in **Rstudio**, you'll see that only `main` exists there.
+In this example, if you examine either the owner's original repo or your forked copy on GitHub, you'll notice that they both contain 2 branches: `main` and `develop`. However, if you inspect the branches in your current project in RStudio, you'll see that only `main` exists there.
 
 ![](images/gh_fork_branch_view_1.png)
 
@@ -315,13 +364,13 @@ To set the local branch to `develop` (where we'd like to do our work), click on 
 
 <br>
 
-which will bring up a message box from **Git** informing you that you've created and switched over to a new branch called `develop`.
+which will bring up a message box from Git informing you that you've created and switched over to a new branch called `develop`.
 
 ![](images/gh_fork_branch_switch.png)
 
 <br>
 
-Go ahead and close the window and you will see that the branch name in the **Git** pane of **RStudio** is set to `develop`. If you again click on the `develop` button it will now show that you can track the `develop` and `main` branches on
+Go ahead and close the window and you will see that the branch name in the **Git** pane of RStudio is set to `develop`. If you again click on the `develop` button it will now show that you can track the `develop` and `main` branches on
 
 1. your local repo
 
@@ -361,7 +410,7 @@ Now it's time to push your simple script to your own remote located at
 
 <br>
 
-Navigate to your forked repo on **GitHub** where you'll see a message about this branch having a recent push and a new green button labeled **Compare & pull request**.
+Navigate to your forked repo on GitHub where you'll see a message about this branch having a recent push and a new green button labeled **Compare & pull request**.
 
 ![](images/gh_fork_remote_ahead.png)
 
