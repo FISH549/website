@@ -221,7 +221,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 </div>
 
 ```
-[main d20897b] added gitignore
+[main 7e0658f] added gitignore
  1 file changed, 4 insertions(+)
  create mode 100644 .gitignore
 ```
@@ -247,7 +247,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on GitHub. 
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green up arrow next to "Push", which is the RStudio symbol for `git push`.
+**Task:** Click on the green up arrow, which is the RStudio symbol for `git push`.
 </div>
 
 ![](images/rstudio_git_push.png)
@@ -261,7 +261,7 @@ Now that we've committed our `.gitignore` file to history, we can *push* it up t
 ```
 >>> /usr/bin/git push origin HEAD:refs/heads/main
 To https://github.com/mdscheuerell/testing
-   226daed..d20897b  HEAD -> main
+   a0e9132..7e0658f  HEAD -> main
 ```
 
 <div class="boxy boxy-orange boxy-lightbulb">
@@ -335,7 +335,7 @@ Type a *short but informative* commit message and press the green **Commit chang
 <br>
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Return to RStudio and look in the **Git** tab for the blue downward arrow next to "Pull". This is how you *pull* files from your remote repo to your local project.
+**Tip:** Return to RStudio and look in the **Git** tab for the blue down arrow. This is how you *pull* files from your remote repo to your local project.
 </div>
 
 ![](images/rstudio_pull_arrow.png)
@@ -343,14 +343,14 @@ Type a *short but informative* commit message and press the green **Commit chang
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** lick on the pull arrow, which will open up a **Git Pull** window with information similar to the following (note that the text specifics will differ from your output):
+**Task:** Click on the pull arrow, which will open up a **Git Pull** window with information similar to the following (note that the text specifics will differ from your output):
 </div>
 
 ```
 >>> /usr/bin/git pull
 From https://github.com/mdscheuerell/testing
-   d20897b..4222226  main       -> origin/main
-Updating d20897b..4222226
+   7e0658f..9c303a4  main       -> origin/main
+Updating 7e0658f..9c303a4
 Fast-forward
  README.md | 10 +++-------
  1 file changed, 3 insertions(+), 7 deletions(-)
