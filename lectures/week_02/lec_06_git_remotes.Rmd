@@ -70,7 +70,7 @@ There are several ways to connect a remote repository to your local computer. He
 </div>
 
 <div class="boxy boxy-red boxy-exclamation">
-**Note:** `YOUR_USERNAME` in the location below should be *your* **GitHub** user name.
+**Note:** `YOUR_USERNAME` in the location below should be *your* GitHub user name.
 </div>
 
 <br>
@@ -201,7 +201,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 </div>
 
 <div class="boxy boxy-red boxy-exclamation">
-**Note:** In the example below, the last file committed was `ex_data.csv` that we had previously created and committed directly from **GitHub**. You can see information about the the commit author, the date, and the first 7 characters from the unique commit SHA.
+**Note:** In the example below, the last file committed was `ex_data.csv` that we had previously created and committed directly from GitHub. You can see information about the the commit author, the date, and the first 7 characters from the unique commit SHA.
 </div>
 
 ![](images/rstudio_git_commit_history.png)
@@ -244,13 +244,19 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 
 # Pushing to GitHub
 
-Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on **GitHub**. To do so in RStudio, you click on the green up arrow.
+Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on GitHub. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the green up arrow next to "Push", which is the RStudio symbol for `git push`.
+</div>
 
 ![](images/rstudio_git_push.png)
 
 <br>
 
-Now you will see a smaller **Git Push** window with the following information from Git.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should see a smaller **Git Push** window with the following information from Git.
+</div>
 
 ```
 >>> /usr/bin/git push origin HEAD:refs/heads/main
@@ -258,21 +264,34 @@ To https://github.com/mdscheuerell/testing
    226daed..d20897b  HEAD -> main
 ```
 
-The first line is the actual Git command for pushing to a remote repo, and the second and third lines are the results of that command.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The first line is the actual Git command for pushing to a remote repo, and the second and third lines are the results of that command.
+</div>
 
 ![](images/rstudio_git_push_window.png)
 
 <br>
 
-You've now successfully pushed a change on your local computer to your remote repo on **GitHub**.
+<div class="boxy boxy-success boxy-check">
+**Success:** You've now pushed a change on your local computer up to your remote repo on GitHub.
+</div>
 
-## Personal access token (PAT)
-
-Assuming this is your first time working with a remote repo on **GitHub**, you were very likely to have been asked to enter your password when attempting to push from your local computer up to **GitHub**. There's a good
 
 ## Viewing your changes on GitHub
 
-You can now check to see that your committed `.gitignore` file was indeed pushed up to **GitHub**. Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`. You will now see the `.gitignore` file listed along with the `README.md` file and the other folders. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push. (Note: if you don't see the file, try refreshing the view on your browser.)
+You can now check to see that your committed `.gitignore` file was indeed pushed up to GitHub.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should now see the `.gitignore` file listed along with the `README.md` file and other folders we created previously. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you don't see the file, try refreshing the view on your browser.
+</div>
 
 ![](images/gh_new_pushed_file.png)
 
@@ -282,15 +301,19 @@ You can now check to see that your committed `.gitignore` file was indeed pushed
 
 # Pulling from GitHub
 
-Now let's see how to *pull* changes from a remote repo to your local computer. To do so, we'll make some changes to our `README.md` file on **GitHub**, commit them, and then pull them down. Go ahead and click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
+Now let's see how to *pull* changes from a remote repo to your local computer. To do so, we'll make some changes to our `README.md` file on GitHub, commit them, and then pull them down. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
+</div>
 
 ![](images/gh_edit_readme_pencil.png)
 
 <br>
 
-Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
-
-<br>
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
+</div>
 
 ![](images/gh_edit_readme_pull.png)
 
@@ -302,19 +325,26 @@ Type a *short but informative* commit message and press the green **Commit chang
 
 <br>
 
-Click on either the **testing** link or eh **Code** tab to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on either the **testing** link at the top or the **Code** tab below you username to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
+</div>
+
 
 ![](images/gh_new_readme.png)
 
 <br>
 
-Now return to RStudio and look in the **Git** tab for the blue downward arrow. This is how you *pull* files from your remote repo to your local project.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Return to RStudio and look in the **Git** tab for the blue downward arrow next to "Pull". This is how you *pull* files from your remote repo to your local project.
+</div>
 
 ![](images/rstudio_pull_arrow.png)
 
 <br>
 
-Go ahead and click on the pull arrow, which will open up a **Git Pull** window with the following information (note that the alpa-numeric codes on the 3rd and 4th lines will likely differ from your output):
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** lick on the pull arrow, which will open up a **Git Pull** window with information similar to the following (note that the text specifics will differ from your output):
+</div>
 
 ```
 >>> /usr/bin/git pull
@@ -326,13 +356,17 @@ Fast-forward
  1 file changed, 3 insertions(+), 7 deletions(-)
 ```
 
-The first line is the actual Git command and the remaining lines are what Git is reporting back from `git pull`, including the file name and its contents.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The first line is the actual Git command and the remaining lines are what Git is reporting back from `git pull`, including the file name and its contents.
+</div>
 
 ![](images/rstudio_pull_window.png)
 
 <br>
 
-Go ahead and close this window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from **GitHub**
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Close the Git Pull window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from GitHub.
+</div>
 
 ![](images/rstudio_readme_pulled.png)
 
@@ -347,17 +381,4 @@ Proper version control requires you to keep all of your local and remote reposit
 ## End with pushing
 
 Similarly, when you are finished editing all of your local files, you should ***always end by committing those changes and pushing them up to your remote repo***.
-
-
-<ul>
-  <li>Our branch is set to `main`</li>
-  <li>We have not yet made any commits</li>
-  <li>There is nothing in the folder to commit</li>
-</ul>
-
-
-
- 
-
-
 
