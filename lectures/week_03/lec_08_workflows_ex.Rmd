@@ -466,8 +466,8 @@ In this example, if you examine either the owner's original repo or your forked 
 <ul>
   <li>your local repo</li>
   <li>your remote origin (located at `https://github.com/USERNAME/ex-fork`)</li>
-  <li>your remote upstream (located at `https://github.com/FISH549/ex-fork`)</li>
 </ul>
+You can also track the **main branch** on the remote upstream (located at `https://github.com/FISH549/ex-fork`)
 </div>
 
 ![](images/gh_fork_branch_view_3.png)
@@ -477,10 +477,14 @@ In this example, if you examine either the owner's original repo or your forked 
 Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH549`).
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Go ahead and make a simple R script and commit it (I'm calling mine `simple_addition.R`).
+**Task:** Go ahead and make a simple R script and commit it (I'm called mine `simple_addition.R`).
 </div>
 
 ![](images/gh_fork_ex_script.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you're happy with your script, go ahead and commit it.
+</div>
 
 ![](images/gh_fork_ex_commit.png)
 
@@ -500,7 +504,7 @@ Now it's time to push your simple script to your own remote located at
 **Task:** Click the green uparrow to push your new script to GitHub.
 </div>
 
-**NEED SCREENGRAB HERE**
+![](images/gh_fork_ex_push.png)
 
 <br>
 
@@ -543,6 +547,10 @@ Now it's time to push your simple script to your own remote located at
 </div>
  
 ![](images/gh_fork_submit_pr_2.png)
+
+<br>
+
+![](images/gh_fork_pr_created.png)
 
 <br>
 
