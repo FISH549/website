@@ -414,11 +414,17 @@ upstream        https://github.com/FISH549/ex-fork (push)
 
 <br>
 
-Now you are ready to make any changes you'd like to the files or folders in your local repo. However, **before doing so**, make sure to **pull** any changes that might have been made to the owner's `upstream` remote. 
+Now you are ready to make any changes you'd like to the files or folders in your local repo.  
 
-To do so, again navigate to the **Terminal** tab in RStudio and type:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** **Before doing so**, make sure to **pull** any changes that might have been made to the owner's `upstream` remote.
+</div>
 
-```
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** To do so, again navigate to the **Terminal** tab in RStudio and type:
+</div>
+
+```sh
 $ git pull upstream main --ff-only
 ```
 
