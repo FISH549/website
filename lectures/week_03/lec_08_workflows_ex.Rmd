@@ -282,11 +282,33 @@ To fork a repo, navigate to its location on GitHub and look for the **Fork** but
 
 <br>
 
-You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being even with the "upstream" source.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** When you click on the **Fork** button, GitHub will open a page that looks similar to when you create a new repo.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click the green **Create fork** button to proceed.
+</div>
+
+![](images/gh_fork_create.png)
+
+<br>
+
+You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being up to date with the "upstream" source.
 
 ![](images/gh_fork_repo_forked.png)
 
 <br>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In the not so distant past, you had to specify via the command where the "upstream" repo of a fork was and then "fetch" any changes. GitHub has now streamlined that process by providing a "sync fork" button to do so (see below).
+</div>
+
+![](images/gh_fork_sync.png)
+
+<br>
+
+
 
 ## Step 2: Clone the repo
 
@@ -294,7 +316,9 @@ You will now see a new forked version of the original repository with some infor
 
 <br>
 
-Now you should clone the remote repo to a local repo by creating a new project in RStudio based upon the newly forked repo. Click [here](https://fish497.github.io/website/lectures/week_02/lec_06_git_remotes.html) if you need a reminder as to how to do that.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Clone the remote GitHub repo to a local repo by creating a new project in RStudio based upon your newly forked repo. Click [here](https://fish549.github.io/website/lectures/week_02/lec_06_git_remotes.html) if you need a reminder as to how to do that.
+</div>
 
 <br>
 
@@ -306,11 +330,11 @@ Now you should clone the remote repo to a local repo by creating a new project i
 
 At this point, your local copy of the remote repo can only pull changes from your remote at 
 
-`https://github.com/USER/ex-fork`
+`https://github.com/USERNAME/ex-fork`
 
-where `USER` is you. Unfortunately there is no way to update your remote repo directly from the owner's repo at
+where `USERNAME` is your GitHub username. Unfortunately there is no way to update your remote repo directly from the owner's repo at
 
-`https://github.com/FISH497/ex-fork`.
+`https://github.com/FISH549/ex-fork`.
 
 Instead, we have to set up our local repo to pull changes from the owner's remote repo and then we can push those up to our remote copy. By convention, we will refer to the owner's repo as the `upstream` repo, but you could give it any name.
 
@@ -318,58 +342,69 @@ At this point you have 2 options for adding the `upstream` repo.
 
 ### Option 1: Command line
 
-Navigate to the folder/directory on your computer where your local repository exists and type the following in **Terminal** (Mac) or **Git Bash** (Windows):
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Terminal** tab in your RStudio console window and type (or copy/paste) the following Git command:
+</div>
 
-```
-git remote add upstream https://github.com/FISH497/ex-fork
+```sh
+git remote add upstream https://github.com/FISH549/ex-fork
 ```
 
 ### Option 2: RStudio
 
-Open up your project in RStudio and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up your project in RStudio and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
+</div>
 
 ![](images/gh_fork_rs_add_remote_1.png)
 
 <br>
 
-Next, click on the button labeled "Add remote...".
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the button labeled "Add remote...".
+</div>
 
 ![](images/gh_fork_rs_add_remote_2.png)
 
 <br>
 
-In the "Remote Name:" box, type `upstream`. In the "Remore URL:" box, enter the name of the **owner's** repo you forked in Step 1: `https://github.com/FISH497/ex-fork` (you can copy/paste if you'd like). When you are finished, click the **Add** button.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the "Remote Name:" box, type `upstream`. In the "Remote URL:" box, enter the name of the **owner's** repo you forked in Step 1: `https://github.com/FISH549/ex-fork` (you can copy/paste if you'd like). When you are finished, click the **Add** button.
+</div>
 
 ![](images/gh_fork_rs_add_remote_3.png)
 
 <br>
 
-Go ahead and click on the **Cancel** button (don't worry, everything is still OK).
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Cancel** button (don't worry, everything is still OK).
+</div>
+
 
 ![](images/gh_fork_rs_add_remote_4.png)
 
 <br>
 
-Now you need to verify that the remote `upstream` is set up properly. To do that, click on the **Terminal** tab in your Console pane.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now you need to verify that the remote `upstream` is set up properly. To do so, click on the **Terminal** tab in your Console pane and type this:
+</div>
 
-![](images/gh_fork_rs_add_remote_5.png)
-
-<br>
-
-At the command prompt, type this:
-
-```
+```sh
 $ git remote -v
 ```
 
-which should return the following, where `USER` is your user name.
+which should return the following, where `USERNAME` is your user name.
 
+```sh
+origin  https://github.com/USERNAME/ex-fork (fetch)
+origin  https://github.com/USERNAME/ex-fork (push)
+upstream        https://github.com/FISH549/ex-fork (fetch)
+upstream        https://github.com/FISH549/ex-fork (push)
 ```
-origin  https://github.com/USER/ex-fork (fetch)
-origin  https://github.com/USER/ex-fork (push)
-upstream        https://github.com/FISH497/ex-fork (fetch)
-upstream        https://github.com/FISH497/ex-fork (push)
-```
+
+<br>
+
+![](images/gh_fork_rs_add_remote_5.png)
 
 <br>
 
@@ -390,7 +425,7 @@ $ git pull upstream main --ff-only
 If nothing has changed, you'll see a message like this:
 
 ```
-From https://github.com/FISH497/ex-fork
+From https://github.com/FISH549/ex-fork
  * branch            main       -> FETCH_HEAD
  * [new branch]      main       -> upstream/main
 Already up to date.
@@ -420,15 +455,15 @@ Go ahead and close the window and you will see that the branch name in the **Git
 
 1. your local repo
 
-2. your remote origin (located at `https://github.com/USER/ex-fork`)
+2. your remote origin (located at `https://github.com/USERNAME/ex-fork`)
 
-3. your remote upstream (located at `https://github.com/FISH497/ex-fork`)
+3. your remote upstream (located at `https://github.com/FISH549/ex-fork`)
 
 ![](images/gh_fork_branch_view_3.png)
 
 <br>
 
-Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH497`).
+Let's create a new file in our local repo so we have something to commit and push to our own remote repo, and then ultimately submit it as a pull request to the original repo's owner (here `FISH549`).
 
 Go ahead and make a simple R script and commit it (I'm calling mine `simple_addition.R`).
 
@@ -446,7 +481,7 @@ Go ahead and make a simple R script and commit it (I'm calling mine `simple_addi
 
 Now it's time to push your simple script to your own remote located at
 
-`https://github.com/USER/ex-fork`
+`https://github.com/USERNAME/ex-fork`
 
 <br>
 
@@ -464,7 +499,7 @@ Navigate to your forked repo on GitHub where you'll see a message about this bra
 
 Now you can open a pull request by clicking on the green **Compare & pull request** button. This will take you to the standard page for a pull request, just as we saw in the **Feature branch** workflow above. In this case, however, there is additional information about
 
-* the repo location (here it's the `upstream` at `https://github.com/FISH497/ex-fork`)
+* the repo location (here it's the `upstream` at `https://github.com/FISH549/ex-fork`)
 
 * both the *branches* (here `develop`) and *locations* of the repositories
 
