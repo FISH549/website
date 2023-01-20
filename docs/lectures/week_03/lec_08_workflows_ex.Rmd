@@ -205,7 +205,7 @@ Let's go ahead and make a small change to our R test script (note that the follo
 
 ## Pull requests
 
-Now let's take the advice we received earlier about creating a "pull request".
+Now let's take the advice we received earlier about creating a "pull request" (or "PR" for short). You can think of a pull request as an offer of support. In effect, someone who submits a pull request is kindly requesting that the repo owner pull new changes into their repo.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Navigate to your testing repo on GitHub.
@@ -220,7 +220,7 @@ Now let's take the advice we received earlier about creating a "pull request".
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green **Compare & pull request** button, which will take you to a page to *open a pull request*.
+**Task:** Click on the green **Compare & pull request** button, which will take you to a page to open a pull request.
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
@@ -301,7 +301,7 @@ You will now see a new forked version of the original repository with some infor
 <br>
 
 <div class="boxy boxy-red boxy-exclamation">
-**Note:** In the not so distant past, you had to specify via the command where the "upstream" repo of a fork was and then "fetch" any changes. GitHub has now streamlined that process by providing a "sync fork" button to do so (see below).
+**Note:** In the not so distant past, you had to use Git via the command line to specify where the "upstream" repo of a fork was and then "fetch" any changes. GitHub has now streamlined that process by providing a "sync fork" button to do so (see below).
 </div>
 
 ![](images/gh_fork_sync.png)
@@ -439,7 +439,7 @@ Already up to date.
 
 ### Setting the local branch
 
-In this example, if you examine either the owner's original repo or your forked copy on GitHub, you'll notice that they both contain 2 branches: **main** and **develop**. However, if you inspect the local branches in your current project in RStudio, you'll see that only **main** exists there.
+If you examine your forked copy of the repo on GitHub, you'll notice that it contains 2 branches: **main** and **develop**. However, if you inspect the local branches in your current project in RStudio, you'll see that only **main** exists there.
 
 ![](images/gh_fork_branch_view_1.png)
 
