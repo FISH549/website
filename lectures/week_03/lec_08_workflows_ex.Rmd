@@ -205,7 +205,7 @@ Let's go ahead and make a small change to our R test script (note that the follo
 
 ## Pull requests
 
-Now let's take the advice we received earlier about creating a "pull request".
+Now let's take the advice we received earlier about creating a "pull request". You can think of a pull request as an offer of support. In effect, someone who submits a pull request is kindly requesting that the repo owner pull new changes into their repo.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Navigate to your testing repo on GitHub.
@@ -220,7 +220,7 @@ Now let's take the advice we received earlier about creating a "pull request".
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green **Compare & pull request** button, which will take you to a page to *open a pull request*.
+**Task:** Click on the green **Compare & pull request** button, which will take you to a page to open a pull request.
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
