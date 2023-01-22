@@ -1,6 +1,5 @@
 ---
 title: "Examples of collaborative workflows"
-author: "Mark Scheuerell"
 date: "20 January 2023"
 output:
   html_document:
