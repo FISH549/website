@@ -127,8 +127,8 @@ working_with_data <- list(
 
 ## day 10 ####
 data_ingest <- list(
-  title = "Getting data",
-  topics = c("<b>Getting data</b>", "Importing text files", "Reading from Excel & Google"),
+  title = "Reading data",
+  topics = c("<b>Reading data</b>", "Importing text files", "Reading from Excel & Google"),
   pdf = c(""),
   rmd = "lectures/week_04/lec_10_getting_data.Rmd",
   html = "lectures/week_04/lec_10_getting_data.html",

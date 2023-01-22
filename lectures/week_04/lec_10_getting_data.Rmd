@@ -1,25 +1,26 @@
 ---
-title: "Getting data in R"
-author: "Mark Scheuerell"
-date: "25 January 2021"
+title: "Reading data into R"
+date: "25 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
 ---
 
+<br>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
                       fig.align = "center", out.width = '90%')
 ```
 
 # Motivation
 
-Today we are going to talk about getting data, examples of common data formats, and useful tools to access data. 
+Today we are going to talk about reading data, examples of common data formats, and useful tools to access data. 
 
 # Working directories
 
@@ -29,10 +30,10 @@ One of the keys to creating a reproducible workflow is maintaining the proper fo
 
 In the early days of **R** programming, many people worked with *absolute* paths. When you open up someone's **R** code or analysis, you would often see the `setwd()` function being used. This explicitly tells **R** to change the absolute path to the folder/directory where work is being done. Although this may work fine for an individual who works by themselves on a single computer, it will quickly lead to headaches and long trails of work when projects are shared with others.
 
-For example, if I had a series of scripts scattered throughout a repo, and each of them began with something like 
+For example, if Mark had a series of scripts scattered throughout a repo, and each of them began with something like 
 
 ```{r setwd_ex, eval=FALSE}
-setwd("~/Users/Mark/Dcouments/folder/that/only/Mark/has")
+setwd("~/Users/Mark/Documents/folder/that/only/Mark/has")
 ```
 
 you would need to go into each script and edit every single one of those *absolute* paths, such that they worked on your own computer.
