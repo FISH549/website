@@ -48,15 +48,15 @@ setwd("~/data/")
 
 ### RStudio `.Rproj` files
 
-We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. After opening up a `.Rproj` file, you can test this with
-
-```{r chk_wd, eval=FALSE}
-getwd()
-```
+We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. 
 
 ### The `here` package
 
-Within **R**, the [here](https://github.com/r-lib/here) package will automatically identify the top-level directory of a **Git** repo, and then direct all other paths relative to that. For more on project-oriented workflows, check out [this blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) by Jenny Bryan.
+Within **R**, the [`{here}`](https://github.com/r-lib/here) package will automatically identify the top-level directory of a **Git** repo, and then direct all other paths relative to that. For more on project-oriented workflows, check out [this blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) by Jenny Bryan.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `here::here()` function creates a path *relative* to the folder/directory where the `.Rproj` file exists.
+</div>
 
 Instead of using `setwd()` at the top your `.R` or `.Rmd` file, Jenny suggests: 
 
@@ -68,7 +68,9 @@ Instead of using `setwd()` at the top your `.R` or `.Rmd` file, Jenny suggests:
 
 * Whenever you work on this project, launch the **R** process from the project's top-level directory. If you launch **R** from the shell, use `cd` to move to the correct folder before beginning.
 
-We can use `getwd()` to see our current working directory path and the files available using `list.file()` or `dir()`.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can use `getwd()` to see our current working directory path and the files available using `list.file()` or `dir()`.
+</div>
 
 ```{r chk_dir_files}
 ## what is the working directory?
@@ -94,13 +96,13 @@ list.files(here())
 list.files(here("references"))
 ```
 
-We can also use `here()` to check the path for specific files:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can also use `here()` to check the path for a specific file.
+</div>
 
 ```{r}
 here("data", "palmer_penguins.csv")
 ```
-
-So the `here::here()` function creates a path *relative* to the folder/directory where the `.Rproj` file exists. 
 
 ## Checking for local files
 
