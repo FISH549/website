@@ -397,7 +397,7 @@ var mark = {
   }
   "skis" : {
     "skis1" : "K2 Hardside",
-    "skis2" : "DPS Wailer"
+    "skis2" : "Black Crows Corvus Freebird"
   }
 }
 ```
