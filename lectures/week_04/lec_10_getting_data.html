@@ -5544,7 +5544,7 @@ current working directory path and the files available using
 </div>
 <pre class="r"><code>## what is the working directory?
 getwd()</code></pre>
-<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
 <pre class="r"><code>## what files exist in the working directory?
 list.files()</code></pre>
 <pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
@@ -5567,7 +5567,7 @@ relatively deeply within the course <code>website</code> repository.</p>
 <p>Using <code>here()</code> returns the following information:</p>
 <pre class="r"><code>## load here package
 library(here)</code></pre>
-<pre><code>## here() starts at /Users/mark/Documents/GitHub/FISH549/website</code></pre>
+<pre><code>## here() starts at /Users/scheuerl/Documents/GitHub/FISH549/website</code></pre>
 <pre class="r"><code>## show files in base directory
 list.files(here())</code></pre>
 <pre><code>##  [1] &quot;_list_of_hw.Rmd&quot;         &quot;_list_of_lectures.Rmd&quot;  
@@ -5615,7 +5615,7 @@ list.files(here(&quot;references&quot;))</code></pre>
 the path for a specific file.</p>
 </div>
 <pre class="r"><code>here(&quot;data&quot;, &quot;palmer_penguins.csv&quot;)</code></pre>
-<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
 </div>
 </div>
 <div id="checking-for-local-files" class="section level2">
@@ -5709,7 +5709,7 @@ print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
 ## [11] # Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals      
 ## [12] #                                                                                         
 ## [13] # Contact:   gs-w_waterdata_support@usgs.gov                                              
-## [14] # retrieved: 2023-01-22 10:02:25 EST       (sdww02)                                       
+## [14] # retrieved: 2023-01-23 13:27:53 EST       (caww01)                                       
 ## [15] #                                                                                         
 ## [16] # Data for the following 1 site(s) are contained in this file                             
 ## [17] #    USGS 12178000 SKAGIT RIVER AT NEWHALEM, WA                                           
@@ -5990,8 +5990,8 @@ gs_url &lt;- &quot;https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uY
 
 ## read from URL
 read_sheet(gs_url)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH497_example&quot;.</code></pre>
-<pre><code>## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6008,15 +6008,15 @@ read_sheet(gs_url)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_url)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH497_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre class="r"><code>## specify ID
 gs_id &lt;- as_sheets_id(gs_url)
 
 ## read from ID
 read_sheet(gs_id)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH497_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6033,13 +6033,13 @@ read_sheet(gs_id)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_id)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH497_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <p>We can browse the sheet’s metadata with
 <code>gs4_browse()</code>:</p>
 <pre class="r"><code>## browse sheet contents
 gs4_get(gs_id)</code></pre>
-<pre><code>## Spreadsheet name: FISH497_example
+<pre><code>## Spreadsheet name: FISH549_example
 ##               ID: 1ct3MMMzEX82BeqJcUw3uYD5b4CJrKUmRYCK-wVA3yig
 ##           Locale: en_US
 ##        Time zone: America/Los_Angeles
@@ -6050,8 +6050,8 @@ gs4_get(gs_id)</code></pre>
 <p>We can also read in just a subset of cells by specifying the
 <code>range</code> argument.</p>
 <pre class="r"><code>read_sheet(gs_id, range = &quot;A1:B10&quot;)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH497_example&quot;.</code></pre>
-<pre><code>## ✔ Range &#39;A1:B10&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✓ Range &#39;A1:B10&#39;.</code></pre>
 <pre><code>## # A tibble: 9 × 2
 ##    year flow_wtr
 ##   &lt;dbl&gt;    &lt;dbl&gt;
@@ -6086,7 +6086,7 @@ information in an organized, logical, easy-to-access manner (i.e.,
   }
   &quot;skis&quot; : {
     &quot;skis1&quot; : &quot;K2 Hardside&quot;,
-    &quot;skis2&quot; : &quot;DPS Wailer&quot;
+    &quot;skis2&quot; : &quot;Black Crows Corvus Freebird&quot;
   }
 }</code></pre>
 <p>Some features about <code>JSON</code> object:</p>
