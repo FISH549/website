@@ -1,10 +1,9 @@
 ---
 title: "Getting help from others"
-author: "Mark Scheuerell"
-date: "27 January 2021"
+date: "27 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
