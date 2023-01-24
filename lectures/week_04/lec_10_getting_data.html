@@ -5469,6 +5469,7 @@ border-radius: 0px;
 <h1>Motivation</h1>
 <p>Today we are going to talk about reading data, examples of common
 data formats, and useful tools to access data.</p>
+<hr />
 </div>
 <div id="working-directories" class="section level1">
 <h1>Working directories</h1>
@@ -5509,7 +5510,7 @@ automatically changes the path to the folder/directory where the
 <code>.Rproj</code> file is located.</p>
 </div>
 <div id="the-here-package" class="section level3">
-<h3>The <code>here</code> package</h3>
+<h3>The <code>{here}</code> package</h3>
 <p>Within <strong>R</strong>, the <a href="https://github.com/r-lib/here"><code>{here}</code></a> package
 will automatically identify the top-level directory of a
 <strong>Git</strong> repo, and then direct all other paths relative to
@@ -5529,7 +5530,7 @@ or <code>.Rmd</code> file, Jenny suggests:</p>
 can be as simple as having an empty file named <code>.here</code>. If
 you use <strong>RStudio</strong> and/or <strong>Git</strong>, those both
 leave characteristic files behind that will get the job done.</p></li>
-<li><p>Use the <code>here()</code> function from the <code>here</code>
+<li><p>Use the <code>here()</code> function from the <code>{here}</code>
 package to build the path when you read or write a file. Create paths
 relative to the top-level directory.</p></li>
 <li><p>Whenever you work on this project, launch the <strong>R</strong>
@@ -5538,13 +5539,13 @@ process from the project’s top-level directory. If you launch
 correct folder before beginning.</p></li>
 </ul>
 <div class="boxy boxy-orange boxy-lightbulb">
-<p><strong>Tip:</strong> We can use <code>getwd()</code> to see our
-current working directory path and the files available using
+<p><strong>Tip:</strong> You can use <code>getwd()</code> to see your
+current working directory and you can inspect the files available using
 <code>list.file()</code> or <code>dir()</code>.</p>
 </div>
 <pre class="r"><code>## what is the working directory?
 getwd()</code></pre>
-<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
 <pre class="r"><code>## what files exist in the working directory?
 list.files()</code></pre>
 <pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
@@ -5567,7 +5568,7 @@ relatively deeply within the course <code>website</code> repository.</p>
 <p>Using <code>here()</code> returns the following information:</p>
 <pre class="r"><code>## load here package
 library(here)</code></pre>
-<pre><code>## here() starts at /Users/scheuerl/Documents/GitHub/FISH549/website</code></pre>
+<pre><code>## here() starts at /Users/mark/Documents/GitHub/FISH549/website</code></pre>
 <pre class="r"><code>## show files in base directory
 list.files(here())</code></pre>
 <pre><code>##  [1] &quot;_list_of_hw.Rmd&quot;         &quot;_list_of_lectures.Rmd&quot;  
@@ -5615,7 +5616,7 @@ list.files(here(&quot;references&quot;))</code></pre>
 the path for a specific file.</p>
 </div>
 <pre class="r"><code>here(&quot;data&quot;, &quot;palmer_penguins.csv&quot;)</code></pre>
-<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
 </div>
 </div>
 <div id="checking-for-local-files" class="section level2">
@@ -5626,18 +5627,21 @@ the path for a specific file.</p>
 <li><p>if not, perhaps create a new folder/directory before downloading
 or saving the file.</p></li>
 </ol>
-<p>The function <code>file.exists()</code> will test for the presence of
-a file and return <code>TRUE</code> or <code>FALSE</code>. For
-example,</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> The function <code>file.exists()</code> will
+test for the presence of a file and return <code>TRUE</code> or
+<code>FALSE</code>.</p>
+</div>
+<p>For example,</p>
 <p><code>file.exists(here(&quot;my&quot;, &quot;relative&quot;, &quot;path&quot;, &quot;filename.csv&quot;))</code></p>
 <p>will look for the <code>filename.csv</code> within the
 folder/directory <code>/my/relative/path</code>.</p>
-<p>For example, fitting statistical models in <strong>JAGS</strong> or
-<strong>Stan</strong> can take a lot of time (hours), and I don’t want
-to have to refit the same models when doing an analysis. Therefore, I
-often use <code>file.exists()</code> within an <code>if</code> statement
-to first check if the folder/file exists, and if not, create the folder
-and save the file.</p>
+<p>Why or when would someone use this? Fitting statistical models in
+<strong>JAGS</strong> or <strong>Stan</strong> can take a lot of time
+(hours), and I don’t want to have to refit the same models when doing an
+analysis. Therefore, I often use <code>file.exists()</code> within an
+<code>if</code> statement to first check if the folder/file exists, and
+if not, create the folder and save the file.</p>
 <pre class="r"><code>## set analysis directory
 analysis_dir &lt;- here(&quot;analysis&quot;)
 
@@ -5709,7 +5713,7 @@ print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
 ## [11] # Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals      
 ## [12] #                                                                                         
 ## [13] # Contact:   gs-w_waterdata_support@usgs.gov                                              
-## [14] # retrieved: 2023-01-23 13:27:53 EST       (caww01)                                       
+## [14] # retrieved: 2023-01-23 19:21:55 EST       (vaww02)                                       
 ## [15] #                                                                                         
 ## [16] # Data for the following 1 site(s) are contained in this file                             
 ## [17] #    USGS 12178000 SKAGIT RIVER AT NEWHALEM, WA                                           
@@ -5778,13 +5782,13 @@ head(dat_flow)</code></pre>
 ## 6  2001     1  74.5</code></pre>
 </div>
 <div id="reading-.csv-files" class="section level2">
-<h2>Reading .csv files</h2>
+<h2>Reading <code>.csv</code> files</h2>
 <div id="base-functions" class="section level3">
 <h3>Base functions</h3>
 <p>The <code>read.table()</code> function, and its specific variants
-<code>read.csv()</code> and <code>read.delim()</code> is one of the most
-commonly used functions for reading data into <strong>R</strong>. The
-help file for <code>read.table()</code> provides a lot of useful
+<code>read.csv()</code> and <code>read.delim()</code>, is one of the
+most commonly used functions for reading data into <strong>R</strong>.
+The help file for <code>read.table()</code> provides a lot of useful
 information (see <code>?read.table</code>).</p>
 <p>The read.table() function has a few important arguments:</p>
 <ul>
@@ -5828,10 +5832,11 @@ allocated)<br />
 </ul>
 <p>On the other hand, explicitly specifying all of these arguments
 directly makes <strong>R</strong> run faster and more efficiently.</p>
-<p>The <code>read.csv()</code> function is identical to read.table
-except that some of the defaults are set differently (e.g.,
-<code>sep</code> argument). There is a <code>palmer_penguins.csv</code>
-file located deep in our working directory structure.</p>
+<p>The <code>read.csv()</code> function is identical to
+<code>read.table()</code> except that some of the defaults are set
+differently (e.g., <code>sep</code> argument). There is a
+<code>palmer_penguins.csv</code> file located deep in our working
+directory structure.</p>
 <pre class="r"><code>## read penguin data
 data_raw &lt;- read.csv(here(&quot;lectures&quot;, &quot;week_04&quot;, &quot;data&quot;, &quot;palmer_penguins.csv&quot;))
 
@@ -5990,8 +5995,8 @@ gs_url &lt;- &quot;https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uY
 
 ## read from URL
 read_sheet(gs_url)</code></pre>
-<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
-<pre><code>## ✓ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✔ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6008,15 +6013,15 @@ read_sheet(gs_url)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_url)</code></pre>
-<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
-## ✓ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
+## ✔ Range &#39;Sheet1&#39;.</code></pre>
 <pre class="r"><code>## specify ID
 gs_id &lt;- as_sheets_id(gs_url)
 
 ## read from ID
 read_sheet(gs_id)</code></pre>
-<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
-## ✓ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
+## ✔ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6033,8 +6038,8 @@ read_sheet(gs_id)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_id)</code></pre>
-<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
-## ✓ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
+## ✔ Range &#39;Sheet1&#39;.</code></pre>
 <p>We can browse the sheet’s metadata with
 <code>gs4_browse()</code>:</p>
 <pre class="r"><code>## browse sheet contents
@@ -6050,8 +6055,8 @@ gs4_get(gs_id)</code></pre>
 <p>We can also read in just a subset of cells by specifying the
 <code>range</code> argument.</p>
 <pre class="r"><code>read_sheet(gs_id, range = &quot;A1:B10&quot;)</code></pre>
-<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
-<pre><code>## ✓ Range &#39;A1:B10&#39;.</code></pre>
+<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✔ Range &#39;A1:B10&#39;.</code></pre>
 <pre><code>## # A tibble: 9 × 2
 ##    year flow_wtr
 ##   &lt;dbl&gt;    &lt;dbl&gt;
@@ -6174,7 +6179,7 @@ account.)</p>
 table(data_json$forks)</code></pre>
 <pre><code>## 
 ##  0  1  2 
-## 24  5  1</code></pre>
+## 23  6  1</code></pre>
 <p>Only a total of 5 of the firt 30 repos have been forked.</p>
 <p>What’s the most popular language used in these repos?</p>
 <pre class="r"><code>## table number of the different languages

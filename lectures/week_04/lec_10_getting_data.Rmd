@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
 
 Today we are going to talk about reading data, examples of common data formats, and useful tools to access data. 
 
+***
+
 # Working directories
 
 One of the keys to creating a reproducible workflow is maintaining the proper folder/directory structures across computers, platforms, etc. 
@@ -50,7 +52,7 @@ setwd("~/data/")
 
 We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. 
 
-### The `here` package
+### The `{here}` package
 
 Within **R**, the [`{here}`](https://github.com/r-lib/here) package will automatically identify the top-level directory of a **Git** repo, and then direct all other paths relative to that. For more on project-oriented workflows, check out [this blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) by Jenny Bryan.
 
@@ -64,12 +66,12 @@ Instead of using `setwd()` at the top your `.R` or `.Rmd` file, Jenny suggests:
 
 * Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`. If you use **RStudio** and/or **Git**, those both leave characteristic files behind that will get the job done.
 
-* Use the `here()` function from the `here` package to build the path when you read or write a file. Create paths relative to the top-level directory.
+* Use the `here()` function from the `{here}` package to build the path when you read or write a file. Create paths relative to the top-level directory.
 
 * Whenever you work on this project, launch the **R** process from the project's top-level directory. If you launch **R** from the shell, use `cd` to move to the correct folder before beginning.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** We can use `getwd()` to see our current working directory path and the files available using `list.file()` or `dir()`.
+**Tip:** You can use `getwd()` to see your current working directory and you can inspect the files available using `list.file()` or `dir()`.
 </div>
 
 ```{r chk_dir_files}
@@ -112,13 +114,17 @@ You may run into situations where you'd like to
 
 2. if not, perhaps create a new folder/directory before downloading or saving the file.
 
-The function `file.exists()` will test for the presence of a file and return `TRUE` or `FALSE`. For example,
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The function `file.exists()` will test for the presence of a file and return `TRUE` or `FALSE`.
+</div>
+
+For example,
 
 `file.exists(here("my", "relative", "path", "filename.csv"))`
 
 will look for the `filename.csv` within the folder/directory `/my/relative/path`.
 
-For example, fitting statistical models in **JAGS** or **Stan** can take a lot of time (hours), and I don't want to have to refit the same models when doing an analysis. Therefore, I often use `file.exists()` within an `if` statement to first check if the folder/file exists, and if not,  create the folder and save the file.
+Why or when would someone use this? Fitting statistical models in **JAGS** or **Stan** can take a lot of time (hours), and I don't want to have to refit the same models when doing an analysis. Therefore, I often use `file.exists()` within an `if` statement to first check if the folder/file exists, and if not,  create the folder and save the file.
 
 ```{r here_ex_save, eval = FALSE}
 ## set analysis directory
