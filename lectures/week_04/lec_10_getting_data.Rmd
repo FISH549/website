@@ -224,11 +224,11 @@ head(dat_flow)
 ```
 
 
-## Reading .csv files
+## Reading `.csv` files
 
 ### Base functions
 
-The `read.table()` function, and its specific variants `read.csv()` and `read.delim()` is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
+The `read.table()` function, and its specific variants `read.csv()` and `read.delim()`, is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
 
 The read.table() function has a few important arguments:
 
@@ -255,7 +255,7 @@ would
 
 On the other hand, explicitly specifying all of these arguments directly makes **R** run faster and more efficiently.
 
-The `read.csv()` function is identical to read.table except that some of the defaults are set differently (e.g., `sep` argument). There is a `palmer_penguins.csv` file located deep in our working directory structure. 
+The `read.csv()` function is identical to `read.table()` except that some of the defaults are set differently (e.g., `sep` argument). There is a `palmer_penguins.csv` file located deep in our working directory structure. 
 
 ```{r here_ex_read_base}
 ## read penguin data
