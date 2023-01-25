@@ -465,13 +465,15 @@ Some features about `JSON` object:
 
 ### Using the GitHub API
 
-Many organizations provide an application programming interface (API) for accessing their data **GitHub** has an [API](https://developer.github.com/v3/?) that allows you to explore information about users. Let's use this API to explore some of Mark's GitHub activities.
+Many organizations provide an application programming interface (API) for accessing their data. **GitHub** has an [API](https://developer.github.com/v3/?) that allows you to explore information about users. Let's use this API to explore some of Mark's GitHub activities.
 
 To do so, we'll use the `fromJSON()` function from the
-[`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/index.html) package to convert the data from a JSON object to a data frame. 
+[`{jsonlite}`](https://cran.r-project.org/web/packages/jsonlite/index.html) package to convert the data from a JSON object to a data frame. 
 
-Let's begin by reading in the JSON file located at 
-[https://api.github.com/users/mdscheuerell/repos](https://api.github.com/users/mdscheuerell/repos)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by reading in the JSON file located at 
+[https://api.github.com/users/mdscheuerell/repos](https://api.github.com/users/mdscheuerell/repos).
+</div>
 
 ```{r json_github_ex}
 ## load the pckage
@@ -484,8 +486,13 @@ github_url = "https://api.github.com/users/mdscheuerell/repos"
 data_json <- fromJSON(github_url)
 ```
 
-The function `fromJSON()` has now converted 
-the JSON file into a data frame with the names: 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The function `fromJSON()` will convert the JSON file into a data frame. 
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can inspect the field names in the data frame with `names()`.
+</div>
 
 ```{r json_names}
 ## all of the JSON names
@@ -494,35 +501,41 @@ names(data_json)
 
 Now we can query these data to answer some questions about Mark's **GitHub** profile and activities. (Note that the following results are only based upon the first 30 repos listed in Mark's account.)
 
-For example, how many of Mark's repos have been forked? 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** How many of Mark's repos have been forked? 
+</div>
 
-```{r gh_count_forks}
+```{r tbl_gh_count_forks}
 ## table of the number of forks
 table(data_json$forks)
 ```
 
-Only a total of 5 of the firt 30 repos have been forked.
+Only a total of `r sum(table(data_json$forks)[-1])` of the firt 30 repos have been forked.
 
-What's the most popular language used in these repos? 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** What are the languages used in these repos? 
+</div>
 
-```{r, eval = FALSE}
+```{r tbl_gh_languages}
 ## table number of the different languages
 table(data_json$language)
 ```
 
-How many repos have open issues that Mark should really address?
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** How many repos have open issues that Mark should address?
+</div>
 
 ```{r gh_open_issues}
 ## how many repos have open issues? 
 table(data_json$open_issues_count)
 ```
 
-Not too bad, but clearly he's behind on some things...
+Not too bad, but clearly he's behind on some things. One of his repos has `r max(as.integer(names(table(data_json$open_issues_count))))` open issues!
 
 ***
 
 # Other good R packages
 
-* [`httr`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
+* [`{httr}`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
 
-* [`googledrive`](http://googledrive.tidyverse.org/) to interact with your Google Drive
+* [`{googledrive}`](http://googledrive.tidyverse.org/) to interact with your Google Drive
