@@ -359,9 +359,14 @@ head(cc_data)
 
 ## Reading a Google Sheet
 
-The `googlesheets4` package allows you to inspect and read Google Sheets. The `gs_ls()` function returns a data frame of the sheets listed in your Google Sheets home screen located at https://docs.google.com/spreadsheets/. This will include sheets that you own and sheets owned by others that you have permission to access.
+The `{googlesheets4}` package allows you to inspect and read Google Sheets. 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `gs_ls()` function returns a data frame of the sheets listed in your Google Sheets home screen located at https://docs.google.com/spreadsheets/. This will include sheets that you own and sheets owned by others that you have permission to access.
+</div>
 
-To begin, you need to authorize `googlesheets4` to access the contents of your Google Drive where the Sheets are stored. Here I'm allowing only access to public sheets.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** To begin, you need to use `gs4_deauth()` to authorize `googlesheets4` to access the contents of your Google Drive where the Sheets are stored (here I'm allowing only access to public sheets).
+</div>
 
 ```{r googlesheet_setup}
 ## load the packge
@@ -371,12 +376,17 @@ library(googlesheets4)
 gs4_deauth()
 ```
 
-Now we can read in a sheet by one of two methods:
+<div class="boxy boxy-orange boxy-lightbulb">
+&nbsp; **Tip:** We can read in a sheet by one of two methods:
+<ol>
+  <li>specify the entire URL</li>
+  <li>specify only the sheet ID</li>
+</ol>
+</div>
 
-1. specify the entire URL  
-2. specify only the sheet ID
+### Option 1: Specify the entire URL
 
-```{r googlesheet_read}
+```{r googlesheet_read_1}
 ## specify URL
 gs_url <- "https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uYD5b4CJrKUmRYCK-wVA3yig/edit#gid=0"
 
@@ -385,7 +395,11 @@ read_sheet(gs_url)
 
 ## assign it to an object
 gs_raw <- read_sheet(gs_url)
+```
 
+### Option 2: Specify the sheet ID
+
+```{r googlesheet_read_2}
 ## specify ID
 gs_id <- as_sheets_id(gs_url)
 
@@ -396,14 +410,18 @@ read_sheet(gs_id)
 gs_raw <- read_sheet(gs_id)
 ```
 
-We can browse the sheet's metadata with `gs4_browse()`:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can browse the sheet's metadata with `gs4_browse()`.
+</div>
 
 ```{r gs_browse}
 ## browse sheet contents
 gs4_get(gs_id)
 ```
 
-We can also read in just a subset of cells by specifying the `range` argument. 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can also read in just a subset of cells by specifying the `range` argument.
+</div>
 
 ```{r}
 read_sheet(gs_id, range = "A1:B10")
