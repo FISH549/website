@@ -152,7 +152,7 @@ if(!file.exists(here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))) {
 
 ## Downloading files
 
-One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey [National Water Information System](http://waterdata.usgs.gov/nwis).
+One option for reading data is to scrape files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey [National Water Information System](http://waterdata.usgs.gov/nwis).
 
 We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000). Before beginning, we need to specify the first and last years, and gauge's ID.
 
@@ -187,7 +187,8 @@ library("readr")
 flow_raw <- read_lines(flow_url)
 
 ## lines with metadata
-hdr_flow <- which(lapply(flow_raw, grep, pattern = "\\#") == 1, arr.ind = TRUE)
+hdr_flow <- which(lapply(flow_raw, grep, pattern = "\\#") == 1,
+                  arr.ind = TRUE)
 
 ## print flow metadata
 print(flow_raw[hdr_flow], quote = FALSE)
@@ -200,10 +201,12 @@ Lastly, we extract the actual flow data for the years of interest and inspect th
 dat_flow <-  read_tsv(flow_url,
                       col_names = FALSE,
                       col_types = "ciDdc",
-                      skip = max(hdr_flow)+2)
+                      skip = max(hdr_flow) + 2)
 
+## revise column names
 colnames(dat_flow) <- unlist(strsplit(tolower(flow_raw[max(hdr_flow) + 1]),
                                       split = "\\s+"))
+## inspect tibble
 head(dat_flow)
 ```
 
@@ -236,7 +239,7 @@ head(dat_flow)
 
 The `read.table()` function, and its specific variants `read.csv()` and `read.delim()`, is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
 
-The read.table() function has a few important arguments:
+The read.table() function has several important arguments:
 
 * `file`: the name of a file, or a connection  
 * `header`: a logical value indicating if the file has a header line  
@@ -259,7 +262,7 @@ raw_data <- read.table("flat_file.txt")
 
 would
 
-* skip lines that begin with a `#`  
+* skip any lines that begin with a `#`  
 * figure out how many rows there are (and how much memory needs to be allocated)  
 * figure what type of variable is in each column of the table  
 
@@ -284,7 +287,9 @@ head(data_raw)
 
 The newer **Tidyverse** collection of packages includes the [`{readr}`](https://readr.tidyverse.org/) package for reading in data files and assigning them the `tibble` object class. Click [here](readr_cheatsheet.pdf) to see the cheat sheet.
 
-Let's read it into **R** with the `readr` package. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Read the Palmer penguins data into **R** with the `readr` package and then inspect its contents.
+</div>
 
 ```{r here_ex_readr}
 ## read penguin data
