@@ -22,6 +22,8 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
 
 Today we are going to talk about reading data, examples of common data formats, and useful tools to access data. 
 
+***
+
 # Working directories
 
 One of the keys to creating a reproducible workflow is maintaining the proper folder/directory structures across computers, platforms, etc. 
@@ -50,7 +52,7 @@ setwd("~/data/")
 
 We have already seen how to set up projects in **RStudio** and make use of the relative file paths associated with a project's `.Rproj` file. When you start a project by opening a `.Rproj` file, **RStudio** automatically changes the path to the folder/directory where the `.Rproj` file is located. 
 
-### The `here` package
+### The `{here}` package
 
 Within **R**, the [`{here}`](https://github.com/r-lib/here) package will automatically identify the top-level directory of a **Git** repo, and then direct all other paths relative to that. For more on project-oriented workflows, check out [this blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) by Jenny Bryan.
 
@@ -64,12 +66,12 @@ Instead of using `setwd()` at the top your `.R` or `.Rmd` file, Jenny suggests:
 
 * Make sure the top-level folder advertises itself as such. This can be as simple as having an empty file named `.here`. If you use **RStudio** and/or **Git**, those both leave characteristic files behind that will get the job done.
 
-* Use the `here()` function from the `here` package to build the path when you read or write a file. Create paths relative to the top-level directory.
+* Use the `here()` function from the `{here}` package to build the path when you read or write a file. Create paths relative to the top-level directory.
 
 * Whenever you work on this project, launch the **R** process from the project's top-level directory. If you launch **R** from the shell, use `cd` to move to the correct folder before beginning.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** We can use `getwd()` to see our current working directory path and the files available using `list.file()` or `dir()`.
+**Tip:** You can use `getwd()` to see your current working directory and you can inspect the files available using `list.file()` or `dir()`.
 </div>
 
 ```{r chk_dir_files}
@@ -112,13 +114,17 @@ You may run into situations where you'd like to
 
 2. if not, perhaps create a new folder/directory before downloading or saving the file.
 
-The function `file.exists()` will test for the presence of a file and return `TRUE` or `FALSE`. For example,
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The function `file.exists()` will test for the presence of a file and return `TRUE` or `FALSE`.
+</div>
+
+For example,
 
 `file.exists(here("my", "relative", "path", "filename.csv"))`
 
 will look for the `filename.csv` within the folder/directory `/my/relative/path`.
 
-For example, fitting statistical models in **JAGS** or **Stan** can take a lot of time (hours), and I don't want to have to refit the same models when doing an analysis. Therefore, I often use `file.exists()` within an `if` statement to first check if the folder/file exists, and if not,  create the folder and save the file.
+Why or when would someone use this? Fitting statistical models in **JAGS** or **Stan** can take a lot of time (hours), and I don't want to have to refit the same models when doing an analysis. Therefore, I often use `file.exists()` within an `if` statement to first check if the folder/file exists, and if not,  create the folder and save the file.
 
 ```{r here_ex_save, eval = FALSE}
 ## set analysis directory
@@ -146,7 +152,7 @@ if(!file.exists(here("analysis_dir", "cache", "fit_ipm_JAGS.rds"))) {
 
 ## Downloading files
 
-One option for reading data is to pull files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey [National Water Information System](http://waterdata.usgs.gov/nwis).
+One option for reading data is to scrape files directly from a website. Here is an example of downloading some river flow data from the U.S. Geological Survey [National Water Information System](http://waterdata.usgs.gov/nwis).
 
 We will use the direct link to the gauge data from the Skagit River near Mount Vernon, WA (gauge #12178000). Before beginning, we need to specify the first and last years, and gauge's ID.
 
@@ -166,9 +172,9 @@ Here I break the URL into component pieces so its easier to see how and where th
 flow_url <- paste0("https://waterdata.usgs.gov/nwis/dv",
                    "?cb_00060=on",
                    "&format=rdb",
-                   "&site_no=",flow_site,
-                   "&begin_date=",yr_frst,"-01-01",
-                   "&end_date=",yr_last,"-12-31")
+                   "&site_no=", flow_site,
+                   "&begin_date=", yr_frst, "-01-01",
+                   "&end_date=", yr_last, "-12-31")
 ```
 
 Next we retrieve the raw data file and print its metadata.
@@ -181,7 +187,8 @@ library("readr")
 flow_raw <- read_lines(flow_url)
 
 ## lines with metadata
-hdr_flow <- which(lapply(flow_raw, grep, pattern = "\\#")==1, arr.ind = TRUE)
+hdr_flow <- which(lapply(flow_raw, grep, pattern = "\\#") == 1,
+                  arr.ind = TRUE)
 
 ## print flow metadata
 print(flow_raw[hdr_flow], quote = FALSE)
@@ -194,10 +201,12 @@ Lastly, we extract the actual flow data for the years of interest and inspect th
 dat_flow <-  read_tsv(flow_url,
                       col_names = FALSE,
                       col_types = "ciDdc",
-                      skip = max(hdr_flow)+2)
+                      skip = max(hdr_flow) + 2)
 
-colnames(dat_flow) <- unlist(strsplit(tolower(flow_raw[max(hdr_flow)+1]),
+## revise column names
+colnames(dat_flow) <- unlist(strsplit(tolower(flow_raw[max(hdr_flow) + 1]),
                                       split = "\\s+"))
+## inspect tibble
 head(dat_flow)
 ```
 
@@ -209,28 +218,28 @@ dat_flow <- dat_flow[c("datetime",
                        grep("[0-9]$", colnames(dat_flow), value = TRUE))]
 
 ## nicer column names
-colnames(dat_flow) <- c("date","flow")
+colnames(dat_flow) <- c("date", "flow")
 
 ## convert cubic feet to cubic meters
 dat_flow$flow <- dat_flow$flow / 35.3147
 
 ## flow by year & month
-dat_flow$year <- as.integer(format(dat_flow$date,"%Y"))
-dat_flow$month <- as.integer(format(dat_flow$date,"%m"))
-dat_flow <- dat_flow[,c("year","month","flow")]
+dat_flow$year <- as.integer(format(dat_flow$date, "%Y"))
+dat_flow$month <- as.integer(format(dat_flow$date, "%m"))
+dat_flow <- dat_flow[, c("year", "month", "flow")]
 
 ## inspect the file
 head(dat_flow)
 ```
 
 
-## Reading .csv files
+## Reading `.csv` files
 
 ### Base functions
 
-The `read.table()` function, and its specific variants `read.csv()` and `read.delim()` is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
+The `read.table()` function, and its specific variants `read.csv()` and `read.delim()`, is one of the most commonly used functions for reading data into **R**. The help file for `read.table()` provides a lot of useful information (see `?read.table`).
 
-The read.table() function has a few important arguments:
+The read.table() function has several important arguments:
 
 * `file`: the name of a file, or a connection  
 * `header`: a logical value indicating if the file has a header line  
@@ -241,7 +250,11 @@ The read.table() function has a few important arguments:
 * `skip`: the number of lines to skip from the beginning  
 * `stringsAsFactors`: should character variables be coded as factors? Note that as of **R** version 4.0, this defaults to `FALSE`
 
-Note that for small to moderately sized files, you can usually call `read.table()` without specifying any other arguments. For example, the following line
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** For small to moderately sized files, you can usually call `read.table()` without specifying any other arguments. 
+</div>
+
+For example, the following line
 
 ```{r ex_readtable, eval = FALSE}
 raw_data <- read.table("flat_file.txt")
@@ -249,13 +262,17 @@ raw_data <- read.table("flat_file.txt")
 
 would
 
-* skip lines that begin with a `#`  
+* skip any lines that begin with a `#`  
 * figure out how many rows there are (and how much memory needs to be allocated)  
 * figure what type of variable is in each column of the table  
 
-On the other hand, explicitly specifying all of these arguments directly makes **R** run faster and more efficiently.
+On the other hand, explicitly specifying all of these arguments directly (i.e., "defensive programming") makes **R** run faster and more efficiently.
 
-The `read.csv()` function is identical to read.table except that some of the defaults are set differently (e.g., `sep` argument). There is a `palmer_penguins.csv` file located deep in our working directory structure. 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `read.csv()` function is identical to `read.table()` except that some of the defaults are set differently (e.g., `sep` argument).
+</div>
+
+There is a `palmer_penguins.csv` file located deep in our working directory structure. 
 
 ```{r here_ex_read_base}
 ## read penguin data
@@ -268,9 +285,11 @@ head(data_raw)
 
 ### Tidyverse
 
-The newer **Tidyverse** collection of packages includes [`readr`](https://readr.tidyverse.org/) for reading in data files and assigning them the `tibble` object class. Click [here](readr_cheatsheet.pdf) to see the cheat sheet.
+The newer **Tidyverse** collection of packages includes the [`{readr}`](https://readr.tidyverse.org/) package for reading in data files and assigning them the `tibble` object class. Click [here](readr_cheatsheet.pdf) to see the cheat sheet.
 
-Let's read it into **R** with the `readr` package. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Read the Palmer penguins data into **R** with the `readr` package and then inspect its contents.
+</div>
 
 ```{r here_ex_readr}
 ## read penguin data
@@ -283,14 +302,16 @@ head(data_raw)
 
 ## Reading Excel files
 
-Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`readxl`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
+Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`{readxl}`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
 Here's an example that uses an Excel file called `world_bank_climate_change.xls` from the World Bank's [website](https://datacatalog.worldbank.org/dataset/climate-change-data). It looks like this:
 
 ![](images/wb_excel_view.png)
 
 <br>
 
-We can get a list of the individual worksheets within the workbook with `excel_sheets()`.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can get a list of the individual worksheets within the workbook with `excel_sheets()`.
+</div>
 
 ```{r examine_wb_file, warning = FALSE}
 ## load readxl
@@ -310,7 +331,15 @@ cc_data <- read_excel("data/world_bank_climate_change.xls", sheet = "Data")
 head(cc_data)
 ```
 
-If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read. For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read.
+</div>
+
+For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The authors of this file decided to use `..` to represent missing values, rather than something more conventional like `NA` or `N/A`, so hence the argument `na = ".."`.
+</div>
 
 ```{r}
 cc_data <- read_excel("data/world_bank_climate_change.xls",
@@ -321,12 +350,23 @@ cc_data <- read_excel("data/world_bank_climate_change.xls",
 head(cc_data)
 ```
 
+### Workflow example
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you'd like to see an example of how one might use the `{readxl}` package in a workflow, check out Mark's project on estimating trends in the density of bull trout across the Pacific Northwest [here](https://github.com/mdscheuerell/bulltrout/blob/main/R/01_data-wrangling.R).
+</div>
+
 
 ## Reading a Google Sheet
 
-The `googlesheets4` package allows you to inspect and read Google Sheets. The `gs_ls()` function returns a data frame of the sheets listed in your Google Sheets home screen located at https://docs.google.com/spreadsheets/. This will include sheets that you own and sheets owned by others that you have permission to access.
+The `{googlesheets4}` package allows you to inspect and read Google Sheets. 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `gs_ls()` function returns a data frame of the sheets listed in your Google Sheets home screen located at https://docs.google.com/spreadsheets/. This will include sheets that you own and sheets owned by others that you have permission to access.
+</div>
 
-To begin, you need to authorize `googlesheets4` to access the contents of your Google Drive where the Sheets are stored. Here I'm allowing only access to public sheets.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** To begin, you need to use `gs4_deauth()` to authorize `googlesheets4` to access the contents of your Google Drive where the Sheets are stored (here I'm allowing only access to public sheets).
+</div>
 
 ```{r googlesheet_setup}
 ## load the packge
@@ -336,12 +376,17 @@ library(googlesheets4)
 gs4_deauth()
 ```
 
-Now we can read in a sheet by one of two methods:
+<div class="boxy boxy-orange boxy-lightbulb">
+&nbsp; **Tip:** We can read in a sheet by one of two methods:
+<ol>
+  <li>specify the entire URL</li>
+  <li>specify only the sheet ID</li>
+</ol>
+</div>
 
-1. specify the entire URL  
-2. specify only the sheet ID
+### Option 1: Specify the entire URL
 
-```{r googlesheet_read}
+```{r googlesheet_read_1}
 ## specify URL
 gs_url <- "https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uYD5b4CJrKUmRYCK-wVA3yig/edit#gid=0"
 
@@ -350,7 +395,11 @@ read_sheet(gs_url)
 
 ## assign it to an object
 gs_raw <- read_sheet(gs_url)
+```
 
+### Option 2: Specify the sheet ID
+
+```{r googlesheet_read_2}
 ## specify ID
 gs_id <- as_sheets_id(gs_url)
 
@@ -361,14 +410,18 @@ read_sheet(gs_id)
 gs_raw <- read_sheet(gs_id)
 ```
 
-We can browse the sheet's metadata with `gs4_browse()`:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can browse the sheet's metadata with `gs4_browse()`.
+</div>
 
 ```{r gs_browse}
 ## browse sheet contents
 gs4_get(gs_id)
 ```
 
-We can also read in just a subset of cells by specifying the `range` argument. 
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can also read in just a subset of cells by specifying the `range` argument.
+</div>
 
 ```{r}
 read_sheet(gs_id, range = "A1:B10")
@@ -412,13 +465,15 @@ Some features about `JSON` object:
 
 ### Using the GitHub API
 
-Many organizations provide an application programming interface (API) for accessing their data **GitHub** has an [API](https://developer.github.com/v3/?) that allows you to explore information about users. Let's use this API to explore some of Mark's GitHub activities.
+Many organizations provide an application programming interface (API) for accessing their data. **GitHub** has an [API](https://developer.github.com/v3/?) that allows you to explore information about users. Let's use this API to explore some of Mark's GitHub activities.
 
 To do so, we'll use the `fromJSON()` function from the
-[`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/index.html) package to convert the data from a JSON object to a data frame. 
+[`{jsonlite}`](https://cran.r-project.org/web/packages/jsonlite/index.html) package to convert the data from a JSON object to a data frame. 
 
-Let's begin by reading in the JSON file located at 
-[https://api.github.com/users/mdscheuerell/repos](https://api.github.com/users/mdscheuerell/repos)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by reading in the JSON file located at 
+[https://api.github.com/users/mdscheuerell/repos](https://api.github.com/users/mdscheuerell/repos).
+</div>
 
 ```{r json_github_ex}
 ## load the pckage
@@ -431,8 +486,13 @@ github_url = "https://api.github.com/users/mdscheuerell/repos"
 data_json <- fromJSON(github_url)
 ```
 
-The function `fromJSON()` has now converted 
-the JSON file into a data frame with the names: 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The function `fromJSON()` will convert the JSON file into a data frame. 
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can inspect the field names in the data frame with `names()`.
+</div>
 
 ```{r json_names}
 ## all of the JSON names
@@ -441,35 +501,41 @@ names(data_json)
 
 Now we can query these data to answer some questions about Mark's **GitHub** profile and activities. (Note that the following results are only based upon the first 30 repos listed in Mark's account.)
 
-For example, how many of Mark's repos have been forked? 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** How many of Mark's repos have been forked? 
+</div>
 
-```{r gh_count_forks}
+```{r tbl_gh_count_forks}
 ## table of the number of forks
 table(data_json$forks)
 ```
 
-Only a total of 5 of the firt 30 repos have been forked.
+Only a total of `r sum(table(data_json$forks)[-1])` of the firt 30 repos have been forked.
 
-What's the most popular language used in these repos? 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** What are the languages used in these repos? 
+</div>
 
-```{r, eval = FALSE}
+```{r tbl_gh_languages}
 ## table number of the different languages
 table(data_json$language)
 ```
 
-How many repos have open issues that Mark should really address?
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** How many repos have open issues that Mark should address?
+</div>
 
 ```{r gh_open_issues}
 ## how many repos have open issues? 
 table(data_json$open_issues_count)
 ```
 
-Not too bad, but clearly he's behind on some things...
+Not too bad, but clearly he's behind on some things. One of his repos has `r max(as.integer(names(table(data_json$open_issues_count))))` open issues!
 
 ***
 
 # Other good R packages
 
-* [`httr`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
+* [`{httr}`](https://cran.r-project.org/web/packages/httr/index.html) for tools to work with URLs and HTTP
 
-* [`googledrive`](http://googledrive.tidyverse.org/) to interact with your Google Drive
+* [`{googledrive}`](http://googledrive.tidyverse.org/) to interact with your Google Drive
