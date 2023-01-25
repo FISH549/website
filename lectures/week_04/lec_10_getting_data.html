@@ -5545,30 +5545,28 @@ current working directory and you can inspect the files available using
 </div>
 <pre class="r"><code>## what is the working directory?
 getwd()</code></pre>
-<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
 <pre class="r"><code>## what files exist in the working directory?
 list.files()</code></pre>
-<pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
-##  [3] &quot;images&quot;                    &quot;lec_10_getting_data_cache&quot;
-##  [5] &quot;lec_10_getting_data.html&quot;  &quot;lec_10_getting_data.Rmd&quot;  
-##  [7] &quot;lec_11_getting_help.html&quot;  &quot;lec_11_getting_help.Rmd&quot;  
-##  [9] &quot;lec_12_kara_woo.html&quot;      &quot;lec_12_kara_woo.Rmd&quot;      
-## [11] &quot;lecture_inst.css&quot;          &quot;readr_cheatsheet.pdf&quot;     
-## [13] &quot;solid.css&quot;</code></pre>
+<pre><code>##  [1] &quot;data&quot;                     &quot;fontawesome.css&quot;         
+##  [3] &quot;images&quot;                   &quot;lec_10_getting_data.html&quot;
+##  [5] &quot;lec_10_getting_data.Rmd&quot;  &quot;lec_11_getting_help.html&quot;
+##  [7] &quot;lec_11_getting_help.Rmd&quot;  &quot;lec_12_kara_woo.html&quot;    
+##  [9] &quot;lec_12_kara_woo.Rmd&quot;      &quot;lecture_inst.css&quot;        
+## [11] &quot;readr_cheatsheet.pdf&quot;     &quot;solid.css&quot;</code></pre>
 <pre class="r"><code>dir()</code></pre>
-<pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
-##  [3] &quot;images&quot;                    &quot;lec_10_getting_data_cache&quot;
-##  [5] &quot;lec_10_getting_data.html&quot;  &quot;lec_10_getting_data.Rmd&quot;  
-##  [7] &quot;lec_11_getting_help.html&quot;  &quot;lec_11_getting_help.Rmd&quot;  
-##  [9] &quot;lec_12_kara_woo.html&quot;      &quot;lec_12_kara_woo.Rmd&quot;      
-## [11] &quot;lecture_inst.css&quot;          &quot;readr_cheatsheet.pdf&quot;     
-## [13] &quot;solid.css&quot;</code></pre>
+<pre><code>##  [1] &quot;data&quot;                     &quot;fontawesome.css&quot;         
+##  [3] &quot;images&quot;                   &quot;lec_10_getting_data.html&quot;
+##  [5] &quot;lec_10_getting_data.Rmd&quot;  &quot;lec_11_getting_help.html&quot;
+##  [7] &quot;lec_11_getting_help.Rmd&quot;  &quot;lec_12_kara_woo.html&quot;    
+##  [9] &quot;lec_12_kara_woo.Rmd&quot;      &quot;lecture_inst.css&quot;        
+## [11] &quot;readr_cheatsheet.pdf&quot;     &quot;solid.css&quot;</code></pre>
 <p>Our current location is in the <code>week_04</code> sub-folder buried
 relatively deeply within the course <code>website</code> repository.</p>
 <p>Using <code>here()</code> returns the following information:</p>
 <pre class="r"><code>## load here package
 library(here)</code></pre>
-<pre><code>## here() starts at /Users/mark/Documents/GitHub/FISH549/website</code></pre>
+<pre><code>## here() starts at /Users/scheuerl/Documents/GitHub/FISH549/website</code></pre>
 <pre class="r"><code>## show files in base directory
 list.files(here())</code></pre>
 <pre><code>##  [1] &quot;_list_of_hw.Rmd&quot;         &quot;_list_of_lectures.Rmd&quot;  
@@ -5616,7 +5614,7 @@ list.files(here(&quot;references&quot;))</code></pre>
 the path for a specific file.</p>
 </div>
 <pre class="r"><code>here(&quot;data&quot;, &quot;palmer_penguins.csv&quot;)</code></pre>
-<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/data/palmer_penguins.csv&quot;</code></pre>
 </div>
 </div>
 <div id="checking-for-local-files" class="section level2">
@@ -5685,9 +5683,9 @@ and where the user input data are used.</p>
 flow_url &lt;- paste0(&quot;https://waterdata.usgs.gov/nwis/dv&quot;,
                    &quot;?cb_00060=on&quot;,
                    &quot;&amp;format=rdb&quot;,
-                   &quot;&amp;site_no=&quot;,flow_site,
-                   &quot;&amp;begin_date=&quot;,yr_frst,&quot;-01-01&quot;,
-                   &quot;&amp;end_date=&quot;,yr_last,&quot;-12-31&quot;)</code></pre>
+                   &quot;&amp;site_no=&quot;, flow_site,
+                   &quot;&amp;begin_date=&quot;, yr_frst, &quot;-01-01&quot;,
+                   &quot;&amp;end_date=&quot;, yr_last, &quot;-12-31&quot;)</code></pre>
 <p>Next we retrieve the raw data file and print its metadata.</p>
 <pre class="r"><code>## load `readr` package
 library(&quot;readr&quot;)
@@ -5696,7 +5694,7 @@ library(&quot;readr&quot;)
 flow_raw &lt;- read_lines(flow_url)
 
 ## lines with metadata
-hdr_flow &lt;- which(lapply(flow_raw, grep, pattern = &quot;\\#&quot;)==1, arr.ind = TRUE)
+hdr_flow &lt;- which(lapply(flow_raw, grep, pattern = &quot;\\#&quot;) == 1, arr.ind = TRUE)
 
 ## print flow metadata
 print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
@@ -5713,7 +5711,7 @@ print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
 ## [11] # Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals      
 ## [12] #                                                                                         
 ## [13] # Contact:   gs-w_waterdata_support@usgs.gov                                              
-## [14] # retrieved: 2023-01-23 19:21:55 EST       (vaww02)                                       
+## [14] # retrieved: 2023-01-24 19:11:36 EST       (caww01)                                       
 ## [15] #                                                                                         
 ## [16] # Data for the following 1 site(s) are contained in this file                             
 ## [17] #    USGS 12178000 SKAGIT RIVER AT NEWHALEM, WA                                           
@@ -5736,7 +5734,7 @@ dat_flow &lt;-  read_tsv(flow_url,
                       col_types = &quot;ciDdc&quot;,
                       skip = max(hdr_flow)+2)
 
-colnames(dat_flow) &lt;- unlist(strsplit(tolower(flow_raw[max(hdr_flow)+1]),
+colnames(dat_flow) &lt;- unlist(strsplit(tolower(flow_raw[max(hdr_flow) + 1]),
                                       split = &quot;\\s+&quot;))
 head(dat_flow)</code></pre>
 <pre><code>## # A tibble: 6 × 5
@@ -5759,15 +5757,15 @@ dat_flow &lt;- dat_flow[c(&quot;datetime&quot;,
                        grep(&quot;[0-9]$&quot;, colnames(dat_flow), value = TRUE))]
 
 ## nicer column names
-colnames(dat_flow) &lt;- c(&quot;date&quot;,&quot;flow&quot;)
+colnames(dat_flow) &lt;- c(&quot;date&quot;, &quot;flow&quot;)
 
 ## convert cubic feet to cubic meters
 dat_flow$flow &lt;- dat_flow$flow / 35.3147
 
 ## flow by year &amp; month
-dat_flow$year &lt;- as.integer(format(dat_flow$date,&quot;%Y&quot;))
-dat_flow$month &lt;- as.integer(format(dat_flow$date,&quot;%m&quot;))
-dat_flow &lt;- dat_flow[,c(&quot;year&quot;,&quot;month&quot;,&quot;flow&quot;)]
+dat_flow$year &lt;- as.integer(format(dat_flow$date, &quot;%Y&quot;))
+dat_flow$month &lt;- as.integer(format(dat_flow$date, &quot;%m&quot;))
+dat_flow &lt;- dat_flow[, c(&quot;year&quot;, &quot;month&quot;, &quot;flow&quot;)]
 
 ## inspect the file
 head(dat_flow)</code></pre>
@@ -5817,9 +5815,12 @@ beginning<br />
 as factors? Note that as of <strong>R</strong> version 4.0, this
 defaults to <code>FALSE</code></li>
 </ul>
-<p>Note that for small to moderately sized files, you can usually call
-<code>read.table()</code> without specifying any other arguments. For
-example, the following line</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> For small to moderately sized files, you can
+usually call <code>read.table()</code> without specifying any other
+arguments.</p>
+</div>
+<p>For example, the following line</p>
 <pre class="r"><code>raw_data &lt;- read.table(&quot;flat_file.txt&quot;)</code></pre>
 <p>would</p>
 <ul>
@@ -5831,12 +5832,15 @@ allocated)<br />
 <li>figure what type of variable is in each column of the table</li>
 </ul>
 <p>On the other hand, explicitly specifying all of these arguments
-directly makes <strong>R</strong> run faster and more efficiently.</p>
-<p>The <code>read.csv()</code> function is identical to
-<code>read.table()</code> except that some of the defaults are set
-differently (e.g., <code>sep</code> argument). There is a
-<code>palmer_penguins.csv</code> file located deep in our working
-directory structure.</p>
+directly (i.e., “defensive programming”) makes <strong>R</strong> run
+faster and more efficiently.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> The <code>read.csv()</code> function is
+identical to <code>read.table()</code> except that some of the defaults
+are set differently (e.g., <code>sep</code> argument).</p>
+</div>
+<p>There is a <code>palmer_penguins.csv</code> file located deep in our
+working directory structure.</p>
 <pre class="r"><code>## read penguin data
 data_raw &lt;- read.csv(here(&quot;lectures&quot;, &quot;week_04&quot;, &quot;data&quot;, &quot;palmer_penguins.csv&quot;))
 
@@ -5874,10 +5878,9 @@ head(data_raw)</code></pre>
 <div id="tidyverse" class="section level3">
 <h3>Tidyverse</h3>
 <p>The newer <strong>Tidyverse</strong> collection of packages includes
-<a href="https://readr.tidyverse.org/"><code>readr</code></a> for
-reading in data files and assigning them the <code>tibble</code> object
-class. Click <a href="readr_cheatsheet.pdf">here</a> to see the cheat
-sheet.</p>
+the <a href="https://readr.tidyverse.org/"><code>{readr}</code></a>
+package for reading in data files and assigning them the
+<code>tibble</code> object class. Click <a href="readr_cheatsheet.pdf">here</a> to see the cheat sheet.</p>
 <p>Let’s read it into <strong>R</strong> with the <code>readr</code>
 package.</p>
 <pre class="r"><code>## read penguin data
@@ -5995,8 +5998,8 @@ gs_url &lt;- &quot;https://docs.google.com/spreadsheets/d/1ct3MMMzEX82BeqJcUw3uY
 
 ## read from URL
 read_sheet(gs_url)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.</code></pre>
-<pre><code>## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6013,15 +6016,15 @@ read_sheet(gs_url)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_url)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre class="r"><code>## specify ID
 gs_id &lt;- as_sheets_id(gs_url)
 
 ## read from ID
 read_sheet(gs_id)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <pre><code>## # A tibble: 34 × 5
 ##     year flow_wtr flow_sum  npgo h_releases
 ##    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -6038,8 +6041,8 @@ read_sheet(gs_id)</code></pre>
 ## # … with 24 more rows</code></pre>
 <pre class="r"><code>## assign it to an object
 gs_raw &lt;- read_sheet(gs_id)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.
-## ✔ Range &#39;Sheet1&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.
+## ✓ Range &#39;Sheet1&#39;.</code></pre>
 <p>We can browse the sheet’s metadata with
 <code>gs4_browse()</code>:</p>
 <pre class="r"><code>## browse sheet contents
@@ -6055,8 +6058,8 @@ gs4_get(gs_id)</code></pre>
 <p>We can also read in just a subset of cells by specifying the
 <code>range</code> argument.</p>
 <pre class="r"><code>read_sheet(gs_id, range = &quot;A1:B10&quot;)</code></pre>
-<pre><code>## ✔ Reading from &quot;FISH549_example&quot;.</code></pre>
-<pre><code>## ✔ Range &#39;A1:B10&#39;.</code></pre>
+<pre><code>## ✓ Reading from &quot;FISH549_example&quot;.</code></pre>
+<pre><code>## ✓ Range &#39;A1:B10&#39;.</code></pre>
 <pre><code>## # A tibble: 9 × 2
 ##    year flow_wtr
 ##   &lt;dbl&gt;    &lt;dbl&gt;
