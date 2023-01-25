@@ -302,14 +302,16 @@ head(data_raw)
 
 ## Reading Excel files
 
-Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`readxl`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
+Excel is very popular for entering and storing data, although we've already seen some of the pitfalls that you might encounter. There is a great package called [`{readxl}`](https://readxl.tidyverse.org/) that allows you to read Excel files directly into **R**. 
 Here's an example that uses an Excel file called `world_bank_climate_change.xls` from the World Bank's [website](https://datacatalog.worldbank.org/dataset/climate-change-data). It looks like this:
 
 ![](images/wb_excel_view.png)
 
 <br>
 
-We can get a list of the individual worksheets within the workbook with `excel_sheets()`.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** We can get a list of the individual worksheets within the workbook with `excel_sheets()`.
+</div>
 
 ```{r examine_wb_file, warning = FALSE}
 ## load readxl
@@ -329,7 +331,15 @@ cc_data <- read_excel("data/world_bank_climate_change.xls", sheet = "Data")
 head(cc_data)
 ```
 
-If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read. For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you are only interested in a certain subset of the data, the `range` argument can be used to select which cells to read.
+</div>
+
+For example, to read in the columns related to cereal yield for the years 1990 through 1995 for country names that start with "B" in the Data tab, we would only want to read in the rectangle of cells from G481 to L498.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The authors of this file decided to use `..` to represent missing values, rather than something more conventional like `NA` or `N/A`, so hence the argument `na = ".."`.
+</div>
 
 ```{r}
 cc_data <- read_excel("data/world_bank_climate_change.xls",
@@ -339,6 +349,12 @@ cc_data <- read_excel("data/world_bank_climate_change.xls",
                       na        = "..")
 head(cc_data)
 ```
+
+### Workflow example
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you'd like to see an example of how one might use the `{readxl}` package in a workflow, check out Mark's project on estimating trends in the density of bull trout across the Pacific Northwest [here](https://github.com/mdscheuerell/bulltrout/blob/main/R/01_data-wrangling.R).
+</div>
 
 
 ## Reading a Google Sheet
