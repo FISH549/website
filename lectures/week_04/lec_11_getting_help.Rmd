@@ -5,6 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -44,11 +45,11 @@ When you get stuck on a problem and need some advice, others will be able to bet
 
 This process is variously referred to as creating a
 
-* minimal, **rep**roducible **ex**ample (reprex)
+* minimal, **repr**oducible **ex**ample (**reprex**)
 
-* **m**inimal, **c**omplete and **v**erifiable **e**xample (mcve)
+* **m**inimal, **c**omplete and **v**erifiable **e**xample (**mcve**)
 
-* **m**inimal, **w**orkable **e**xample (mwe)
+* **m**inimal, **w**orkable **e**xample (**mwe**)
 
 The bottom line is that you should
 
@@ -58,49 +59,62 @@ The bottom line is that you should
 
 * Verify that the code you're about to share reproduces the problem (reproducible)
 
-In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question, and hopefully the correct answer, years after it was solved. As such, using plain, descriptive language in the title and body of a post will allow others to find it when searching for answers. For example, [this problem](https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown) I posted on Stack Overflow in 2016 has since received over 1000 views!
+In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question, and hopefully the correct answer, years after it was solved. As such, using plain, descriptive language in the title and body of a post will allow others to find it when searching for answers. For example, [this problem](https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown) I posted on Stack Overflow in 2016 has since received over 2000 views!
 
 ## Minimal
 
-There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points.
+There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points:
 
-* Consider creating a new script, including *only those elements germane to the problem* 
+* Consider creating a new script, including *only those elements germane to the problem*; 
 
-* Remove extraneous information that doesn't influence the problematic code
+* Remove extraneous information that doesn't influence the problematic code;
 
-* Use simple, descriptive names for parameters, variables, and functions
+* Use simple, descriptive names for parameters, variables, and functions;
 
-* Include meaningful comments in your code to help others understand what you're trying to accomplish
+* Include meaningful comments in your code to help others understand what you're trying to accomplish;
 
-* Take advantage of your IDE's options to create nicely formatted code (e.g., uses spaces--not tabs--for indents; in **RStudio** use `command+I` on a Mac or `ctrl+I` in Windows)
+* Take advantage of your IDE's options to create nicely formatted code.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+&nbsp; **Tip:** The following commands in **RStudio** can be helpful for formatting code:
+<ul>
+  <li>*indent lines*: `command + I` on a Mac or `ctrl + I` in Windows</li>
+  <li>*format code*: `command + shift + A` on a Mac or `ctrl + shift + A` in Windows</li>
+</ul>
+</div>
+
 
 ## Complete
 
-It's important to include **all** of the information necessary to reproduce the problem *within the question itself*. Don't put other people in a position where their first response to you is a request for more information. In addition, please consider the following advice.
+It's important to include **all** of the information necessary to reproduce the problem *within the question itself*. Don't put other people in a position where their first response to you is a request for more information. In addition, please consider the following advice:
 
-* If there are data involved, include a small subset of the data along with any necessary code
+* If there are data involved, include a *small subset of the data* along with any necessary code;
 
-* Break your problem down into small code blocks and include a description of each block's purpose
+* Break your problem down into small code blocks and include a description of each block's purpose;
 
 * It's OK to include an image or figure in your question, but
 
-* **Do not** use images of code; rather, copy/paste the actual code so others don't have to re-type anything
+* **Do not** use images of code; rather, copy/paste the actual code so others don't have to re-type anything;
 
-* Include information or links to other problems/solutions that you've tried or are referencing
+* Include information or links to other problems/solutions that you've tried or are referencing.
+
 
 ## Reproducible
 
 In order to help you, other people will need to verify that they can indeed reproduce the problem you're having. Phrases like "Help!", "This won't work!", or "Why does this happen?" don't offer much information. Instead, use descriptive language that gets to the question at hand, including:
 
-* Explain what the expected behavior should be
+* Explain what the *expected result* should be;
 
-* Provide the exact wording of any error messages
+* Provide the *exact wording* of any error messages;
 
-* Indicate which line(s) of code produce(s) the problem
+* Indicate *which line(s) of code* produce(s) the problem;
 
-* Use a brief, descriptive summary of your problem as the title of your question
+* Use a *brief, descriptive summary* of your problem as the title of your question.
 
-You should also double-check that your example reproduces the problem. As such, it's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You should double-check that your example reproduces the problem. It's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
+</div>
+
 
 ## Metainfo
 
