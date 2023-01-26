@@ -28,7 +28,7 @@ names(week_hw) <- paste0("L", seq(8))
 ## hw topics
 week_hw$L1 <- github
 week_hw$L2 <- forking_workflows
-week_hw$L3 <- NA # getting_help
+week_hw$L3 <- getting_help
 week_hw$L4 <- NA # databases
 week_hw$L5 <- NA # data_viz
 week_hw$L6 <- NA # publishing
