@@ -184,37 +184,54 @@ dat
 
 <br>
 
-## The `reprex` package
+## The `{reprex}` package
 
-The process of creating a reprex can also introduce unintended mistakes in your code during a copy/paste or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`reprex` package](https://reprex.tidyverse.org/).
+The process of creating a reprex can also introduce unintended mistakes in your code when copying/pasting or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`{reprex}`](https://reprex.tidyverse.org/) package.
 
 ### `reprex` from the command line
 
-Begin by loading the `reprex` package.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by loading the `reprex` package.
+</div>
 
-```
+```{r eval = FALSE}
 library(reprex)
 ```
 
-Select the code you're interested in and copy it to the clipboard:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the code you're interested in and copy it to the clipboard.
+</div>
 
-```
+```{r eval = FALSE}
 a <- 1
 b <- 0
 a / b
 ```
 
-Type `reprex()` at the **R** command prompt.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Type `reprex()` at the **R** command prompt. It will think for a moment and then respond with a message about the reprex output.
+</div>
 
-```
+```{r eval = FALSE}
 > reprex()
+✖ Install the styler package in order to use `style = TRUE`.
+ℹ Rendering reprex...
+✔ Reprex output is on the clipboard.
 ```
 
-If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
+</div>
 
 ![](images/reprex_result.png)
 
-Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)). In the background, `reprex` produces this chunk of code:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)).
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In the background, `reprex` produces this chunk of code:
+</div>
 
 ````
 `r ''````{r}
@@ -225,7 +242,9 @@ a / b
 ```
 ````
 
-There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
+</div>
 
 ### `reprex` in RStudio
 
