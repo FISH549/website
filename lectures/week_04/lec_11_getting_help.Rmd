@@ -120,20 +120,24 @@ In order to help you, other people will need to verify that they can indeed repr
 
 In addition to minimal, complete, and reproducible code (and possibly data), you should also include information about your larger work environment. This includes:
 
-* Your operating system (Mac, Windows, Linux) and its version
+* Your operating system (Mac, Windows, Linux) and its version;
 
-* Versions of your software (**R**, packages); `sessionInfo()` and `packageVersion("package-name-here")` are both helpful functions
+* Versions of your software (**R**, packages); `sessionInfo()` and `packageVersion("package-name-here")` are both helpful functions.
 
 
 ***
 
 # Creating a "reprex"
 
-Creating a reproducible example (reprex) can be a lot of work, but so is answering other people's questions. As Jenny Bryan says, "Help me help you." Here are some options for helping to create a reprex.
+Creating a reproducible example ("reprex") can take some work, but so does answering other people's questions. As Jenny Bryan says, "Help me help you." Here are some options for helping to create a reprex.
 
 ## Using `dput()`
 
-Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. Fortunately, the `dput()` function in **R** provides a convenient way of writing all of the information in a data frame in a compact manner.
+Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `dput()` function provides a convenient way of writing all of the information in a data frame in a compact manner.
+</div>
 
 Here's an example of using `dput()` on the [Palmer penguins data set](https://github.com/allisonhorst/palmerpenguins). This data set is actually quite large, so we'll only use the first 10 rows of the data frame.
 
@@ -145,11 +149,17 @@ library(palmerpenguins)
 data(package = 'palmerpenguins')
 head(penguins)
 
-## write the data
+## write the first 10 rows of data
 dput(penguins[1:10,])
 ```
 
-The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information in a data frame. You can now copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information contained in a data frame.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+</div>
 
 ```{r dget_penguins}
 ## assign output to an object

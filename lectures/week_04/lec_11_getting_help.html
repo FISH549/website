@@ -5603,29 +5603,31 @@ data), you should also include information about your larger work
 environment. This includes:</p>
 <ul>
 <li><p>Your operating system (Mac, Windows, Linux) and its
-version</p></li>
+version;</p></li>
 <li><p>Versions of your software (<strong>R</strong>, packages);
 <code>sessionInfo()</code> and
 <code>packageVersion(&quot;package-name-here&quot;)</code> are both helpful
-functions</p></li>
+functions.</p></li>
 </ul>
 <hr />
 </div>
 </div>
 <div id="creating-a-reprex" class="section level1">
 <h1>Creating a “reprex”</h1>
-<p>Creating a reproducible example (reprex) can be a lot of work, but so
-is answering other people’s questions. As Jenny Bryan says, “Help me
+<p>Creating a reproducible example (“reprex”) can take some work, but so
+does answering other people’s questions. As Jenny Bryan says, “Help me
 help you.” Here are some options for helping to create a reprex.</p>
 <div id="using-dput" class="section level2">
 <h2>Using <code>dput()</code></h2>
 <p>Copying/pasting code is relatively easy, but trying to include any
 data necessary to create a complete reprex can be tricky. In general,
 including a <code>.csv</code> file or other data format is difficult
-without pointing someone to an external source, link, etc. Fortunately,
-the <code>dput()</code> function in <strong>R</strong> provides a
+without pointing someone to an external source, link, etc.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> The <code>dput()</code> function provides a
 convenient way of writing all of the information in a data frame in a
 compact manner.</p>
+</div>
 <p>Here’s an example of using <code>dput()</code> on the <a href="https://github.com/allisonhorst/palmerpenguins">Palmer penguins
 data set</a>. This data set is actually quite large, so we’ll only use
 the first 10 rows of the data frame.</p>
@@ -5645,7 +5647,7 @@ head(penguins)</code></pre>
 ## 5 Adelie  Torge…           36.7          19.3              193        3450 fema…
 ## 6 Adelie  Torge…           39.3          20.6              190        3650 male 
 ## # … with 1 more variable: year &lt;int&gt;</code></pre>
-<pre class="r"><code>## write the data
+<pre class="r"><code>## write the first 10 rows of data
 dput(penguins[1:10,])</code></pre>
 <pre><code>## structure(list(species = structure(c(1L, 1L, 1L, 1L, 1L, 1L, 
 ## 1L, 1L, 1L, 1L), .Label = c(&quot;Adelie&quot;, &quot;Chinstrap&quot;, &quot;Gentoo&quot;), class = &quot;factor&quot;), 
@@ -5661,11 +5663,16 @@ dput(penguins[1:10,])</code></pre>
 ##     2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L, 2007L
 ##     )), row.names = c(NA, -10L), class = c(&quot;tbl_df&quot;, &quot;tbl&quot;, &quot;data.frame&quot;
 ## ))</code></pre>
-<p>The output from <code>dput()</code> may look a bit strange, but it’s
-<strong>R</strong>’s way of storing the information in a data frame. You
-can now copy/paste the output above into a post with your code and
-someone could simply assign it to an object and it will render just
-fine.</p>
+<div class="boxy boxy-red boxy-exclamation">
+<p><strong>Note:</strong> The output from <code>dput()</code> may look a
+bit strange, but it’s <strong>R</strong>’s way of storing the
+information contained in a data frame.</p>
+</div>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> You can copy/paste the output above into a post
+with your code and someone could simply assign it to an object and it
+will render just fine.</p>
+</div>
 <pre class="r"><code>## assign output to an object
 dat &lt;- structure(list(species = structure(c(1L, 1L, 1L, 1L, 1L, 1L, 
 1L, 1L, 1L, 1L), .Label = c(&quot;Adelie&quot;, &quot;Chinstrap&quot;, &quot;Gentoo&quot;), class = &quot;factor&quot;), 
