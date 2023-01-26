@@ -1,11 +1,11 @@
 ---
 title: "Getting help with errors in R"
 subtitle: "Assignment #3"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "29 January 2021"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "27 January 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: false
     toc_float: true
@@ -24,7 +24,7 @@ This assignment will allow you to demonstrate that you can create a minimal, rep
 
 # Task 1
 
-Navigate to the **Pisaster** repo [here](https://github.com/FISH497/pisaster) and fork it to your own **GitHub** account.
+Navigate to the **Pisaster** repo [here](https://github.com/FISH549/pisaster) and fork it to your own **GitHub** account.
 
 # Task 2
 
@@ -66,5 +66,5 @@ Note that you can make edits to a Gist after you've created it by clicking on th
 
 After you've created your new Gist with your request for help and a reprex, copy/paste the URL for the Gist into an email message, and send it to Mark with a short note asking for help. (Note that the URL should look something like `https://gist.github.com/USERNAME/59376e6f58a97d08f068edb015286891`.)
 
-
+<br>
 

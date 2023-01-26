@@ -5,6 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -44,11 +45,11 @@ When you get stuck on a problem and need some advice, others will be able to bet
 
 This process is variously referred to as creating a
 
-* minimal, **rep**roducible **ex**ample (reprex)
+* minimal, **repr**oducible **ex**ample (**reprex**)
 
-* **m**inimal, **c**omplete and **v**erifiable **e**xample (mcve)
+* **m**inimal, **c**omplete and **v**erifiable **e**xample (**mcve**)
 
-* **m**inimal, **w**orkable **e**xample (mwe)
+* **m**inimal, **w**orkable **e**xample (**mwe**)
 
 The bottom line is that you should
 
@@ -58,68 +59,85 @@ The bottom line is that you should
 
 * Verify that the code you're about to share reproduces the problem (reproducible)
 
-In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question, and hopefully the correct answer, years after it was solved. As such, using plain, descriptive language in the title and body of a post will allow others to find it when searching for answers. For example, [this problem](https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown) I posted on Stack Overflow in 2016 has since received over 1000 views!
+In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question, and hopefully the correct answer, years after it was solved. As such, using plain, descriptive language in the title and body of a post will allow others to find it when searching for answers. For example, [this problem](https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown) I posted on Stack Overflow in 2016 has since received over 2000 views!
 
 ## Minimal
 
-There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points.
+There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points:
 
-* Consider creating a new script, including *only those elements germane to the problem* 
+* Consider creating a new script, including *only those elements germane to the problem*; 
 
-* Remove extraneous information that doesn't influence the problematic code
+* Remove extraneous information that doesn't influence the problematic code;
 
-* Use simple, descriptive names for parameters, variables, and functions
+* Use simple, descriptive names for parameters, variables, and functions;
 
-* Include meaningful comments in your code to help others understand what you're trying to accomplish
+* Include meaningful comments in your code to help others understand what you're trying to accomplish;
 
-* Take advantage of your IDE's options to create nicely formatted code (e.g., uses spaces--not tabs--for indents; in **RStudio** use `command+I` on a Mac or `ctrl+I` in Windows)
+* Take advantage of your IDE's options to create nicely formatted code.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+&nbsp; **Tip:** The following commands in **RStudio** can be helpful for formatting code:
+<ul>
+  <li>*indent lines*: `command + I` on a Mac or `ctrl + I` in Windows</li>
+  <li>*format code*: `command + shift + A` on a Mac or `ctrl + shift + A` in Windows</li>
+</ul>
+</div>
+
 
 ## Complete
 
-It's important to include **all** of the information necessary to reproduce the problem *within the question itself*. Don't put other people in a position where their first response to you is a request for more information. In addition, please consider the following advice.
+It's important to include **all** of the information necessary to reproduce the problem *within the question itself*. Don't put other people in a position where their first response to you is a request for more information. In addition, please consider the following advice:
 
-* If there are data involved, include a small subset of the data along with any necessary code
+* If there are data involved, include a *small subset of the data* along with any necessary code;
 
-* Break your problem down into small code blocks and include a description of each block's purpose
+* Break your problem down into small code blocks and include a description of each block's purpose;
 
 * It's OK to include an image or figure in your question, but
 
-* **Do not** use images of code; rather, copy/paste the actual code so others don't have to re-type anything
+* **Do not** use images of code; rather, copy/paste the actual code so others don't have to re-type anything;
 
-* Include information or links to other problems/solutions that you've tried or are referencing
+* Include information or links to other problems/solutions that you've tried or are referencing.
+
 
 ## Reproducible
 
 In order to help you, other people will need to verify that they can indeed reproduce the problem you're having. Phrases like "Help!", "This won't work!", or "Why does this happen?" don't offer much information. Instead, use descriptive language that gets to the question at hand, including:
 
-* Explain what the expected behavior should be
+* Explain what the *expected result* should be;
 
-* Provide the exact wording of any error messages
+* Provide the *exact wording* of any error messages;
 
-* Indicate which line(s) of code produce(s) the problem
+* Indicate *which line(s) of code* produce(s) the problem;
 
-* Use a brief, descriptive summary of your problem as the title of your question
+* Use a *brief, descriptive summary* of your problem as the title of your question.
 
-You should also double-check that your example reproduces the problem. As such, it's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You should double-check that your example reproduces the problem. It's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
+</div>
+
 
 ## Metainfo
 
 In addition to minimal, complete, and reproducible code (and possibly data), you should also include information about your larger work environment. This includes:
 
-* Your operating system (Mac, Windows, Linux) and its version
+* Your operating system (Mac, Windows, Linux) and its version;
 
-* Versions of your software (**R**, packages); `sessionInfo()` and `packageVersion("package-name-here")` are both helpful functions
+* Versions of your software (**R**, packages); `sessionInfo()` and `packageVersion("package-name-here")` are both helpful functions.
 
 
 ***
 
 # Creating a "reprex"
 
-Creating a reproducible example (reprex) can be a lot of work, but so is answering other people's questions. As Jenny Bryan says, "Help me help you." Here are some options for helping to create a reprex.
+Creating a reproducible example ("reprex") can take some work, but so does answering other people's questions. As Jenny Bryan says, "Help me help you." Here are some options for helping to create a reprex.
 
 ## Using `dput()`
 
-Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. Fortunately, the `dput()` function in **R** provides a convenient way of writing all of the information in a data frame in a compact manner.
+Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `dput()` function provides a convenient way of writing all of the information in a data frame in a compact manner.
+</div>
 
 Here's an example of using `dput()` on the [Palmer penguins data set](https://github.com/allisonhorst/palmerpenguins). This data set is actually quite large, so we'll only use the first 10 rows of the data frame.
 
@@ -131,11 +149,17 @@ library(palmerpenguins)
 data(package = 'palmerpenguins')
 head(penguins)
 
-## write the data
+## write the first 10 rows of data
 dput(penguins[1:10,])
 ```
 
-The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information in a data frame. You can now copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information contained in a data frame.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+</div>
 
 ```{r dget_penguins}
 ## assign output to an object
@@ -160,37 +184,54 @@ dat
 
 <br>
 
-## The `reprex` package
+## The `{reprex}` package
 
-The process of creating a reprex can also introduce unintended mistakes in your code during a copy/paste or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`reprex` package](https://reprex.tidyverse.org/).
+The process of creating a reprex can also introduce unintended mistakes in your code when copying/pasting or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`{reprex}`](https://reprex.tidyverse.org/) package.
 
-### `reprex` from the command line
+### `{reprex}` from the command line
 
-Begin by loading the `reprex` package.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by loading the `reprex` package.
+</div>
 
-```
+```{r eval = FALSE}
 library(reprex)
 ```
 
-Select the code you're interested in and copy it to the clipboard:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select the code you're interested in and copy it to the clipboard.
+</div>
 
-```
+```{r eval = FALSE}
 a <- 1
 b <- 0
 a / b
 ```
 
-Type `reprex()` at the **R** command prompt.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Type `reprex()` at the **R** command prompt. It will think for a moment and then respond with a message about the reprex output.
+</div>
 
-```
+```{r eval = FALSE}
 > reprex()
+✖ Install the styler package in order to use `style = TRUE`.
+ℹ Rendering reprex...
+✔ Reprex output is on the clipboard.
 ```
 
-If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
+</div>
 
 ![](images/reprex_result.png)
 
-Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)). In the background, `reprex` produces this chunk of code:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)).
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** In the background, `reprex` produces this chunk of code, which will render nicely when pasted into a markdown document:
+</div>
 
 ````
 `r ''````{r}
@@ -201,19 +242,67 @@ a / b
 ```
 ````
 
-There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
+</div>
 
-### `reprex` in RStudio
+### `{reprex}` in RStudio
 
-`reprex` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, access it via the **Addins** pulldown menu (click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins).
+`{reprex}` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, you can access its functionality via the **Addins** pulldown menu. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** After you've loaded the `{reprex}` package, click on the **Addins** pulldown menu in the code pane and type "reprex" in the search bar. Select **Render reprex...** from the menu.
+</div>
 
 ![](images/reprex_rstudio.png)
 
 <br>
 
-This brings up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information. Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should see up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
+</div>
 
 ![](images/reprex_rs_popup.png)
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** At this point you have several options for seeking answers to your question or problem. The following example shows an option for creating an Issue in GitHub, but there are lots of others (see next section).
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to a GitHub repo (perhaps the one where your coding project lives) and create a new issue with an informative title.
+</div>
+
+![](images/reprex_gh_issue_title.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Write** window, paste the reprex you created above and add some informative text above it. You may also want to select some labels on the righthand side (e.g., "bug", "help wanted").
+</div>
+
+![](images/reprex_gh_issue_paste.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the **Preview** tab to check the formatting of your reprex.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are ready, scroll down and click on the green **Submit new issue** button.
+</div>
+
+![](images/reprex_gh_issue_preview.png)
 
 <br>
 
@@ -225,17 +314,19 @@ Now that you know *how* to ask for help, let's consider some places *where* you 
 
 ## Colleagues
 
-Your friends, colleagues, advisor, and committee members can be a great resource for help. Asking people you know can be much less intimidating than engaging with anonymous strangers. Turning to your officemate and asking them for help can be quick and also gratifying for them if they were able to help. Many lab groups have Slack channels dedicated to `coding` or `programming`, so consider asking there as well.
+Your friends, colleagues, advisor, and committee members can be a great resource for help. Asking people you know can be much less intimidating than engaging with anonymous strangers. Turning to your officemate and asking them for help can be quick and also gratifying for them if they were able to help. Many lab groups have Slack channels for `#coding` or `#programming`, so consider asking there as well.
 
 ## RStudio community
 
-The **RStudio** community provides a [nice forum](https://community.rstudio.com/) for people to ask questions specific to **R**, **RStudio**, and various packages (e.g., the "tidyverse"). The people tend to be compassionate and caring--they genuinely want to help rather than simply espousing their knowledge to whomever will listen.
+The **RStudio** community provides a [nice forum](https://community.rstudio.com/) for people to ask questions specific to **R**, **RStudio**, and various packages (e.g., the "tidyverse"). The people tend to be compassionate and caring---they genuinely want to help rather than simply espouse their knowledge to whomever will listen.
 
 ## Twitter
 
 In general, Twitter is a great source of information on **R** and data science. I follow lots of people who are developers and users of **R** and various packages (e.g., [Hadley Wickham](https://twitter.com/hadleywickham), [Jenny Bryan](https://twitter.com/JennyBryan), [Mara Averick](https://twitter.com/dataandme), [Kara Woo](https://twitter.com/kara_woo), [Thomas Lin Pedersen](https://twitter.com/thomasp85)). Although it's difficult to squeeze a reprex into 280 characters, you can share links to locations where you've posted a reprex (e.g., a [GitHub Gist](https://gist.github.com/)). Also consider checking in on the [#rstats](https://twitter.com/search?q=%23RStats) hashtag or including it in a post asking for help.
 
 ## GitHub
+
+As you start working more with teams on projects that are hosted on GitHub, you will invariably run into bugs, problems, errors, etc that you can't resolve yourself. Creating an issue that includes a reprex and description of the problem is a great way to solicit help, as well as maintain a record for future reference.
 
 In some cases, you may encounter a problem or discover a bug in a particular **R** package. Although [CRAN](https://cran.r-project.org/) is the primary location for hosting pacakges, many developers also maintain **GitHub** repos for their packages. These developers typically ask people to file an issue with the stipulation that you be polite and follow some general guidelines. Issues along the lines of "this doesn't work" or "why won't you update this" have a pretty good chance of being ignored. Very few people are paid to develop and maintain packages, so treat their time and effort with respect.
 
