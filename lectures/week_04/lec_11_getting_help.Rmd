@@ -230,17 +230,17 @@ a / b
 </div>
 
 <div class="boxy boxy-red boxy-exclamation">
-**Note:** In the background, `reprex` produces this chunk of code:
+**Note:** In the background, `reprex` produces this chunk of code, which will render nicely when pasted into a markdown document:
 </div>
 
-<!-- ```` -->
-<!-- `r ''````{r} -->
-<!-- a <- 1 -->
-<!-- b <- 0 -->
-<!-- a / b -->
-<!-- #> [1] Inf -->
-<!-- ``` -->
-<!-- ```` -->
+````
+`r ''````{r}
+a <- 1
+b <- 0
+a / b
+#> [1] Inf
+```
+````
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
