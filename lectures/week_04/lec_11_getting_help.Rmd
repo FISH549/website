@@ -188,7 +188,7 @@ dat
 
 The process of creating a reprex can also introduce unintended mistakes in your code when copying/pasting or retyping. As an instructor at UBC, Jenny Bryan found herself responding to hundreds of issues and questions per semester, so she (and others) created the [`{reprex}`](https://reprex.tidyverse.org/) package.
 
-### `reprex` from the command line
+### `{reprex}` from the command line
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Begin by loading the `reprex` package.
@@ -233,30 +233,76 @@ a / b
 **Note:** In the background, `reprex` produces this chunk of code:
 </div>
 
-````
-`r ''````{r}
-a <- 1
-b <- 0
-a / b
-#> [1] Inf
-```
-````
+<!-- ```` -->
+<!-- `r ''````{r} -->
+<!-- a <- 1 -->
+<!-- b <- 0 -->
+<!-- a / b -->
+<!-- #> [1] Inf -->
+<!-- ``` -->
+<!-- ```` -->
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
 </div>
 
-### `reprex` in RStudio
+### `{reprex}` in RStudio
 
-`reprex` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, access it via the **Addins** pulldown menu (click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins).
+`{reprex}` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, you can access its functionality via the **Addins** pulldown menu. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** After you've loaded the `{reprex}` package, click on the **Addins** pulldown menu in the code pane and type "reprex" in the search bar. Select **Render reprex...** from the menu.
+</div>
 
 ![](images/reprex_rstudio.png)
 
 <br>
 
-This brings up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information. Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should see up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
+</div>
 
 ![](images/reprex_rs_popup.png)
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** At this point you have several options for seeking answers to your question or problem. The following example shows an option for creating an Issue in GitHub, but there are lots of others (see next section).
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to a GitHub repo (perhaps the one where your coding project lives) and create a new issue with an informative title.
+</div>
+
+![](images/reprex_gh_issue_title.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Write** window, paste the reprex you created above and add some informative text above it. You may also want to select some labels on the righthand side (e.g., "bug", "help wanted").
+</div>
+
+![](images/reprex_gh_issue_paste.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can click on the **Preview** tab to check the formatting of your reprex.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are ready, scroll down and click on the green **Submit new issue** button.
+</div>
+
+![](images/reprex_gh_issue_preview.png)
 
 <br>
 
