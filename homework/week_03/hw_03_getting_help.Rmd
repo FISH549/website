@@ -64,7 +64,7 @@ Note that you can make edits to a Gist after you've created it by clicking on th
 
 # Task 5
 
-After you've created your new Gist with your request for help and a reprex, copy/paste the URL for the Gist into an email message, and send it to Mark with a short note asking for help. (Note that the URL should look something like `https://gist.github.com/USERNAME/59376e6f58a97d08f068edb015286891`.)
+After you've created your new Gist with your request for help and a reprex, create a new issue in your `fish549` repo that you worked on for [Assignment #1](https://fish549.github.io/website/homework/week_01/hw_01_github_remotes.html). Give the issue an informative title and include a short description of your problem. Copy/paste the URL for the Gist into the issue description, and assign the issue to Mark. (Note that the Gist URL should look something like `https://gist.github.com/USERNAME/59376e6f58a97d08f068edb015286891` where `USERNAME` is your GitHub user name and the alpha-numeric sequence is unique to you.)
 
 <br>
 
