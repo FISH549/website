@@ -4,7 +4,7 @@ author: "Mark Scheuerell"
 date: "12 February 2021"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -13,7 +13,7 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE,
                       fig.align = "center", out.width = '70%')
 ```
 
@@ -449,9 +449,9 @@ Although the use of pie charts is very common, there have been numerous cognitiv
 
 ### Waffleplots
 
-So-called *waffle plots* offer an alternative to pie charts. Waffle plots are square or rectangular representations of proportion data. Here's an example of some waffle plots created with Bob Rudis' [**waffle** package](https://github.com/hrbrmstr/waffle). The data are summaries of the sources, forms, and fates of greenhouse gas emissions.from the Intergovernmental Panel on Climate Change (IPCC).
+So-called *waffle plots* offer an alternative to pie charts. Waffle plots are square or rectangular representations of proportion data. Here's an example of some waffle plots created with Bob Rudis' [**waffle** package](https://github.com/hrbrmstr/waffle). The data are summaries of the sources, forms, and fates of greenhouse gas emissions from the Intergovernmental Panel on Climate Change (IPCC).
 
-```{r ex_waffle_ghg, fig.height = 8, fig.width = 5}
+```{r ex_waffle_ghg, fig.height = 8, fig.width = 5, message = FALSE}
 library(hrbrthemes)
 library(waffle)
 
@@ -470,61 +470,53 @@ ghg <- tibble(
 )
 
 ## Greenhouse gas emissions
-ghg_1 <- filter(ghg, category == "Greenhouse gas emissions")
-ghg_p1 <- ggplot(ghg_1,
-                 aes(fill=parts, values=values)) +
-  geom_waffle(color = "white", size = 0.5, n_rows = 10) +
-  scale_x_discrete(expand=c(0,0)) +
-  scale_y_discrete(expand=c(0,0)) +
+ghg_1 <- ghg %>%
+  filter(category == "Greenhouse gas emissions") %>%
+  select(-category) %>%
+  tibble::deframe()
+
+ghg_p1 <- waffle::waffle(ghg_1) +
   ggthemes::scale_fill_tableau(name=NULL,
                                palette = "Miller Stone",
                                type = "regular",
-                               direction = 1,
-                               breaks = ghg_1$parts) +
+                               direction = 1) +
   coord_equal() +
   labs(
-    title = unique(ghg_1$category)
-  ) +
-  theme_ipsum_rc(grid="") +
-  theme_enhance_waffle()
+    title = "Greenhouse gas emissions"
+  )
 
 ## Greenhouse gas sources
-ghg_2 <- filter(ghg, category == "Greenhouse gas sources")
-ghg_p2 <- ggplot(ghg_2,
-                 aes(fill=parts, values=values)) +
-  geom_waffle(color = "white", size = 0.5, n_rows = 10) +
-  scale_x_discrete(expand=c(0,0)) +
-  scale_y_discrete(expand=c(0,0)) +
+ghg_2 <- ghg %>%
+  filter(category == "Greenhouse gas sources") %>%
+  select(-category) %>%
+  tibble::deframe()
+
+ghg_p2 <- waffle::waffle(ghg_2) +
   ggthemes::scale_fill_tableau(name=NULL,
                                palette = "Miller Stone",
                                type = "regular",
-                               direction = 1,
-                               breaks = ghg_2$parts) +
+                               direction = 1) +
   coord_equal() +
   labs(
-    title = unique(ghg_2$category)
-  ) +
-  theme_ipsum_rc(grid="") +
-  theme_enhance_waffle()
+    title = "Greenhouse gas sources"
+  )
 
 ## Fate of CO2 emissions
-ghg_3 <- filter(ghg, category == "Fate of CO2 emissions")
-ghg_p3 <- ggplot(ghg_3,
-                 aes(fill=parts, values=values)) +
-  geom_waffle(color = "white", size = 0.5, n_rows = 10) +
-  scale_x_discrete(expand=c(0,0)) +
-  scale_y_discrete(expand=c(0,0)) +
-  ggthemes::scale_fill_tableau(name = NULL,
-                               palette = "Color Blind",
+# ghg_3 <- filter(ghg, category == "Fate of CO2 emissions")
+ghg_3 <- ghg %>%
+  filter(category == "Fate of CO2 emissions") %>%
+  select(-category) %>%
+  tibble::deframe()
+
+ghg_p3 <- waffle::waffle(ghg_3) +
+  ggthemes::scale_fill_tableau(name=NULL,
+                               palette = "Miller Stone",
                                type = "regular",
-                               direction = -1,
-                               breaks = ghg_3$parts) +
+                               direction = 1) +
   coord_equal() +
   labs(
-    title = unique(ghg_3$category)
-  ) +
-  theme_ipsum_rc(grid="") +
-  theme_enhance_waffle()
+    title = "Fate of CO2 emissions"
+  )
 
 ## stick the plots together
 iron(ghg_p1, ghg_p2, ghg_p3)
