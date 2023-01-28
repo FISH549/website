@@ -1,8 +1,8 @@
 ---
 title: "Metadata"
-subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "10 February 2021"
+date: "6 February 2023"
 output: ioslides_presentation
 ---
 
