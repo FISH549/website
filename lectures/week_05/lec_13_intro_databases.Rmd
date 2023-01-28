@@ -1,8 +1,8 @@
 ---
 title: "Introduction to relational databases"
-subtitle: "Intro to Environmental Data Science<br>FISH 497A"
+subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Jennifer Scheuerell"
-date: "1 February 2021"
+date: "30 January 2023"
 output: ioslides_presentation
 ---
 
