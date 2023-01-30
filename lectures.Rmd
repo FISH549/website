@@ -64,9 +64,9 @@ week_lecs$L22 <- holiday_2
 week_lecs$L23 <- packages_1
 week_lecs$L24 <- packages_2
 ## week 9: Feb 27 - Mar 3
-week_lecs$L25 <- guest_holmes
-week_lecs$L26 <- shiny_1
-week_lecs$L27 <- shiny_2
+week_lecs$L25 <- shiny_1
+week_lecs$L26 <- shiny_2
+week_lecs$L27 <- guest_holmes
 ## week 10: Mar 6-10
 week_lecs$L28 <- docker
 week_lecs$L29 <- code_reviews
