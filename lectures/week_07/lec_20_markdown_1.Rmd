@@ -1,12 +1,12 @@
 ---
 title: "Using R Markdown for publications"
 subtitle: "Part 1"
-author: "Mark Scheuerell"
-date: "17 February 2021"
+date: "10 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -168,9 +168,9 @@ will give the same result
 | col 2 is | centered | $12 |
 | col 1 is | left-aligned | $1 | 
 
-## kableExtra
+## `{kableExtra}`
 
-You can create much fancier tables with the **kableExtra** package (click [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) for the vignette with lots of examples). For example, the following code will create a table with striped rows, custom column widths, and a scroll box.
+You can create much fancier tables with the `{kableExtra}` package (click [here](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) for the vignette with lots of examples). For example, the following code will create a table with striped rows, custom column widths, and a scroll box.
 
 ```{r kableExtra}
 ## load package
@@ -350,7 +350,7 @@ we could use `[@Smith_2021]` to format the in-text reference as "(Smith and John
 
 ***
 
-# `knitcitations` package
+# `{knitcitations}` package
 
 [Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called **knitcitations** for creating and citing **BibTeX**-style references via several mechanisms. To begin, you load the package and then use the `cleanbib()` function to remove any old `.bib` files.
 
@@ -426,7 +426,7 @@ will do two things:
 
 ## Cite by URL
 
-Not all the literature we may wish to cite includes DOIs, such as **arXiv** preprints, Wikipedia pages, or other academic blogs. `{knitcitations}` can produce citations from any URL using the Greycite API. For example, we can use the call 
+Not all the literature we may wish to cite includes DOIs, such as **arXiv** preprints, Wikipedia pages, or other academic blogs. `{knitcitations}` can produce citations from any URL using the Greycite API. For example, we can use the call
 
 ```{r, eval = FALSE}
 `r citep("http://knowledgeblog.org/greycite")`
