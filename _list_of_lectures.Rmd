@@ -230,7 +230,7 @@ metadata <- list(
   background = c("[Michener (2005)](references/Michener_2005_meta_info_concepts.pdf)",
                  "[Fegraus et al (2005)](references/Fegraus_2005_intro_EML.pdf)",
                  "[EML specification](https://eml.ecoinformatics.org/)",
-                 "[EML package]()"),
+                 "[EML package](https://docs.ropensci.org/EML/)"),
   zoom = ""
 )
 
@@ -253,7 +253,7 @@ analysis_visualization <- list(
   rmd = "lectures/week_06/lec_18_analysis_viz.Rmd",
   html = "lectures/week_06/lec_18_analysis_viz.html",
   background = c("[R Graph Gallery](https://www.r-graph-gallery.com/)",
-                 "[High Quality Graphics in R](https://web.stanford.edu/class/bios221/book/Chap-Graphics.html)"),
+                 "[STAT 545 Do's & Don'ts](https://stat545.com/effective-graphs.html)"),
   zoom = ""
 )
 
