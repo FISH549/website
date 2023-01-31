@@ -35,13 +35,13 @@ Here is an example of an exploratory analysis based on a re-examination of some 
 Here is Figure 3 from Schultz et al. (2016), which shows the mean counts of organisms before and after the wasting event. They used a barplot with symmetrical errors bars based on a (in my opinion) flawed model for counts. That is, the error bars are symmetric around the means, which suggests that they might indeed observe negative counts.
 
 <br>
-```{r, echo = FALSE, fig.align = "center", out.width = "40%"}
+```{r, echo = FALSE, fig.align = "center", out.width = "33%"}
 knitr::include_graphics("images/seastars.png")
 ```
 <br>
 
 
-**Figure 3**. Mean abundance (per m2) of (A) sunflower stars and (B) green sea urchins, and (C) percent cover of kelp on rocky reefs in Howe Sound, British Columbia, on 80 transects before and after the mass mortality of sea stars in 2013. Error bars represent standard error. The dominant kelp was the sea colander kelp, *Agarum fimbriatum*.
+**Figure 3**. Mean abundance (per m<sup>2</sup>) of (A) sunflower stars and (B) green sea urchins, and (C) percent cover of kelp on rocky reefs in Howe Sound, British Columbia, on 80 transects before and after the mass mortality of sea stars in 2013. Error bars represent standard error. The dominant kelp was the sea colander kelp, *Agarum fimbriatum*.
 
 <br>
 
@@ -92,7 +92,7 @@ such that the variance converges to the mean as $r \rightarrow \infty$, and the 
 
 #### Aside on equations
 
-The above equations are written in **LaTeX** form, which can be a bit tricky to figure out when you're first learning. There is a neat package called [equatiomatic](https://datalorax.github.io/equatiomatic/index.html), which will take the results from a fitted model in **R** and transform it into the corresponding **LaTeX** code. For example, this code fits a simple linear regression model from the `mtcars` dataset and then writes the equation.
+The above equations are written in **LaTeX** form, which can be a bit tricky to figure out when you're first learning. There is a neat package called [{equatiomatic}](https://datalorax.github.io/equatiomatic/index.html), which will take the results from a fitted model in **R** and transform it into the corresponding **LaTeX** code. For example, this code fits a simple linear regression model from the `mtcars` dataset and then writes the equation.
 
 ```{r equatiomatic, results = "hold"}
 library(equatiomatic)
@@ -115,13 +115,13 @@ extract_eq(model_fit)
 
 I rely on a number of packages for reading, munging, and plotting the data, which include:
 
-* [Jenny Bryan's](https://github.com/jennybc) [__readxl__](http://readxl.tidyverse.org/);
-* several from [Hadley Wickham's](https://github.com/hadley) [__tidyverse__](http://www.tidyverse.org/);
-* [Thomas Lin Pederson's](https://github.com/thomasp85) [__patchwork__](https://github.com/thomasp85/patchwork).
+* [Jenny Bryan](https://github.com/jennybc)'s [{readxl}](http://readxl.tidyverse.org/);
+* several from [Hadley Wickham](https://github.com/hadley)'s [{tidyverse}](http://www.tidyverse.org/);
+* [Thomas Lin Pederson](https://github.com/thomasp85)'s [{patchwork}](https://github.com/thomasp85/patchwork).
 
 In addition to some frequentist approaches, I also show different options for Bayesian model fitting using the following software and packages:
 
-* [__JAGS__](http://mcmc-jags.sourceforge.net/) and the [__R2jags__](https://cran.r-project.org/web/packages/R2jags/index.html) package;
+* [__JAGS__](http://mcmc-jags.sourceforge.net/) and the [{R2jags}](https://cran.r-project.org/web/packages/R2jags/index.html) package;
 
 ```{r load_pkgs, message=FALSE}
 ## for reading & writing data
@@ -144,7 +144,7 @@ Schultz et al. were very considerate in posting the data they used for the analy
 
 ### Step 1: Convert Excel workbook to csv files
 
-The [code](https://peerj.com/articles/1980/#supp-2) provided by the authors works with various data files in .csv format, so I begin by extracting those from the .xlsx file.
+The [code](https://peerj.com/articles/1980/#supp-2) provided by the authors works with various data files in `.csv` format, so I begin by extracting those from the `.xlsx` file.
 
 ```{r, get_author_data}
 ## data directory
@@ -189,9 +189,13 @@ These data contain a lot of zeros, so visualization can be a bit tricky. Here ar
 ## base plot
 pp <- ggplot(stars_tidy, aes(x = time, y = count, color = time)) 
 ## jittered dotplot
-p1 <- pp + geom_jitter(shape = 16, position = position_jitter(0.3), size = 2) + theme_bw()
+p1 <- pp +
+  geom_jitter(shape = 16, position = position_jitter(0.3), size = 2) +
+  theme_bw()
 ## violin plot
-p2 <- pp + geom_violin(size = 1.5) + theme_bw()
+p2 <- pp +
+  geom_violin(size = 1.5) +
+  theme_bw()
 ## combine plots
 p1 + p2 &
   theme(legend.position = "none") &
@@ -484,9 +488,7 @@ ghg_p1 <- waffle::waffle(ghg_1) +
                                type = "regular",
                                direction = 1) +
   coord_equal() +
-  labs(
-    title = "Greenhouse gas emissions"
-  )
+  labs(title = "Greenhouse gas emissions")
 
 ## Greenhouse gas sources
 ghg_2 <- ghg %>%
@@ -500,9 +502,7 @@ ghg_p2 <- waffle::waffle(ghg_2) +
                                type = "regular",
                                direction = 1) +
   coord_equal() +
-  labs(
-    title = "Greenhouse gas sources"
-  )
+  labs(title = "Greenhouse gas sources"  )
 
 ## Fate of CO2 emissions
 ghg_3 <- ghg %>%
@@ -516,9 +516,7 @@ ghg_p3 <- waffle::waffle(ghg_3) +
                                type = "regular",
                                direction = 1) +
   coord_equal() +
-  labs(
-    title = "Fate of CO2 emissions"
-  )
+  labs(title = "Fate of CO2 emissions")
 
 ## stick the plots together
 iron(ghg_p1, ghg_p2, ghg_p3)
