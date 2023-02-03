@@ -1,11 +1,11 @@
 ---
 title: "Introduction to R Markdown"
-author: "Mark Scheuerell"
-date: "17 February 2021"
+date: "10 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -41,11 +41,10 @@ The YAML can include a lot more information as well, including fields for variou
 ```
 ---
 title: "Introduction to R Markdown"
-author: "Mark Scheuerell"
-date: "17 February 2021"
+date: "10 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -141,7 +140,9 @@ results in
 
 > This bit is <u>underlined</u>.
 
-[Aside: It turns out that you can use all kinds of HTML tags within Markdown documents for additional formatting options.]
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can use all kinds of HTML tags within Markdown documents for additional formatting options.
+</div>
 
 
 ## Block quotes
@@ -281,7 +282,7 @@ Here are the references for the links. For some reason I put the full address he
 
 # Writing code
 
-One of the truly great features of Markdown is the ability to include code within a document, have it executed as written, and the results of the code displayed inline, in blocks, or even hidden from sight. This course uses **R**, but people also use many other languages in Markdown documents (eg, python).
+One of the truly great features of Markdown is the ability to include code within a document, have it executed as written, and the results of the code displayed inline, in blocks, or even hidden from sight. This course uses **R**, but people also use many other languages in Markdown documents (eg, Python).
 
 ## Blocks
 
@@ -337,7 +338,9 @@ a / b
 ```
 ````
 
-**NOTE**: There are [many other chunk options](https://yihui.org/knitr/options/#chunk-options) available for customizing code evaluation, results, etc.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** There are [many other chunk options](https://yihui.org/knitr/options/#chunk-options) available for customizing code evaluation, results, etc.
+</div>
 
 ## Inline
 
@@ -479,6 +482,7 @@ $$
 \end{aligned}
 $$
 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If your preferred output format is pdf, there are additional **LaTeX** options for formatting equations.
+</div>
 
-
-**NOTE**: If your preferred output format is pdf, there are additional **LaTeX** options for formatting equations.
