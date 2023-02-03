@@ -1,11 +1,11 @@
 ---
 title: "Introduction to databases"
 subtitle: "Assignment #4"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "5 February 2021"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "3 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: false
     toc_float: true
@@ -52,4 +52,4 @@ Join your `limno` and `pdo` tables into a *view*. When you are finished, take a 
 
 # Task 8
 
-Open a new issue called `Assignment 4` in your `fish497` repo that you created as part of [Assignment 1](../week_01/hw_01_github_remotes.html) and include the screen shot from Task 7. To do so, you can simply drag and drop the image into the issue editing window.
+Open a new issue called `Assignment 4` in your `fish549` repo that you created as part of [Assignment 1](../week_01/hw_01_github_remotes.html) and include the screen shot from Task 7. To do so, you can simply drag and drop the image into the issue editing window.
