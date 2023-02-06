@@ -1,11 +1,11 @@
 ---
 title: "Getting help with errors in R"
 subtitle: "Answer Key for Assignment #3"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "29 January 2021"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "5 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -13,7 +13,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
 <br>
@@ -80,7 +80,7 @@ Here's an example of what my reprex would look like. The key elements here are:
 
 * all of the information is contained here (question/problem, code, data)
 
-```
+```{r eval = FALSE}
 I'm trying to compute the mean of a column in a data frame, but I get the following error:
 
 Warning in mean.default(ex_data$count): argument is not numeric or
