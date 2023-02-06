@@ -74,7 +74,7 @@ Metadata benefits science by
 
 2) increased data reuse & sharing 
 
-    > - info helps others know if/how they could them
+    > - info helps others know if/how they could reuse them
     
     > - facilitates meta-analyses
 
@@ -355,9 +355,6 @@ Contains information about a rectangular table
 ## Data table{data-background=images/metadata_data.png data-background-position="50% 60%" data-background-size=70%} 
 
 
-## &nbsp;{data-background=images/KNB.png data-background-position="50% 50%" data-background-size=100%} 
-
-
 ## Knowledge Network for Biocomplexity
 
 The [KNB](https://knb.ecoinformatics.org/) is an international repository intended to facilitate ecological & environmental research
@@ -365,6 +362,9 @@ The [KNB](https://knb.ecoinformatics.org/) is an international repository intend
 > - you can upload/publish data with a DOI
 
 > - you can write EML
+
+
+## &nbsp;{data-background=images/KNB.png data-background-position="50% 50%" data-background-size=100%} 
 
 
 ## [\{dataone\}](https://github.com/DataONEorg/rdataone) package
