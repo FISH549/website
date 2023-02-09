@@ -48,13 +48,16 @@ There are a number of existing templates available in the [**rticles**](https://
 **Task:** Leave the **Default Output Format** as `HTML` and click on **OK**.
 </div>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You now have a new `.Rmd` file ready for editing, which includes some placeholder text and code blocks. 
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a new `.Rmd` file ready for editing, which includes some placeholder text and code blocks.
 </div>
+ 
 
 ![](images/rmd_html_new.png)
 
 <br>
+
+***
 
 # Document layout
 
@@ -96,6 +99,35 @@ bibliography: "references.bib"
 csl: "ecology.csl"
 ---
 ```
+
+***
+
+# Knitting your file
+
+The process of creating a nicely formatted document (e.g., `html`, `.pdf`) from the raw markdown code in the `.Rmd` file is known as _knitting_. You can knit a `.Rmd` file from the R command line, but the easiest way in RStudio is to simply click the **Knit** button at the top of the editing pane.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Clicking on the downarrow to the right of the **Knit** button brings up some additional options.
+</div>
+
+![](images/rmd_knit_options.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Knit** button to render your `.Rmd` file as a `.html` file.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Knitting a `.Rmd` file automatically saves it. The first time you click **Knit**, you will be prompted for the filename and location where you want to save the file.
+</div>
+
+![](images/rmd_html_knitted_1.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a knitted `.html` file.
+</div>
+
 
 ***
 
