@@ -1,5 +1,5 @@
 ---
-title: "Using R Markdown for publications"
+title: "Using R Markdown for reporting"
 subtitle: "Part 1"
 date: "10 February 2023"
 output:
@@ -127,6 +127,54 @@ The process of creating a nicely formatted document (e.g., `html`, `.pdf`) from 
 <div class="boxy boxy-success boxy-check">
 **Success:** You now have a knitted `.html` file.
 </div>
+
+## Make some changes
+
+Let's make some changes to our markdown document and knit them.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add a title, subtitle, and table of contents (toc) to the YAML.
+</div>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The indentation and colons in the YAML subfields are necessary.
+</div>
+
+```
+---
+title: "Creating online reports"
+subtitle: "A markdown demonstration"
+author: "Mark Scheuerell"
+date: "10 February 2023"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add a level-1 and level-3 header to your document.
+</div>
+
+![](images/rmd_html_edited.png)
+
+<br>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click the **Knit** button to see you changes.
+</div>
+
+![](images/rmd_html_knitted_2.png)
+
+<br>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The table of contents will change as you scroll down through the sections and float along the left side.
+</div>
+
+![](images/rmd_html_toc_scroll.png)
 
 
 ***
