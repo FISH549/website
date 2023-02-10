@@ -176,6 +176,56 @@ output:
 
 ![](images/rmd_html_toc_scroll.png)
 
+***
+
+# Publishing reports online
+
+Now that we've seen how to create an HTML report using R Markdown, let's publish a report online so that it can be shared with and viewed by others.
+
+## Create a new repo
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to GitHub and create a new _public_ repo called `markdown-demo`. Add a `README.md` file and an R `.gitignore` file as well (you can skip a license file). CLick the green **Create repository** button when you're ready.
+</div>
+
+![](images/gh_new_demo_repo.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Settings** button in the upper right.
+</div>
+
+![](images/gh_new_repo_home.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Pages** button on the left side.
+</div>
+
+![](images/gh_new_repo_settings.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **None** button under the **Branch** heading and swith it to **main**.
+</div>
+
+![](images/gh_new_repo_pages_branch.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **/ (root)** button under the **Branch** heading and swith it to **/docs**.
+</div>
+
+![](images/gh_new_repo_pages_folder.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you're ready, click on the **Save** button.
+</div>
+
+![](images/gh_new_repo_pages_set.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Your repo is now set to use GitHub Pages for displaying HTML files.
+</div>
+
+![](images/gh_new_repo_pages_done.png)
+
 
 ***
 
