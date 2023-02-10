@@ -318,3 +318,14 @@ Now that we've pushed our basic HTML report to GitHub, we should be able to view
 
 ![](images/gh_repo_with_link.png)
 
+***
+
+# Endnote
+
+Now that you have seen how to create HTML reports and display them online, you're ready to add more details such as equations, code blocks, figures, tables, etc.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can refer to [this primer](https://fish549.github.io/website/lectures/week_07/intro_rmarkdown.html) for some additional information on formatting R Markdown documents.
+</div>
+
+
