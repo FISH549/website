@@ -268,7 +268,55 @@ Now that we've seen how to create an HTML report using R Markdown, let's publish
 
 ![](images/rmd_html_index_push.png)
 
+## Viewing your document
 
+Now that we've pushed our basic HTML report to GitHub, we should be able to view it online.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate back your `markdown-demo` repo on GitHub and you'll see the `/docs` folder containing the `index.Rmd` and `index.html` files you just pushed.
+</div>
+
+![](images/gh_repo_updated.png)
+
+![](images/gh_repo_docs.png)
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you click on the `index.html` file, you'll notice that it just displays the raw HTML code rather than a nicely formatted website.
+</div>
+
+![](images/gh_repo_docs_index.png)
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** GitHub cannot render HTML files in a normal repo, but you can view your new document by navigating to `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username.
+</div>
+
+![](images/gh_pages_rendered.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have an online report that you can update by making changes in your RStudio project and pushing them to GitHub.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can add a link to your newly rendered document by edited the main page of your repo.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the small gear icon in the upper right, which will bring up a window to edit some aspects of your repo.
+</div>
+
+![](images/gh_repo_pages_link.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Website** field, type or copy/paste the link to you rendered site, which should be `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username. Click on the green **Save changes** button when you're done.
+</div>
+
+![](images/gh_pages_add_link.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Your repo has now been updated to include a direct link to your properly rendered HTML report.
+</div>
+
+![](images/gh_repo_with_link.png)
 
 ***
 
