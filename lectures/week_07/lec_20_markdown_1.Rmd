@@ -226,6 +226,49 @@ Now that we've seen how to create an HTML report using R Markdown, let's publish
 
 ![](images/gh_new_repo_pages_done.png)
 
+## Create an RStudio project
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new project in RStudio from the `markdown-demo` repo you just created.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open a new R Markdown document and give it a title. Select the **HTML** format and click **OK** when you're done.
+</div>
+
+![](images/rmd_html_doc_new.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Save your new document in a new subfolder within your `markdown-demo` project called `docs` with the filename `index.Rmd`.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** When you click **Save**, your markdown document will be knit automatically.
+</div>
+
+![](images/rmd_html_doc_save.png)
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should now see a `/docs` folder in the RStudio file pane. Click on it and you will see your `index.Rmd` and `index.html` files there. 
+</div>
+
+![](images/rmd_html_index_1.png)
+
+![](images/rmd_html_index_2.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your changes to the `index.Rmd` and `index.html` files.
+</div>
+
+![](images/rmd_html_index_commit.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Push your commit when done.
+</div>
+
+![](images/rmd_html_index_push.png)
+
+
 
 ***
 
