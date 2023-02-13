@@ -5,6 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -68,7 +69,7 @@ output: ioslides_presentation
 ---
 ````
 
-will result in this title page
+will result in this title page:
 
 <br>
 
@@ -78,7 +79,11 @@ knitr::include_graphics("img/ioslides_title.png")
 
 <br>
 
-You can include line breaks in any of the elements on the title slide by inserting the HTML code `<br>` between words or phrases. For example, this YAML
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can include line breaks in any of the elements on the title slide by inserting the HTML code `<br>` between words or phrases. 
+</div>
+
+For example, this YAML
 
 ````markdown
 ---
@@ -90,7 +95,7 @@ output: ioslides_presentation
 ---
 ````
 
-will result in this title page
+will result in this title page:
 
 <br>
 
@@ -108,7 +113,7 @@ You can specify major sections in an **ioslides** presentation with a single has
 # Introduction
 ````
 
-will result in this section break
+will result in a slide with this section break:
 
 <br>
 
@@ -120,7 +125,9 @@ knitr::include_graphics("img/ioslides_section.png")
 
 ### Normal slide
 
-Regular slides are given a title with 2 hashtags `##` and an optional subtitle with a pipe `|` following the title. You can then use regular **Markdown** constructs for things like (un)ordered lists. Indenting text with 4 or more spaces will create a sublist. For example, the following code
+Regular slides are given a title with 2 hashtags `##` and an optional subtitle with a pipe `|` following the title. You can then use regular **Markdown** constructs for things like (un)ordered lists. Indenting text with 4 or more spaces will create a sublist.
+
+For example, the following code
 
 ````markdown
 ## R Markdown | Worship
@@ -178,7 +185,9 @@ If you prefer that only some of the slides build incrementally, then you can eit
 
 ### No slide title
 
-You can omit the title on a slide by using three dashes to demark the slide's beginning. For example, this code 
+You can omit the title on a slide by using three dashes `---` to demark the slide's beginning.
+
+For example, this code 
 
 ````markdown
 ---
@@ -264,7 +273,7 @@ knitr::include_graphics("img/ioslides_code_3.png")
 
 <br>
 
-You can highlight certain lines of code by bracketing it with 3 hashtags and the HTML codes for bold `<b> </b>`. For example,
+You can highlight certain lines of code by bracketing it with 3 hashtags `###` and the HTML codes for bold `<b> </b>`. For example,
 
 ````markdown
 ## Highlighting code
@@ -309,7 +318,7 @@ You can also include **R** plots in your slides with any of the various plotting
 ````markdown
 ## Adding plots
 
-`r ''````{r plot_cars, fig.cap="A simple scatterplot", echo = FALSE}
+`r ''````{r plot_cars, fig.cap = "A simple scatterplot", echo = FALSE}
 plot(cars)
 ```
 ````
@@ -327,7 +336,7 @@ By default, plots are left aligned on the slide. You can center them, and resize
 ````markdown
 ## Adding plots
 
-`r ''````{r plot_cars_2, fig.cap="A simple scatterplot", echo = FALSE, fig.align = "center", fig.height = 3, fig.width = 5}
+`r ''````{r plot_cars_2, fig.cap = "A simple scatterplot", echo = FALSE, fig.align = "center", fig.height = 3, fig.width = 5}
 plot(cars)
 ```
 ````
@@ -342,7 +351,7 @@ knitr::include_graphics("img/ioslides_plot_2.png")
 
 ## Adding equations
 
-You can add **LaTeX** equations to slides in one of two ways: standalone or inline. Standalone equations are denoted with double dollar signs (`$$`) on separate lines and inline equations are denoted by single dollat signs. For example, the following code
+You can add **LaTeX** equations to slides in one of two ways: standalone or inline. Standalone equations are denoted with double dollar signs (`$$`) on separate lines and inline equations are denoted by single dollar signs (`$`) on each side of the equation. For example, the following code
 
 ````markdown
 ## Adding equations
@@ -383,7 +392,7 @@ knitr::include_graphics("img/rmarkdown.png")
 
 <br>
 
-This code will create a titled slide with a background image that is
+The following code will create a titled slide with a background image that is
 
 * 50% the size of the original
 
@@ -405,7 +414,7 @@ knitr::include_graphics("img/rmarkdown_2.png")
 
 ## Visual appearance
 
-You can display the presentation using a wider form with the `widescreen` option in the YAML. You can also specify that smaller text be used with the `smaller` option. For example:
+You can display the presentation using a wider form with the `widescreen` option in the YAML. You can also specify that smaller text be used with the `smaller` option.
 
 ---
 output:
@@ -414,7 +423,11 @@ output:
     smaller: true
 ---
 
-If you only want the text to appear smaller on some of your slides, you can add the `{.smaller}` tag to the slide header. This can be particularly nice for large code blocks. For example
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you only want the text to appear smaller on some of your slides, you can add the `{.smaller}` tag to the slide header. This can be particularly nice for large code blocks.
+</div>
+
+For example, 
 
 ````markdown
 ## Smaller code block {.smaller}
@@ -437,7 +450,7 @@ knitr::include_graphics("img/ioslides_smallcode.png")
 
 ## Other layouts
 
-You can center content in the middle a slide by adding the `{.flexbox}` and `{.vcenter}` attributes to the slide title. For example:
+You can center content in the middle of a slide by adding the `{.flexbox}` and `{.vcenter}` attributes to the slide title. For example:
 
 ````markdown
 ## {.flexbox .vcenter}
@@ -483,11 +496,11 @@ You can create a two-column layout using the HTML `columns-2` class. For example
 
 ````markdown
 <div class="columns-2">
-  ![](img/dw.png)
+  ![](img/women_in_science.png)
 
-  * A photo
-  * of David Schindler
-  * taken by Mark Boyce
+  * A photo collage
+  * of some women in science
+  * featured in SAFS News
 </div>
 ````
 
@@ -496,7 +509,7 @@ will create a slide that looks like this:
 <br>
 
 ```{r ioslides_2columns, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("img/ioslides_dw.png")
+knitr::include_graphics("img/ioslides_wos.png")
 ```
 
 <br>
@@ -504,7 +517,7 @@ knitr::include_graphics("img/ioslides_dw.png")
 
 ### Text color
 
-You can add colored text with any of the HTML color classes (eg, `red`, `blue`) or variations of them (eg `red2`, `blue2`). For example, this code
+You can add colored text with any of the HTML color classes (eg, `red`, `blue`) or variations of them (eg, `red2`, `blue2`). For example, this code
 
 ````markdown
 ## A slide with colored text
@@ -530,7 +543,7 @@ knitr::include_graphics("img/ioslides_colortext.png")
 
 ## Custom CSS
 
-For even greater flexability in formatting, you can write your own CSS in a separate file and include a reference to it in the YAML of your ioslides presentation. For example, is your CSS was written in `custom_styles.css`, then your YAML would include the following
+For even greater flexibility in formatting, you can write your own CSS in a separate file and include a reference to it in the YAML of your ioslides presentation. For example, if your CSS was written in `custom_styles.css`, then your YAML would include the following
 
 ````markdown
 ---
