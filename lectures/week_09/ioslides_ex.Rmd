@@ -1,8 +1,8 @@
 ---
 title: "My very first presentation using ioslides"
-subtitle: "FISH 497"
+subtitle: "FISH 549"
 author: "First Last<br>School of Aquatic and Fishery Sciences<br>University of Washington"
-date: "5 March 2021"
+date: "15 February 2023"
 output:
   ioslides_presentation:
     css: custom_styles.css
@@ -127,11 +127,11 @@ This text is not
 ## Two-column layout
 
 <div class="columns-2">
-  ![](img/dw.png)
+  ![](img/women_in_science.png)
 
-  * A photo
-  * of David Schindler
-  * taken by Mark Boyce
+  * A photo collage
+  * of some women in science
+  * featured in SAFS News
 </div>
 
 ## A slide with colored text
