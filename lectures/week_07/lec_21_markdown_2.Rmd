@@ -759,3 +759,19 @@ write.bibtex(file = "references.bib")
 write.bibtex(file = "references.bib")
 ```
 
+::: {#refs}
+:::
+
+## Placement of references
+
+By default, formatted references in an R Markdown document will always be placed at the very end, but sometimes you might want to place them before other content like tables and figures. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can specify a specific location for the reference cited section with the following code.
+</div>
+
+```{r, eval = FALSE}
+::: {#refs}
+:::
+```
+
