@@ -1,10 +1,9 @@
 ---
 title: "Creating presentations with R Markdown"
-author: "Mark Scheuerell"
-date: "5 March 2021"
+date: "15 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -62,9 +61,9 @@ The content on the title slide will be drawn from the YAML in the `.Rmd` file. F
 ````markdown
 ---
 title: "My very first presentation using ioslides"
-subtitle: "FISH 497"
+subtitle: "FISH 549"
 author: "First Last"
-date: "5 March 2021"
+date: "15 February 2023"
 output: ioslides_presentation
 ---
 ````
@@ -84,9 +83,9 @@ You can include line breaks in any of the elements on the title slide by inserti
 ````markdown
 ---
 title: "My very first presentation using ioslides"
-subtitle: "FISH 497"
+subtitle: "FISH 549"
 author: "First Last<br>School of Aquatic and Fishery Sciences<br>University of Washington"
-date: "5 March 2021"
+date: "15 February 2023"
 output: ioslides_presentation
 ---
 ````
