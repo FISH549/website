@@ -10,8 +10,6 @@ output:
     toc: true
     toc_float: true
     toc_depth: 3
-bibliography: "references.bib"
-csl: "ecology.csl"
 ---
 
 ```{r setup, include=FALSE}
@@ -40,7 +38,9 @@ There are a number of existing templates available in the [**rticles**](https://
 **Tip:** You can change the **Title**, **Author**, and **Date**, fields here, but we'll do that later.
 </div>
 
-![](images/rmd_create_new.png)
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/rmd_create_new.png")
+```
 
 <br>
 
@@ -236,7 +236,9 @@ Now that we've seen how to create an HTML report using R Markdown, let's publish
 **Task:** Open a new R Markdown document and give it a title. Select the **HTML** format and click **OK** when you're done.
 </div>
 
-![](images/rmd_html_doc_new.png)
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/rmd_html_doc_new.png")
+```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Save your new document in a new subfolder within your `markdown-demo` project called `docs` with the filename `index.Rmd`.
@@ -252,9 +254,13 @@ Now that we've seen how to create an HTML report using R Markdown, let's publish
 **Note:** You should now see a `/docs` folder in the RStudio file pane. Click on it and you will see your `index.Rmd` and `index.html` files there. 
 </div>
 
-![](images/rmd_html_index_1.png)
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/rmd_html_index_1.png")
+```
 
-![](images/rmd_html_index_2.png)
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/rmd_html_index_2.png")
+```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Commit your changes to the `index.Rmd` and `index.html` files.

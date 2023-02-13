@@ -9,6 +9,8 @@ output:
     toc: true
     toc_float: true
     toc_depth: 3
+bibliography: "references.bib"
+csl: "ecology.csl"
 ---
 
 ```{r setup, include=FALSE}
@@ -627,7 +629,7 @@ The first step in getting properly formatted citations and references in **R Mar
 
 So, for example, the information for this document is
 
-```
+```{r, eval = FALSE}
 bibliography: "references.bib"
 csl: "ecology.csl"
 ```
@@ -659,7 +661,7 @@ we could use `[@Smith_2021]` to format the in-text reference as "(Smith and John
 
 # `{knitcitations}` package
 
-[Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called **knitcitations** for creating and citing **BibTeX**-style references via several mechanisms. To begin, you load the package and then use the `cleanbib()` function to remove any old `.bib` files.
+[Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called **{knitcitations}** for creating and citing **BibTeX**-style references via several mechanisms. To begin, you load the package and then use the `cleanbib()` function to remove any old `.bib` files.
 
 ```{r load_knitcitations}
 ## load the package
