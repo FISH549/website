@@ -35,9 +35,9 @@ One of the great features of **R Markdown** is using it to create presentations.
 
 * **Powerpoint**: Slimmed down Powerpoint presentation
 
-### Using RStudio
-
-To create a presentation in **RStudio** using one of the four basic options, select `File > New File > R Markdown...` and then click on the `Presentation` tab on the left side.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** To create a presentation in **RStudio** using one of the four basic options, from the main menu select **File > New File > R Markdown...** and then click on the **Presentation** tab on the left side.
+</div>
 
 <br>
 
@@ -47,13 +47,15 @@ knitr::include_graphics("img/rs_base_presentations.png")
 
 <br>
 
-In the dialogue box, enter a title for your presentation and your name (you can also change these later). Choose the presentation format you'd like and click **OK**.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the dialogue box, enter a title for your presentation and your name (you can also change these later). Choose the presentation format you'd like and click **OK**.
+</div>
 
 ***
 
 # ioslides
 
-Both of the default HTML formats generally use the same options for slide layouts and styling. Here are some of the options for a basic **ioslides** presentation.
+Both of the default HTML formats generally use the same options for slide layouts and styling. Here are some of the options for a basic **ioslides** presentation, which is what Mark uses for slide decks in class.
 
 ### Title slide
 
