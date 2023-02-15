@@ -5,10 +5,6 @@ output: html_document
 
 <br>
 
-###  Please note that the schedule and topics may change as the course progresses.
-
-<br>
-
 #### Navigating through a slide deck
 
 * Use the arrow keys (&#8592;/&#8594;) on your keyboard to go forward or backward
