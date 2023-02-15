@@ -293,7 +293,7 @@ markdown_2 <- list(
 ## day 22 ####
 guest_holmes <- list(
   title = "Guest presentation",
-  topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science teamwork and data science sprints</b>",
+  topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science teamwork & data science sprints</b>",
              "Guest presentation"),
   pdf = c(""),
   rmd = "",
