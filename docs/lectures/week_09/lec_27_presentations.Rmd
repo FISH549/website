@@ -19,7 +19,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-One of the great features of **R Markdown** is using it to create presentations. Most of the resulting outputs are `.html` documents, but there are options to produce `.pptx` or `pdf` versions as well. One of the advantages of using one of these options is that you can easily include **R** code block and their output in the slides themselves without the need to copy and paste the information from elsewhere. Another is that you can add nicely formatted equations using the same **LaTeX** commands we saw when publishing documents to PDF formats. Although the basic options for slide formatting are somewhat limited, you can expand upon them by using [**Cascading Style Sheets (CSS)**](https://en.wikipedia.org/wiki/CSS).
+One of the great features of **R Markdown** is using it to create presentations. Most of the resulting outputs are `.html` documents, but there are options to produce `.pptx` or `pdf` versions as well. One of the advantages of using one of these options is that you can easily include **R** code block and their output in the slides themselves without the need to copy and paste the information from elsewhere. Another is that you can add nicely formatted equations using the same **LaTeX** commands we saw when publishing documents to PDF formats. Although the basic options for slide formatting are somewhat limited, you can expand upon them by using [**Cascading Style Sheets (CSS)**](https://en.wikipedia.org/wiki/CSS), and there is a growing array of choices from developers available online.
+
+## Rationale
+
+Some people are turned off by the notion of creating presentations by writing a mix of codes and text rather than point-and-click-and-drag-and-etc. I would encourage those folks to consider the following with respect to openness and accessibility.
+
+* Not everyone can afford or has ready access to proprietary software. Creating presentations in `.html` format means anyone with a web browser can view them.
+
+* Nearly everyone writes code to produce the figures they ultimately include on slides---why not combine those tasks into one?
 
 ***
 
@@ -27,13 +35,17 @@ One of the great features of **R Markdown** is using it to create presentations.
 
 **RStudio** has several forms of presentation documents available with the default options. These are
 
-* **ioslides**: HTML presentation viewable in any web browser; slides can be printed to PDF (this is the format that Mark used for some of the lecture material)
+* **ioslides**: HTML presentation viewable in any web browser; slides can be printed to PDF (this is the format that Mark uses for some of the lecture material);
 
-* **Slidy**: HTML presentation viewable in any web browser; slides can be printed to PDF
+* **Slidy**: HTML presentation viewable in any web browser; slides can be printed to PDF;
 
-* **Beamer**: Older form of PDF output that requires an installation of TeX
+* **Beamer**: Older form of PDF output that requires an installation of (La)TeX;
 
-* **Powerpoint**: Slimmed down Powerpoint presentation
+* **Powerpoint**: Slimmed down Powerpoint presentation.
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** There are several other formats available via other packages (eg, Mark uses [Xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)).
+</div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** To create a presentation in **RStudio** using one of the four basic options, from the main menu select **File > New File > R Markdown...** and then click on the **Presentation** tab on the left side.
@@ -155,7 +167,9 @@ knitr::include_graphics("img/ioslides_regular.png")
 
 ### Incremental bullets
 
-You can have your bullet points appear incrementally with 3 different options. If you want all of the slides in your presentation to build incrementally, then change the YAML to be:
+You can have your bullet points appear incrementally with 3 different options. 
+
+1) If you want all of the slides in your presentation to build incrementally, then change the YAML to this:
 
 ````markdown
 output:
@@ -165,7 +179,7 @@ output:
 
 If you prefer that only some of the slides build incrementally, then you can either
 
-1) include the option `{.build}` after the title of your slide
+2) include the option `{.build}` after the title of your slide, or
 
 ````markdown
 ## Slide title {.build}
@@ -175,7 +189,7 @@ If you prefer that only some of the slides build incrementally, then you can eit
 * Another point to make
 ````
 
-2) you can make use of the `>` for blockquotes
+3) precede an asterisk/bullet with the `>` symbol (the same one we use for blockquotes).
 
 ````markdown
 ## Slide title
@@ -418,12 +432,18 @@ knitr::include_graphics("img/rmarkdown_2.png")
 
 You can display the presentation using a wider form with the `widescreen` option in the YAML. You can also specify that smaller text be used with the `smaller` option.
 
+```
 ---
+title: "My very first presentation using ioslides"
+subtitle: "FISH 549"
+author: "First Last"
+date: "15 February 2023"
 output:
   ioslides_presentation:
     widescreen: true
     smaller: true
 ---
+```
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** If you only want the text to appear smaller on some of your slides, you can add the `{.smaller}` tag to the slide header. This can be particularly nice for large code blocks.
