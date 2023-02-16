@@ -596,7 +596,7 @@ we could use `[@Smith_2021]` to format the in-text reference as "(Smith and John
 ## load the package
 library("knitcitations")
 
-## clean out any existing .bib files
+## clear out any cached refs
 cleanbib()
 
 ## set pandoc for formatting
@@ -745,7 +745,9 @@ will simply create the citation
 
 ## Creating the references cited section
 
-Creating the final references cited section is straightforward. All we have to do is call the function `write.bibtex()` with the name of the `.bib` file and the references will be cited with the formatting specified in the `.cls` file supplied in the document's YAML. For example, we can generate the references cited section  from the citations in this tutorial with the following:
+Creating the **References** section is straightforward with `{knitcitations}`. All you have to do is call the function `write.bibtex()` and give it the name of the `.bib` file to which you would like the references written. The function will then create the reference cited section with the formatting specified in the `.cls` file supplied in the document's YAML.
+
+For example, we can generate the references cited section from the citations in this tutorial with the following:
 
 ```{r, eval = FALSE}
 ## create ref cited section

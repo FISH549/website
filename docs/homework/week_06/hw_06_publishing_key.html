@@ -417,6 +417,8 @@ csl: &quot;ecology.csl&quot;
 </div>
 <div id="code-block" class="section level2">
 <h2>Code block</h2>
+<p>I placed this block near the top before any calls to
+<code>citep()</code> or <code>citet()</code>.</p>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
 
 ## load knitcitations
@@ -427,6 +429,9 @@ cleanbib()
 
 ## set print options
 options(&quot;citation_format&quot; = &quot;pandoc&quot;)</code></pre>
+<p>I then used this block at the end to create the
+<strong>References</strong> section.</p>
+<pre class="r"><code>write.bibtex(file = &quot;references.bib&quot;)</code></pre>
 </div>
 </div>
 

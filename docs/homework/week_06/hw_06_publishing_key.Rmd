@@ -56,6 +56,8 @@ This text goes in the body of the report.
 
 ## Code block
 
+I placed this block near the top before any calls to `citep()` or `citet()`.
+
 ```{r show_setup, echo = TRUE, eval = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -69,4 +71,9 @@ cleanbib()
 options("citation_format" = "pandoc")
 ```
 
+I then used this block at the end to create the **References** section.
+
+```{r write_refs, echo = TRUE, eval = FALSE}
+write.bibtex(file = "references.bib")
+```
 
