@@ -3,7 +3,7 @@ title: "Shiny Part 1: Build!"
 subtitle: "<br/>FISH 497"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
-date: "2021/03/01 (updated: `r Sys.Date()`)"
+date: "2023/02/27 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -62,7 +62,7 @@ class: center, middle
 
 --
 
-## <mark>This is the same in marine science! Shiny can help us with many of these tasks.</mark>
+## <mark>This is the same in fisheries science! Shiny can help us with many of these tasks.</mark>
 
 
 ---
@@ -139,11 +139,11 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 
 --
 
-- showing data visualizations to non-experts
+- streamlining certain code-intensive activities (like summarizing and communicating simulation outputs)
 
 --
 
-- streamlining certain code-intensive things (like database queries or visualizing bulky simulation outputs)
+- giving non-experts a way to "get to know" models and data
 
 ---
 
@@ -160,7 +160,7 @@ From The RStudio IDE, pick `New File -> Shiny Web App`
 You can choose between single (**app.R**) or multiple files (**ui.R** and **server.R**)
 
 *Does it matter which one you choose?*
->Not really. Some people like the organization of having multiple files. But it really doesn't make a difference!
+>Not really. Some like the organization of having multiple files `r emo::ji("shrug")`
 
 ![poll](img/filepoll.png)
 
@@ -168,14 +168,20 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 
 # Each Shiny app has two components
 
+.pull-left[
 The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+]
 
-***
-
+.pull-right[
 The **`server()`** function contains rendering expressions that create the objects to display. 
 
-
 The server function and UI object are passed to the `shinyApp()` function to create a Shiny app object.
+]
+
+
+
+
+
 
 ---
 
@@ -227,8 +233,9 @@ The ui code contains the following information:
 
 5. Input objects (`sliderInput()`,`fileInput()` etc.) - also called "widgets"
 
-*Input objects link the user interface to the R code on the server.*
+*Input objects link the UI to R code that runs on the server.*
 
+<!-- devtools::install_github("hadley/emo") -->
 ---
 
 # ui.R/**server.R**
@@ -303,17 +310,15 @@ R code... mostly :)
 
 --
 
-- **Reactive expressions**
+- **Reactive expressions** are "lazy" - they don't execute unless they are specifically called to do something. 
   - `reactive()` caches reactive objects so you can access them later in the server logic -- very important!
-  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Run Analysis!" button is clicked)
-  - lazy
+  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Fit this model!" button is clicked)
 
 --
 
-- **Observe expressions** change the ui based on input, e.g.,
-  - autopopulate default values in a form if a user has selected a default
+- **Observe expressions** are "eager" - they automatically execute when their dependencies change. Expressions like `observe()` can:
+  - autopopulate default values in a form
   - change the range for one input based on another input
-  - eager
 
 ---
 
@@ -333,9 +338,8 @@ class: center, middle, inverse
 
 # Get data into a Shiny app
 
-Shiny can accept data from various file types. 
+Shiny can accept data from many file types. 
 
-You can get data into Shiny from:
 - a file the user uploads
 - a database
 - a persistent file packaged with your app
@@ -363,7 +367,7 @@ ui <- fluidPage(
 
 # Put the data on the server
 
-You can publish small data files that sit on the server with your app. You can load these data at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
+You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
 
 ---
 
@@ -377,7 +381,7 @@ RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/
 
 ---
 
-# Downloading from Shiny
+# Getting data out of Shiny
 
 You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
 
@@ -403,7 +407,7 @@ server <- function(input, output) {
 
 ---
 
-# Downloading from Shiny
+# Getting data out of Shiny
 
 - Download **CSV or txt files** from Shiny apps
 
@@ -413,7 +417,7 @@ server <- function(input, output) {
 
 --
 
-- You can also download **images** that have been generated in the app (e.g., download plots from the app)
+- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
 
 
 ---
@@ -434,7 +438,7 @@ Use it for:
 
 - offering access to visualizations from a database
 
-- showing a "data story" in a linear way
+- showing a "data story" in a tailored way
 
 ![confdash](img/confdash.png)
 
@@ -484,7 +488,7 @@ class: center, middle
 
 ### contact
 
-`r emo::ji("email")`: mcsiple@gmail.com
+`r emo::ji("email")`: margaret.siple@noaa.gov
 `r emo::ji("bird")`: @margaretsiple
 
 ### **More Shiny resources:**

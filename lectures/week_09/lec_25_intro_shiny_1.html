@@ -4,7 +4,7 @@
     <title>Shiny Part 1: Build!</title>
     <meta charset="utf-8" />
     <meta name="author" content="Megsie Siple" />
-    <script src="libs/header-attrs-2.6/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -12,11 +12,21 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Shiny Part 1: Build!
+]
+.subtitle[
 ## <br/>FISH 497
+]
+.author[
 ### Megsie Siple
+]
+.institute[
 ### NOAA AFSC - RACE/GAP
-### 2021/03/01 (updated: 2021-02-28)
+]
+.date[
+### 2023/02/27 (updated: 2023-02-16)
+]
 
 ---
 
@@ -70,7 +80,7 @@ class: center, middle
 
 --
 
-## &lt;mark&gt;This is the same in marine science! Shiny can help us with many of these tasks.&lt;/mark&gt;
+## &lt;mark&gt;This is the same in fisheries science! Shiny can help us with many of these tasks.&lt;/mark&gt;
 
 
 ---
@@ -147,11 +157,11 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 
 --
 
-- showing data visualizations to non-experts
+- streamlining certain code-intensive activities (like summarizing and communicating simulation outputs)
 
 --
 
-- streamlining certain code-intensive things (like database queries or visualizing bulky simulation outputs)
+- giving non-experts a way to "get to know" models and data
 
 ---
 
@@ -169,7 +179,7 @@ From The RStudio IDE, pick `New File -&gt; Shiny Web App`
 You can choose between single (**app.R**) or multiple files (**ui.R** and **server.R**)
 
 *Does it matter which one you choose?*
-&gt;Not really. Some people like the organization of having multiple files. But it really doesn't make a difference!
+&gt;Not really. Some like the organization of having multiple files 🤷
 
 ![poll](img/filepoll.png)
 
@@ -177,14 +187,20 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 
 # Each Shiny app has two components
 
+.pull-left[
 The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+]
 
-***
-
+.pull-right[
 The **`server()`** function contains rendering expressions that create the objects to display. 
 
-
 The server function and UI object are passed to the `shinyApp()` function to create a Shiny app object.
+]
+
+
+
+
+
 
 ---
 
@@ -225,7 +241,7 @@ The ui code contains the following information:
 
 1. The UI type 
   - `fluidPage()` puts elements in rows that can include columns 🍰
-  - `navbarPage()` has a navigation bar 📁
+  - `navbarPage()` has a navigation bar 📂
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -239,6 +255,7 @@ The ui code contains the following information:
 
 *Input objects link the user interface to the R code on the server.*
 
+&lt;!-- devtools::install_github("hadley/emo") --&gt;
 ---
 
 # ui.R/**server.R**
@@ -569,6 +586,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
