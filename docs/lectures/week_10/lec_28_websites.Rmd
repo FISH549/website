@@ -25,7 +25,7 @@ One of the great features of **R Markdown** is using it to create static website
 
 # Setup
 
-For this exercise, we'll create a simple personal website and host it on **GitHub**. Although you can disply a static website from any **GitHub** repo, we'll use special repo with the same name as your **GitHub** username.
+For this exercise, we'll create a simple personal website and host it on **GitHub**. Although you can disply a static website from any **GitHub** repo, we'll use special repo based upon the same name as your **GitHub** username.
 
 ## Create a repo
 
@@ -64,8 +64,8 @@ knitr::include_graphics("img/rs_new_project.png")
 
 <br>
 
-S<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** croll down the options for **Project Type** and select `Postcards Website`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Scroll down the options for **Project Type** and select `Postcards Website`.
 </div>
 
 ```{r rs_postcards, echo = FALSE, out.width = "70%", fig.align = "center"}
@@ -75,7 +75,7 @@ knitr::include_graphics("img/rs_postcards.png")
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the next **Create Postcards Website** window, enter your own **GitHub** username in the field for `Directory name:`
+**Task:** In the next **Create Postcards Website** window, enter your own **GitHub** username in the field for **Directory name**.
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
@@ -87,7 +87,7 @@ knitr::include_graphics("img/rs_postcards.png")
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished, check the box next to `Open in new session` and click the **Create Project** button.
+**Task:** When you are finished, check the box next to **Open in new session** and click the **Create Project** button.
 </div>
 
 
@@ -99,19 +99,19 @@ knitr::include_graphics("img/rs_postcards_details.png")
 
 # Postcards website
 
-You now have a very simply **RStudio** project with 3 files:
+You now have a very simple **RStudio** project with 2 (or possibly 3) files:
 
 1) `index.Rmd`
 
 2) `frank.jpg`
 
-3) `YOUR_USERNAME.Rproj` (where `YOUR_USERNAME` is your **GitHub** username)
+3) [optional] `YOUR_USERNAME.Rproj` (where `YOUR_USERNAME` is your **GitHub** username)
 
 ## Content
 
 The `index.Rmd` file contains the information to be displayed on your website. When first created, it should look like this:
 
-```{r postcards_index_blank, echo = FALSE, out.width = "100%", fig.align = "center"}
+```{r postcards_index_blank, echo = FALSE, out.width = "90%", fig.align = "center"}
 knitr::include_graphics("img/postcards_index_blank.png")
 ```
 
@@ -161,7 +161,7 @@ The next block that begins with `links` contains a list of `label/url` pairs. Th
 
 When you are finished, your YAML section should resemble something like this:
 
-```{r postcards_yaml, echo = FALSE, out.width = "100%", fig.align = "center"}
+```{r postcards_yaml, echo = FALSE, out.width = "90%", fig.align = "center"}
 knitr::include_graphics("img/postcards_yaml.png")
 ```
 
@@ -301,7 +301,7 @@ knitr::include_graphics("img/rs_setup_gh_2.png")
 <br>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the field for **Remote Name:** enter `origin` and in the field for **Remote URL:** copy/paste the URL of your **GitHub** repo (this should be `https://github.com/USERNAME/USERNAME.github.io` where `USERNAME` is your actual **GitHub** username).
+**Task:** In the field for **Remote Name** enter `origin` and in the field for **Remote URL** copy/paste the URL of your **GitHub** repo (this should be `https://github.com/USERNAME/USERNAME.github.io` where `USERNAME` is your actual **GitHub** username).
 </div>
 
 ```{r rs_setup_gh_3, echo = FALSE, out.width = "70%", fig.align = "center"}
@@ -376,7 +376,7 @@ output:
 
 ## Other formats
 
-You could also specify a completely different format/layout/template, save it as `index.html`, and then that new site would render instead of the `{postcards}` site we just created.
+You could always specify a completely different format/layout/template in the YAML of your `index.Rmd` file, knit it to `index.html`, and then that new site would render instead of the `{postcards}` site we just created.
 
 
 
