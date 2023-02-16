@@ -1,11 +1,11 @@
 ---
 title: "Exploring R packages"
-subtitle: "Assignment #7"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "26 February 2021"
+subtitle: "Assignment #8"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "3 March 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: false
     toc_float: true

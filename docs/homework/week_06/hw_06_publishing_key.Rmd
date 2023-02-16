@@ -1,11 +1,11 @@
 ---
 title: "Publishing with R Markdown"
 subtitle: "Assignment #6 - Answer Key"
-author: "FISH 497 - Intro to Environmental Data Science"
-date: "19 February 2021"
+author: "FISH 549 - Best Practices in Environmental Data Science"
+date: "26 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: false
     toc_float: true
