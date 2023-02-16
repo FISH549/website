@@ -31,9 +31,9 @@ week_hw$L2 <- forking_workflows
 week_hw$L3 <- getting_help
 week_hw$L4 <- databases
 week_hw$L5 <- data_viz
-week_hw$L6 <- NA # publishing
-week_hw$L7 <- NA # packages
-week_hw$L8 <- NA # presentations
+week_hw$L6 <- publishing
+week_hw$L7 <- NA # presentations
+week_hw$L8 <- NA # packages
 ```
 
 ```{r topics, include = FALSE}

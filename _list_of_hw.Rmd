@@ -75,23 +75,23 @@ publishing <- list(
 )
 
 ## week 8
-packages <- list(
-  title = "R packages",
-  topics = c("R packages"),
-  pdf = "",
-  rmd = "homework/week_07/hw_07_packages.Rmd",
-  html = "homework/week_07/hw_07_packages.html",
-  data = "",
-  key = ""
-)
-
-## week 9
 presentations <- list(
   title = "Markdown presentations",
   topics = c("Markdown presentations"),
   pdf = "",
   rmd = "homework/week_08/hw_08_presentations.Rmd",
   html = "homework/week_08/hw_08_presentations.html",
+  data = "",
+  key = ""
+)
+
+## week 9
+packages <- list(
+  title = "R packages",
+  topics = c("R packages"),
+  pdf = "",
+  rmd = "homework/week_07/hw_07_packages.Rmd",
+  html = "homework/week_07/hw_07_packages.html",
   data = "",
   key = ""
 )
