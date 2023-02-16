@@ -25,17 +25,17 @@ class: center, middle
 
 ---
 
-# Marine science is like an orchestra
+# Fisheries science can be like an orchestra
 
 Each musician has areas where they’re very specialized, and areas where they are clueless
 
 --
 
-What we do is a combination of highly technical skilled work and more whimsical multitasking/communicating
+What we do is a combination of highly technical skilled work and more whimsical multitasking/creativity
 
 --
 
-But we’re all working together to try to make a big, beautiful thing happen
+But we’re all working together to try to make a big, beautiful thing happen 
 
 ---
 
@@ -50,7 +50,7 @@ class: center, middle
 <sub><sup>Photo: Shaya Lyon</sup></sub>
 
 ---
-# How we deal with complexity in an orchestra setting: 
+# How we channel complexity in an orchestra: 
 
 ### Clean it up
 
@@ -58,11 +58,11 @@ class: center, middle
 
 ### Streamline our communications
 
-### People are the special ingredient
+### Stay aware of the big picture
 
 --
 
-## <mark>This is the same in fisheries science! Shiny can help us with many of these tasks.</mark>
+## <mark> Many of these concepts apply to the sciences! Shiny can help us do these things *and* create something beautiful that communicates data and concepts. </mark>
 
 
 ---
@@ -502,7 +502,7 @@ We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 ### Some of my Shiny apps
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/)
+The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
 
 [Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
 

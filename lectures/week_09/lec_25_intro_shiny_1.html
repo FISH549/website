@@ -53,7 +53,7 @@ What we do is a combination of highly technical skilled work and more whimsical 
 
 --
 
-But we’re all working together to try to make a big, beautiful thing happen
+But we’re all working together to try to make a big, beautiful thing happen 
 
 ---
 
@@ -80,7 +80,7 @@ class: center, middle
 
 --
 
-## &lt;mark&gt;This is the same in fisheries science! Shiny can help us with many of these tasks.&lt;/mark&gt;
+## &lt;mark&gt;This is the same in fisheries science! Shiny can help us do these things *and* create something beautiful to communicate data and concepts. &lt;/mark&gt;
 
 
 ---
@@ -241,7 +241,7 @@ The ui code contains the following information:
 
 1. The UI type 
   - `fluidPage()` puts elements in rows that can include columns 🍰
-  - `navbarPage()` has a navigation bar 📂
+  - `navbarPage()` has a navigation bar 📁
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -253,7 +253,7 @@ The ui code contains the following information:
 
 5. Input objects (`sliderInput()`,`fileInput()` etc.) - also called "widgets"
 
-*Input objects link the user interface to the R code on the server.*
+*Input objects link the UI to R code that runs on the server.*
 
 &lt;!-- devtools::install_github("hadley/emo") --&gt;
 ---
@@ -333,17 +333,15 @@ R code... mostly :)
 
 --
 
-- **Reactive expressions**
+- **Reactive expressions** are "lazy" - they don't execute unless they are specifically called to do something. 
   - `reactive()` caches reactive objects so you can access them later in the server logic -- very important!
-  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Run Analysis!" button is clicked)
-  - lazy
+  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Fit this model!" button is clicked)
 
 --
 
-- **Observe expressions** change the ui based on input, e.g.,
-  - autopopulate default values in a form if a user has selected a default
+- **Observe expressions** are "eager" - they automatically execute when their dependencies change. Expressions like `observe()` can:
+  - autopopulate default values in a form
   - change the range for one input based on another input
-  - eager
 
 ---
 
@@ -363,9 +361,8 @@ class: center, middle, inverse
 
 # Get data into a Shiny app
 
-Shiny can accept data from various file types. 
+Shiny can accept data from many file types. 
 
-You can get data into Shiny from:
 - a file the user uploads
 - a database
 - a persistent file packaged with your app
@@ -394,7 +391,7 @@ ui &lt;- fluidPage(
 
 # Put the data on the server
 
-You can publish small data files that sit on the server with your app. You can load these data at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
+You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
 
 ---
 
@@ -408,7 +405,7 @@ RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/
 
 ---
 
-# Downloading from Shiny
+# Getting data out of Shiny
 
 You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
 
@@ -435,7 +432,7 @@ server &lt;- function(input, output) {
 
 ---
 
-# Downloading from Shiny
+# Getting data out of Shiny
 
 - Download **CSV or txt files** from Shiny apps
 
@@ -445,7 +442,7 @@ server &lt;- function(input, output) {
 
 --
 
-- You can also download **images** that have been generated in the app (e.g., download plots from the app)
+- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
 
 
 ---
@@ -466,7 +463,7 @@ Use it for:
 
 - offering access to visualizations from a database
 
-- showing a "data story" in a linear way
+- showing a "data story" in a tailored way
 
 ![confdash](img/confdash.png)
 
@@ -516,7 +513,7 @@ class: center, middle
 
 ### contact
 
-✉️: mcsiple@gmail.com
+✉️: margaret.siple@noaa.gov
 🐦: @margaretsiple
 
 ### **More Shiny resources:**
@@ -530,7 +527,7 @@ We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 ### Some of my Shiny apps
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mammaltool/)
+The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
 
 [Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
 
