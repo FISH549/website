@@ -3,9 +3,10 @@ title: "Shiny Part 2: Deploy!"
 subtitle: "<br/>FISH 497"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
-date: "2023/03/01 (updated: `r Sys.Date()`)"
+date: "2023-03-01 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
+    css: xaringan-themer.css
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -13,10 +14,23 @@ output:
       countIncrementalSlides: false
 ---
 
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#2a5674",
+  header_font_google = google_font("Source Sans Pro"),
+  text_font_google   = google_font("Source Sans Pro", "500", "500i"),
+  code_font_google   = google_font("Fira Mono"),
+  code_font_size = "0.7rem",
+  link_color = "#f97b57"
+)
+##d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
+```
+
 class: center, middle
 
 # Hello again! 
-
 
 ---
 

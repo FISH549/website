@@ -5,8 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Megsie Siple" />
     <script src="libs/header-attrs-2.20/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -25,10 +24,12 @@ class: center, middle, inverse, title-slide
 ### NOAA AFSC - RACE/GAP
 ]
 .date[
-### 2023/02/27 (updated: 2023-02-16)
+### 2023-02-27 (updated: 2023-02-16)
 ]
 
 ---
+
+
 
 
 class: center, middle
@@ -43,13 +44,13 @@ class: center, middle
 
 ---
 
-# Marine science is like an orchestra
+# Fisheries science can be like an orchestra
 
 Each musician has areas where they’re very specialized, and areas where they are clueless
 
 --
 
-What we do is a combination of highly technical skilled work and more whimsical multitasking/communicating
+What we do is a combination of highly technical skilled work and more whimsical multitasking/creativity
 
 --
 
@@ -68,7 +69,7 @@ class: center, middle
 &lt;sub&gt;&lt;sup&gt;Photo: Shaya Lyon&lt;/sup&gt;&lt;/sub&gt;
 
 ---
-# How we deal with complexity in an orchestra setting: 
+## How we channel complexity in an orchestra: 
 
 ### Clean it up
 
@@ -76,11 +77,11 @@ class: center, middle
 
 ### Streamline our communications
 
-### People are the special ingredient
+### Stay aware of the big picture
 
 --
 
-## &lt;mark&gt;This is the same in fisheries science! Shiny can help us do these things *and* create something beautiful to communicate data and concepts. &lt;/mark&gt;
+### &lt;mark&gt; Many of these concepts apply to the sciences! Shiny can help us do these things *and* create something beautiful that communicates data and concepts. &lt;/mark&gt;
 
 
 ---
@@ -207,7 +208,8 @@ The server function and UI object are passed to the `shinyApp()` function to cre
 # **ui.R**/server.R
 
 .pull-left[
-The ui looks like this:
+The ui looks like this (the "interactive" part is highlighted):
+
 
 
 ```r
@@ -221,7 +223,7 @@ ui &lt;- fluidPage(
                         max = 50,
                         value = 30)),
         mainPanel(
-*           plotOutput("distPlot"))
+           plotOutput("distPlot"))
     )
 )
 ```
@@ -241,7 +243,7 @@ The ui code contains the following information:
 
 1. The UI type 
   - `fluidPage()` puts elements in rows that can include columns 🍰
-  - `navbarPage()` has a navigation bar 📁
+  - `navbarPage()` has a navigation bar 📂
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -477,21 +479,17 @@ class: center, middle
 
 ---
 
-# UI is very important
+# UI is worth your time
 
-Designing a good ui is hard! And Shiny defaults are not the most intuitive / appealing / accessible version they can be.
+Shiny defaults are not the most intuitive / appealing / accessible version they can be.
 
 --
 
-If you are designing an app for management, a good ui is essential.
+If you are designing an app for management, a good UI is essential.
 
 --
 
 - my #1 tip: if you have time, pilot test with subject matter experts AND users
-  
---
-
-- check accessibility using the app's URL using the [Web Accessibility Evaluation (WAVE) Tool](https://wave.webaim.org/)
 
 --
 
@@ -503,7 +501,9 @@ If you are designing an app for management, a good ui is essential.
   - [18F Methods](https://methods.18f.gov/validate/) and [Maze](https://maze.design/guides/usability-testing/questions/) have great lists of testing questions and methods
   - 18F Methods also has an [example agreement](https://methods.18f.gov/participant-agreement/) for testers
   - Depending on the final format, places like  [UsabilityHub](https://usabilityhub.com/) have interfaces that will provide data on clicks and scrolling behavior when testing is remote
-  
+  - Check accessibility using the app's URL using the [Web Accessibility Evaluation (WAVE) Tool](https://wave.webaim.org/)
+
+.content-box-blue[UX = user experience.]
 
 ---
 
@@ -516,7 +516,7 @@ class: center, middle
 ✉️: margaret.siple@noaa.gov
 🐦: @margaretsiple
 
-### **More Shiny resources:**
+#### **More Shiny resources:**
 
 [Mastering Shiny](https://mastering-shiny.org/) by Hadley Thee Wickham 
 
@@ -525,7 +525,7 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-### Some of my Shiny apps
+#### Some of my Shiny apps
 
 The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
 
