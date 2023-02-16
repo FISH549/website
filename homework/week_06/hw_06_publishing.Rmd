@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-This past week you saw various ways to format `.pdf` documents using **R Markdown** and some simple **LaTeX** commands. Your assignment is to create a `report` based upon the template [here](hw_06_template.Rmd) that includes all of the attributes below. You will need to modify the `YAML` section and main document accordingly.
+This past week you saw various ways to format `.pdf` documents using **R Markdown** and some simple **LaTeX** commands. Your assignment is to create a `report` based upon the template [here](hw_06_template.Rmd) that includes all of the attributes below. When you save and open the template, you will see that the `YAML` section is missing. You will have to add one and modify it accordingly to match the criteria below.
 
 ## Title page
 
@@ -42,14 +42,13 @@ This past week you saw various ways to format `.pdf` documents using **R Markdow
 * 11-point type (the default font is OK)
 * 1.5 line spacing
 
-### Header
+### Header & footer
 
 * Your last name in the upper left of all pages  
 * `Assignment 6` in the upper right of all pages
-
-### Footer
-
 * the page number in the bottom center of all pages
+
+**Note**: Because you're using a `report` format, the header and footer will not appear at the beginning of the doc or on the first page of a new section.
 
 ### Equations
 

@@ -321,23 +321,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -394,8 +388,9 @@ Science</h4>
 documents using <strong>R Markdown</strong> and some simple
 <strong>LaTeX</strong> commands. Your assignment is to create a
 <code>report</code> based upon the template <a href="hw_06_template.Rmd">here</a> that includes all of the attributes
-below. You will need to modify the <code>YAML</code> section and main
-document accordingly.</p>
+below. When you save and open the template, you will see that the
+<code>YAML</code> section is missing. You will have to add one and
+modify it accordingly to match the criteria below.</p>
 <div id="title-page" class="section level2">
 <h2>Title page</h2>
 <ul>
@@ -428,19 +423,17 @@ template document</li>
 <li>1.5 line spacing</li>
 </ul>
 </div>
-<div id="header" class="section level3">
-<h3>Header</h3>
+<div id="header-footer" class="section level3">
+<h3>Header &amp; footer</h3>
 <ul>
 <li>Your last name in the upper left of all pages<br />
 </li>
 <li><code>Assignment 6</code> in the upper right of all pages</li>
-</ul>
-</div>
-<div id="footer" class="section level3">
-<h3>Footer</h3>
-<ul>
 <li>the page number in the bottom center of all pages</li>
 </ul>
+<p><strong>Note</strong>: Because you’re using a <code>report</code>
+format, the header and footer will not appear at the beginning of the
+doc or on the first page of a new section.</p>
 </div>
 <div id="equations" class="section level3">
 <h3>Equations</h3>
