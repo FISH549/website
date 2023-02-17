@@ -6,6 +6,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -47,7 +48,7 @@ Here is some common terminology with respect to **R** packages:
 
 # Functions
 
-The array of packages available in **R** is pretty mind boggling, which means there are innumerable functions out there underlying these packages. In general, an **R** function has the following structure
+Functions form the basis for **R** packages. The array of packages available in **R** is pretty mind boggling, which means there are innumerable functions out there underlying these packages. In general, an **R** function has the following structure
 
 ```{r package_layout, eval = FALSE}
 function_name <- function(arguments) {
@@ -72,7 +73,7 @@ add <- function(x, y) {
 }
 ```
 
-When building packages, we will also include some additional information that describes what the function does and how it works. This information will become part of the documentation that is returned when someone types `?function_name`.
+When building packages, we will also include some additional information that describes what the function does and how it works. This information will become part of the help documentation that is returned when someone types `?function_name`.
 
 ***
 
@@ -80,38 +81,70 @@ When building packages, we will also include some additional information that de
 
 ## GitHub repository
 
-Fortunately for us, there are variety of tools available to assist us in developing and producing packages. We'll begin by creating a new, public repository on **GitHub** called `pets`. Populate the repo with 
+Fortunately for us, there are variety of tools available to assist us in developing and producing packages.
 
-1) a brief `README.md`
+<div class="boxy boxy-blue boxy-clipboard-list">
+&nbsp; **Task:** Begin by creating a new, public repository on **GitHub** called `pets`. Populate the repo with
+<ol>
+<li>a brief `README.md`;</li>
+<li>a `.gitignore` file.</li>
+</ol>
+&nbsp; You can skip the license for now.
+</div>
 
-2) a `.gitignore` file
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new project in **RStudio** based upon this repo.
+</div>
 
-You can skip the license for now. Once you are finished, create a new project in **RStudio** based upon this repo.
-
-## Rstudio project
-
-At the command prompt in **RSudio**, type
-
-```{r load_devtools, message = FALSE}
-library(devtools)
-```
-
-which will allow us to access the package development tools in `devtools`.
 
 ***
 
 # Create package framework
 
-We're now ready to create a framework for building our package. Before doing so, however, note the folder/directory where you created the `pets` project. For example, mine is located in `~/Documents/GitHub/FISH497/pets`. If you are unsure, go ahead and type `getwd()` at the command prompt. You can copy/paste the result into the next step. Now execute the following command at the prompt:
+Once upon a time you had to work through all of the steps to building a package unassisted. Fortunately for us, the `{devtools}` package will automate many of the steps.
 
-```{r create_pkg, eval = FALSE}
-create_package("~/Documents/GitHub/FISH497/pets")
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** At the **R** command prompt, load the `{devtools}` package, which will respond with a messge about also loading the `{usethis}` package.
+</div>
+
+```{r, eval = FALSE}
+> library(devtools)
+Loading required package: usethis
 ```
 
-You should see **R** responding with a bunch of information about your new package framework, followed by a prompt asking if you'd like to overwrite the pre-existing file `pets.Rproj`. Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc (note that these options will vary each time you do this, so don't worry if yours don't mirror the options below). After doing so, **RStudio** will open a new instance of your `pets` project.
+We're now ready to create a framework for building our package. Before doing so, however, we need to locate the folder/directory where you created the `pets` project.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** At the **R** command prompt, find the location of the working directory.
+</div>
+
+```{r getwd, eval = FALSE}
+> getwd()
+## [1] "/Users/mark/Documents/GitHub/FISH549/pets"
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Copy the result, which you will need for the next step.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now execute the following command at at the **R** command prompt, where `pasted/folder/from/previous/step` is the result from the `getwd()` call above.
+</div>
+
+```{r create_pkg, eval = FALSE}
+> create_package("pasted/folder/from/previous/step")
+```
+
+You should see **R** responding with a bunch of information about your new package framework, followed by a prompt asking if you'd like to overwrite the pre-existing file `pets.Rproj`.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc (note that these options will vary each time you do this, so don't worry if yours don't mirror the options below).
+</div>
+
+After doing so, **RStudio** will open a new instance of your `pets` project.
 
 ```{r create_pkg_results, eval = FALSE}
-✓ Setting active project to '/Users/scheuerl/Documents/GitHub/FISH497/pets'
+✓ Setting active project to '/Users/scheuerl/Documents/GitHub/FISH549/pets'
 ✓ Creating 'R/'
 ✓ Writing 'DESCRIPTION'
 Package: pets
@@ -138,19 +171,21 @@ Selection: 3
 ✓ Adding '^pets\\.Rproj$' to '.Rbuildignore'
 ✓ Adding '.Rproj.user' to '.gitignore'
 ✓ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
-✓ Opening '/Users/scheuerl/Documents/GitHub/FISH497/pets/' in new RStudio session
+✓ Opening '/Users/scheuerl/Documents/GitHub/FISH549/pets/' in new RStudio session
 ✓ Setting active project to '<no active project>'
 ```
 
 ## Directory structure
 
-Wow, that's a lot of information. What just happened here? First, you should notice that several new files and a folder have been added to your directory (note that if you cannot see the hidden files below that begin with a `.`, go to the **Files** pane in **RStudio** and select `More > Show Hidden Files` to display them). These include:
+Wow, that's a lot of information. What just happened here?
+
+First, you should notice that several new files and a folder have been added to your directory. These include:
 
 ```
 .Rbuildignore
 DESCRIPTION
 NAMESPACE
-/R/
+/R
 ```
 
 * `.Rbuildignore`: a list of files that we'll need to have around, but that should be excluded when building the package from source; at present this contains `^pets\.Rproj$` and `^\.Rproj\.user$`
@@ -159,7 +194,11 @@ NAMESPACE
 
 * `NAMESPACE`: declares the functions your package exports for external use and the external functions your package imports from other packages
 
-* `/R/`: an empty folder where we'll put our `.R` files that contain our function definitions
+* `/R`: an empty folder where we'll put our `.R` files that contain our function definitions
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you cannot see the hidden files above that begin with a `.`, go to the **Files** pane in **RStudio** and click on the dropdown menu with the gear icon (it might say "More" next to it if your window is large enough). Select `Show Hidden Files` at the bottom of the menu to display them).
+</div>
 
 ## Restart RStudio
 
@@ -504,7 +543,7 @@ install()
 ```
 
 ```
-✓  checking for file ‘/Users/scheuerl/Documents/GitHub/FISH497/pets/DESCRIPTION’ ...
+✓  checking for file ‘/Users/scheuerl/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
 ✓  checking DESCRIPTION meta-information ...
 ─  checking for LF line-endings in source and make files and shell scripts
