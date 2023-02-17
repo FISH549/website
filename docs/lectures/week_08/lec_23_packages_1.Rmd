@@ -1,11 +1,10 @@
 ---
 title: "Creating R packages"
 subtitle: "Part 1"
-author: "Mark Scheuerell"
-date: "24 February 2021"
+date: "<br>22 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
     toc: true
     toc_float: true
@@ -20,9 +19,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-Many of us use some sort of script for our analyses in **R**, but the real backbone of **R** is *functions*. **R** *packages* are collections of functions that are designed to serve a specific purpose. In many ways, packages are similar to scientific articles in that they are the standard way we communicate scientific results, and readers expect them to be in a certain format. The format is generally the same: text, formulas, and figures set together in a logical order. Some articles are intended for a broad audience while others are written for a very small audience. Just as an article conveys scientific ideas to others, a package allows us to distribute a set methodology to others.
+If you think about your typical **R** script within a project, you probably have a series of calls to various functions (and subsequent assignments of their output to object names) that follow a purposeful path to an endpoint. Similar to how an article conveys scientific ideas to others, a package allows us to distribute a specific workflow to others. 
 
-For most of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** (eg, `mean()`, `print()`). Packages allow people to expand the functionality of **R** while still enforcing some standards. Packages are also a convenient way to maintain personal functions and share them with your colleagues. Packages also offer many advantages from a system administration point of view. Packages can be dynamically loaded and unloaded on runtime and hence only occupy memory when actually used. 
+For many of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** and allow us access to functions like `mean()` and `print()`. In essence, packages allow us to expand the functionality of base **R** while still enforcing some standards. 
+
+For example, many of you will have experience with the collection of packages in the {tidyverse} package.
 
 Here is some common terminology with respect to **R** packages:
 
