@@ -98,7 +98,7 @@ Shiny can be a little gnarly at first.
 
   User uploads & downloads
 
-  Making interactive plots using `{plotly}`
+  Making dashboards with `{flexdashboard}`
   
 --
 
@@ -512,13 +512,12 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-#### Some of my Shiny apps
+#### Today's code treat `r emo::ji("food")`
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
+Put emoji in your GitHub commits by using the `::` syntax, e.g., 
+`git commit -m this code is still growing :seedling:`
+Emoji options at [gitmoji.dev](https://gitmoji.dev/)
 
-[Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
-
-[Adopt Don't Shop](https://nsilbiger.shinyapps.io/AdoptDontShop/) (collaboration with Nyssa Silbiger)
 
 ***
 
