@@ -120,6 +120,9 @@ We're now ready to create a framework for building our package. Before doing so,
 
 ```{r getwd, eval = FALSE}
 > getwd()
+```
+
+```
 ## [1] "/Users/mark/Documents/GitHub/FISH549/pets"
 ```
 
@@ -202,10 +205,14 @@ NAMESPACE
 
 ## Restart RStudio
 
-At this point, go ahead and quit both instances of the **RStudio** `pets` project. Navigate to the `pets.Rproj` file in the folder/directory where you set up the project initially, and double-click it to restart your project. After doing so, you will need to reload `devtools`.
+At this point, go ahead and quit both instances of the **RStudio** `pets` project. Navigate to the `pets.Rproj` file in the folder/directory where you set up the project initially, and double-click it to restart your project (or just select your project from the dropdown menu in the upper right).
 
-```{r reload_devtools}
-library(devtools)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** After restarting **RStudio**, you will need to reload `{devtools}`.
+</div>
+
+```{r reload_devtools, eval = FALSE}
+> library(devtools)
 ```
 
 ***

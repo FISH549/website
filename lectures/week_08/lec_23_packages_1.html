@@ -5340,17 +5340,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -5575,8 +5581,8 @@ you created the <code>pets</code> project.</p>
 <p><strong>Task:</strong> At the <strong>R</strong> command prompt, find
 the location of the working directory.</p>
 </div>
-<pre class="r"><code>&gt; getwd()
-## [1] &quot;/Users/mark/Documents/GitHub/FISH549/pets&quot;</code></pre>
+<pre class="r"><code>&gt; getwd()</code></pre>
+<pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/pets&quot;</code></pre>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Copy the result, which you will need for the
 next step.</p>
@@ -5666,10 +5672,13 @@ display them).</p>
 <p>At this point, go ahead and quit both instances of the
 <strong>RStudio</strong> <code>pets</code> project. Navigate to the
 <code>pets.Rproj</code> file in the folder/directory where you set up
-the project initially, and double-click it to restart your project.
-After doing so, you will need to reload <code>devtools</code>.</p>
-<pre class="r"><code>library(devtools)</code></pre>
-<pre><code>## Loading required package: usethis</code></pre>
+the project initially, and double-click it to restart your project (or
+just select your project from the dropdown menu in the upper right).</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> After restarting <strong>RStudio</strong>, you
+will need to reload <code>{devtools}</code>.</p>
+</div>
+<pre class="r"><code>&gt; library(devtools)</code></pre>
 <hr />
 </div>
 </div>
