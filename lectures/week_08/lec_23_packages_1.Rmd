@@ -522,14 +522,19 @@ We should add a license to our package, as it's considered a best practice (here
 ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
 ```
 
-Go ahead and open the newly created `LICENSE` file and confirm it has the current year and your name.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up the newly created `LICENSE` file and confirm it has the current year and your name.
+</div>
 
 ```
-YEAR: 2021
+YEAR: 2023
 COPYRIGHT HOLDER: Mark Scheuerell
 ```
 
-`use_mit_license()` will also put a copy of the full license in `LICENSE.md` and adds this file to `.Rbuildignore`.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** `use_mit_license()` will also put a copy of the full license in `LICENSE.md` and add this file to `.Rbuildignore`.
+</div>
+
 
 ***
 
