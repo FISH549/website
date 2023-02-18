@@ -46,7 +46,7 @@ Here is some common terminology with respect to **R** packages:
 
 # Functions
 
-Functions form the basis for **R** packages. The array of packages available in **R** is pretty mind boggling, which means there are innumerable functions out there underlying these packages. In general, an **R** function has the following structure
+Functions form the basis for **R** packages. In general, an **R** function has the following structure
 
 ```{r package_layout, eval = FALSE}
 function_name <- function(arguments) {
@@ -125,7 +125,7 @@ We're now ready to create a framework for building our package. Before doing so,
 ```
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Copy the result, which you will need for the next step.
+**Task:** Copy the result (including the quotation marks), which you will need for the next step.
 </div>
 
 <div class="boxy boxy-blue boxy-clipboard-list">
@@ -142,7 +142,9 @@ You should see **R** responding with a bunch of information about your new packa
 **Task:** Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc (note that these options will vary each time you do this, so don't worry if yours don't mirror the options below).
 </div>
 
-After doing so, **RStudio** will open a new instance of your `pets` project.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** After making your selection, **RStudio** will open a new instance of your `pets` project.
+</div>
 
 ```{r create_pkg_results, eval = FALSE}
 ✓ Setting active project to '/Users/scheuerl/Documents/GitHub/FISH549/pets'
@@ -182,13 +184,6 @@ Wow, that's a lot of information. What just happened here?
 
 First, you should notice that several new files and a folder have been added to your directory. These include:
 
-```
-.Rbuildignore
-DESCRIPTION
-NAMESPACE
-/R
-```
-
 * `.Rbuildignore`: a list of files that we'll need to have around, but that should be excluded when building the package from source; at present this contains `^pets\.Rproj$` and `^\.Rproj\.user$`
 
 * `DESCRIPTION`: provides metadata about your package, the contents of which were shown above when you ran `create_package()`
@@ -198,7 +193,7 @@ NAMESPACE
 * `/R`: an empty folder where we'll put our `.R` files that contain our function definitions
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you cannot see the hidden files above that begin with a `.`, go to the **Files** pane in **RStudio** and click on the dropdown menu with the gear icon (it might say "More" next to it if your window is large enough). Select `Show Hidden Files` at the bottom of the menu to display them).
+**Tip:** Files that begin with a `.` are generally hidden from view. If you cannot see any listed in the **Files** pane, click on the dropdown menu with the gear icon (it might say "More" next to it if your window is large enough). Select `Show Hidden Files` at the bottom of the menu to display them.
 </div>
 
 ## Restart RStudio
@@ -211,19 +206,35 @@ At this point, go ahead and quit both instances of the **RStudio** `pets` projec
 
 ```{r reload_devtools, eval = FALSE}
 > library(devtools)
+Loading required package: usethis
 ```
 
 ***
 
 # Write a function
 
-As mentioned above, the basis of **R** packages is functions. Let's go ahead and create a new function called `cats()`. To do so, we'll use the `use_r()` function to open up a new blank `.R` file within the `/R/` directory where we can define our new function.
+As mentioned above, the basis of **R** packages is functions. Let's go ahead and create a new function called `cats()`.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Type `use_r("cats)` to create a script within the `/R` directory called `cats.R` where we can define our new function.
+</div>
 
 ```{r use_r, eval = FALSE}
-use_r("cats")
+> use_r("cats")
+✔ Setting active project to '/Users/mark/Documents/GitHub/FISH549/pets'
+• Modify 'R/cats.R'
+• Call `use_test()` to create a matching test file
 ```
 
-Now we can write our function definition. Go ahead and copy/paste the following code into the `cats.R` file. When you are finished, save the file.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Later we'll come back the advice to create a matching test file with `use_test()`.
+</div>
+
+Now we can write our function definition. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Copy/paste the following code into the `cats.R` file. When you are finished, save the file.
+</div>
 
 ```{r define_cats, eval = FALSE}
 cats <- function(love = TRUE) {
@@ -237,23 +248,24 @@ cats <- function(love = TRUE) {
 }
 ```
 
-## Try it out
+## Try our function
 
 Now that we've defined a new function, it's a good idea to try it out. Although we could just highlight the code and execute it in the normal **R** environment, there is a function `load_all()` that will help us better simulate the building, installing, and attaching our new `cats` package. As a package accumulates more functions, `load_all()` gives you a much more accurate sense of how the package is developing than simply testing functions defined in the global workspace. `load_all()` also allows much faster iteration than actually going through the process of building, installing, and attaching the package.
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `load_all()` at the command prompt and the function will respond that it's loading the `{pets}` package.
+</div>
+
 ```{r load_all, eval = FALSE}
-load_all()
-```
-
-The function should respond with a message that the package `pets` has been loaded.
-
-```{r load_all_msg, eval = FALSE}
+> load_all()
 ℹ Loading pets
 ```
 
-Let's try out our new function.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and try out our new function.
+</div>
 
-```{r define_cats_2, echo = FALSE}
+```{r define_cats_2, echo = FALSE, eval = FALSE}
 cats <- function(love = TRUE) {
   if(love == TRUE) {
     msg <- "I love cats!"
@@ -265,24 +277,42 @@ cats <- function(love = TRUE) {
 }
 ```
 
-```{r try_cats}
+```{r try_cats, echo = FALSE, eval = FALSE}
 cats(TRUE)
 cats(FALSE)
 cats(1)
 cats("a")
 ```
 
-The last 2 examples might not make sense to you because they don't involve a logical argument `TRUE` or `FALSE`. In the first case, `1` is equivalent to `TRUE` in **R**, so it returns the result as if `cats(TRUE)`. In the second case, our function definition only involves a check whether the argument is `TRUE`, and if not, it returns the result `"I am not a cat person."`
-
-```{r remove_cats, echo = FALSE}
-rm(list = c("cats"))
+```{r cats_test_1, eval = FALSE}
+> cats()  # default argument is `love = TRUE`
+[1] "I love cats!"
+> cats(TRUE)
+[1] "I love cats!"
+> cats(FALSE)
+[1] "I am not a cat person."
 ```
 
-Note that `load_all()` has made the `cats()` function available for us to use, but it does not exist in the global workspace. For example, you can test that this is indeed true with the following:
+<div class="boxy boxy-success boxy-check">
+**Success:** Our function works!
+</div>
 
-```{r cats_available}
-exists("cats", where = globalenv(), inherits = FALSE)
+## Informal testing
+
+We will set up some more formal function testing later, but let's see what happens when we don't use the function as it was intended.
+
+```{r cats_test_2, eval = FALSE}
+> cats(1)
+[1] "I love cats!"
+> cats(2)
+[1] "I am not a cat person."
+> cats("meh")
+[1] "I am not a cat person."
 ```
+
+What happened here? Why didn't **R** throw an error or warning when we didn't include a logical argument of `TRUE` or `FALSE`?
+
+In the first case, `1` is equivalent to `TRUE` in **R**, so it returns the result as if `cats(TRUE)`. In the second and third cases, our function definition only involves a check whether the argument is `TRUE`. If not, the default behavior is to return the result `"I am not a cat person."` These tests suggest that although our function works as expected, we might want to add some additional checks on the input argument.
 
 ## Commit our changes
 

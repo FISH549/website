@@ -5503,11 +5503,8 @@ contributed by the user community.</p></li>
 </div>
 <div id="functions" class="section level1">
 <h1>Functions</h1>
-<p>Functions form the basis for <strong>R</strong> packages. The array
-of packages available in <strong>R</strong> is pretty mind boggling,
-which means there are innumerable functions out there underlying these
-packages. In general, an <strong>R</strong> function has the following
-structure</p>
+<p>Functions form the basis for <strong>R</strong> packages. In general,
+an <strong>R</strong> function has the following structure</p>
 <pre class="r"><code>function_name &lt;- function(arguments) {
   error checks
   commands to execute
@@ -5579,8 +5576,8 @@ the location of the working directory.</p>
 <pre class="r"><code>&gt; getwd()</code></pre>
 <pre><code>## [1] &quot;/Users/mark/Documents/GitHub/FISH549/pets&quot;</code></pre>
 <div class="boxy boxy-blue boxy-clipboard-list">
-<p><strong>Task:</strong> Copy the result, which you will need for the
-next step.</p>
+<p><strong>Task:</strong> Copy the result (including the quotation
+marks), which you will need for the next step.</p>
 </div>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Now execute the following command at at the
@@ -5599,8 +5596,11 @@ look like <code>Nope</code>, <code>No way</code>, <code>Not now</code>,
 etc (note that these options will vary each time you do this, so don’t
 worry if yours don’t mirror the options below).</p>
 </div>
-<p>After doing so, <strong>RStudio</strong> will open a new instance of
-your <code>pets</code> project.</p>
+<div class="boxy boxy-red boxy-exclamation">
+<p><strong>Note:</strong> After making your selection,
+<strong>RStudio</strong> will open a new instance of your
+<code>pets</code> project.</p>
+</div>
 <pre class="r"><code>✓ Setting active project to &#39;/Users/scheuerl/Documents/GitHub/FISH549/pets&#39;
 ✓ Creating &#39;R/&#39;
 ✓ Writing &#39;DESCRIPTION&#39;
@@ -5635,10 +5635,6 @@ Selection: 3
 <p>Wow, that’s a lot of information. What just happened here?</p>
 <p>First, you should notice that several new files and a folder have
 been added to your directory. These include:</p>
-<pre><code>.Rbuildignore
-DESCRIPTION
-NAMESPACE
-/R</code></pre>
 <ul>
 <li><p><code>.Rbuildignore</code>: a list of files that we’ll need to
 have around, but that should be excluded when building the package from
@@ -5654,12 +5650,12 @@ from other packages</p></li>
 <code>.R</code> files that contain our function definitions</p></li>
 </ul>
 <div class="boxy boxy-orange boxy-lightbulb">
-<p><strong>Tip:</strong> If you cannot see the hidden files above that
-begin with a <code>.</code>, go to the <strong>Files</strong> pane in
-<strong>RStudio</strong> and click on the dropdown menu with the gear
+<p><strong>Tip:</strong> Files that begin with a <code>.</code> are
+generally hidden from view. If you cannot see any listed in the
+<strong>Files</strong> pane, click on the dropdown menu with the gear
 icon (it might say “More” next to it if your window is large enough).
 Select <code>Show Hidden Files</code> at the bottom of the menu to
-display them).</p>
+display them.</p>
 </div>
 </div>
 <div id="restart-rstudio" class="section level2">
@@ -5673,7 +5669,8 @@ just select your project from the dropdown menu in the upper right).</p>
 <p><strong>Task:</strong> After restarting <strong>RStudio</strong>, you
 will need to reload <code>{devtools}</code>.</p>
 </div>
-<pre class="r"><code>&gt; library(devtools)</code></pre>
+<pre class="r"><code>&gt; library(devtools)
+Loading required package: usethis</code></pre>
 <hr />
 </div>
 </div>
@@ -5681,13 +5678,25 @@ will need to reload <code>{devtools}</code>.</p>
 <h1>Write a function</h1>
 <p>As mentioned above, the basis of <strong>R</strong> packages is
 functions. Let’s go ahead and create a new function called
-<code>cats()</code>. To do so, we’ll use the <code>use_r()</code>
-function to open up a new blank <code>.R</code> file within the
-<code>/R/</code> directory where we can define our new function.</p>
-<pre class="r"><code>use_r(&quot;cats&quot;)</code></pre>
-<p>Now we can write our function definition. Go ahead and copy/paste the
-following code into the <code>cats.R</code> file. When you are finished,
-save the file.</p>
+<code>cats()</code>.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Type <code>use_r(&quot;cats)</code> to create a
+script within the <code>/R</code> directory called <code>cats.R</code>
+where we can define our new function.</p>
+</div>
+<pre class="r"><code>&gt; use_r(&quot;cats&quot;)
+✔ Setting active project to &#39;/Users/mark/Documents/GitHub/FISH549/pets&#39;
+• Modify &#39;R/cats.R&#39;
+• Call `use_test()` to create a matching test file</code></pre>
+<div class="boxy boxy-red boxy-exclamation">
+<p><strong>Note:</strong> Later we’ll come back the advice to create a
+matching test file with <code>use_test()</code>.</p>
+</div>
+<p>Now we can write our function definition.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Copy/paste the following code into the
+<code>cats.R</code> file. When you are finished, save the file.</p>
+</div>
 <pre class="r"><code>cats &lt;- function(love = TRUE) {
   if(love == TRUE) {
     msg &lt;- &quot;I love cats!&quot;
@@ -5697,8 +5706,8 @@ save the file.</p>
   }
   return(print(msg))
 }</code></pre>
-<div id="try-it-out" class="section level2">
-<h2>Try it out</h2>
+<div id="try-our-function" class="section level2">
+<h2>Try our function</h2>
 <p>Now that we’ve defined a new function, it’s a good idea to try it
 out. Although we could just highlight the code and execute it in the
 normal <strong>R</strong> environment, there is a function
@@ -5710,32 +5719,47 @@ testing functions defined in the global workspace.
 <code>load_all()</code> also allows much faster iteration than actually
 going through the process of building, installing, and attaching the
 package.</p>
-<pre class="r"><code>load_all()</code></pre>
-<p>The function should respond with a message that the package
-<code>pets</code> has been loaded.</p>
-<pre class="r"><code>ℹ Loading pets</code></pre>
-<p>Let’s try out our new function.</p>
-<pre class="r"><code>cats(TRUE)</code></pre>
-<pre><code>## [1] &quot;I love cats!&quot;</code></pre>
-<pre class="r"><code>cats(FALSE)</code></pre>
-<pre><code>## [1] &quot;I am not a cat person.&quot;</code></pre>
-<pre class="r"><code>cats(1)</code></pre>
-<pre><code>## [1] &quot;I love cats!&quot;</code></pre>
-<pre class="r"><code>cats(&quot;a&quot;)</code></pre>
-<pre><code>## [1] &quot;I am not a cat person.&quot;</code></pre>
-<p>The last 2 examples might not make sense to you because they don’t
-involve a logical argument <code>TRUE</code> or <code>FALSE</code>. In
-the first case, <code>1</code> is equivalent to <code>TRUE</code> in
-<strong>R</strong>, so it returns the result as if
-<code>cats(TRUE)</code>. In the second case, our function definition
-only involves a check whether the argument is <code>TRUE</code>, and if
-not, it returns the result <code>&quot;I am not a cat person.&quot;</code></p>
-<p>Note that <code>load_all()</code> has made the <code>cats()</code>
-function available for us to use, but it does not exist in the global
-workspace. For example, you can test that this is indeed true with the
-following:</p>
-<pre class="r"><code>exists(&quot;cats&quot;, where = globalenv(), inherits = FALSE)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Call <code>load_all()</code> at the command
+prompt and the function will respond that it’s loading the
+<code>{pets}</code> package.</p>
+</div>
+<pre class="r"><code>&gt; load_all()
+ℹ Loading pets</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Go ahead and try out our new function.</p>
+</div>
+<pre class="r"><code>&gt; cats()  # default argument is `love = TRUE`
+[1] &quot;I love cats!&quot;
+&gt; cats(TRUE)
+[1] &quot;I love cats!&quot;
+&gt; cats(FALSE)
+[1] &quot;I am not a cat person.&quot;</code></pre>
+<div class="boxy boxy-success boxy-check">
+<p><strong>Success:</strong> Our function works!</p>
+</div>
+</div>
+<div id="informal-testing" class="section level2">
+<h2>Informal testing</h2>
+<p>We will set up some more formal function testing later, but let’s see
+what happens when we don’t use the function as it was intended.</p>
+<pre class="r"><code>&gt; cats(1)
+[1] &quot;I love cats!&quot;
+&gt; cats(2)
+[1] &quot;I am not a cat person.&quot;
+&gt; cats(&quot;meh&quot;)
+[1] &quot;I am not a cat person.&quot;</code></pre>
+<p>What happened here? Why didn’t <strong>R</strong> throw an error or
+warning when we didn’t include a logical argument of <code>TRUE</code>
+or <code>FALSE</code>?</p>
+<p>In the first case, <code>1</code> is equivalent to <code>TRUE</code>
+in <strong>R</strong>, so it returns the result as if
+<code>cats(TRUE)</code>. In the second and third cases, our function
+definition only involves a check whether the argument is
+<code>TRUE</code>. If not, the default behavior is to return the result
+<code>&quot;I am not a cat person.&quot;</code> These tests suggest that although
+our function works as expected, we might want to add some additional
+checks on the input argument.</p>
 </div>
 <div id="commit-our-changes" class="section level2">
 <h2>Commit our changes</h2>
