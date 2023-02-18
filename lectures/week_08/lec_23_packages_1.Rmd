@@ -322,34 +322,129 @@ This is a good time to go ahead and commit the files we created as part of `crea
 
 # Checking a function
 
-At this point, we have every reason to believe that `cats()` works as expected, but should really verify that all of the elements of the `pets` package indeed work. This may seem silly to check, after such a small addition, but it's good to establish the habit of checking this often.
+At this point, we have reason to believe that `cats()` works as expected, but we should really verify that all of the elements of the entire `pets` package indeed work. This may seem a bit silly to check after such a small addition or change, but it's good to establish the habit of checking often.
 
-The standard method for checking a package's functionality is to execute `R CMD check` in the **terminal** or **bash**. However, we can make us of the `check()` function to do so without leaving **RStudio**. Note that `check()` produces ***a lot*** of output. Here is a peek at the last of it (your results may vary slightly).
+The standard method for checking a package's functionality is to run the command `R CMD check` in the **Terminal**. However, we can make us of the `check()` function in `{devtools}` to do so without leaving **RStudio**. 
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** `check()` produces ***a lot*** of output under the categories of `Documenting`, `Building`, and `Checking`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Run `check()` at the command prompt.
+</div>
 
 ```{r run_check, eval = FALSE}
-check()
-```
+> check()
+══ Documenting ═════════════════════════════════════════════════════════════
+ℹ Updating pets documentation
+ℹ Loading pets
 
-```
-── R CMD check results ─────────────────────────────────────── pets 0.0.0.9000 ────
-Duration: 11.2s
+══ Building ════════════════════════════════════════════════════════════════
+Setting env vars:
+• CFLAGS    : -Wall -pedantic -fdiagnostics-color=always
+• CXXFLAGS  : -Wall -pedantic -fdiagnostics-color=always
+• CXX11FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX14FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX17FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX20FLAGS: -Wall -pedantic -fdiagnostics-color=always
+✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
+─  preparing ‘pets’:
+✔  checking DESCRIPTION meta-information ...
+─  checking for LF line-endings in source and make files and shell scripts
+─  checking for empty or unneeded directories
+   Removed empty directory ‘pets/man’
+─  building ‘pets_0.0.0.9000.tar.gz’
+   
+══ Checking ════════════════════════════════════════════════════════════════
+Setting env vars:
+• _R_CHECK_CRAN_INCOMING_REMOTE_: FALSE
+• _R_CHECK_CRAN_INCOMING_       : FALSE
+• _R_CHECK_FORCE_SUGGESTS_      : FALSE
+• NOT_CRAN                      : true
+── R CMD check ─────────────────────────────────────────────────────────────
+─  using log directory ‘/private/var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T/Rtmp3HNU44/pets.Rcheck’
+─  using R version 4.2.2 (2022-10-31)
+─  using platform: x86_64-apple-darwin17.0 (64-bit)
+─  using session charset: UTF-8
+─  using options ‘--no-manual --as-cran’
+✔  checking for file ‘pets/DESCRIPTION’
+─  this is package ‘pets’ version ‘0.0.0.9000’
+─  package encoding: UTF-8
+✔  checking package namespace information
+✔  checking package dependencies (1.4s)
+✔  checking if this is a source package ...
+✔  checking if there is a namespace
+✔  checking for executable files ...
+✔  checking for hidden files and directories
+✔  checking for portable file names
+✔  checking for sufficient/correct file permissions
+✔  checking serialization versions
+✔  checking whether package ‘pets’ can be installed (1s)
+✔  checking installed package size
+✔  checking package directory
+✔  checking for future file timestamps ...
+W  checking DESCRIPTION meta-information ...
+   Non-standard license specification:
+     `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+     license
+   Standardizable: FALSE
+✔  checking top-level files
+✔  checking for left-over files
+✔  checking index information ...
+✔  checking package subdirectories ...
+✔  checking R files for non-ASCII characters ...
+✔  checking R files for syntax errors ...
+✔  checking whether the package can be loaded ...
+✔  checking whether the package can be loaded with stated dependencies ...
+✔  checking whether the package can be unloaded cleanly ...
+✔  checking whether the namespace can be loaded with stated dependencies ...
+✔  checking whether the namespace can be unloaded cleanly ...
+✔  checking loading without being on the library search path ...
+✔  checking dependencies in R code ...
+✔  checking S3 generic/method consistency (366ms)
+✔  checking replacement functions ...
+✔  checking foreign function calls ...
+✔  checking R code for possible problems (1.9s)
+✔  checking for missing documentation entries ...
+─  checking examples ... NONE
+✔  checking for non-standard things in the check directory
+✔  checking for detritus in the temp directory
+   
+   See
+     ‘/private/var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T/Rtmp3HNU44/pets.Rcheck/00check.log’
+   for details.
+   
+   
+── R CMD check results ────────────────────────────────────────────────── pets 0.0.0.9000 ────
+Duration: 7.2s
 
-> checking DESCRIPTION meta-information ... WARNING
+❯ checking DESCRIPTION meta-information ... WARNING
   Non-standard license specification:
     `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
   Standardizable: FALSE
 
-0 errors ✓ | 1 warning x | 0 notes ✓
+0 errors ✔ | 1 warning ✖ | 0 notes ✔
 ```
 
-It is **very important** to read over all of this information, as it will report the things that passed the check as well as any warnings or errors encountered in the process. Here we see that we have 0 errors, 1 warning, and 0 notes. The warning says,
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** It is **very important** to read over all of this information, as it will report the things that passed the check as well as any warnings or errors encountered in the process. 
+</div>
+
+Here we see that we have 0 errors, 1 warning, and 0 notes. The warning says,
 
 `Non-standard license specification`
 
 which is OK for now, as we'll address that later.
 
-Note that you can also run a package check via the **Build** pane in **RStudio**.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can also run a package check via the **Build** pane in **RStudio**.
+</div>
+
+```{r rs_build_check, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/rs_build_check.png")
+```
 
 ***
 
