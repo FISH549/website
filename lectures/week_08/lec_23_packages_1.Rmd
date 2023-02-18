@@ -22,27 +22,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 If you think about your typical **R** script within a project, you probably have a series of calls to various functions (and subsequent assignments of their output to object names) that follow a purposeful path to an endpoint. Similar to how an article conveys scientific ideas to others, a package allows us to distribute a specific workflow to others. 
 
-For many of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** and allow us access to functions like `mean()` and `print()`. In essence, packages allow us to expand the functionality of base **R** while still enforcing some standards. 
-
-For example, many of you will have experience with the collection of packages in the {tidyverse} package.
+For many of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** and allow us access to functions like `mean()` and `plot()`. In essence, packages allow us to expand the functionality of base **R** while still enforcing some standards (e.g., many of you will have experience with the various functions in the `{tidyverse}` collection).
 
 Here is some common terminology with respect to **R** packages:
 
-* *Package*: An extension of the base **R** system with code, data, and documentation combined together in a standard format
+* *Package*: An extension of the base **R** system with code, data [optional], and documentation combined together in a standard format (e.g., [`{MARSS}`](https://cran.r-project.org/web/packages/MARSS/index.html)).
 
-* *Library*: A directory/folder containing installed packages
+* *Library*: A directory/folder containing installed packages (e.g., the location you would pass to the argument `lib` in the `install.packages()` function).
 
-* *Repository*: A website providing packages for installation
+* *Repository*: A website providing packages for installation (e.g., [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html)).
 
-* *Source*: The original version of a package with human-readable text and code
+* *Source*: The original version of a package with human-readable text and code.
 
-* *Binary*: A compiled version of a package with computer-readable text and code
+* *Binary*: A compiled version of a package with computer-readable text and code.
 
-* *Base packages*: Part of the **R** source tree, maintained by **R Core**
+* *Base packages*: Part of the **R** source tree, maintained by **R Core**.
 
-* *Recommended packages*: Part of every **R** installation, but not necessarily maintained by **R Core**
+* *Recommended packages*: Part of every **R** installation, but not necessarily maintained by **R Core**.
 
-* *Contributed packages*: All of the remaining packages contributed by the user community
+* *Contributed packages*: All of the remaining packages contributed by the user community.
 
 ***
 

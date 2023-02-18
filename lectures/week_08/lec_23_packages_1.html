@@ -5340,23 +5340,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -5477,32 +5471,33 @@ workflow to others.</p>
 <p>For many of us, our first encounter with <strong>R</strong> packages
 is via those that come bundled with the base installation of
 <strong>R</strong> and allow us access to functions like
-<code>mean()</code> and <code>print()</code>. In essence, packages allow
+<code>mean()</code> and <code>plot()</code>. In essence, packages allow
 us to expand the functionality of base <strong>R</strong> while still
-enforcing some standards.</p>
-<p>For example, many of you will have experience with the collection of
-packages in the {tidyverse} package.</p>
+enforcing some standards (e.g., many of you will have experience with
+the various functions in the <code>{tidyverse}</code> collection).</p>
 <p>Here is some common terminology with respect to <strong>R</strong>
 packages:</p>
 <ul>
 <li><p><em>Package</em>: An extension of the base <strong>R</strong>
-system with code, data, and documentation combined together in a
-standard format</p></li>
+system with code, data [optional], and documentation combined together
+in a standard format (e.g., <a href="https://cran.r-project.org/web/packages/MARSS/index.html"><code>{MARSS}</code></a>).</p></li>
 <li><p><em>Library</em>: A directory/folder containing installed
-packages</p></li>
+packages (e.g., the location you would pass to the argument
+<code>lib</code> in the <code>install.packages()</code>
+function).</p></li>
 <li><p><em>Repository</em>: A website providing packages for
-installation</p></li>
+installation (e.g., <a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">CRAN</a>).</p></li>
 <li><p><em>Source</em>: The original version of a package with
-human-readable text and code</p></li>
+human-readable text and code.</p></li>
 <li><p><em>Binary</em>: A compiled version of a package with
-computer-readable text and code</p></li>
+computer-readable text and code.</p></li>
 <li><p><em>Base packages</em>: Part of the <strong>R</strong> source
-tree, maintained by <strong>R Core</strong></p></li>
+tree, maintained by <strong>R Core</strong>.</p></li>
 <li><p><em>Recommended packages</em>: Part of every <strong>R</strong>
 installation, but not necessarily maintained by <strong>R
-Core</strong></p></li>
+Core</strong>.</p></li>
 <li><p><em>Contributed packages</em>: All of the remaining packages
-contributed by the user community</p></li>
+contributed by the user community.</p></li>
 </ul>
 <hr />
 </div>
