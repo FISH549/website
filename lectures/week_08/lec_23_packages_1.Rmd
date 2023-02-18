@@ -448,40 +448,42 @@ knitr::include_graphics("img/rs_build_check.png")
 
 ***
 
-# Edit `DESCRIPTION`
+# Edit `DESCRIPTION` file
 
-The `DESCRIPTION` file provides some metadata about your package, including the package name, its title, author, etc. Here are the current content of our `DESCRIPTION` file:
+The `DESCRIPTION` file provides some metadata about a package, including the package name, its title, author, etc. Your `DESCRIPTION` file should look something like this:
 
 ```
 Package: pets
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 ```
 
 Let's go ahead and make the following changes:
 
-Give the package a title:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Change the package title to `Evaluates Your Feelings About Pets`.
+</div>
 
-`Evaluates Your Feelings About Pets`
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The convention is to use Title Case for package titles.
+</div>
 
-Enter your first and last names, and your email address. You can leave the `role` as is and delete the `comment` field asking about your `ORCID`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add your first and last names, and your email address. You can leave the `role` as is and delete the `comment` field asking about your `ORCID`.
+</div>
 
-Write some descriptive text `Description` field. For example,
-
-`Pets are awesome companions. Some people are fans of cats, others not so much.`
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Write some descriptive text about the package in the `Description` field. For example, `Pets are awesome companions. Some people are fans of cats, others not so much.`
+</div>
 
 When finished, your `DESCRIPTION` file should look something like this:
 
@@ -495,19 +497,25 @@ Authors@R:
            role = c("aut", "cre"),
            email = "scheuerl@uw.edu")
 Description: Pets are awesome companions. Some people are fans of cats, others not so much.
-License: What license it uses
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
 Encoding: UTF-8
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
 ```
 
 ***
 
 # Add a license
 
-We should add a license to our package, as it's considered a best practice (here we'll use the MIT license). We'll use the helper function `use_mit_license()` to do so. Make sure to use your own name in the argument.
+We should add a license to our package, as it's considered a best practice (here we'll use the MIT license).
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the helper function `use_mit_license()` to create a license and make sure to use your own name in the argument.
+</div>
 
 ```{r add_license, eval = FALSE}
-use_mit_license("Mark Scheuerell")
+> use_mit_license("Mark Scheuerell")
 ✔ Setting License field in DESCRIPTION to 'MIT + file LICENSE'
 ✔ Writing 'LICENSE'
 ✔ Writing 'LICENSE.md'
