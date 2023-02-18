@@ -147,7 +147,7 @@ You should see **R** responding with a bunch of information about your new packa
 </div>
 
 ```{r create_pkg_results, eval = FALSE}
-✓ Setting active project to '/Users/scheuerl/Documents/GitHub/FISH549/pets'
+✓ Setting active project to '/Users/mark/Documents/GitHub/FISH549/pets'
 ✓ Creating 'R/'
 ✓ Writing 'DESCRIPTION'
 Package: pets
@@ -174,7 +174,7 @@ Selection: 3
 ✓ Adding '^pets\\.Rproj$' to '.Rbuildignore'
 ✓ Adding '.Rproj.user' to '.gitignore'
 ✓ Adding '^\\.Rproj\\.user$' to '.Rbuildignore'
-✓ Opening '/Users/scheuerl/Documents/GitHub/FISH549/pets/' in new RStudio session
+✓ Opening '/Users/mark/Documents/GitHub/FISH549/pets/' in new RStudio session
 ✓ Setting active project to '<no active project>'
 ```
 
@@ -495,7 +495,7 @@ Authors@R:
     person(given = "Mark",
            family = "Scheuerell",
            role = c("aut", "cre"),
-           email = "scheuerl@uw.edu")
+           email = "mark@uw.edu")
 Description: Pets are awesome companions. Some people are fans of cats, others not so much.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
@@ -784,36 +784,119 @@ export(cats)
 
 # Check & install
 
-Now is a good time to run our diagnostic checks. Go ahead a execute `check()`, which should return no errors or warnings.
+Now is a good time to re-run our diagnostic checks.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `check()` again, which should return no errors or warnings.
+</div>
 
 ```{r re-check, eval = FALSE}
-check()
-```
+> check()
+══ Documenting ═════════════════════════════════════════════════════════════
+ℹ Updating pets documentation
+ℹ Loading pets
 
-```
-── R CMD check results ──────────────────────────────────────────────────── pets 0.0.0.9000 ────
-Duration: 6.8s
-
-0 errors ✓ | 0 warnings ✓ | 0 notes ✓
-```
-
-Now that we've verified that our package builds correctly, we can install our package and try it out with `install()`.
-
-```{r install_pkg, eval = FALSE}
-install()
-```
-
-```
-✓  checking for file ‘/Users/scheuerl/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
+══ Building ════════════════════════════════════════════════════════════════
+Setting env vars:
+• CFLAGS    : -Wall -pedantic -fdiagnostics-color=always
+• CXXFLAGS  : -Wall -pedantic -fdiagnostics-color=always
+• CXX11FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX14FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX17FLAGS: -Wall -pedantic -fdiagnostics-color=always
+• CXX20FLAGS: -Wall -pedantic -fdiagnostics-color=always
+✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
-✓  checking DESCRIPTION meta-information ...
+✔  checking DESCRIPTION meta-information ...
+─  checking for LF line-endings in source and make files and shell scripts
+─  checking for empty or unneeded directories
+─  building ‘pets_0.0.0.9000.tar.gz’
+   
+══ Checking ════════════════════════════════════════════════════════════════
+Setting env vars:
+• _R_CHECK_CRAN_INCOMING_REMOTE_: FALSE
+• _R_CHECK_CRAN_INCOMING_       : FALSE
+• _R_CHECK_FORCE_SUGGESTS_      : FALSE
+• NOT_CRAN                      : true
+── R CMD check ─────────────────────────────────────────────────────────────
+─  using log directory ‘/private/var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T/Rtmp3HNU44/pets.Rcheck’
+─  using R version 4.2.2 (2022-10-31)
+─  using platform: x86_64-apple-darwin17.0 (64-bit)
+─  using session charset: UTF-8
+─  using options ‘--no-manual --as-cran’
+✔  checking for file ‘pets/DESCRIPTION’
+─  this is package ‘pets’ version ‘0.0.0.9000’
+─  package encoding: UTF-8
+✔  checking package namespace information
+✔  checking package dependencies (3.3s)
+✔  checking if this is a source package
+✔  checking if there is a namespace
+✔  checking for executable files ...
+✔  checking for hidden files and directories
+✔  checking for portable file names
+✔  checking for sufficient/correct file permissions
+✔  checking serialization versions
+✔  checking whether package ‘pets’ can be installed (1s)
+✔  checking installed package size
+✔  checking package directory
+✔  checking for future file timestamps ...
+✔  checking DESCRIPTION meta-information ...
+✔  checking top-level files ...
+✔  checking for left-over files
+✔  checking index information
+✔  checking package subdirectories ...
+✔  checking R files for non-ASCII characters ...
+✔  checking R files for syntax errors ...
+✔  checking whether the package can be loaded ...
+✔  checking whether the package can be loaded with stated dependencies ...
+✔  checking whether the package can be unloaded cleanly ...
+✔  checking whether the namespace can be loaded with stated dependencies ...
+✔  checking whether the namespace can be unloaded cleanly ...
+✔  checking loading without being on the library search path ...
+✔  checking dependencies in R code ...
+✔  checking S3 generic/method consistency (371ms)
+✔  checking replacement functions ...
+✔  checking foreign function calls ...
+✔  checking R code for possible problems (1.9s)
+✔  checking Rd files ...
+✔  checking Rd metadata ...
+✔  checking Rd line widths ...
+✔  checking Rd cross-references ...
+✔  checking for missing documentation entries ...
+✔  checking for code/documentation mismatches (403ms)
+✔  checking Rd \usage sections (522ms)
+✔  checking Rd contents ...
+✔  checking for unstated dependencies in examples ...
+✔  checking examples (547ms)
+✔  checking for non-standard things in the check directory
+✔  checking for detritus in the temp directory
+   
+   
+── R CMD check results ─────────────────────────────────────────── pets 0.0.0.9000 ────
+Duration: 11.3s
+
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+```
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Everything checks out now!
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now that we've verified that our package builds correctly, let's install and try it out with the `install()` function.
+</div>
+```{r install_pkg, eval = FALSE}
+> install()
+✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
+─  preparing ‘pets’:
+✔  checking DESCRIPTION meta-information ...
 ─  checking for LF line-endings in source and make files and shell scripts
 ─  checking for empty or unneeded directories
 ─  building ‘pets_0.0.0.9000.tar.gz’
    
 Running /Library/Frameworks/R.framework/Resources/bin/R CMD INSTALL \
-  /var/folders/t4/nzmg35y56kx8jlvpd38xmvt00000gn/T//RtmpHWEk8a/pets_0.0.0.9000.tar.gz --install-tests 
-* installing to library ‘/Users/scheuerl/Rlibs’
+  /var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T//Rtmp3HNU44/pets_0.0.0.9000.tar.gz \
+  --install-tests 
+* installing to library ‘/Users/mark/R_libs’
 * installing *source* package ‘pets’ ...
 ** using staged installation
 ** R
@@ -827,10 +910,19 @@ Running /Library/Frameworks/R.framework/Resources/bin/R CMD INSTALL \
 * DONE (pets)
 ```
 
-At this point, you can run `install(pets)` to load the package and use the `cats()` function.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** At this point you can run `library(pets)` to load the package and use the `cats()` function.
+</div>
 
 ```{r load_pkg, eval = FALSE}
-library(pets)
+> library(pets)
 ```
 
-Note that you can also install your package via the **Build** pane in **RStudio**.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can also install your package via the **Build** pane in **RStudio**.
+</div>
+
+```{r rs_build_install, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("img/rs_build_install.png")
+```
+
