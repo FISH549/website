@@ -540,9 +540,15 @@ COPYRIGHT HOLDER: Mark Scheuerell
 
 # Writing documentation
 
-If you're like me, you often rely on a function's documentation to help understand the arguments to a function and the value(s) that the function returns. This is typically done via a question mark preceding the function name (eg, `?print`). Writing this documentation used to be a bit onerous, but now we can easily add documentation to our package using the `roxygen2` package.
+If you're like Mark, you often rely on a function's documentation to help you understand the arguments to a function and the value(s) that the function returns. This is typically done via a question mark preceding the function name (e.g., `?print`). Writing this documentation used to be a bit onerous, but now it's easy to add documentation to a package using the `{roxygen2}` package. To do so, we'll add a special form of comment above our function definition in `cats.R`, which we'll denote with a `#'`. 
 
-To do so, we'll add a special form of comment above our function definition in `cats.R`, which we'll denote with a `#'`. Go ahead and open `cats.R` and then from your **RStudio** menu, select `Code > Insert Roxygen Skeleton`. Your `cats.R` file should now look like this:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open the `cats.R` script and make sure your cursor is at the very top . From your **RStudio** menu, select **Code > Insert Roxygen Skeleton**.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Your `cats.R` file should now look like following.
+</div>
 
 ```
 #' Title
@@ -564,70 +570,160 @@ cats <- function(love = TRUE) {
 }
 ```
 
-Let's go over the different elements of the function's documentation.
+Let's go over the different elements of the function's documentation skeleton that we just inserted.
 
-* `Title`: a short descriptive phrase of what the function does
+* `Title`: A short descriptive phrase of what the function does.
 
-* `@param`: one or more arguments to the function (here there is only one: `love`) and its/their description(s)
+* `@param`: One or more arguments to the function (here there is only one: `love`) and its/their description(s).
 
-* `@return`: a description of what the function returns
+* `@return`: A description of what the function returns.
 
-* `@export`: tells `roxygen2` to add this function to the `NAMESPACE` file so it's accessible to users 
+* `@export`: Tells `roxygen2` to add this function to the `NAMESPACE` file so it's accessible to users.
 
-* `@examples`: one or more examples of how the function is used
+* `@examples`: One or more coded examples of how the function is used.
 
 ### Title
 
-Go ahead and add a title to the `cats()` function. Here's one possibility:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Replace `Title` with something more descriptive like `Expresses your opinion about cats`.
+</div>
 
 ```
 #' Expresses your opinion about cats
+#'
+#' @param love 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
 ```
 
 ### Parameters
 
-Our `roxygen` skeleton already contains the one parameter in our function, but we can go ahead and add a description of the argument. It's often a good idea to also include what, if any, the default argument is.
+Our `{roxygen}` skeleton already contains the one parameter in our function `love`, but we can go ahead and add an explicit description of this argument. It's often a good idea to also include what, if any, the default argument is.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the `#' @param` field after `love`, add ```A logical argument indicating whether or not you love cats (default = `TRUE`)```.
+</div>
 
 ```
+#' Expresses your opinion about cats
+#'
 #' @param love A logical argument indicating whether or not you love cats (default = `TRUE`)
+#'
+#' @return
+#' @export
+#'
+#' @examples
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
 ```
 
 ### Return
 
 It's good practice to tell the user what they should expect from a function. This is admittedly a rather simple function, which is easy to decipher, but other functions will not be nearly as transparent.
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the `#' @return` field , add ```One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`)```.
+</div>
+
 ```
+#' Expresses your opinion about cats
+#'
+#' @param love A logical argument indicating whether or not you love cats (default = `TRUE`)
+#'
 #' @return One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`).
+#' @export
+#'
+#' @examples
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
 ```
+
+### Export
+
+You can leave this blank, as the default behavior is all we need here.
 
 ### Examples
 
 This is an optional element of the documentation. If you include `@examples` without any actual code, you will get a warning about `@examples requires a value`. In this case, we can add a really simple example:
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add `cats(TRUE)` to the `#' @examples ` field.
+</div>
+
 ```
-#' @examples cats(TRUE)
+#' Expresses your opinion about cats
+#'
+#' @param love A logical argument indicating whether or not you love cats (default = `TRUE`)
+#'
+#' @return One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`).
+#' @export
+#'
+#' @examples cat(TRUE)
+cats <- function(love = TRUE) {
+  if(love == TRUE) {
+    msg <- "I love cats!"
+  }
+  else {
+    msg <- "I am not a cat person."
+  }
+  return(print(msg))
+}
 ```
 
-## Assemble it
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Make sure to save `cats.R` after modifying the `{roxygen}` skeleton.
+</div>
+
+
+## Assemble the documentation
 
 Now that we've written the function's documentation, we need to pass it along to the `cats.Rd` file in the help manual. To do so, we can use the `document()` function.
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Run `document()` at the command prompt to create the function documentation.
+</div>
+
 ```{r document_help, eval = FALSE}
-document()
+> document()
 Updating pets documentation
 ℹ Loading pets
-Writing NAMESPACE
 Writing NAMESPACE
 Writing cats.Rd
 ```
 
-We can check that everything worked as planned by previewing our help file.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** There should be a new folder in your project directory called `/man`, which stands for "manual". This is where the help files live.
+</div>
 
-```{r test_help, eval = FALSE}
-?cats
-```
-
-You should also notice that there is a new folder in our project directory called `/man/`, which stands for "manual". This is where the help files live. Go ahead and open `cats.Rd` and it should look like this:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up the `/man` folder and inspect the contents of `cats.Rd`. It should look like the following.
+</div>
 
 ```
 % Generated by roxygen2: do not edit by hand
@@ -652,9 +748,31 @@ cats(TRUE)
 }
 ```
 
-### `NAMESPACE`
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check that everything worked as planned by previewing our help file with `?cats`.
+</div>
 
-In addition to converting `cats()`'s special comments into `man/cats.Rd`, the call to `document()` also updates the `NAMESPACE` file, based on the `@export` line found in the `roxygen` comments. Go ahead and open up your `NAMESPACE` file and verify that its contents look like this:
+```{r test_help, eval = FALSE}
+> ?cats
+ℹ Rendering development documentation for "cats"
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Your help tab should look like this.
+</div>
+
+```{r check_cats_help, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("img/help_cats.png")
+```
+
+
+### Examine `NAMESPACE` file
+
+When we called `document()` above to convert the special **Roxygen** comments in `cats.R` into `man/cats.Rd`, it also updated the `NAMESPACE` file based on the `@export` line found in the `roxygen` comments.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up your `NAMESPACE` file and verify that its contents look like this.
+</div>
 
 ```
 # Generated by roxygen2: do not edit by hand
