@@ -6004,28 +6004,33 @@ done.</p>
 </div>
 <div id="hex-sticker" class="section level1">
 <h1>Hex sticker</h1>
-<p>Let’s be honest–<a href="https://swag.rstudio.com/s/shop">hex
+<p>Let’s be honest—<a href="https://swag.rstudio.com/s/shop">hex
 stickers</a> are all the rage when it comes to <strong>R</strong>
 packages. We can make our own hex sticker for our <code>{pets}</code>
 package with the <a href="https://github.com/GuangchuangYu/hexSticker"><code>{hexSticker}</code></a>
 package. The function <code>sticker()</code> will do all of the work for
 us.</p>
 <p>Here we’ll include an image of a silhouette cata and dog on our
-sticker. To do so, you will need to download the
-<code>cat_and_dog.png</code> image <a href="https://github.com/FISH497/website/blob/main/lectures/week_08/cat_and_dog.png">here</a>
-and place it in the working directory for your <code>{pets}</code>
-package. Next load <code>{hexSticker}</code> and make the following call
-to <code>sticker()</code> (you can type <code>?sticker</code> to see all
-of the function arguments).</p>
-<pre class="r"><code>## load hexSticker
-library(hexSticker)
-
-## create sticker image
+sticker.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Download the <code>cat_and_dog.png</code>
+image by navigating <a href="https://github.com/FISH549/website/blob/main/lectures/week_08/cat_and_dog.png">here</a>
+and right-clicking on the image. Choose <strong>Save Image As…</strong>
+and save it in the working directory for your <code>{pets}</code>
+package.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Load <code>{hexSticker}</code> and make the
+following call to <code>sticker()</code> (you can type
+<code>?sticker</code> to see all of the function arguments).</p>
+</div>
+<pre class="r"><code>&gt; library(hexSticker)</code></pre>
+<pre class="r"><code>## create sticker image
 sticker(&quot;cat_and_dog.png&quot;,
         ## package name
         package=&quot;pets&quot;,
         ## heights &amp; widths
-        p_size = 8, s_x = 0.95, s_y = 0.9, asp = 0.85,
+        p_size = 18, s_x = 0.95, s_y = 0.9, asp = 0.85,
         s_width = 0.65, s_height = 0.65, p_y = 1.6,
         ## text color
         p_color = &quot;#4b2e83&quot;,
@@ -6035,9 +6040,11 @@ sticker(&quot;cat_and_dog.png&quot;,
         h_color = &quot;#85754d&quot;,
         ## filename to save
         filename=&quot;logo.png&quot;)</code></pre>
-<p>Now we can tell <strong>R</strong> to use our new image with
-<code>usethis::use_logo()</code>.</p>
-<pre class="r"><code>usethis::use_logo(&quot;logo.png&quot;)
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Tell <strong>R</strong> to use our new image
+with <code>usethis::use_logo()</code>.</p>
+</div>
+<pre class="r"><code>&gt; usethis::use_logo(&quot;logo.png&quot;)
 ✓ Creating &#39;man/figures/&#39;
 ✓ Resized &#39;logo.png&#39; to 240x278
 ● Add logo to your README with the following html:
@@ -6045,27 +6052,67 @@ Warning: pkgdown config does not specify the site&#39;s url, which is optional b
   # pets &lt;img src=&#39;man/figures/logo.png&#39; align=&quot;right&quot; height=&quot;139&quot; /&gt;
   [Copied to clipboard]</code></pre>
 <p>The last thing we need to do is edit our <code>README.Rmd</code> file
-to include a reference to the sticker. Go ahead and open the file and do
-two things. First, edit the <code>knitr::opts_chunk$set(...)</code>
-block at the top, such that <code>fig.path = &quot;man/figures/&quot;</code></p>
-<pre><code>```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = &quot;#&gt;&quot;,
-  fig.path = &quot;man/figures/&quot;,
-  out.width = &quot;100%&quot;
-)
-```</code></pre>
-<p>and then add the following line of code to the right of the
-<code># pets</code> heading.</p>
+to include a reference to the sticker.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Add the following line of code to the right of
+the <code># pets</code> heading.</p>
+</div>
 <pre><code># pets &lt;img src=&quot;man/figures/logo.png&quot; align=&quot;right&quot; alt=&quot;&quot; width=&quot;120&quot; /&gt;</code></pre>
-<p>When you are finished, click the <strong>Knit</strong> button in
-<strong>RStudio</strong> to preview your new readme file.</p>
-<p>Lastly, we need to rebuild the website with
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> When you are finished, click the
+<strong>Knit</strong> button in <strong>RStudio</strong> to preview your
+new readme file.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Lastly, we need to rebuild the website with
 <code>build_site()</code>.</p>
-<p>When it finishes, go ahead and commit your changes and push them to
-<strong>GitHub</strong>. Next, navigate back to your <code>pets</code>
-repo on <strong>GitHub</strong> and preview your changes.</p>
+</div>
+<pre class="r"><code>&gt; build_site()
+-- Installing package into temporary library -------------------------------------------
+== Building pkgdown site =======================================================
+Reading from: &#39;/Users/mark/Documents/GitHub/FISH549/pets&#39;
+Writing to:   &#39;/Users/mark/Documents/GitHub/FISH549/pets/docs&#39;
+-- Initialising site -----------------------------------------------------------
+-- Building favicons -----------------------------------------------------------
+Building favicons with realfavicongenerator.net...
+Copying &#39;pkgdown/favicon/apple-touch-icon-120x120.png&#39; to &#39;apple-touch-icon-120x120.png&#39;
+Copying &#39;pkgdown/favicon/apple-touch-icon-152x152.png&#39; to &#39;apple-touch-icon-152x152.png&#39;
+Copying &#39;pkgdown/favicon/apple-touch-icon-180x180.png&#39; to &#39;apple-touch-icon-180x180.png&#39;
+Copying &#39;pkgdown/favicon/apple-touch-icon-60x60.png&#39; to &#39;apple-touch-icon-60x60.png&#39;
+Copying &#39;pkgdown/favicon/apple-touch-icon-76x76.png&#39; to &#39;apple-touch-icon-76x76.png&#39;
+Copying &#39;pkgdown/favicon/apple-touch-icon.png&#39; to &#39;apple-touch-icon.png&#39;
+Copying &#39;pkgdown/favicon/favicon-16x16.png&#39; to &#39;favicon-16x16.png&#39;
+Copying &#39;pkgdown/favicon/favicon-32x32.png&#39; to &#39;favicon-32x32.png&#39;
+Copying &#39;pkgdown/favicon/favicon.ico&#39; to &#39;favicon.ico&#39;
+Copying &#39;logo.png&#39; to &#39;logo.png&#39;
+-- Building home ---------------------------------------------------------------
+Writing &#39;authors.html&#39;
+Reading &#39;LICENSE.md&#39;
+Writing &#39;LICENSE.html&#39;
+Writing &#39;LICENSE-text.html&#39;
+Copying &#39;man/figures/logo.png&#39; to &#39;reference/figures/logo.png&#39;
+Writing &#39;404.html&#39;
+-- Building function reference -------------------------------------------------
+Writing &#39;reference/index.html&#39;
+Reading &#39;man/cats.Rd&#39;
+Writing &#39;reference/cats.html&#39;
+-- Building articles -----------------------------------------------------------
+Writing &#39;articles/index.html&#39;
+Reading &#39;vignettes/example-usage.Rmd&#39;
+Writing &#39;articles/example-usage.html&#39;
+Writing &#39;sitemap.xml&#39;
+-- Building search index -------------------------------------------------------
+== DONE ========================================================================
+-- Previewing site ---------------------------------------------------------------------</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> When it finishes, go ahead and commit your
+changes and push them to <strong>GitHub</strong>.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Finally, navigate back to your
+<code>pets</code> repo on <strong>GitHub</strong> and preview your
+changes.</p>
+</div>
 </div>
 
 
