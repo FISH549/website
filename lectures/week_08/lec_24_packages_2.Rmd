@@ -585,6 +585,15 @@ Writing 'sitemap.xml'
 
 ![](img/gh_pages_set.png)
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If youget a 404 error or your site doesn't display properly, wait a few minute and force-refresh your browser.
+</div>
+
+
 ***
 
 # Hex sticker
