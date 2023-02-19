@@ -5732,35 +5732,44 @@ to your <code>README.md</code>.</p>
 </div>
 <div id="vignettes" class="section level1">
 <h1>Vignettes</h1>
-<p>Vignettes offer a longer description of a pacakge’s utility. They
-aren’t at all a necessary component of a package, but rather one of the
-“bells and whistles”. Vignettes are written in <strong>Markdown</strong>
-and can be accessed via <code>vignette(name)</code> where
-<code>name</code> is the name of the vignette. You can see a list of all
-of the vignettes within a particular package with
+<p>Vignettes offer a longer description of a package’s utility. They
+aren’t a necessary component of a package, but rather one of the “bells
+and whistles”. Vignettes are written in <strong>Markdown</strong> and
+can be accessed via <code>vignette(name)</code> where <code>name</code>
+is the name of the vignette.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> You can see a list of all of the vignettes
+within a particular package with
 <code>browseVignettes(&quot;packagename&quot;)</code>.</p>
-<p>To create a vignette, use the <code>use_vignette()</code> function by
-passing it the name of the vignette file to create.</p>
-<pre class="r"><code>use_vignette(&quot;example-usage&quot;)
-✓ Adding &#39;knitr&#39; to Suggests field in DESCRIPTION
-✓ Setting VignetteBuilder field in DESCRIPTION to &#39;knitr&#39;
-✓ Adding &#39;inst/doc&#39; to &#39;.gitignore&#39;
-✓ Creating &#39;vignettes/&#39;
-✓ Adding &#39;*.html&#39;, &#39;*.R&#39; to &#39;vignettes/.gitignore&#39;
-✓ Adding &#39;rmarkdown&#39; to Suggests field in DESCRIPTION
-✓ Writing &#39;vignettes/example-usage.Rmd&#39;
-● Modify &#39;vignettes/example-usage.Rmd&#39;</code></pre>
-<p>Running <code>use_vignette()</code> will</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> To create a vignette, use the
+<code>use_vignette()</code> function by passing it the name of the
+vignette file to create. Here use <code>&quot;example-usage&quot;</code>.</p>
+</div>
+<pre class="r"><code>&gt; use_vignette(&quot;example-usage&quot;)
+✔ Adding &#39;knitr&#39; to Suggests field in DESCRIPTION
+✔ Setting VignetteBuilder field in DESCRIPTION to &#39;knitr&#39;
+✔ Adding &#39;inst/doc&#39; to &#39;.gitignore&#39;
+✔ Creating &#39;vignettes/&#39;
+✔ Adding &#39;*.html&#39;, &#39;*.R&#39; to &#39;vignettes/.gitignore&#39;
+✔ Adding &#39;rmarkdown&#39; to Suggests field in DESCRIPTION
+✔ Writing &#39;vignettes/example-usage.Rmd&#39;
+• Modify &#39;vignettes/example-usage.Rmd&#39;</code></pre>
+<p>The call to <code>use_vignette()</code> did the following</p>
 <ul>
-<li><p>create a <code>vignettes/</code> directory</p></li>
-<li><p>add the necessary dependencies to
+<li><p>added the necessary dependencies to
 <code>DESCRIPTION</code></p></li>
-<li><p>create the skeleton file
+<li><p>added some folders and files to <code>.gitignore</code></p></li>
+<li><p>created a <code>vignettes/</code> directory</p></li>
+<li><p>created the skeleton file
 <code>vignettes/example-usage.Rmd</code></p></li>
 </ul>
-<p>Go ahead and inspect the contents of <code>example-usage.Rmd</code>
-and you’ll some <code>YAML</code> and two code chunks. The
-<code>YAML</code> looks like this</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Inspect the contents of
+<code>example-usage.Rmd</code>. At the top you’ll see the following YAML
+section.</p>
+</div>
 <pre><code>---
 title: &quot;example-usage&quot;
 output: rmarkdown::html_vignette
@@ -5769,13 +5778,40 @@ vignette: &gt;
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---</code></pre>
-<p>Let’s change the title to be a little more informative:</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Change the title to be a little more
+informative.</p>
+</div>
 <pre><code>title: &quot;Using the pets package&quot;</code></pre>
-<p>and then change <code>%\VignetteIndexEntry{example-usage}</code> to
-match our new title</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Change
+<code>%\VignetteIndexEntry{example-usage}</code> to match our new
+title.</p>
+</div>
 <pre><code>%\VignetteIndexEntry{Using the pets package}</code></pre>
-<p>Now let’s add some more details to the body of the vignette. For
-example,</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Scroll down below the YAML and inspect the
+first code chunk where two options are being set.</p>
+</div>
+<pre class="r"><code>knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = &quot;#&gt;&quot;
+)</code></pre>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> Setting <code>collapse = TRUE</code> will if
+possible, collapse all the source code and output blocks from one code
+chunk into a single block (by default, they are written to separate
+blocks).</p>
+</div>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> The <code>comment = &quot;#&gt;</code> determines
+the prefix for output from function calls. You can change this to be any
+character string or leave it empty.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Add some more details to the body of the
+vignette.</p>
+</div>
 <pre><code># Background
 
 The `{pets}` package was designed to allow people to express their feelings about pets. At present, the package is rather cat-centric, in that it only contains one function: `cats()`.
@@ -5794,45 +5830,67 @@ cats(TRUE)
 ## if you&#39;re not a big fan of cats
 cats(FALSE)
 ```</code></pre>
-<p>When you are finished, go ahead and click on the
-<strong>Knit</strong> button in <strong>RStudio</strong> to preview the
-html version of the vignette.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> When you are finished, go ahead and click on
+the <strong>Knit</strong> button in <strong>RStudio</strong> to preview
+the html version of the vignette.</p>
+</div>
 <p>At this point, we’ve created our vignette, but we still need to build
-it into the package itself. To do so, we’ll use the
-<code>build_vignettes()</code> function.</p>
-<pre class="r"><code>build_vignettes()
-Building pets vignettes
+it into the package itself.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Use the <code>build_vignettes()</code>
+function to build the vignette.</p>
+</div>
+<pre class="r"><code>&gt; build_vignettes()
+ℹ Installing pets in temporary library
+ℹ Building vignettes for pets
 --- re-building ‘example-usage.Rmd’ using rmarkdown
+
+
+processing file: example-usage.Rmd
+                                                                                                            
+output file: example-usage.knit.md
+
+/Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/pandoc +RTS -K512m -RTS example-usage.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /Users/mark/Documents/GitHub/FISH549/pets/vignettes/example-usage.html --lua-filter /Users/mark/R_libs/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/mark/R_libs/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --section-divs --template /Users/mark/R_libs/rmarkdown/rmd/h/default.html --highlight-style pygments --css /Users/mark/R_libs/rmarkdown/rmarkdown/templates/html_vignette/resources/vignette.css --mathjax --variable &#39;mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#39; --include-in-header /var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T//Rtmppjt1Se/rmarkdown-stra66d76e727.html 
+
+Output created: example-usage.html
 --- finished re-building ‘example-usage.Rmd’
 
-✓ Creating &#39;doc/&#39;
-✓ Adding &#39;^doc$&#39; to &#39;.Rbuildignore&#39;
-✓ Adding &#39;doc&#39; to &#39;.gitignore&#39;
-Moving example-usage.html, example-usage.R to doc/
-Copying example-usage.Rmd to doc/
-✓ Creating &#39;Meta/&#39;
-✓ Adding &#39;^Meta$&#39; to &#39;.Rbuildignore&#39;
-✓ Adding &#39;Meta&#39; to &#39;.gitignore&#39;
-Building vignette index</code></pre>
-<p>We should now rebuild our package and run our checks.</p>
-<pre class="r"><code>## re-build package
-build()
-✓  checking for file ‘/Users/mark/Documents/GitHub/pets/DESCRIPTION’ ...
+ℹ Copying vignettes
+ℹ Moving example-usage.html and example-usage.R to doc/
+ℹ Copying example-usage.Rmd to doc/
+ℹ Building vignette index</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> We should now rebuild our package.</p>
+</div>
+<pre class="r"><code>&gt; build()
+✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
-✓  checking DESCRIPTION meta-information ...
+✔  checking DESCRIPTION meta-information
 ─  installing the package to build vignettes
-✓  creating vignettes (1.3s)
+✔  creating vignettes (1.8s)
 ─  checking for LF line-endings in source and make files and shell scripts
 ─  checking for empty or unneeded directories
-─  building ‘pets_0.0.0.9000.tar.gz’</code></pre>
-<pre class="r"><code>## run check
-check()
+─  building ‘pets_0.0.0.9000.tar.gz’
+   
+[1] &quot;/Users/mark/Documents/GitHub/FISH549/pets_0.0.0.9000.tar.gz&quot;</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Re-run our package checks (most of the output
+below has been surpressed).</p>
+</div>
+<pre class="r"><code>&gt; check()
 ── R CMD check results ────────────────────────────── pets 0.0.0.9000 ────
 Duration: 8.7s
 
 0 errors ✓ | 0 warnings ✓ | 0 notes ✓</code></pre>
-<p>It looks like everything is in working order, so go ahead and commit
-your changes and push them to <strong>GitHub</strong>.</p>
+<div class="boxy boxy-success boxy-check">
+<p><strong>Success:</strong> It looks like everything is in working
+order!</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Go ahead and commit your changes and push them
+to <strong>GitHub</strong>.</p>
+</div>
 <hr />
 </div>
 <div id="website" class="section level1">
