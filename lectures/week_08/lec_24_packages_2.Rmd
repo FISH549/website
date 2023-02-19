@@ -480,33 +480,110 @@ Duration: 8.7s
 
 # Website
 
-If you've spent some time searching the web for information on packages, there's a good chance you come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
+If you've spent some time searching the web for information on packages, there's a good chance you've come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
 
-To do so, we'll begin by configuring our package to use `{pkgdown}`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by loading the `{pkgdown}` package.
+</div>
 
-```{r init_pkgdown}
-## load library
-library(pkgdown)
+```{r load_pkgdown}
+> library(pkgdown)
 
-## initialize package to use pkgdown
-use_pkgdown()
-● Record your site's url in the pkgdown config file (optional, but recommended)
-● Modify '_pkgdown.yml'
+Attaching package: ‘pkgdown’
+
+The following object is masked from ‘package:devtools’:
+
+    build_site
 ```
 
-This command will add a new file called `_pkgdown.yml`, which is empty at the moment.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Configure your package to use `{pkgdown}`.
+</div>
+
+```{r init_pkgdown}
+> use_pkgdown()
+✔ Adding '^_pkgdown\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'
+✔ Adding 'docs' to '.gitignore'
+✔ Writing '_pkgdown.yml'
+• Modify '_pkgdown.yml'
+```
+
+`use_pkgdown()` will add a new file called `_pkgdown.yml`, which contains some YAML and fields for `url` and `template`
+
+```
+url: ~
+template:
+  bootstrap: 5
+```
 
 Now we can use `pkgdown::build_site()` to create the actual website for the package. When you call this function, you'll see a verbose response from **R** followed by a preview of your site opened in your web browser.
 
-Before doing so, however, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Before proceeding, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+</div>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open your `.gitignore` file and look for `docs` (Mark's is in a block called `# R Environment Variables`). Comment it out.
+</div>
 
-```{r build_site}
-build_site()
+```
+# R Environment Variables
+.Renviron
+.Rproj.user
+inst/doc
+/doc/
+/Meta/
+# docs
 ```
 
-Now let's commit our changes and push them to **GitHub**. After doing so, navigate to your `pets` repo on **GitHub** and click on the **Settings** tab. Scroll down to the section title **GitHub Pages** and under **Source** select `Branch: main` and `Select folder: /docs`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `build_site()` to create the necessary html and supporting files in the `/docs` directory.
+</div>
 
+```{r build_site}
+> build_site()
+-- Installing package into temporary library -------------------------------------------
+== Building pkgdown site =======================================================
+Reading from: '/Users/mark/Documents/GitHub/FISH549/pets'
+Writing to:   '/Users/mark/Documents/GitHub/FISH549/pets/docs'
+-- Initialising site -----------------------------------------------------------
+-- Building home ---------------------------------------------------------------
+Reading 'LICENSE.md'
+Writing '404.html'
+-- Building function reference -------------------------------------------------
+Reading 'man/cats.Rd'
+Writing 'reference/cats.html'
+-- Building articles -----------------------------------------------------------
+Writing 'articles/index.html'
+Reading 'vignettes/example-usage.Rmd'
+Writing 'articles/example-usage.html'
+Writing 'sitemap.xml'
+-- Building search index -------------------------------------------------------
+== DONE ========================================================================
+-- Previewing site ---------------------------------------------------------------------
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your changes and push them to **GitHub**.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to your `pets` repo on **GitHub** and click on the **Settings** tab.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Under the section on the left titled **Code and automation**, click on **Pages**.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Under **Branch** select `main` and set the folder to `/docs`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click **Save** when you're done.
+</div>
+
+![](img/gh_pages_set.png)
 
 ***
 
