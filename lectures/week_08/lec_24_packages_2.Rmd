@@ -165,17 +165,23 @@ The report indicates how many total tests were run (4) and the output of each te
 
 # Packages on GitHub
 
-The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub** using either of these calls (replacing `YOUR_GITHUB_USERNAME` with your actual **GitHub** username):
+The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub**.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can use either of the following function calls to install a package diectly from GitHub. To do so, replace `GITHUB_USERNAME` with the username of the repo's owner and `PACKAGE` with the package's name.
+</div>
 
 ```{r install_gh}
 ## original call using {devtools} still works
-devtools::install_github("YOUR_GITHUB_USERNAME/pets")
+devtools::install_github("GITHUB_USERNAME/PACKAGE")
 
 ## but {remotes} is the newer package with the function
-remotes::install_github("YOUR_GITHUB_USERNAME/pets")
+remotes::install_github("GITHUB_USERNAME/PACKAGE")
 ```
 
-Note that if you try either of these commands and get the following error
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you try either of these commands and get the following error, run `Sys.unsetenv("GITHUB_PAT")` and then try again. 
+</div>
 
 ```
 Using github PAT from envvar GITHUB_PAT
@@ -184,14 +190,16 @@ Error: Failed to install 'pets' from GitHub:
   Bad credentials
 ```
 
-go ahead a run `Sys.unsetenv("GITHUB_PAT")` and then try again.
+## Editing the `README.md`
 
-## Editing README
+Because your package now lives in a public space on GitHub where others can find and use it, you should include some helpful information in the `README.md` file to describe the package contents and how it works.
 
-Because our package now lives in a public space where others can find and use it, we should include some helpful information in the `README.md` file to describe the package contents and how it works. We can use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton for us add information about our package.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton to add information about your package.
+</div>
 
 ```{r use_readme}
-use_readme_rmd()
+> use_readme_rmd()
 ✓ Writing 'README.Rmd'
 ✓ Adding '^README\\.Rmd$' to '.Rbuildignore'
 ● Modify 'README.Rmd'
@@ -206,35 +214,59 @@ The output above indicates that the function
 
 * created a **Git** *pre-commit hook* to keep `README.Rmd` and `README.md` synced with one another
 
-Let's go ahead and inspect the content of `README.Rmd`. You will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. Note that comments in **Markdown** are denoted by `<!-- some comment here -->`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up `README.Rmd` and inspect its contents. 
+</div>
 
-In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges). For example,
+At the top of `README.Rmd` you'll see a very simply YAML section with only one entry for the `output` format.
+
+```
+---
+output: github_document
+---
+```
+
+Below that you will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Comments in **Markdown** are denoted by `<!-- some comment here -->`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges).
+</div>
 
 ```
 # pets
 
-The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the package only contains one function: `cats()`.
 ```
 
-In the next section on `## Installation`, delete the information about installing from **CRAN**, as our package doesn't exist there. You will note that the installation instructions for **GitHub** are already included.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the next section on `## Installation`, add some install instructions like those shown above.
+</div>
 
 ````
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install the development version of pets like so:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("mdscheuerell/pets")
+if(!require("devtools")) {
+  install.packages("devtools")
+}
+devtools::install_github("FISH549/pets")
 ```
 ````
 
-In the `## Example` section, fill in some information with example calls to `cats()`. For example,
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the `## Example` section, fill in some information with example calls to `cats()`.
+</div>
 
 ````
 ## Example
 
-Here are two simple examples that allow you to express your feelings about cats:
+Here are two simple examples that allow you to express your feelings about cats.
 
 `r ''````{r example}
 library(pets)
@@ -247,15 +279,20 @@ cats(FALSE)
 ```
 ````
 
-When you are finished editing `README.Rmd`, you can either knit it directly from within **RStudio** or uee the `build_readme()` function.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished editing `README.Rmd`, knit it with the **Knit** button in **RStudio** or use the `build_readme()` function at the command line.
+</div>
 
 ```{r build_ _readme}
-build_readme()
+> build_readme()
 Installing pets in temporary library
-Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd
+Building /Users/mark/Documents/GitHub/pets/README.Rmd
 ```
 
-Now go ahead and commit **both** `README.Rmd` **and** `README.md`, and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now commit **both** `README.Rmd` and `README.md` and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+</div>
+
 
 ***
 
@@ -359,7 +396,7 @@ We should now rebuild our package and run our checks.
 ```{r rebuild}
 ## re-build package
 build()
-✓  checking for file ‘/Users/scheuerl/Documents/GitHub/pets/DESCRIPTION’ ...
+✓  checking for file ‘/Users/mark/Documents/GitHub/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
 ✓  checking DESCRIPTION meta-information ...
 ─  installing the package to build vignettes

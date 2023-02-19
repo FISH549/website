@@ -5580,7 +5580,7 @@ The following object is masked from ‘package:devtools’:
     test_file
 
 ✔ | F W S  OK | Context
-⠏ |         0 | cats                                                               
+⠏ |         0 | cats                                                      
 [1] &quot;I love cats!&quot;
 [1] &quot;I love cats!&quot;
 [1] &quot;I am not a cat person.&quot;
@@ -5590,13 +5590,18 @@ The following object is masked from ‘package:devtools’:
 ══ Results ════════════════════════════════════════════════════════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]</code></pre>
 <p>What does this all mean?</p>
-<p>The testing report indicates how many total tests were run (4 here),
-and how many of them failed (<code>FAIL</code>), issued a warning
+<p>The report indicates how many total tests were run (4) and the output
+of each test. The <code>Results</code> section at the bottom shows how
+many of the tests failed (<code>FAIL</code>), issued a warning
 (<code>WARN</code>), were skipped (<code>SKIP</code>), and passed
-(<code>PASS</code>). Here we see that all four of our tests passed,
-which is good news indeed.</p>
-<p>Now is a good time to commit your changes and push them to
-<strong>GitHub</strong>.</p>
+(<code>PASS</code>).</p>
+<div class="boxy boxy-success boxy-check">
+<p><strong>Success:</strong> All four of our tests passed!</p>
+</div>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> Now is a good time to commit your changes and
+push them to <strong>GitHub</strong>.</p>
+</div>
 <hr />
 </div>
 </div>
@@ -5605,31 +5610,39 @@ which is good news indeed.</p>
 <p>The <code>pets</code> repo we created on <strong>GitHub</strong>
 contains our package skeleton in human-readable form. One of the neat
 things about this is that you (or anyone else) can now install the
-package directly from <strong>GitHub</strong> using either of these
-calls (replacing <code>YOUR_GITHUB_USERNAME</code> with your actual
-<strong>GitHub</strong> username):</p>
+package directly from <strong>GitHub</strong>.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> You can use either of the following function
+calls to install a package diectly from GitHub. To do so, replace
+<code>GITHUB_USERNAME</code> with the username of the repo’s owner and
+<code>PACKAGE</code> with the package’s name.</p>
+</div>
 <pre class="r"><code>## original call using {devtools} still works
-devtools::install_github(&quot;YOUR_GITHUB_USERNAME/pets&quot;)
+devtools::install_github(&quot;GITHUB_USERNAME/PACKAGE&quot;)
 
 ## but {remotes} is the newer package with the function
-remotes::install_github(&quot;YOUR_GITHUB_USERNAME/pets&quot;)</code></pre>
-<p>Note that if you try either of these commands and get the following
-error</p>
+remotes::install_github(&quot;GITHUB_USERNAME/PACKAGE&quot;)</code></pre>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> If you try either of these commands and get the
+following error, run <code>Sys.unsetenv(&quot;GITHUB_PAT&quot;)</code> and then
+try again.</p>
+</div>
 <pre><code>Using github PAT from envvar GITHUB_PAT
 Error: Failed to install &#39;pets&#39; from GitHub:
   HTTP error 401.
   Bad credentials</code></pre>
-<p>go ahead a run <code>Sys.unsetenv(&quot;GITHUB_PAT&quot;)</code> and then try
-again.</p>
-<div id="editing-readme" class="section level2">
-<h2>Editing README</h2>
-<p>Because our package now lives in a public space where others can find
-and use it, we should include some helpful information in the
-<code>README.md</code> file to describe the package contents and how it
-works. We can use the <code>use_readme_rmd()</code> function to create a
-<strong>Markdown</strong> file with a skeleton for us add information
-about our package.</p>
-<pre class="r"><code>use_readme_rmd()
+<div id="editing-the-readme.md" class="section level2">
+<h2>Editing the <code>README.md</code></h2>
+<p>Because your package now lives in a public space on GitHub where
+others can find and use it, you should include some helpful information
+in the <code>README.md</code> file to describe the package contents and
+how it works.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Use the <code>use_readme_rmd()</code> function
+to create a <strong>Markdown</strong> file with a skeleton to add
+information about your package.</p>
+</div>
+<pre class="r"><code>&gt; use_readme_rmd()
 ✓ Writing &#39;README.Rmd&#39;
 ✓ Adding &#39;^README\\.Rmd$&#39; to &#39;.Rbuildignore&#39;
 ● Modify &#39;README.Rmd&#39;
@@ -5642,35 +5655,52 @@ about our package.</p>
 <code>README.Rmd</code> and <code>README.md</code> synced with one
 another</p></li>
 </ul>
-<p>Let’s go ahead and inspect the content of <code>README.Rmd</code>.
-You will see a number of sections with prompts asking for more
-information about the package, including a description of the package,
-how to install it, and example of its usage. Note that comments in
-<strong>Markdown</strong> are denoted by
-<code>&lt;!-- some comment here --&gt;</code>.</p>
-<p>In the first section <code># pets</code>, go ahead and enter some
-descriptive text about the package contents (you can delete the comments
-about badges). For example,</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Open up <code>README.Rmd</code> and inspect
+its contents.</p>
+</div>
+<p>At the top of <code>README.Rmd</code> you’ll see a very simply YAML
+section with only one entry for the <code>output</code> format.</p>
+<pre><code>---
+output: github_document
+---</code></pre>
+<p>Below that you will see a number of sections with prompts asking for
+more information about the package, including a description of the
+package, how to install it, and example of its usage.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> Comments in <strong>Markdown</strong> are
+denoted by <code>&lt;!-- some comment here --&gt;</code>.</p>
+</div>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> In the first section <code># pets</code>, go
+ahead and enter some descriptive text about the package contents (you
+can delete the comments about badges).</p>
+</div>
 <pre><code># pets
 
-The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.</code></pre>
-<p>In the next section on <code>## Installation</code>, delete the
-information about installing from <strong>CRAN</strong>, as our package
-doesn’t exist there. You will note that the installation instructions
-for <strong>GitHub</strong> are already included.</p>
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the package only contains one function: `cats()`.</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> In the next section on
+<code>## Installation</code>, add some install instructions like those
+shown above.</p>
+</div>
 <pre><code>## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install the development version of pets like so:
 
 ``` r
-# install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;mdscheuerell/pets&quot;)
+if(!require(&quot;devtools&quot;)) {
+  install.packages(&quot;devtools&quot;)
+}
+devtools::install_github(&quot;FISH549/pets&quot;)
 ```</code></pre>
-<p>In the <code>## Example</code> section, fill in some information with
-example calls to <code>cats()</code>. For example,</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> In the <code>## Example</code> section, fill
+in some information with example calls to <code>cats()</code>.</p>
+</div>
 <pre><code>## Example
 
-Here are two simple examples that allow you to express your feelings about cats:
+Here are two simple examples that allow you to express your feelings about cats.
 
 ```{r example}
 library(pets)
@@ -5681,17 +5711,22 @@ cats(TRUE)
 ## if you don&#39;t like cats
 cats(FALSE)
 ```</code></pre>
-<p>When you are finished editing <code>README.Rmd</code>, you can either
-knit it directly from within <strong>RStudio</strong> or uee the
-<code>build_readme()</code> function.</p>
-<pre class="r"><code>build_readme()
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> When you are finished editing
+<code>README.Rmd</code>, knit it with the <strong>Knit</strong> button
+in <strong>RStudio</strong> or use the <code>build_readme()</code>
+function at the command line.</p>
+</div>
+<pre class="r"><code>&gt; build_readme()
 Installing pets in temporary library
-Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd</code></pre>
-<p>Now go ahead and commit <strong>both</strong> <code>README.Rmd</code>
-<strong>and</strong> <code>README.md</code>, and then push them to
+Building /Users/mark/Documents/GitHub/pets/README.Rmd</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Now commit <strong>both</strong>
+<code>README.Rmd</code> and <code>README.md</code> and then push them to
 <strong>GitHub</strong>. When you are finished, check out your
 <code>pets</code> repo on <strong>GitHub</strong> to see the new changes
 to your <code>README.md</code>.</p>
+</div>
 <hr />
 </div>
 </div>
@@ -5782,7 +5817,7 @@ Building vignette index</code></pre>
 <p>We should now rebuild our package and run our checks.</p>
 <pre class="r"><code>## re-build package
 build()
-✓  checking for file ‘/Users/scheuerl/Documents/GitHub/pets/DESCRIPTION’ ...
+✓  checking for file ‘/Users/mark/Documents/GitHub/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
 ✓  checking DESCRIPTION meta-information ...
 ─  installing the package to build vignettes
