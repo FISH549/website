@@ -5473,57 +5473,80 @@ web.</p>
 <h1>Testing</h1>
 <p>We spent just a bit of time testing out our <code>cats()</code>
 function, but we can formalize this process with so-called <em>unit
-tests</em>. This simply means we’ll set up some expectations about the
-values our function should take given certain arguments. As <a href="https://r-pkgs.org/tests.html">Wickham &amp; Bryan</a> point out,
+tests</em>. This basically means we’ll establish some expectations about
+what our function should return when passed certain arguments. As <a href="https://r-pkgs.org/tests.html">Wickham &amp; Bryan</a> point out,
 there are four advantages to working with unit tests:</p>
 <ol style="list-style-type: decimal">
-<li><p>Fewer bugs and errors</p></li>
-<li><p>More rigorous code structure</p></li>
-<li><p>Easier start/stop points</p></li>
-<li><p>Code that’s robust to changes</p></li>
+<li><p>Fewer bugs and errors;</p></li>
+<li><p>More rigorous code structure;</p></li>
+<li><p>Easier start/stop points;</p></li>
+<li><p>Code that’s robust to changes.</p></li>
 </ol>
-<p>Fortunately, <code>{devtools}</code> helps us with this process via
-some built-in functions. To begin, we’ll use <code>use_testthat()</code>
-to set up our framework for testing. This function:</p>
+<p>Fortunately, the <code>{devtools}</code> package helps us with this
+process via some built-in functions. To begin, we’ll use
+<code>use_testthat()</code> to set up our framework for testing, which
+will</p>
 <ul>
-<li><p>adds <code>Suggests: testthat</code> to
-<code>DESCRIPTION</code></p></li>
-<li><p>creates the directory <code>tests/testthat/</code></p></li>
-<li><p>adds the script <code>tests/testthat.R</code></p></li>
+<li><p>add <code>Suggests: testthat</code> to
+<code>DESCRIPTION</code>;</p></li>
+<li><p>create the directory <code>tests/testthat/</code>; and</p></li>
+<li><p>add the script <code>tests/testthat.R</code>.</p></li>
 </ul>
-<pre class="r"><code>## load devtools
-library(devtools)
-
-## set testing framework
-use_testthat()
-✓ Adding &#39;testthat&#39; to Suggests field in DESCRIPTION
-✓ Setting Config/testthat/edition field in DESCRIPTION to &#39;3&#39;
-✓ Creating &#39;tests/testthat/&#39;
-✓ Writing &#39;tests/testthat.R&#39;
-● Call `use_test()` to initialize a basic test file and open it for editing.</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Load the <code>{devtools}</code> package.</p>
+</div>
+<pre class="r"><code>&gt; library(devtools)
+Loading required package: usethis</code></pre>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Set the testing framework with
+<code>use_testthat()</code>.</p>
+</div>
+<pre class="r"><code>## set testing framework
+&gt; use_testthat()
+✔ Setting active project to &#39;/Users/mark/Documents/GitHub/FISH549/pets&#39;
+✔ Adding &#39;testthat&#39; to Suggests field in DESCRIPTION
+✔ Setting Config/testthat/edition field in DESCRIPTION to &#39;3&#39;
+✔ Creating &#39;tests/testthat/&#39;
+✔ Writing &#39;tests/testthat.R&#39;
+• Call `use_test()` to initialize a basic test file and open it for editing</code></pre>
+<div id="write-a-unit-test" class="section level2">
+<h2>Write a unit test</h2>
 <p>Now that we have our testing framework, we need to write some actual
-test scripts. We’ll use the <code>use_test()</code> function to create
-an empty script for testing our <code>cats()</code> function.</p>
-<pre class="r"><code>use_test(&quot;cats&quot;)
+test scripts. Here again, we see a suggestion like <a href="https://fish549.github.io/website/lectures/week_08/lec_23_packages_1.html#Write_a_function">last
+time</a> to use <code>use_test()</code> to initialize a basic test
+file.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Use the <code>use_test()</code> function to
+create an empty script for testing our <code>cats()</code> function.</p>
+</div>
+<pre class="r"><code>&gt; use_test(&quot;cats&quot;)
 ✓ Writing &#39;tests/testthat/test-cats.R&#39;
 ● Modify &#39;tests/testthat/test-cats.R&#39;</code></pre>
 <p>You should now see a script called <code>test-cats.R</code> with the
-following example test in it.</p>
+following example unit test in it.</p>
 <pre class="r"><code>test_that(&quot;multiplication works&quot;, {
   expect_equal(2 * 2, 4)
 })</code></pre>
-<p>This example shows the hierarchical nature of unit tests. So-called
+<p>Unit tests are hierarchical in nature. So-called
 <em>expectations</em> are grouped into <em>tests</em>, which are then
-organized into <em>files</em>. The test itself is embedded within
+organized into <em>files</em>. Expectations are informal and intended
+solely for human eyes—they will never be read or checked by an
+<strong>R</strong> function. The test itself is embedded within
 <code>test_that()</code>, and is based upon the expected result of an
-operation that we associate with an <code>expect_</code> function. In
-the default example above, the expectation is
-<code>&quot;multiplication works&quot;</code>, and the test is whether or not
-<code>2 * 2 == 4</code>, which is written as
-<code>expect_equal(2 * 2, 4)</code>. You can find a whole battery of
+operation that we check with an <code>expect_</code> function. In the
+example test shown above, the expectation is that
+<code>&quot;multiplication works&quot;</code>. The specific test of the
+expectation is whether or not <code>2 * 2 == 4</code>, which is coded as
+<code>expect_equal(2 * 2, 4)</code>.</p>
+<div class="boxy boxy-orange boxy-lightbulb">
+<p><strong>Tip:</strong> You can find a whole battery of
 <code>{testthat}</code> functions <a href="https://testthat.r-lib.org/reference/index.html">here</a>.</p>
-<p>Let’s go ahead and write some unit tests for <code>cats()</code>.
-Let’s use these options:</p>
+</div>
+<p>Let’s go ahead and write some unit tests for <code>cats()</code>.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Delete the default unit test in
+<code>test-cats.R</code> and replace it with the following code.</p>
+</div>
 <pre class="r"><code>test_that(&quot;logical operators work&quot;, {
   ## if TRUE
   expect_equal(cats(TRUE), &quot;I love cats!&quot;)
@@ -5534,30 +5557,48 @@ Let’s use these options:</p>
   ## if alias for FALSE
   expect_equal(cats(0), &quot;I am not a cat person.&quot;)
 })</code></pre>
-<p>and save our file when we’re done entering the tests. Now we’re set
-to run these tests with the <code>test()</code> function.</p>
-<pre class="r"><code>test()
-Loading pets
-Testing pets
-✓ |  OK F W S | Context
-⠏ |   0       | cats                                  [1] &quot;I love cats!&quot;
-⠋ |   1       | cats                                  [1] &quot;I love cats!&quot;
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Save your file when you’re done entering the
+tests.</p>
+</div>
+</div>
+<div id="run-unit-tests" class="section level2">
+<h2>Run unit tests</h2>
+<p>Now we’re set to run these tests with the <code>test()</code>
+function.</p>
+<div class="boxy boxy-blue boxy-clipboard-list">
+<p><strong>Task:</strong> Call <code>test()</code> and note the output,
+which may differ somewhat from below.</p>
+</div>
+<pre class="r"><code>&gt; test()
+ℹ Testing pets
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:devtools’:
+
+    test_file
+
+✔ | F W S  OK | Context
+⠏ |         0 | cats                                                               
+[1] &quot;I love cats!&quot;
+[1] &quot;I love cats!&quot;
 [1] &quot;I am not a cat person.&quot;
 [1] &quot;I am not a cat person.&quot;
-✓ |   4       | cats [0.1 s]
+✔ |         4 | cats
 
-══ Results ═══════════════════════════════════════════════════
-Duration: 0.1 s
-
+══ Results ════════════════════════════════════════════════════════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]</code></pre>
-<p>The testing report indicates how many total tests were run, and how
-many of them failed (<code>FAIL</code>), issued a warning
+<p>What does this all mean?</p>
+<p>The testing report indicates how many total tests were run (4 here),
+and how many of them failed (<code>FAIL</code>), issued a warning
 (<code>WARN</code>), were skipped (<code>SKIP</code>), and passed
 (<code>PASS</code>). Here we see that all four of our tests passed,
 which is good news indeed.</p>
 <p>Now is a good time to commit your changes and push them to
 <strong>GitHub</strong>.</p>
 <hr />
+</div>
 </div>
 <div id="packages-on-github" class="section level1">
 <h1>Packages on GitHub</h1>

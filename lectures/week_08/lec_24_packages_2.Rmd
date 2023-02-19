@@ -26,46 +26,63 @@ We saw [last time](lec_23_packages_1.html) how to create a basic package from a 
 
 # Testing
 
-We spent just a bit of time testing out our `cats()` function, but we can formalize this process with so-called *unit tests*. This simply means we'll set up some expectations about the values our function should take given certain arguments. As [Wickham & Bryan](https://r-pkgs.org/tests.html) point out, there are four advantages to working with unit tests:
+We spent just a bit of time testing out our `cats()` function, but we can formalize this process with so-called *unit tests*. This basically means we'll establish some expectations about what our function should return when passed certain arguments. As [Wickham & Bryan](https://r-pkgs.org/tests.html) point out, there are four advantages to working with unit tests:
 
-1) Fewer bugs and errors
+1) Fewer bugs and errors;
 
-2) More rigorous code structure
+2) More rigorous code structure;
 
-3) Easier start/stop points
+3) Easier start/stop points;
 
-4) Code that's robust to changes
+4) Code that's robust to changes.
 
-Fortunately, `{devtools}` helps us with this process via some built-in functions. To begin, we'll use `use_testthat()` to set up our framework for testing. This function:
+Fortunately, the `{devtools}` package helps us with this process via some built-in functions. To begin, we'll use `use_testthat()` to set up our framework for testing, which will
 
-* adds `Suggests: testthat` to `DESCRIPTION`
+* add `Suggests: testthat` to `DESCRIPTION`;
 
-* creates the directory `tests/testthat/`
+* create the directory `tests/testthat/`; and
 
-* adds the script `tests/testthat.R`
+* add the script `tests/testthat.R`.
 
-```{r testthat}
-## load devtools
-library(devtools)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Load the `{devtools}` package.
+</div>
 
-## set testing framework
-use_testthat()
-✓ Adding 'testthat' to Suggests field in DESCRIPTION
-✓ Setting Config/testthat/edition field in DESCRIPTION to '3'
-✓ Creating 'tests/testthat/'
-✓ Writing 'tests/testthat.R'
-● Call `use_test()` to initialize a basic test file and open it for editing.
+```{r load_devtools}
+> library(devtools)
+Loading required package: usethis
 ```
 
-Now that we have our testing framework, we need to write some actual test scripts. We'll use the `use_test()` function to create an empty script for testing our `cats()` function. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Set the testing framework with `use_testthat()`.
+</div>
+
+```{r use_testthat}
+## set testing framework
+> use_testthat()
+✔ Setting active project to '/Users/mark/Documents/GitHub/FISH549/pets'
+✔ Adding 'testthat' to Suggests field in DESCRIPTION
+✔ Setting Config/testthat/edition field in DESCRIPTION to '3'
+✔ Creating 'tests/testthat/'
+✔ Writing 'tests/testthat.R'
+• Call `use_test()` to initialize a basic test file and open it for editing
+```
+
+## Write a unit test
+
+Now that we have our testing framework, we need to write some actual test scripts. Here again, we see a suggestion like [last time](https://fish549.github.io/website/lectures/week_08/lec_23_packages_1.html#Write_a_function) to use `use_test()` to initialize a basic test file.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the `use_test()` function to create an empty script for testing our `cats()` function.
+</div>
 
 ```{r use_test}
-use_test("cats")
+> use_test("cats")
 ✓ Writing 'tests/testthat/test-cats.R'
 ● Modify 'tests/testthat/test-cats.R'
 ```
 
-You should now see a script called `test-cats.R` with the following example test in it.
+You should now see a script called `test-cats.R` with the following example unit test in it.
 
 ```{r test_that_default}
 test_that("multiplication works", {
@@ -73,9 +90,17 @@ test_that("multiplication works", {
 })
 ```
 
-This example shows the hierarchical nature of unit tests. So-called *expectations* are grouped into *tests*, which are then organized into *files*. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we associate with an `expect_` function. In the default example above, the expectation is `"multiplication works"`, and the test is whether or not `2 * 2 == 4`, which is written as `expect_equal(2 * 2, 4)`. You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+Unit tests are hierarchical in nature. So-called *expectations* are grouped into *tests*, which are then organized into *files*. Expectations are informal and intended solely for human eyes---they will never be read or checked by an **R** function. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we check with an `expect_` function. In the example test shown above, the expectation is that `"multiplication works"`. The specific test of the expectation is whether or not `2 * 2 == 4`, which is coded as `expect_equal(2 * 2, 4)`. 
 
-Let's go ahead and write some unit tests for `cats()`. Let's use these options:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+</div>
+
+Let's go ahead and write some unit tests for `cats()`.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Delete the default unit test in `test-cats.R` and replace it with the following code.
+</div>
 
 ```{r unit_test_1}
 test_that("logical operators work", {
@@ -90,28 +115,51 @@ test_that("logical operators work", {
 })
 ```
 
-and save our file when we're done entering the tests. Now we're set to run these tests with the `test()` function.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Save your file when you're done entering the tests.
+</div>
+
+## Run unit tests
+
+Now we're set to run these tests with the `test()` function.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `test()` and note the output, which may differ somewhat from below.
+</div>
 
 ```{r run_test}
-test()
-Loading pets
-Testing pets
-✓ |  OK F W S | Context
-⠏ |   0       | cats                                  [1] "I love cats!"
-⠋ |   1       | cats                                  [1] "I love cats!"
+> test()
+ℹ Testing pets
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:devtools’:
+
+    test_file
+
+✔ | F W S  OK | Context
+⠏ |         0 | cats                                                      
+[1] "I love cats!"
+[1] "I love cats!"
 [1] "I am not a cat person."
 [1] "I am not a cat person."
-✓ |   4       | cats [0.1 s]
+✔ |         4 | cats
 
-══ Results ═══════════════════════════════════════════════════
-Duration: 0.1 s
-
+══ Results ════════════════════════════════════════════════════════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]
 ```
 
-The testing report indicates how many total tests were run, and how many of them failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`). Here we see that all four of our tests passed, which is good news indeed.
+What does this all mean?
 
-Now is a good time to commit your changes and push them to **GitHub**.
+The report indicates how many total tests were run (4) and the output of each test. The `Results` section at the bottom shows how many of the tests failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`).
+
+<div class="boxy boxy-success boxy-check">
+**Success:** All four of our tests passed!
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Now is a good time to commit your changes and push them to **GitHub**.
+</div>
 
 ***
 
