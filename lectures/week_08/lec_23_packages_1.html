@@ -5340,17 +5340,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -6135,7 +6141,7 @@ a really simple example:</p>
 #&#39; @return One of two possible character strings (`&quot;I love cats!&quot;` or `&quot;I am not a cat person.&quot;`).
 #&#39; @export
 #&#39;
-#&#39; @examples cat(TRUE)
+#&#39; @examples cats(TRUE)
 cats &lt;- function(love = TRUE) {
   if(love == TRUE) {
     msg &lt;- &quot;I love cats!&quot;
