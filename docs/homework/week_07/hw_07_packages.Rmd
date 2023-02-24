@@ -44,5 +44,11 @@ Write a short (<300 words) review of the package. What is the primary purpose of
 
 # Submission
 
-Please create a new repo called `assignment-7` and populate it with a `README.md`. You can then edit the `README.md` file to include the above information. When you are finished, invite Mark as a collaborator. After he accepts your invite, tag him in an issue that *briefly* introduces your assignment.
+Please create a new repo called `assignment-7` and populate it with a `README.md`. You can then edit the `README.md` file to include the above information. When you are finished, invite Mark as a collaborator. After he accepts your invite, tag him in an issue that *briefly* introduces your assignment. Last, please choose one of the options below and note that in your issue.
+
+1) I am OK with Mark posting my review to the course website **and** he can use my name (i.e., attribute the review to me).
+
+2) I am OK with Mark posting my review to the course website **but** please do not use my name (i.e., make it anonymous).
+
+3) Please do not post my review.
 
