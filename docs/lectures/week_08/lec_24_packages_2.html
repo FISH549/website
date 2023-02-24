@@ -5340,17 +5340,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -6003,7 +6009,7 @@ done.</p>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Navigate to
 <code>https://USERNAME.github.io/pets/</code> to view the website for
-your package (where <code>USERNAME</code> is your GitHub user name.</p>
+your package (where <code>USERNAME</code> is your GitHub user name).</p>
 </div>
 <div class="boxy boxy-orange boxy-lightbulb">
 <p><strong>Tip:</strong> If youget a 404 error or your site doesn’t

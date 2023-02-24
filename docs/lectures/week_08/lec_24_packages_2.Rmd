@@ -586,7 +586,7 @@ Writing 'sitemap.xml'
 ![](img/gh_pages_set.png)
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name.
+**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name).
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
