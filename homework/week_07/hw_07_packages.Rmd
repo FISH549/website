@@ -1,8 +1,8 @@
 ---
 title: "Exploring R packages"
-subtitle: "Assignment #8"
+subtitle: "Assignment #7"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "3 March 2023"
+date: "24 February 2023"
 output:
   html_document:
     theme: spacelab
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-This week we saw how to build a basic **R** package, document its contents, write unit tests, and create a vignette and website to better display the package's purpose and contents. Your assignment this week is to write a short description of your favorite package or a package that you find yourself using quite often. Your write-up should include the following elements.
+This week we saw how to build a basic **R** package, document its contents, write unit tests, and create a vignette and website to better display the package's purpose and contents. Your assignment this week is to write a short description of your favorite package (or a package that you find yourself using quite often). Your write-up should include the following elements.
 
 ### Package title
 
@@ -36,7 +36,7 @@ Does the package have any formal vignettes, or just the standard collection of h
 
 ### Application(s)
 
-Are there any applications of the package, as demonstrated on a website like we built, someone's blog, Twitter post, etc?
+Are there any applications of the package, as demonstrated on a website like we built, someone's blog, Twitter post, etc? If so, describe some of them.
 
 ### Review
 
