@@ -586,7 +586,7 @@ Writing 'sitemap.xml'
 ![](img/gh_pages_set.png)
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name.
+**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name).
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
@@ -618,7 +618,7 @@ Here we'll include an image of a silhouette cata and dog on our sticker.
 ## create sticker image
 sticker("cat_and_dog.png",
         ## package name
-        package="pets",
+        package = "pets",
         ## heights & widths
         p_size = 18, s_x = 0.95, s_y = 0.9, asp = 0.85,
         s_width = 0.65, s_height = 0.65, p_y = 1.6,
@@ -629,7 +629,7 @@ sticker("cat_and_dog.png",
         ## border color
         h_color = "#85754d",
         ## filename to save
-        filename="logo.png")
+        filename = "logo.png")
 ```
 
 <div class="boxy boxy-blue boxy-clipboard-list">

@@ -5340,17 +5340,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -6003,7 +6009,7 @@ done.</p>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Navigate to
 <code>https://USERNAME.github.io/pets/</code> to view the website for
-your package (where <code>USERNAME</code> is your GitHub user name.</p>
+your package (where <code>USERNAME</code> is your GitHub user name).</p>
 </div>
 <div class="boxy boxy-orange boxy-lightbulb">
 <p><strong>Tip:</strong> If youget a 404 error or your site doesn’t
@@ -6037,7 +6043,7 @@ following call to <code>sticker()</code> (you can type
 <pre class="r"><code>## create sticker image
 sticker(&quot;cat_and_dog.png&quot;,
         ## package name
-        package=&quot;pets&quot;,
+        package = &quot;pets&quot;,
         ## heights &amp; widths
         p_size = 18, s_x = 0.95, s_y = 0.9, asp = 0.85,
         s_width = 0.65, s_height = 0.65, p_y = 1.6,
@@ -6048,7 +6054,7 @@ sticker(&quot;cat_and_dog.png&quot;,
         ## border color
         h_color = &quot;#85754d&quot;,
         ## filename to save
-        filename=&quot;logo.png&quot;)</code></pre>
+        filename = &quot;logo.png&quot;)</code></pre>
 <div class="boxy boxy-blue boxy-clipboard-list">
 <p><strong>Task:</strong> Tell <strong>R</strong> to use our new image
 with <code>usethis::use_logo()</code>.</p>
