@@ -1,6 +1,6 @@
 ---
 title: "Shiny Part 1: Build!"
-subtitle: "<br/>FISH 497"
+subtitle: "<br/>FISH 549"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
 date: "2023-02-27 (updated: `r Sys.Date()`)"
@@ -36,7 +36,7 @@ class: center, middle
 
 I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
 
-![squirrelmolly](docs/lectures/week_09/img/squirrelmolly.jpg)
+![squirrelmolly](img/squirrelmolly.jpg)
 
 ---
 
@@ -188,7 +188,7 @@ From The RStudio IDE, pick `New File -> Shiny Web App`
 You can choose between single (**app.R**) or multiple files (**ui.R** and **server.R**)
 
 *Does it matter which one you choose?*
->Not really. Some like the organization of having multiple files `r emo::ji("shrug")`
+>Not really. Some like the organization of having multiple files `r emoji::emoji("shrug")`
 
 ![poll](img/filepoll.png)
 
@@ -249,8 +249,8 @@ The corresponding ui looks like this:
 The ui code contains the following information: 
 
 1. The UI type 
-  - `fluidPage()` puts elements in rows that can include columns `r emo::ji("cake")`
-  - `navbarPage()` has a navigation bar `r emo::ji("file")`
+  - `fluidPage()` puts elements in rows that can include columns `r emoji::emoji("cake")`
+  - `navbarPage()` has a navigation bar `r emoji::emoji("file")`
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -427,8 +427,8 @@ class: center, middle
 
 ### contact
 
-`r emo::ji("email")`: margaret.siple@noaa.gov
-`r emo::ji("bird")`: @margaretsiple
+`r emoji::emoji("email")`: margaret.siple@noaa.gov
+`r emoji::emoji("bird")`: @margaretsiple
 
 #### **More Shiny resources:**
 
@@ -439,7 +439,7 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-#### Today's code treat `r emo::ji("food")`
+#### Today's code treat `r emoji::emoji("food")`
 
 Put emoji in your GitHub commits by using the `::` syntax, e.g., 
 `git commit -m this code is still growing :seedling:`
