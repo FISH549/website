@@ -4,27 +4,53 @@
     <title>Shiny Part 1: Build!</title>
     <meta charset="utf-8" />
     <meta name="author" content="Megsie Siple" />
-    <script src="libs/header-attrs-2.6/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Shiny Part 1: Build!
+]
+.subtitle[
 ## <br/>FISH 497
+]
+.author[
 ### Megsie Siple
+]
+.institute[
 ### NOAA AFSC - RACE/GAP
-### 2021/03/01 (updated: 2021-02-28)
+]
+.date[
+### 2023-02-27 (updated: 2023-02-25)
+]
 
 ---
+
+
 
 
 class: center, middle
 
 # Hello! 
 
+---
+
+# Introductions
+
+I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
+
+![squirrelmolly](img/squirrelmolly.jpg)
+
+---
+
+# Introductions 
+
+[Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
+
+![qrcodeforpoll](img/qr.png)
 
 ---
 
@@ -33,17 +59,17 @@ class: center, middle
 
 ---
 
-# Marine science is like an orchestra
+# Fisheries science can be like an orchestra
 
 Each musician has areas where they’re very specialized, and areas where they are clueless
 
 --
 
-What we do is a combination of highly technical skilled work and more whimsical multitasking/communicating
+What we do is a combination of highly technical skilled work and more whimsical multitasking/creativity
 
 --
 
-But we’re all working together to try to make a big, beautiful thing happen
+But we’re all working together to try to make a big, beautiful thing happen 
 
 ---
 
@@ -58,7 +84,7 @@ class: center, middle
 &lt;sub&gt;&lt;sup&gt;Photo: Shaya Lyon&lt;/sup&gt;&lt;/sub&gt;
 
 ---
-# How we deal with complexity in an orchestra setting: 
+## How we channel complexity in an orchestra: 
 
 ### Clean it up
 
@@ -66,11 +92,11 @@ class: center, middle
 
 ### Streamline our communications
 
-### People are the special ingredient
+### Stay aware of the big picture
 
 --
 
-## &lt;mark&gt;This is the same in marine science! Shiny can help us with many of these tasks.&lt;/mark&gt;
+### &lt;mark&gt; Many of these concepts apply to the sciences! Shiny can help us do these things *and* create something beautiful that communicates data and concepts. &lt;/mark&gt;
 
 
 ---
@@ -93,7 +119,7 @@ Shiny can be a little gnarly at first.
 
   User uploads &amp; downloads
 
-  Making interactive plots using `{plotly}`
+  Making dashboards with `{flexdashboard}`
   
 --
 
@@ -147,11 +173,11 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 
 --
 
-- showing data visualizations to non-experts
+- streamlining certain code-intensive activities (like summarizing and communicating simulation outputs)
 
 --
 
-- streamlining certain code-intensive things (like database queries or visualizing bulky simulation outputs)
+- giving non-experts a way to "get to know" models and data
 
 ---
 
@@ -169,7 +195,7 @@ From The RStudio IDE, pick `New File -&gt; Shiny Web App`
 You can choose between single (**app.R**) or multiple files (**ui.R** and **server.R**)
 
 *Does it matter which one you choose?*
-&gt;Not really. Some people like the organization of having multiple files. But it really doesn't make a difference!
+&gt;Not really. Some like the organization of having multiple files 🤷
 
 ![poll](img/filepoll.png)
 
@@ -177,21 +203,28 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 
 # Each Shiny app has two components
 
+.pull-left[
 The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+]
 
-***
-
+.pull-right[
 The **`server()`** function contains rendering expressions that create the objects to display. 
 
-
 The server function and UI object are passed to the `shinyApp()` function to create a Shiny app object.
+]
+
+
+
+
+
 
 ---
 
 # **ui.R**/server.R
 
 .pull-left[
-The ui looks like this:
+The ui looks like this (the "interactive" part is highlighted):
+
 
 
 ```r
@@ -205,7 +238,7 @@ ui &lt;- fluidPage(
                         max = 50,
                         value = 30)),
         mainPanel(
-*           plotOutput("distPlot"))
+           plotOutput("distPlot"))
     )
 )
 ```
@@ -225,7 +258,7 @@ The ui code contains the following information:
 
 1. The UI type 
   - `fluidPage()` puts elements in rows that can include columns 🍰
-  - `navbarPage()` has a navigation bar 📁
+  - `navbarPage()` has a navigation bar 🗃
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -237,8 +270,9 @@ The ui code contains the following information:
 
 5. Input objects (`sliderInput()`,`fileInput()` etc.) - also called "widgets"
 
-*Input objects link the user interface to the R code on the server.*
+*Input objects link the UI to R code that runs on the server.*
 
+&lt;!-- devtools::install_github("hadley/emo") --&gt;
 ---
 
 # ui.R/**server.R**
@@ -316,17 +350,15 @@ R code... mostly :)
 
 --
 
-- **Reactive expressions**
+- **Reactive expressions** are "lazy" - they don't execute unless they are specifically called to do something. 
   - `reactive()` caches reactive objects so you can access them later in the server logic -- very important!
-  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Run Analysis!" button is clicked)
-  - lazy
+  - `eventReactive()` creates reactive objects but only when a specific input changes (e.g., a "Fit this model!" button is clicked)
 
 --
 
-- **Observe expressions** change the ui based on input, e.g.,
-  - autopopulate default values in a form if a user has selected a default
+- **Observe expressions** are "eager" - they automatically execute when their dependencies change. Expressions like `observe()` can:
+  - autopopulate default values in a form
   - change the range for one input based on another input
-  - eager
 
 ---
 
@@ -336,111 +368,7 @@ class: center, middle
 
 ---
 
-class: center, middle, inverse
-
-# Getting data into and out of Shiny
-
-
----
-
-
-# Get data into a Shiny app
-
-Shiny can accept data from various file types. 
-
-You can get data into Shiny from:
-- a file the user uploads
-- a database
-- a persistent file packaged with your app
-
----
-
-# User uploads data
-If you want to design your app so that people can bring in their own data:
-
-Add a file upload input in the UI using the function `fileInput()`. In the `server` function, access the uploaded files via `input$mydata`:
-
-```r
-ui &lt;- fluidPage(
-  titlePanel("Uploading Files"),
-  sidebarLayout(
-    sidebarPanel(
-      # refer to input$mydata in the server code to reference this object:
-      fileInput("mydata", "Choose CSV File",
-                multiple = FALSE,
-                accept = c("text/csv",
-                         "text/comma-separated-values,text/plain",
-                         ".csv")),
-```
-
----
-
-# Put the data on the server
-
-You can publish small data files that sit on the server with your app. You can load these data at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
-
----
-
-# More on data storage in Shiny
-
-Dean Attali's [Persistent Data Storage With Shiny](https://daattali.com/shiny/persistent-data-storage/) app 
-
-[This](https://shiny.rstudio.com/articles/persistent-data-storage.html) blog post about data storage in Shiny (also by Dean Attali)
-
-RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/dashboards/) shows how to connect a `shinydashboard` to a database
-
----
-
-# Downloading from Shiny
-
-You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
-
-
-```r
-ui &lt;- fluidPage(
-  downloadLink("downloadData", "Download")
-)
-
-server &lt;- function(input, output) {
-  # Our dataset
-  data &lt;- mtcars
-
-  output$downloadData &lt;- downloadHandler(
-    filename = function() {
-      paste("data-", Sys.Date(), ".csv", sep="")
-    },
-    content = function(file) {
-      write.csv(data, file)
-    }
-  )
-}
-```
-
----
-
-# Downloading from Shiny
-
-- Download **CSV or txt files** from Shiny apps
-
---
-
-- Generate reports in Markdown that are knitted to **html** (details on how to do that [here](https://shiny.rstudio.com/articles/generating-reports.html))
-
---
-
-- You can also download **images** that have been generated in the app (e.g., download plots from the app)
-
-
----
-
-class: center, middle
-
-# 02_dataindataout/explore_ram/ui.R
-
-
----
-
-# Sidebar: Shiny dashboards
+# Shiny dashboards
 
 Show a dataset several ways in one place (and automatically update it!)
 Use it for:
@@ -449,9 +377,15 @@ Use it for:
 
 - offering access to visualizations from a database
 
-- showing a "data story" in a linear way
+- showing a "data story" in a tailored way
 
 ![confdash](img/confdash.png)
+
+---
+
+class: center, middle
+
+# 06_flexdashboard/app.R
 
 ---
 
@@ -463,21 +397,17 @@ class: center, middle
 
 ---
 
-# UI is very important
+# UI is worth your time
 
-Designing a good ui is hard! And Shiny defaults are not the most intuitive / appealing / accessible version they can be.
+Shiny defaults are not the most intuitive / appealing / accessible version they can be.
 
 --
 
-If you are designing an app for management, a good ui is essential.
+If you are designing an app for management, a good UI is essential.
 
 --
 
 - my #1 tip: if you have time, pilot test with subject matter experts AND users
-  
---
-
-- check accessibility using the app's URL using the [Web Accessibility Evaluation (WAVE) Tool](https://wave.webaim.org/)
 
 --
 
@@ -489,7 +419,16 @@ If you are designing an app for management, a good ui is essential.
   - [18F Methods](https://methods.18f.gov/validate/) and [Maze](https://maze.design/guides/usability-testing/questions/) have great lists of testing questions and methods
   - 18F Methods also has an [example agreement](https://methods.18f.gov/participant-agreement/) for testers
   - Depending on the final format, places like  [UsabilityHub](https://usabilityhub.com/) have interfaces that will provide data on clicks and scrolling behavior when testing is remote
-  
+  - Check accessibility using the app's URL using the [Web Accessibility Evaluation (WAVE) Tool](https://wave.webaim.org/)
+
+.content-box-blue[UX = user experience.]
+
+---
+
+# Quick poll
+
+What material would you like to cover on Wednesday? 
+Poll [here](https://www.menti.com/alhsjbv7aqsq)
 
 ---
 
@@ -499,10 +438,10 @@ class: center, middle
 
 ### contact
 
-✉️: mcsiple@gmail.com
+✉️: margaret.siple@noaa.gov
 🐦: @margaretsiple
 
-### **More Shiny resources:**
+#### **More Shiny resources:**
 
 [Mastering Shiny](https://mastering-shiny.org/) by Hadley Thee Wickham 
 
@@ -511,13 +450,12 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-### Some of my Shiny apps
+#### Today's code treat 🥓
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mammaltool/)
+Put emoji in your GitHub commits by using the `::` syntax, e.g., 
+`git commit -m this code is still growing :seedling:`
+Emoji options at [gitmoji.dev](https://gitmoji.dev/)
 
-[Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
-
-[Adopt Don't Shop](https://nsilbiger.shinyapps.io/AdoptDontShop/) (collaboration with Nyssa Silbiger)
 
 ***
 
@@ -569,6 +507,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
