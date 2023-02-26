@@ -24,7 +24,7 @@ class: center, middle, inverse, title-slide
 ### NOAA AFSC - RACE/GAP
 ]
 .date[
-### 2023-02-27 (updated: 2023-02-16)
+### 2023-02-27 (updated: 2023-02-25)
 ]
 
 ---
@@ -36,6 +36,21 @@ class: center, middle
 
 # Hello! 
 
+---
+
+# Introductions
+
+I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
+
+![squirrelmolly](img/squirrelmolly.jpg)
+
+---
+
+# Introductions 
+
+[Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
+
+![qrcodeforpoll](img/qr.png)
 
 ---
 
@@ -353,110 +368,7 @@ class: center, middle
 
 ---
 
-class: center, middle, inverse
-
-# Getting data into and out of Shiny
-
-
----
-
-
-# Get data into a Shiny app
-
-Shiny can accept data from many file types. 
-
-- a file the user uploads
-- a database
-- a persistent file packaged with your app
-
----
-
-# User uploads data
-If you want to design your app so that people can bring in their own data:
-
-Add a file upload input in the UI using the function `fileInput()`. In the `server` function, access the uploaded files via `input$mydata`:
-
-```r
-ui &lt;- fluidPage(
-  titlePanel("Uploading Files"),
-  sidebarLayout(
-    sidebarPanel(
-      # refer to input$mydata in the server code to reference this object:
-      fileInput("mydata", "Choose CSV File",
-                multiple = FALSE,
-                accept = c("text/csv",
-                         "text/comma-separated-values,text/plain",
-                         ".csv")),
-```
-
----
-
-# Put the data on the server
-
-You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
-
----
-
-# More on data storage in Shiny
-
-Dean Attali's [Persistent Data Storage With Shiny](https://daattali.com/shiny/persistent-data-storage/) app 
-
-[This](https://shiny.rstudio.com/articles/persistent-data-storage.html) blog post about data storage in Shiny (also by Dean Attali)
-
-RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/dashboards/) shows how to connect a `shinydashboard` to a database
-
----
-
-# Getting data out of Shiny
-
-You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
-
-
-```r
-ui &lt;- fluidPage(
-  downloadLink("downloadData", "Download")
-)
-
-server &lt;- function(input, output) {
-  # Our dataset
-  data &lt;- mtcars
-
-  output$downloadData &lt;- downloadHandler(
-    filename = function() {
-      paste("data-", Sys.Date(), ".csv", sep="")
-    },
-    content = function(file) {
-      write.csv(data, file)
-    }
-  )
-}
-```
-
----
-
-# Getting data out of Shiny
-
-- Download **CSV or txt files** from Shiny apps
-
---
-
-- Generate reports in Markdown that are knitted to **html** (details on how to do that [here](https://shiny.rstudio.com/articles/generating-reports.html))
-
---
-
-- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
-
-
----
-
-class: center, middle
-
-# 02_dataindataout/explore_ram/ui.R
-
-
----
-
-# Sidebar: Shiny dashboards
+# Shiny dashboards
 
 Show a dataset several ways in one place (and automatically update it!)
 Use it for:
@@ -468,6 +380,12 @@ Use it for:
 - showing a "data story" in a tailored way
 
 ![confdash](img/confdash.png)
+
+---
+
+class: center, middle
+
+# 06_flexdashboard/app.R
 
 ---
 
@@ -507,6 +425,13 @@ If you are designing an app for management, a good UI is essential.
 
 ---
 
+# Quick poll
+
+What material would you like to cover on Wednesday? 
+Poll [here](https://www.menti.com/alhsjbv7aqsq)
+
+---
+
 class: center, middle
 
 # Fin!
@@ -525,7 +450,7 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-#### Today's code treat 🥐
+#### Today's code treat 🥓
 
 Put emoji in your GitHub commits by using the `::` syntax, e.g., 
 `git commit -m this code is still growing :seedling:`
