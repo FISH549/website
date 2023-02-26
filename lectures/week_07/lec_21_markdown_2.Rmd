@@ -1,7 +1,7 @@
 ---
 title: "Using R Markdown for reporting"
 subtitle: "Part 2"
-date: "13 February 2023"
+date: "<br>13 February 2023"
 output:
   html_document:
     theme: spacelab
@@ -28,7 +28,7 @@ We saw [last time](lec_20_markdown_1.html) how to work with some of the basic fo
 
 # Basic info
 
-The basic information in the `YAML` of a blank `.Rmd` document set for `.pdf` output includes the following
+The basic information in the `YAML` of a blank `.Rmd` document set for `.pdf` output includes the following.
 
 ```{r yaml, eval = FALSE}
 title: "A catchy title"
@@ -334,9 +334,7 @@ Here are some possible controls:
 **Tip:** You can override the default placement by prefacing the control with an exclamation point (eg, `[!t]`).
 </div>
 
-If you want to place the float at *exactly the location* in the **LaTeX** code, you will need to include a call to the `float` package in the `YAML` and then set the `fig.pos = "!H"` chunk option in the code block.
-
-For example, set up the YAML with something like
+If you want to place the float at *exactly the location* in the **LaTeX** code, you will need to include a call to the `float` package in the `YAML`
 
 ```{r float, eval = FALSE}
 title: "Example template for exploring formatting options"
@@ -353,146 +351,186 @@ header-includes:
   - \usepackage{float}
 ```
 
-and then later in the document use something like
+<!-- and then later in the document use `fig.pos = "!H"` in the chunk options of a code block. For example, -->
 
-````{sh, eval = FALSE}
-```{r some_plot, fig.pos = "!H"}
-plot(1:10, pch = 16)
-```
-````
+<!-- ````{r, eval = FALSE} -->
+<!-- ```{r some_plot, fig.pos = "!H"} -->
+<!-- plot(1:10, pch = 16) -->
+<!-- ``` -->
+<!-- ```` -->
 
+<!-- # Sub-figures -->
 
-# Sub-figures
+<!-- Sometimes you may want to include multiple images in a single figure environment. Sub-figures allow us to achieve this by arranging multiple images within a single environment and providing each with its own sub-caption.  -->
 
-Sometimes you may want to include multiple images in a single figure environment. Sub-figures allow us to achieve this by arranging multiple images within a single environment and providing each with its own sub-caption. 
+<!-- <div class="boxy boxy-red boxy-exclamation"> -->
+<!-- **Note:** Sub-figures require the **LaTeX** package `subfig`, which you can call in the YAML. -->
+<!-- </div> -->
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** Sub-figures require the **LaTeX** package `subfig`, which you can call in the YAML.
-</div>
+<!-- ```{r subfigs, eval = FALSE} -->
+<!-- title: "Example template for exploring formatting options" -->
+<!-- author: "First Last" -->
+<!-- date: "2/13/2023" -->
+<!-- output: pdf_document -->
+<!-- documentclass: article -->
+<!-- geometry: margin=1in -->
+<!-- linestretch: 2 -->
+<!-- fontsize: 12pt -->
+<!-- toc: TRUE -->
+<!-- toc-depth: 2 -->
+<!-- header-includes: -->
+<!--   - \usepackage{subfig} -->
+<!-- ``` -->
 
-```{r subfigs, eval = FALSE}
-title: "Example template for exploring formatting options"
-author: "First Last"
-date: "2/13/2023"
-output: pdf_document
-documentclass: article
-geometry: margin=1in
-linestretch: 2
-fontsize: 12pt
-toc: TRUE
-toc-depth: 2
-header-includes:
-  - \usepackage{subfig}
-```
+<!-- To arrange all plots from a code chunk into sub-figures, you have to set the following chunk options -->
 
-To arrange all plots from a code chunk into sub-figures, you have to set the following chunk options
+<!-- * `fig.cap`: the caption for the whole figure environment -->
 
-* `fig.cap`: the caption for the whole figure environment
+<!-- * `fig.subcap`: a `character` vector of the captions for each of the sub-figures -->
 
-* `fig.subcap`: a `character` vector of the captions for each of the sub-figures
+<!-- In addition, you will probably want to set the following options -->
 
-In addition, you will probably want to set the following options
+<!-- * `fig.ncol`: number of columns of sub-figures (by default, all plots are arranged in a single row) -->
 
-* `fig.ncol`: number of columns of sub-figures (by default, all plots are arranged in a single row)
+<!-- * `out.width`: output width of individual plots, which normally equals 100% divided by the number of columns -->
 
-* `out.width`: output width of individual plots, which normally equals 100% divided by the number of columns
+<!-- For example, this code chunk will produce 3 subplots: -->
 
-For example, this code chunk will produce 3 subplots:
+<!-- ````{sh, eval = FALSE} -->
+<!-- ```{r subplot, fig.cap = 'A figure with 3 subplots.', fig.subcap = c('The numbers 1 through 10.', 'Speed versus distance.', 'Time series of white noise.'), fig.ncol = 2, out.width = "50%", fig.align = "center", echo = FALSE} -->
+<!-- plot(1:10, pch = 16) -->
+<!-- plot(cars) -->
+<!-- plot.ts(rnorm(30)) -->
+<!-- ``` -->
+<!-- ```` -->
 
-````{sh, eval = FALSE}
-```{r subplot, fig.cap = 'A figure with 3 subplots.', fig.subcap = c('The numbers 1 through 10.', 'Speed versus distance.', 'Time series of white noise.'), fig.ncol = 2, out.width = "50%", fig.align = "center", echo = FALSE}
-plot(1:10, pch = 16)
-plot(cars)
-plot.ts(rnorm(30))
-```
-````
+<!-- *** -->
+
+<!-- # Headers & footers -->
+
+<!-- You can use the **LaTeX** package `fancyhdr` to customize the header and footer of your document. As with other packages, we have to first make a call to it in the YAML, and then set the additional argument `\pagestyle{fancy}` in the *body* of the document (not in the YAML). -->
+
+<!-- For example, you could set the YAML like this -->
+
+<!-- ```{r headfoot, eval = FALSE} -->
+<!-- title: "Example template for exploring formatting options" -->
+<!-- author: "First Last" -->
+<!-- date: "2/13/2023" -->
+<!-- output: pdf_document -->
+<!-- documentclass: article -->
+<!-- geometry: margin=1in -->
+<!-- linestretch: 2 -->
+<!-- fontsize: 12pt -->
+<!-- toc: TRUE -->
+<!-- toc-depth: 2 -->
+<!-- header-includes: -->
+<!-- - \usepackage{fancyhdr} -->
+<!-- ``` -->
+
+<!-- and then make this call near the top of the document *after* the YAML: -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- \pagestyle{fancy} -->
+<!-- ``` -->
+
+<!-- ## Header & footer syntax -->
+
+<!-- The syntax for formatting the header or footer is -->
+
+<!-- * `\fancyhead[selectors]{output text}` or -->
+
+<!-- * `\fancyfoot[selectors]{output text}` -->
+
+<!-- where `selectors` specify the part of the header that we wish to customize and `output text` is the text you'd like to include. We can use the following selectors for the page locators: -->
+
+<!-- * `E` for even pages   -->
+<!-- * `O` for odd pages   -->
+<!-- * `L` for the left side   -->
+<!-- * `C` for the center   -->
+<!-- * `R` for the right side   -->
+
+<!-- For example, `\fancyhead[LE,RO]{First Last}` will print the text “First Last” on the left side of the header for even pages, and the right side for odd pages. -->
+
+<!-- ## Additional information -->
+
+<!-- We can include additional LaTeX commands to extract details from our document for each page. These include -->
+
+<!-- * `\thepage`: the number of the current page     -->
+<!-- * `\thechapter`: the number of the current chapter   -->
+<!-- * `\thesection`: the number of the current section   -->
+<!-- * `\chaptername`: the word “Chapter” in English, or its equivalent in the current language, or the text that the author specified by redefining this command   -->
+<!-- * `\leftmark`: the name and number of the current top-level structure in uppercase letters   -->
+<!-- * `\rightmark`: the name and number of the current next to top-level structure in uppercase letters   -->
+
+<!-- For example, the following code will place the text  -->
+
+<!-- * "The document header" at the top center of all pages, -->
+<!-- * "A fancy footer" at the bottom center of all pages, and -->
+<!-- * the page number on the left of even pages and right of odd pages -->
+
+<!-- ```{r, eval = FALSE} -->
+<!-- \pagestyle{fancy} -->
+<!-- \fancyhead[CO,CE]{The document header} -->
+<!-- \fancyfoot[CO,CE]{A fancy footer} -->
+<!-- \fancyfoot[LE,RO]{\thepage} -->
+<!-- ``` -->
+
+<!-- <div class="boxy boxy-orange boxy-lightbulb"> -->
+<!-- **Tip:** By default, headers and footers are not displayed on the first page of a `.pdf` document. If you want to include them, use this line `\fancypagestyle{plain}{\pagestyle{fancy}}`. -->
+<!-- </div> -->
 
 ***
 
-# Headers & footers
+# Literature cited
 
-You can use the **LaTeX** package `fancyhdr` to customize the header and footer of your document. As with other packages, we have to first make a call to it in the YAML, and then set the additional argument `\pagestyle{fancy}` in the *body* of the document (not in the YAML).
+You can create in-text citations and associated literature cited sections (bibliographies) in **R Markdown** with a few easy steps.
 
-For example, you could set the YAML like this
+## YAML setup
 
-```{r headfoot, eval = FALSE}
-title: "Example template for exploring formatting options"
-author: "First Last"
-date: "2/13/2023"
-output: pdf_document
-documentclass: article
-geometry: margin=1in
-linestretch: 2
-fontsize: 12pt
-toc: TRUE
-toc-depth: 2
-header-includes:
-- \usepackage{fancyhdr}
-```
+The first step in getting properly formatted citations and references in **R Markdown** documents is to add two fields to the document's YAML:
 
-and then make this call near the top of the document *after* the YAML:
+1) `bibliography:` the name of of the `.bib` file containing the citation/reference information (see below);
+
+2) `csl:` the name of the `.csl` style file that specifies how the references will be formatted in the printed docuement.
+
+So, for example, the information for this document is
 
 ```{r, eval = FALSE}
-\pagestyle{fancy}
+bibliography: "references.bib"
+csl: "ecology.csl"
 ```
 
-## Header & footer syntax
+Each entry in the `.bib` file looks something like this:
 
-The syntax for formatting the header or footer is
-
-* `\fancyhead[selectors]{output text}` or
-
-* `\fancyfoot[selectors]{output text}`
-
-where `selectors` specify the part of the header that we wish to customize and `output text` is the text you'd like to include. We can use the following selectors for the page locators:
-
-* `E` for even pages  
-* `O` for odd pages  
-* `L` for the left side  
-* `C` for the center  
-* `R` for the right side  
-
-For example, `\fancyhead[LE,RO]{First Last}` will print the text “First Last” on the left side of the header for even pages, and the right side for odd pages.
-
-## Additional information
-
-We can include additional LaTeX commands to extract details from our document for each page. These include
-
-* `\thepage`: the number of the current page    
-* `\thechapter`: the number of the current chapter  
-* `\thesection`: the number of the current section  
-* `\chaptername`: the word “Chapter” in English, or its equivalent in the current language, or the text that the author specified by redefining this command  
-* `\leftmark`: the name and number of the current top-level structure in uppercase letters  
-* `\rightmark`: the name and number of the current next to top-level structure in uppercase letters  
-
-For example, the following code will place the text 
-
-* "The document header" at the top center of all pages,
-* "A fancy footer" at the bottom center of all pages, and
-* the page number on the left of even pages and right of odd pages
-
-```{r, eval = FALSE}
-\pagestyle{fancy}
-\fancyhead[CO,CE]{The document header}
-\fancyfoot[CO,CE]{A fancy footer}
-\fancyfoot[LE,RO]{\thepage}
 ```
+@Book{Xie_2018,
+  title = {R Markdown: The Definitive Guide},
+  author = {Yihui Xie and J.J. Allaire and Garrett Grolemund},
+  publisher = {Chapman and Hall/CRC},
+  address = {Boca Raton, Florida},
+  year = {2018},
+  note = {ISBN 9781138359338},
+  url = {https://bookdown.org/yihui/rmarkdown},
+}
+```
+
+`@Book` specifies the reference is a book. `Xie_2018` is the "citekey", which is simply a short-hand name for the record (and can be alpha-numeric sequence); it's used when making/creating in-text citations (see below). The rest of the fields contain metadata about the reference itself.
+
+This document is set to use the style guidelines for the journal _Ecology_, as specified in `ecology.csl`.
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** By default, headers and footers are not displayed on the first page of a `.pdf` document. If you want to include them, use this line `\fancypagestyle{plain}{\pagestyle{fancy}}`.
+**Tip:** You can download just about any journal's style file [here](https://www.zotero.org/styles).
 </div>
 
-***
+At this point there are two options for setting up your **BibTeX** file and creating in-text citations.
 
-# References
+## Option 1: Standard Markdown
 
-**R Markdown** is set up to use **BibTeX**-style references and format the citations accordingly. To do so, you'll need to have your references in a **BibTeX** library with a `.bib` extension. 
+### Creating a `.bib` file
 
-## Creating a `.bib` file
+One option for creating a `.bib` file is to copy/paste records from other sources (e.g., the result of call to `citation()`). Online databases such as Web of Science also allow you to export references based upon saved searches, and there are several methods for exporting references from reference management software, such as **Zotero**, **Mendeley**, or **EndNote**.
 
-One option is to manually create reference entries, but there are several methods for exporting references from reference management software, such as **EndNote** or **Zotero**.
-
-### Export from Zotero
+#### Export from Zotero
 
 To export your citations from **Zotero**, do the following
 
@@ -501,7 +539,27 @@ To export your citations from **Zotero**, do the following
 * On the next screen, choose `BibTeX` from the dropdown menu & click `OK`  
 * Navigate to the directory where you want to save your file & save it with a `.bib` suffix  
 
-### Export from EndNote
+#### Export from Mendeley
+
+To export a reference library from **Mendeley**, do the following
+
+* Go to the Mendeley `Preferences` menu  
+
+* Click on the BibTeX tab  
+
+* Check the box next to `Enable BibTeX syncing`  
+
+* Click the radio button next to `Create one BibTeX file per group`
+
+* Change the `Path` to your desired location for the library files
+
+* Click **OK** when you are finished
+
+![](images/mendeley.png)
+
+<br>
+
+#### Export from EndNote
 
 To export a reference library from **EndNote**, do the following
 
@@ -527,48 +585,9 @@ To export a reference library from **EndNote**, do the following
 
 ![](images/endnote_4.png)
 
-### Export from Mendeley
+### In-text citations
 
-To export a reference library from **Mendeley**, do the following
-
-* Go to the Mendeley `Preferences` menu  
-
-* Click on the BibTeX tab  
-
-* Check the box next to `Enable BibTeX syncing`  
-
-* Click the radio button next to `Create one BibTeX file per group`
-
-* Change the `Path` to your desired location for the library files
-
-* Click **OK** when you are finished
-
-![](images/mendeley.png)
-
-## Citations
-
-### YAML
-
-The first step in getting properly formatted citations and references in **R Markdown** documents is to specify two pieces of information in the documents YAML:
-
-1) the name of of the `.bib` file containing the references
-
-2) the name of the style file that specifies how the references will be formatted in the printed docuement.
-
-So, for example, the information for this document is
-
-```{r, eval = FALSE}
-bibliography: "references.bib"
-csl: "ecology.csl"
-```
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can download just about any journal's style file [here](https://www.zotero.org/styles).
-</div>
-
-## In-text
-
-There are two options for citations in **R Markdown** documents, both based upon the standard `Author Year` format. **BibTeX** entries have a "citekey" that begins with `@` by which they can be referenced. So, for example, if we had this reference in our `.bib` library
+There are two options for citations in **R Markdown** documents, both based upon the standard `Author Year` format. For example, if we had this reference in our `.bib` library:
 
 ```
 @Article{Smith_2021,
@@ -583,14 +602,23 @@ There are two options for citations in **R Markdown** documents, both based upon
 }
 ```
 
-we could use `[@Smith_2021]` to format the in-text reference as "(Smith and Johnson 2021)", or we could use `@Smith_2021` to format the in-text reference as "Smith and Johnson (2021)".
-
+we could use `[@Smith_2021]` to format the in-text reference as "(Smith and Johnson 2021)", or we could use `@Smith_2021` without the brackets to format the in-text reference as "Smith and Johnson (2021)".
 
 ***
 
-# `{knitcitations}` package
+## Option 2: `{knitcitations}`
 
-[Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called **{knitcitations}** for creating and citing **BibTeX**-style references via several mechanisms. To begin, you load the package and then use the `cleanbib()` function to remove any old `.bib` files.
+[Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called `{knitcitations}` for creating and citing **BibTeX**-style references via several mechanisms.
+
+<div class="boxy boxy-red boxy-exclamation">
+ **Note:** For this method to work properly, the `.bib` file you specify in the YAML **must not exist** in the working directory.
+</div>
+
+### Initial setup
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Place the following code block somewhere near the top of your document. For example, you could even include it within the default `{r setup}` block beneath the YAML.
+</div>
 
 ```{r load_knitcitations}
 ## load the package
@@ -603,7 +631,15 @@ cleanbib()
 options("citation_format" = "pandoc")
 ```
 
-## Cite by DOI
+### Creating a `.bib` file
+
+Rather than creating a `.bib` file ahead of time, `{knitcitations}` actually creates it dynamically based upon the in-text citation calls when the `.Rmd` document is knit. 
+
+### In-text citations
+
+With `{knitcitations}`, you use **R** commands to both create an entry in the `.bib` file as well as create the in-text citation.
+
+#### Cite by DOI
 
 You can cite an article by its DOI, using either `citep()` or `citet()`, and the full citation information will be gathered automatically. For example, the inline command
 
@@ -613,7 +649,7 @@ You can cite an article by its DOI, using either `citep()` or `citet()`, and the
 
 will do two things:
 
-1) create an `(Author[s] Year)` inline citation that looks like **`r citep("10.1890/11-0011.1")`**
+1) create an `(Author[s] Year)` inline citation that looks like "`r citep("10.1890/11-0011.1")`";
 
 2) create the following **BibTeX** reference that can be cited elsewhere using `[@Abrams_2012]` or `@Abrams_2012`:
 
@@ -641,7 +677,7 @@ On the other hand, the inline command
 
 will do two things:
 
-1) create an `Author[s] (Year)` inline citation that looks like **`r citet("10.1098/rspb.2013.1372")`**
+1) create an `Author[s] (Year)` inline citation that looks like "`r citet("10.1098/rspb.2013.1372")`";
 
 2) create the following **BibTeX** reference that can be cited elsewhere using `[@Boettiger_2013]` or `@Boettiger_2013`:
 
@@ -661,7 +697,9 @@ will do two things:
 }
 ```
 
-## Cite **BibTeX** objects directly
+<br>
+
+#### Cite **BibTeX** objects directly
 
 We can also cite **BibTeX** objects directly, such as those that **R** provides for citing packages using the `citation()` function. So, for example, here are the citations for the `{knitr}` package
 
@@ -709,17 +747,17 @@ to generate the 3 **BibTeX** objects as
 }
 ```
 
-and also create the citation
+and also create the formatted in-text citation
 
-**`r citep(citation("knitr"))`**
+"`r citep(citation("knitr"))`".
 
 We can now cite the package with normal **BibTeX** entries and pandoc will correctly avoid duplicating the author's name. For example,
 
-`[@Xie_2014; @Xie_2015; @Xie_2020]`
+`[@Xie_2014; @Xie_2015]`
 
-will produce
+will produce the formatted in-text citation
 
-**[@Xie_2014; @Xie_2015; @Xie_2020]**
+"[@Xie_2014; @Xie_2015]".
 
 Similarly, we can cite references that are already included in our `.bib` file using the standard notation, such that
 
@@ -727,10 +765,11 @@ Similarly, we can cite references that are already included in our `.bib` file u
 
 will render as
 
-**[@Boettiger_2013]** or **@Boettiger_2013**
+"[@Boettiger_2013]" or "@Boettiger_2013".
 
+<br>
 
-## Re-using **BibTeX** keys
+#### Re-using **BibTeX** keys
 
 When `citep()` or `citet()` are called, they automatically generate a **BibTeX** key in the format `AuthorLastName_Year`. We can then use this key to cite a reference without remembering its DOI. For example,
 
@@ -740,12 +779,18 @@ When `citep()` or `citet()` are called, they automatically generate a **BibTeX**
 
 will simply create the citation
 
-**[@Abrams_2012]**
+"[@Abrams_2012]".
 
 
-## Creating the references cited section
+### Creating the **References** section
 
-Creating the **References** section is straightforward with `{knitcitations}`. All you have to do is call the function `write.bibtex()` and give it the name of the `.bib` file to which you would like the references written. The function will then create the reference cited section with the formatting specified in the `.cls` file supplied in the document's YAML.
+Creating the **References** section is straightforward with `{knitcitations}`. 
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** At the end of your document, insert a code block with a call to `write.bibtex(file = "filename.bib")`, where `filename.bib` is the name of the `.bib` file to which you would like the references written.
+</div>
+
+The function will then create the reference cited section using the formatting specified in the `.csl` file supplied in the document's YAML.
 
 For example, we can generate the references cited section from the citations in this tutorial with the following:
 
@@ -753,6 +798,8 @@ For example, we can generate the references cited section from the citations in 
 ## create ref cited section
 write.bibtex(file = "references.bib")
 ```
+
+***
 
 # References
 

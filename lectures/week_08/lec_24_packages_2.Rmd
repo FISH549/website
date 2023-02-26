@@ -1,12 +1,12 @@
 ---
 title: "Creating R packages"
 subtitle: "Part 2"
-author: "Mark Scheuerell"
-date: "26 February 2021"
+date: "<br>24 February 2023"
 output:
   html_document:
-    theme: readable
+    theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -26,46 +26,63 @@ We saw [last time](lec_23_packages_1.html) how to create a basic package from a 
 
 # Testing
 
-We spent just a bit of time testing out our `cats()` function, but we can formalize this process with so-called *unit tests*. This simply means we'll set up some expectations about the values our function should take given certain arguments. As [Wickham & Bryan](https://r-pkgs.org/tests.html) point out, there are four advantages to working with unit tests:
+We spent just a bit of time testing out our `cats()` function, but we can formalize this process with so-called *unit tests*. This basically means we'll establish some expectations about what our function should return when passed certain arguments. As [Wickham & Bryan](https://r-pkgs.org/tests.html) point out, there are four advantages to working with unit tests:
 
-1) Fewer bugs and errors
+1) Fewer bugs and errors;
 
-2) More rigorous code structure
+2) More rigorous code structure;
 
-3) Easier start/stop points
+3) Easier start/stop points;
 
-4) Code that's robust to changes
+4) Code that's robust to changes.
 
-Fortunately, `{devtools}` helps us with this process via some built-in functions. To begin, we'll use `use_testthat()` to set up our framework for testing. This function:
+Fortunately, the `{devtools}` package helps us with this process via some built-in functions. To begin, we'll use `use_testthat()` to set up our framework for testing, which will
 
-* adds `Suggests: testthat` to `DESCRIPTION`
+* add `Suggests: testthat` to `DESCRIPTION`;
 
-* creates the directory `tests/testthat/`
+* create the directory `tests/testthat/`; and
 
-* adds the script `tests/testthat.R`
+* add the script `tests/testthat.R`.
 
-```{r testthat}
-## load devtools
-library(devtools)
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Load the `{devtools}` package.
+</div>
 
-## set testing framework
-use_testthat()
-✓ Adding 'testthat' to Suggests field in DESCRIPTION
-✓ Setting Config/testthat/edition field in DESCRIPTION to '3'
-✓ Creating 'tests/testthat/'
-✓ Writing 'tests/testthat.R'
-● Call `use_test()` to initialize a basic test file and open it for editing.
+```{r load_devtools}
+> library(devtools)
+Loading required package: usethis
 ```
 
-Now that we have our testing framework, we need to write some actual test scripts. We'll use the `use_test()` function to create an empty script for testing our `cats()` function. 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Set the testing framework with `use_testthat()`.
+</div>
+
+```{r use_testthat}
+## set testing framework
+> use_testthat()
+✔ Setting active project to '/Users/mark/Documents/GitHub/FISH549/pets'
+✔ Adding 'testthat' to Suggests field in DESCRIPTION
+✔ Setting Config/testthat/edition field in DESCRIPTION to '3'
+✔ Creating 'tests/testthat/'
+✔ Writing 'tests/testthat.R'
+• Call `use_test()` to initialize a basic test file and open it for editing
+```
+
+## Write a unit test
+
+Now that we have our testing framework, we need to write some actual test scripts. Here again, we see a suggestion like [last time](https://fish549.github.io/website/lectures/week_08/lec_23_packages_1.html#Write_a_function) to use `use_test()` to initialize a basic test file.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the `use_test()` function to create an empty script for testing our `cats()` function.
+</div>
 
 ```{r use_test}
-use_test("cats")
+> use_test("cats")
 ✓ Writing 'tests/testthat/test-cats.R'
 ● Modify 'tests/testthat/test-cats.R'
 ```
 
-You should now see a script called `test-cats.R` with the following example test in it.
+You should now see a script called `test-cats.R` with the following example unit test in it.
 
 ```{r test_that_default}
 test_that("multiplication works", {
@@ -73,9 +90,17 @@ test_that("multiplication works", {
 })
 ```
 
-This example shows the hierarchical nature of unit tests. So-called *expectations* are grouped into *tests*, which are then organized into *files*. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we associate with an `expect_` function. In the default example above, the expectation is `"multiplication works"`, and the test is whether or not `2 * 2 == 4`, which is written as `expect_equal(2 * 2, 4)`. You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+Unit tests are hierarchical in nature. So-called *expectations* are grouped into *tests*, which are then organized into *files*. Expectations are informal and intended solely for human eyes---they will never be read or checked by an **R** function. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we check with an `expect_` function. In the example test shown above, the expectation is that `"multiplication works"`. The specific test of the expectation is whether or not `2 * 2 == 4`, which is coded as `expect_equal(2 * 2, 4)`. 
 
-Let's go ahead and write some unit tests for `cats()`. Let's use these options:
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+</div>
+
+Let's go ahead and write some unit tests for `cats()`.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Delete the default unit test in `test-cats.R` and replace it with the following code.
+</div>
 
 ```{r unit_test_1}
 test_that("logical operators work", {
@@ -90,44 +115,73 @@ test_that("logical operators work", {
 })
 ```
 
-and save our file when we're done entering the tests. Now we're set to run these tests with the `test()` function.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Save your file when you're done entering the tests.
+</div>
+
+## Run unit tests
+
+Now we're set to run these tests with the `test()` function.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `test()` and note the output, which may differ somewhat from below.
+</div>
 
 ```{r run_test}
-test()
-Loading pets
-Testing pets
-✓ |  OK F W S | Context
-⠏ |   0       | cats                                  [1] "I love cats!"
-⠋ |   1       | cats                                  [1] "I love cats!"
+> test()
+ℹ Testing pets
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:devtools’:
+
+    test_file
+
+✔ | F W S  OK | Context
+⠏ |         0 | cats                                                      
+[1] "I love cats!"
+[1] "I love cats!"
 [1] "I am not a cat person."
 [1] "I am not a cat person."
-✓ |   4       | cats [0.1 s]
+✔ |         4 | cats
 
-══ Results ═══════════════════════════════════════════════════
-Duration: 0.1 s
-
+══ Results ════════════════════════════════════════════════════════════════════════
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]
 ```
 
-The testing report indicates how many total tests were run, and how many of them failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`). Here we see that all four of our tests passed, which is good news indeed.
+What does this all mean?
 
-Now is a good time to commit your changes and push them to **GitHub**.
+The report indicates how many total tests were run (4) and the output of each test. The `Results` section at the bottom shows how many of the tests failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`).
+
+<div class="boxy boxy-success boxy-check">
+**Success:** All four of our tests passed!
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Now is a good time to commit your changes and push them to **GitHub**.
+</div>
 
 ***
 
 # Packages on GitHub
 
-The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub** using either of these calls (replacing `YOUR_GITHUB_USERNAME` with your actual **GitHub** username):
+The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub**.
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can use either of the following function calls to install a package diectly from GitHub. To do so, replace `GITHUB_USERNAME` with the username of the repo's owner and `PACKAGE` with the package's name.
+</div>
 
 ```{r install_gh}
 ## original call using {devtools} still works
-devtools::install_github("YOUR_GITHUB_USERNAME/pets")
+devtools::install_github("GITHUB_USERNAME/PACKAGE")
 
 ## but {remotes} is the newer package with the function
-remotes::install_github("YOUR_GITHUB_USERNAME/pets")
+remotes::install_github("GITHUB_USERNAME/PACKAGE")
 ```
 
-Note that if you try either of these commands and get the following error
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you try either of these commands and get the following error, run `Sys.unsetenv("GITHUB_PAT")` and then try again. 
+</div>
 
 ```
 Using github PAT from envvar GITHUB_PAT
@@ -136,14 +190,16 @@ Error: Failed to install 'pets' from GitHub:
   Bad credentials
 ```
 
-go ahead a run `Sys.unsetenv("GITHUB_PAT")` and then try again.
+## Editing the `README.md`
 
-## Editing README
+Because your package now lives in a public space on GitHub where others can find and use it, you should include some helpful information in the `README.md` file to describe the package contents and how it works.
 
-Because our package now lives in a public space where others can find and use it, we should include some helpful information in the `README.md` file to describe the package contents and how it works. We can use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton for us add information about our package.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the `use_readme_rmd()` function to create a **Markdown** file with a skeleton to add information about your package.
+</div>
 
 ```{r use_readme}
-use_readme_rmd()
+> use_readme_rmd()
 ✓ Writing 'README.Rmd'
 ✓ Adding '^README\\.Rmd$' to '.Rbuildignore'
 ● Modify 'README.Rmd'
@@ -158,35 +214,59 @@ The output above indicates that the function
 
 * created a **Git** *pre-commit hook* to keep `README.Rmd` and `README.md` synced with one another
 
-Let's go ahead and inspect the content of `README.Rmd`. You will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. Note that comments in **Markdown** are denoted by `<!-- some comment here -->`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open up `README.Rmd` and inspect its contents. 
+</div>
 
-In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges). For example,
+At the top of `README.Rmd` you'll see a very simply YAML section with only one entry for the `output` format.
+
+```
+---
+output: github_document
+---
+```
+
+Below that you will see a number of sections with prompts asking for more information about the package, including a description of the package, how to install it, and example of its usage. 
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Comments in **Markdown** are denoted by `<!-- some comment here -->`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the first section `# pets`, go ahead and enter some descriptive text about the package contents (you can delete the comments about badges).
+</div>
 
 ```
 # pets
 
-The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the packge only contains one function: `cats()`.
+The goal of pets is to provide a simple means for people to express their feelings about pets. At present, the package only contains one function: `cats()`.
 ```
 
-In the next section on `## Installation`, delete the information about installing from **CRAN**, as our package doesn't exist there. You will note that the installation instructions for **GitHub** are already included.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the next section on `## Installation`, add some install instructions like those shown above.
+</div>
 
 ````
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/) with:
+You can install the development version of pets like so:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("mdscheuerell/pets")
+if(!require("devtools")) {
+  install.packages("devtools")
+}
+devtools::install_github("FISH549/pets")
 ```
 ````
 
-In the `## Example` section, fill in some information with example calls to `cats()`. For example,
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the `## Example` section, fill in some information with example calls to `cats()`.
+</div>
 
 ````
 ## Example
 
-Here are two simple examples that allow you to express your feelings about cats:
+Here are two simple examples that allow you to express your feelings about cats.
 
 `r ''````{r example}
 library(pets)
@@ -199,45 +279,60 @@ cats(FALSE)
 ```
 ````
 
-When you are finished editing `README.Rmd`, you can either knit it directly from within **RStudio** or uee the `build_readme()` function.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished editing `README.Rmd`, knit it with the **Knit** button in **RStudio** or use the `build_readme()` function at the command line.
+</div>
 
 ```{r build_ _readme}
-build_readme()
+> build_readme()
 Installing pets in temporary library
-Building /Users/scheuerl/Documents/GitHub/pets/README.Rmd
+Building /Users/mark/Documents/GitHub/pets/README.Rmd
 ```
 
-Now go ahead and commit **both** `README.Rmd` **and** `README.md`, and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Now commit **both** `README.Rmd` and `README.md` and then push them to **GitHub**. When you are finished, check out your `pets` repo on **GitHub** to see the new changes to your `README.md`.
+</div>
+
 
 ***
 
 # Vignettes
 
-Vignettes offer a longer description of a pacakge's utility. They aren't at all a necessary component of a package, but rather one of the "bells and whistles". Vignettes are written in **Markdown** and can be accessed via `vignette(name)` where `name` is the name of the vignette. You can see a list of all of the vignettes within a particular package with `browseVignettes("packagename")`.
+Vignettes offer a longer description of a package's utility. They aren't a necessary component of a package, but rather one of the "bells and whistles". Vignettes are written in **Markdown** and can be accessed via `vignette(name)` where `name` is the name of the vignette.
 
-To create a vignette, use the `use_vignette()` function by passing it the name of the vignette file to create.
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can see a list of all of the vignettes within a particular package with `browseVignettes("packagename")`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** To create a vignette, use the `use_vignette()` function by passing it the name of the vignette file to create. Here use `"example-usage"`.
+</div>
 
 ```{r vignette}
-use_vignette("example-usage")
-✓ Adding 'knitr' to Suggests field in DESCRIPTION
-✓ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
-✓ Adding 'inst/doc' to '.gitignore'
-✓ Creating 'vignettes/'
-✓ Adding '*.html', '*.R' to 'vignettes/.gitignore'
-✓ Adding 'rmarkdown' to Suggests field in DESCRIPTION
-✓ Writing 'vignettes/example-usage.Rmd'
-● Modify 'vignettes/example-usage.Rmd'
+> use_vignette("example-usage")
+✔ Adding 'knitr' to Suggests field in DESCRIPTION
+✔ Setting VignetteBuilder field in DESCRIPTION to 'knitr'
+✔ Adding 'inst/doc' to '.gitignore'
+✔ Creating 'vignettes/'
+✔ Adding '*.html', '*.R' to 'vignettes/.gitignore'
+✔ Adding 'rmarkdown' to Suggests field in DESCRIPTION
+✔ Writing 'vignettes/example-usage.Rmd'
+• Modify 'vignettes/example-usage.Rmd'
 ```
 
-Running `use_vignette()` will
+The call to `use_vignette()` did the following
 
-* create a `vignettes/` directory
+* added the necessary dependencies to `DESCRIPTION`
 
-* add the necessary dependencies to `DESCRIPTION`
+* added some folders and files to `.gitignore`
 
-* create the skeleton file `vignettes/example-usage.Rmd`
+* created a `vignettes/` directory
 
-Go ahead and inspect the contents of `example-usage.Rmd` and you'll some `YAML` and two code chunks. The `YAML` looks like this
+* created the skeleton file `vignettes/example-usage.Rmd`
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Inspect the contents of `example-usage.Rmd`. At the top you'll see the following YAML section.
+</div>
 
 ```
 ---
@@ -250,19 +345,44 @@ vignette: >
 ---
 ```
 
-Let's change the title to be a little more informative:
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Change the title to be a little more informative.
+</div>
 
 ```
 title: "Using the pets package"
 ```
 
-and then change `%\VignetteIndexEntry{example-usage}` to match our new title
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Change `%\VignetteIndexEntry{example-usage}` to match our new title.
+</div>
 
 ```
 %\VignetteIndexEntry{Using the pets package}
 ```
 
-Now let's add some more details to the body of the vignette. For example,
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Scroll down below the YAML and inspect the first code chunk where two options are being set. 
+</div>
+
+```{r, echo = TRUE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** Setting `collapse = TRUE` will if possible, collapse all the source code and output blocks from one code chunk into a single block (by default, they are written to separate blocks).
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** The `comment = "#>` determines the prefix for output from function calls. You can change this to be any character string or leave it empty.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add some more details to the body of the vignette.
+</div>
 
 ````
 # Background
@@ -285,103 +405,222 @@ cats(FALSE)
 ```
 ````
 
-When you are finished, go ahead and click on the **Knit** button in **RStudio** to preview the html version of the vignette.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, go ahead and click on the **Knit** button in **RStudio** to preview the html version of the vignette.
+</div>
 
-At this point, we've created our vignette, but we still need to build it into the package itself. To do so, we'll use the `build_vignettes()` function.
+At this point, we've created our vignette, but we still need to build it into the package itself.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use the `build_vignettes()` function to build the vignette.
+</div>
 
 ```{r build_vignette}
-build_vignettes()
-Building pets vignettes
+> build_vignettes()
+ℹ Installing pets in temporary library
+ℹ Building vignettes for pets
 --- re-building ‘example-usage.Rmd’ using rmarkdown
+
+
+processing file: example-usage.Rmd
+                                                                                                            
+output file: example-usage.knit.md
+
+/Applications/RStudio.app/Contents/MacOS/quarto/bin/tools/pandoc +RTS -K512m -RTS example-usage.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /Users/mark/Documents/GitHub/FISH549/pets/vignettes/example-usage.html --lua-filter /Users/mark/R_libs/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /Users/mark/R_libs/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --section-divs --template /Users/mark/R_libs/rmarkdown/rmd/h/default.html --highlight-style pygments --css /Users/mark/R_libs/rmarkdown/rmarkdown/templates/html_vignette/resources/vignette.css --mathjax --variable 'mathjax-url=https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --include-in-header /var/folders/w6/bgxxqxln6nxf9z0wr7fypyfw0000gn/T//Rtmppjt1Se/rmarkdown-stra66d76e727.html 
+
+Output created: example-usage.html
 --- finished re-building ‘example-usage.Rmd’
 
-✓ Creating 'doc/'
-✓ Adding '^doc$' to '.Rbuildignore'
-✓ Adding 'doc' to '.gitignore'
-Moving example-usage.html, example-usage.R to doc/
-Copying example-usage.Rmd to doc/
-✓ Creating 'Meta/'
-✓ Adding '^Meta$' to '.Rbuildignore'
-✓ Adding 'Meta' to '.gitignore'
-Building vignette index
+ℹ Copying vignettes
+ℹ Moving example-usage.html and example-usage.R to doc/
+ℹ Copying example-usage.Rmd to doc/
+ℹ Building vignette index
 ```
 
-We should now rebuild our package and run our checks.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** We should now rebuild our package.
+</div>
 
 ```{r rebuild}
-## re-build package
-build()
-✓  checking for file ‘/Users/scheuerl/Documents/GitHub/pets/DESCRIPTION’ ...
+> build()
+✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
 ─  preparing ‘pets’:
-✓  checking DESCRIPTION meta-information ...
+✔  checking DESCRIPTION meta-information
 ─  installing the package to build vignettes
-✓  creating vignettes (1.3s)
+✔  creating vignettes (1.8s)
 ─  checking for LF line-endings in source and make files and shell scripts
 ─  checking for empty or unneeded directories
 ─  building ‘pets_0.0.0.9000.tar.gz’
+   
+[1] "/Users/mark/Documents/GitHub/FISH549/pets_0.0.0.9000.tar.gz"
 ```
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Re-run our package checks (most of the output below has been surpressed).
+</div>
+
 ```{r run_checks}
-## run check
-check()
+> check()
 ── R CMD check results ────────────────────────────── pets 0.0.0.9000 ────
 Duration: 8.7s
 
 0 errors ✓ | 0 warnings ✓ | 0 notes ✓
 ```
 
-It looks like everything is in working order, so go ahead and commit your changes and push them to **GitHub**.
+<div class="boxy boxy-success boxy-check">
+**Success:** It looks like everything is in working order!
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and commit your changes and push them to **GitHub**.
+</div>
+
 
 ***
 
 # Website
 
-If you've spent some time searching the web for information on packages, there's a good chance you come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
+If you've spent some time searching the web for information on packages, there's a good chance you've come across a specific form of package website. For example, [here](https://usethis.r-lib.org/) is the wesbite for the `{usethis}` package that we've used to build our `{pets}` package. These websites are created with the [`{pkgdown}`](https://pkgdown.r-lib.org/index.html) package, which we can use to create a website for `{pets}`.
 
-To do so, we'll begin by configuring our package to use `{pkgdown}`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Begin by loading the `{pkgdown}` package.
+</div>
 
-```{r init_pkgdown}
-## load library
-library(pkgdown)
+```{r load_pkgdown}
+> library(pkgdown)
 
-## initialize package to use pkgdown
-use_pkgdown()
-● Record your site's url in the pkgdown config file (optional, but recommended)
-● Modify '_pkgdown.yml'
+Attaching package: ‘pkgdown’
+
+The following object is masked from ‘package:devtools’:
+
+    build_site
 ```
 
-This command will add a new file called `_pkgdown.yml`, which is empty at the moment.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Configure your package to use `{pkgdown}`.
+</div>
+
+```{r init_pkgdown}
+> use_pkgdown()
+✔ Adding '^_pkgdown\\.yml$', '^docs$', '^pkgdown$' to '.Rbuildignore'
+✔ Adding 'docs' to '.gitignore'
+✔ Writing '_pkgdown.yml'
+• Modify '_pkgdown.yml'
+```
+
+`use_pkgdown()` will add a new file called `_pkgdown.yml`, which contains some YAML and fields for `url` and `template`
+
+```
+url: ~
+template:
+  bootstrap: 5
+```
 
 Now we can use `pkgdown::build_site()` to create the actual website for the package. When you call this function, you'll see a verbose response from **R** followed by a preview of your site opened in your web browser.
 
-Before doing so, however, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** Before proceeding, we need to make a small change to our `.gitignore` file. When we run `build_site()`, it creates the necessary html and supporting files in the `/docs` directory, so we need to remove it from `.gitignore` so that we can commit its contents and push the changes to **GitHub**.
+</div>
 
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open your `.gitignore` file and look for `docs` (Mark's is in a block called `# R Environment Variables`). Comment it out.
+</div>
 
-```{r build_site}
-build_site()
+```
+# R Environment Variables
+.Renviron
+.Rproj.user
+inst/doc
+/doc/
+/Meta/
+# docs
 ```
 
-Now let's commit our changes and push them to **GitHub**. After doing so, navigate to your `pets` repo on **GitHub** and click on the **Settings** tab. Scroll down to the section title **GitHub Pages** and under **Source** select `Branch: main` and `Select folder: /docs`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Call `build_site()` to create the necessary html and supporting files in the `/docs` directory.
+</div>
+
+```{r build_site}
+> build_site()
+-- Installing package into temporary library -------------------------------------------
+== Building pkgdown site =======================================================
+Reading from: '/Users/mark/Documents/GitHub/FISH549/pets'
+Writing to:   '/Users/mark/Documents/GitHub/FISH549/pets/docs'
+-- Initialising site -----------------------------------------------------------
+-- Building home ---------------------------------------------------------------
+Reading 'LICENSE.md'
+Writing '404.html'
+-- Building function reference -------------------------------------------------
+Reading 'man/cats.Rd'
+Writing 'reference/cats.html'
+-- Building articles -----------------------------------------------------------
+Writing 'articles/index.html'
+Reading 'vignettes/example-usage.Rmd'
+Writing 'articles/example-usage.html'
+Writing 'sitemap.xml'
+-- Building search index -------------------------------------------------------
+== DONE ========================================================================
+-- Previewing site ---------------------------------------------------------------------
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your changes and push them to **GitHub**.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to your `pets` repo on **GitHub** and click on the **Settings** tab.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Under the section on the left titled **Code and automation**, click on **Pages**.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Under **Branch** select `main` and set the folder to `/docs`.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click **Save** when you're done.
+</div>
+
+![](img/gh_pages_set.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to `https://USERNAME.github.io/pets/` to view the website for your package (where `USERNAME` is your GitHub user name).
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If youget a 404 error or your site doesn't display properly, wait a few minute and force-refresh your browser.
+</div>
 
 
 ***
 
 # Hex sticker
 
-Let's be honest--[hex stickers](https://swag.rstudio.com/s/shop) are all the rage when it comes to **R** packages. We can make our own hex sticker for our `{pets}` package with the [`{hexSticker}`](https://github.com/GuangchuangYu/hexSticker) package. The function `sticker()` will do all of the work for us.
+Let's be honest---[hex stickers](https://swag.rstudio.com/s/shop) are all the rage when it comes to **R** packages. We can make our own hex sticker for our `{pets}` package with the [`{hexSticker}`](https://github.com/GuangchuangYu/hexSticker) package. The function `sticker()` will do all of the work for us.
 
-Here we'll include an image of a silhouette cata and dog on our sticker. To do so, you will need to download the `cat_and_dog.png` image [here](https://github.com/FISH497/website/blob/main/lectures/week_08/cat_and_dog.png) and place it in the working directory for your `{pets}` package. Next load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
+Here we'll include an image of a silhouette cata and dog on our sticker.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Download the `cat_and_dog.png` image by navigating [here](https://github.com/FISH549/website/blob/main/lectures/week_08/cat_and_dog.png) and right-clicking on the image. Choose **Save Image As...** and save it in the working directory for your `{pets}` package.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Load `{hexSticker}` and make the following call to `sticker()` (you can type `?sticker` to see all of the function arguments).
+</div>
+
+```{r}
+> library(hexSticker)
+```
 
 ```{r make_sticker}
-## load hexSticker
-library(hexSticker)
-
 ## create sticker image
 sticker("cat_and_dog.png",
         ## package name
-        package="pets",
+        package = "pets",
         ## heights & widths
-        p_size = 8, s_x = 0.95, s_y = 0.9, asp = 0.85,
+        p_size = 18, s_x = 0.95, s_y = 0.9, asp = 0.85,
         s_width = 0.65, s_height = 0.65, p_y = 1.6,
         ## text color
         p_color = "#4b2e83",
@@ -390,13 +629,15 @@ sticker("cat_and_dog.png",
         ## border color
         h_color = "#85754d",
         ## filename to save
-        filename="logo.png")
+        filename = "logo.png")
 ```
 
-Now we can tell **R** to use our new image with `usethis::use_logo()`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Tell **R** to use our new image with `usethis::use_logo()`.
+</div>
 
 ```{r use_logo}
-usethis::use_logo("logo.png")
+> usethis::use_logo("logo.png")
 ✓ Creating 'man/figures/'
 ✓ Resized 'logo.png' to 240x278
 ● Add logo to your README with the following html:
@@ -405,31 +646,68 @@ Warning: pkgdown config does not specify the site's url, which is optional but r
   [Copied to clipboard]
 ```
 
-The last thing we need to do is edit our `README.Rmd` file to include a reference to the sticker. Go ahead and open the file and do two things. First, edit the `knitr::opts_chunk$set(...)` block at the top, such that `fig.path = "man/figures/"`
+The last thing we need to do is edit our `README.Rmd` file to include a reference to the sticker.
 
-````
-`r ''````{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/",
-  out.width = "100%"
-)
-```
-````
-
-and then add the following line of code to the right of the `# pets` heading.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Add the following line of code to the right of the `# pets` heading.
+</div>
 
 ```
 # pets <img src="man/figures/logo.png" align="right" alt="" width="120" />
 ```
 
-When you are finished, click the **Knit** button in **RStudio** to preview your new readme file.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you are finished, click the **Knit** button in **RStudio** to preview your new readme file.
+</div>
 
-Lastly, we need to rebuild the website with `build_site()`.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Lastly, we need to rebuild the website with `build_site()`.
+</div>
 
 ```{r}
-
+> build_site()
+-- Installing package into temporary library -------------------------------------------
+== Building pkgdown site =======================================================
+Reading from: '/Users/mark/Documents/GitHub/FISH549/pets'
+Writing to:   '/Users/mark/Documents/GitHub/FISH549/pets/docs'
+-- Initialising site -----------------------------------------------------------
+-- Building favicons -----------------------------------------------------------
+Building favicons with realfavicongenerator.net...
+Copying 'pkgdown/favicon/apple-touch-icon-120x120.png' to 'apple-touch-icon-120x120.png'
+Copying 'pkgdown/favicon/apple-touch-icon-152x152.png' to 'apple-touch-icon-152x152.png'
+Copying 'pkgdown/favicon/apple-touch-icon-180x180.png' to 'apple-touch-icon-180x180.png'
+Copying 'pkgdown/favicon/apple-touch-icon-60x60.png' to 'apple-touch-icon-60x60.png'
+Copying 'pkgdown/favicon/apple-touch-icon-76x76.png' to 'apple-touch-icon-76x76.png'
+Copying 'pkgdown/favicon/apple-touch-icon.png' to 'apple-touch-icon.png'
+Copying 'pkgdown/favicon/favicon-16x16.png' to 'favicon-16x16.png'
+Copying 'pkgdown/favicon/favicon-32x32.png' to 'favicon-32x32.png'
+Copying 'pkgdown/favicon/favicon.ico' to 'favicon.ico'
+Copying 'logo.png' to 'logo.png'
+-- Building home ---------------------------------------------------------------
+Writing 'authors.html'
+Reading 'LICENSE.md'
+Writing 'LICENSE.html'
+Writing 'LICENSE-text.html'
+Copying 'man/figures/logo.png' to 'reference/figures/logo.png'
+Writing '404.html'
+-- Building function reference -------------------------------------------------
+Writing 'reference/index.html'
+Reading 'man/cats.Rd'
+Writing 'reference/cats.html'
+-- Building articles -----------------------------------------------------------
+Writing 'articles/index.html'
+Reading 'vignettes/example-usage.Rmd'
+Writing 'articles/example-usage.html'
+Writing 'sitemap.xml'
+-- Building search index -------------------------------------------------------
+== DONE ========================================================================
+-- Previewing site ---------------------------------------------------------------------
 ```
 
-When it finishes, go ahead and commit your changes and push them to **GitHub**. Next, navigate back to your `pets` repo on **GitHub** and preview your changes.
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When it finishes, go ahead and commit your changes and push them to **GitHub**.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Finally, navigate back to your `pets` repo on **GitHub** and preview your changes.
+</div>

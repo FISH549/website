@@ -1,8 +1,7 @@
 ---
 title: "Ethics in data science"
-subtitle: "Intro to Environmental Data Science<br>FISH 497A"
-author: "Mark Scheuerell"
-date: "12 March 2021"
+subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
+date: "10 March 2023"
 output:
   ioslides_presentation:
     css: lecture_slides.css
