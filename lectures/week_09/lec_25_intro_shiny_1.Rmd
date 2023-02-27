@@ -1,6 +1,6 @@
 ---
 title: "Shiny Part 1: Build!"
-subtitle: "<br/>FISH 497"
+subtitle: "<br/>FISH 549"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
 date: "2023-02-27 (updated: `r Sys.Date()`)"
@@ -36,7 +36,7 @@ class: center, middle
 
 I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
 
-![squirrelmolly](docs/lectures/week_09/img/squirrelmolly.jpg)
+![squirrelmolly](img/squirrelmolly.jpg)
 
 ---
 
@@ -44,7 +44,7 @@ I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science
 
 [Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
 
-![qrcodeforpoll](img/qr.png)
+![qrcodeforpoll](img/mentimeter_qr.png)
 
 ---
 
