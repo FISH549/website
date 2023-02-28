@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Shiny Part 2: Deploy!</title>
+    <title>Shiny Part 2: Handing data in Shiny &amp; making maps with leaflet</title>
     <meta charset="utf-8" />
     <meta name="author" content="Megsie Siple" />
     <script src="libs/header-attrs-2.20/header-attrs.js"></script>
@@ -12,10 +12,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Shiny Part 2: Deploy!
+# Shiny Part 2: Handing data in Shiny &amp; making maps with leaflet
 ]
 .subtitle[
-## <br/>FISH 497
+## <br/>FISH 549
 ]
 .author[
 ### Megsie Siple
@@ -24,7 +24,7 @@ class: center, middle, inverse, title-slide
 ### NOAA AFSC - RACE/GAP
 ]
 .date[
-### 2023-03-01 (updated: 2023-02-16)
+### 2023-03-01 (updated: 2023-02-27)
 ]
 
 ---
@@ -33,27 +33,20 @@ class: center, middle, inverse, title-slide
 
 
 
-class: center, middle
-
-# Hello again! 
-
-&lt;!-- #ecda9a,#efc47e,#f3ad6a,#f7945d,#f97b57,#f66356,#ee4d5a --&gt;
----
-
 # On Monday we talked about
 
 - How to know when a Shiny app is the right tool for the job
 
 --
 
-- How to build a basic Shiny app and get data in and out
+- How to build a basic Shiny app
 
 
 ---
 
 # Today (Wednesday) we will cover
 
-- Deploying your Shiny app
+- Getting data in and out of Shiny - so many options!
 
 --
 
@@ -61,12 +54,188 @@ class: center, middle
 
 --
 
-- Using Shiny to make a tutorial in `{learnr}`
+- ...and then we'll just gaze at some great apps
+
+
+---
+
+class: center, middle, inverse
+
+# Getting data into and out of Shiny
+
+---
+
+
+# Get data into a Shiny app
+
+Shiny can accept data from many file types. 
+
+- a file the user uploads
+- a database
+- a persistent file packaged with your app
+
+---
+
+# User uploads data
+If you want to design your app so that people can bring in their own data:
+
+Add a file upload input in the UI using the function `fileInput()`. In the `server` function, access the uploaded files via `input$mydata`:
+
+```r
+ui &lt;- fluidPage(
+  titlePanel("Uploading Files"),
+  sidebarLayout(
+    sidebarPanel(
+      # refer to input$mydata in the server code to reference this object:
+      fileInput("mydata", "Choose CSV File",
+                multiple = FALSE,
+                accept = c("text/csv",
+                         "text/comma-separated-values,text/plain",
+                         ".csv")),
+```
+
+---
+
+# Put the data on the server
+
+You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
+
+---
+
+# More on data storage in Shiny
+
+Dean Attali's [Persistent Data Storage With Shiny](https://daattali.com/shiny/persistent-data-storage/) app 
+
+[This](https://shiny.rstudio.com/articles/persistent-data-storage.html) blog post about data storage in Shiny (also by Dean Attali)
+
+RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/dashboards/) shows how to connect a `shinydashboard` to a database
+
+---
+
+# Getting data out of Shiny
+
+You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
+
+
+```r
+ui &lt;- fluidPage(
+  downloadLink("downloadData", "Download")
+)
+server &lt;- function(input, output) {
+  # Our dataset
+  data &lt;- mtcars
+  output$downloadData &lt;- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".csv", sep="")
+    },
+    content = function(file) {
+      write.csv(data, file)
+    }
+  )
+}
+```
+
+---
+
+# Getting data out of Shiny
+
+- Download **CSV or txt files** from Shiny apps
 
 --
 
-- ...and then we'll just gaze at some great apps
+- Generate reports in Markdown that are knitted to **html** (details on how to do that [here](https://shiny.rstudio.com/articles/generating-reports.html))
 
+--
+
+- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
+
+
+---
+
+class: center, middle, inverse
+
+# 02_dataindataout/explore_ram/ui.R
+
+
+---
+
+# Maps in Shiny with `leaflet`
+
+Leaflet is an open-source JavaScript library that makes interactive maps.
+
+It's *very cool*! And the `leaflet` R package integrates well with Markdown files and Shiny apps so you can show spatial data.
+
+It gets fancy very fast. [Here](https://rstudio.github.io/leaflet/) is the guide for using `leaflet` in R and integrating it with Shiny.
+
+---
+
+class: center, middle
+
+# 0n_maps/app.R
+
+
+---
+
+class: center, middle, inverse
+
+# Some cool Shiny apps
+
+![duckspirits](https://i.gifer.com/SLcP.gif)
+
+---
+
+# Some cool Shiny apps
+
+A cool example of how to use Shiny instead of a lengthy paper appendix to illustrate a point: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
+
+A use of Shiny to aggregate useful stuff (and it uses an API!): [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
+
+Use Shiny to provide effective data viz on large datasets: [Sentify](https://rcharlie.shinyapps.io/sentify/) by Charlie Thompson
+
+---
+
+class: center, middle
+
+![catapp](img/catapp.gif)
+
+---
+
+class: center, middle
+
+![novels](img/novels.png)
+
+---
+
+class: center, middle
+
+# Fin
+
+### contact
+
+✉️: mcsiple@gmail.com
+🐦: @margaretsiple
+
+### Some of my Shiny apps
+
+The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
+
+[Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
+
+[Adopt Don't Shop](https://nsilbiger.shinyapps.io/AdoptDontShop/) (collaboration with Nyssa Silbiger)
+
+### If you're developing a Shiny app for a project
+
+I would love to help you! Send me questions, issues, use code from the repo, whatevas.
+
+***
+
+Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+---
+
+class: center, middle
+
+# Extra slides (deployment &amp; getting credit)
 
 ---
 
@@ -130,85 +299,6 @@ The publication/credit avenues are unconventional for Shiny apps, but they DO ex
 &lt;!-- see if you can get some data on citation rates for JOSS vs zenodo github entry --&gt;
 
 ---
-
-# Maps in Shiny with `leaflet`
-
-Leaflet is an open-source JavaScript library that makes interactive maps.
-
-It's *very cool*! And the `leaflet` R package integrates well with Markdown files and Shiny apps so you can show spatial data.
-
-It gets fancy very fast. [Here](https://rstudio.github.io/leaflet/) is the guide for using `leaflet` in R and integrating it with Shiny.
-
----
-
-class: center, middle
-
-# 0n_maps/app.R
-
-
----
-
-class: center, middle, inverse
-
-# `learnr` demo
-
-![duckspirits](https://i.gifer.com/SLcP.gif)
-
----
-
-class: center, middle, inverse
-
-# Some cool Shiny apps
-
-A cool example of how to use Shiny instead of a lengthy paper appendix to illustrate a point: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
-
-A use of Shiny to aggregate useful stuff (and it uses an API!): [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
-
-Use Shiny to provide effective data viz on large datasets: [Sentify](https://rcharlie.shinyapps.io/sentify/) by Charlie Thompson
-
----
-
-class: center, middle
-
-![catapp](img/catapp.gif)
-
----
-
-class: center, middle
-
-![novels](img/novels.png)
-
----
-
-class: center, middle
-
-# Fin!
-
-### contact
-
-✉️: mcsiple@gmail.com
-🐦: @margaretsiple
-
-### **More Shiny resources:**
-
-[Mastering Shiny](https://mastering-shiny.org/) by Hadley Thee Wickham 
-
-Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny app workflow and production
-
-We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
-
-
-### Some of my Shiny apps
-
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
-
-[Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
-
-[Adopt Don't Shop](https://nsilbiger.shinyapps.io/AdoptDontShop/) (collaboration with Nyssa Silbiger)
-
-***
-
-Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
