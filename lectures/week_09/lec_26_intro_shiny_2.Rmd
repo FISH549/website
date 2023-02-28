@@ -49,6 +49,8 @@ style_mono_accent(
 
 - ...and then we'll just gaze at some great apps
 
+- [here](https://github.com/mcsiple/shinyoverview) is a link to the code examples for today 
+
 
 ---
 
