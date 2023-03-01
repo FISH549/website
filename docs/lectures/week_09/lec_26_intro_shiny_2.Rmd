@@ -3,9 +3,10 @@ title: "Shiny Part 2: Deploy!"
 subtitle: "<br/>FISH 497"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
-date: "2021/03/03 (updated: `r Sys.Date()`)"
+date: "2023-03-01 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
+    css: xaringan-themer.css
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -13,10 +14,23 @@ output:
       countIncrementalSlides: false
 ---
 
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#2a5674",
+  header_font_google = google_font("Source Sans Pro"),
+  text_font_google   = google_font("Source Sans Pro", "500", "500i"),
+  code_font_google   = google_font("Fira Mono"),
+  code_font_size = "0.7rem",
+  link_color = "#f97b57"
+)
+##d1eeea,#a8dbd9,#85c4c9,#68abb8,#4f90a6,#3b738f,#2a5674
+```
+
 class: center, middle
 
 # Hello again! 
-
 
 ---
 
@@ -138,11 +152,11 @@ class: center, middle, inverse
 
 # Some cool Shiny apps
 
-[Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
+A cool example of how to use Shiny instead of a lengthy paper appendix to illustrate a point: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
 
-[tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
+A use of Shiny to aggregate useful stuff (and it uses an API!): [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
 
-[Sentify](https://rcharlie.shinyapps.io/sentify/) by Charlie Thompson
+Use Shiny to provide effective data viz on large datasets: [Sentify](https://rcharlie.shinyapps.io/sentify/) by Charlie Thompson
 
 ---
 
@@ -178,7 +192,7 @@ We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 ### Some of my Shiny apps
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mammaltool/)
+The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
 
 [Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
 
