@@ -28,9 +28,7 @@ style_mono_accent(
 
 # On Monday we talked about
 
-- How to know when a Shiny app is the right tool for the job
-
---
+- Shiny: what is it good for?
 
 - How to build a basic Shiny app
 
@@ -40,8 +38,6 @@ style_mono_accent(
 # Today (Wednesday) we will cover
 
 - Getting data in and out of Shiny - so many options!
-
---
 
 - Building cool/interactive maps using `{leaflet}`
 
