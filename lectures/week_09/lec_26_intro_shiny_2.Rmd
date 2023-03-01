@@ -28,9 +28,7 @@ style_mono_accent(
 
 # On Monday we talked about
 
-- How to know when a Shiny app is the right tool for the job
-
---
+- Shiny: what is it good for?
 
 - How to build a basic Shiny app
 
@@ -40,8 +38,6 @@ style_mono_accent(
 # Today (Wednesday) we will cover
 
 - Getting data in and out of Shiny - so many options!
-
---
 
 - Building cool/interactive maps using `{leaflet}`
 
@@ -205,22 +201,21 @@ class: center, middle
 
 # Fin
 
-### contact
+#### Today's code treat `r emo::ji("pastry")`
 
-`r emo::ji("email")`: mcsiple@gmail.com
-`r emo::ji("bird")`: @margaretsiple
+`Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny. 
 
-### Some of my Shiny apps
+`r emo::ji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
 
-The [Marine Mammal Bycatch Impacts Exploration Tool](https://msiple.shinyapps.io/mmrefpoints/) (link to paper [here](https://joss.theoj.org/papers/10.21105/joss.03888))
+#### contact
+`r emo::ji("email")`: margaret.siple@noaa.gov
 
-[Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) (for Goodreads users) 
+If you're developing a Shiny app for a project, would love to help you! Send me questions, issues, use code from the `shinyoverview` repo, whatevas.
 
-[Adopt Don't Shop](https://nsilbiger.shinyapps.io/AdoptDontShop/) (collaboration with Nyssa Silbiger)
+#### For Friday!
+Eli Holmes will introduce Scrum and how to do a Scrum Sprint with GitHub Project pages and GitHub issues.  To prepare, you can watch [**this**](https://www.youtube.com/watch?v=sLK3EHPCw14) ~5-min video on scrum style workflows.
 
-### If you're developing a Shiny app for a project
 
-I would love to help you! Send me questions, issues, use code from the repo, whatevas.
 
 ***
 
@@ -230,7 +225,7 @@ Slides created using the R package [**xaringan**](https://github.com/yihui/xarin
 
 class: center, middle
 
-# Extra slides (deployment & getting credit)
+# Extra slides (deployment & getting credit for your Shiny dev work)
 
 ---
 
