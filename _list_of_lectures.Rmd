@@ -297,7 +297,7 @@ guest_holmes <- list(
              "Guest presentation"),
   pdf = c(""),
   rmd = "lectures/week_09/Agile-Mar-3-2023.qmd",
-  html = "https://rverse-tutorials.github.io/quarto_slides/Agile-Mar-3-2023.html",
+  html = "lectures/week_09/Agile-Mar-3-2023.html",
   background = "[Short Agile Videos](https://rverse-tutorials.github.io/quarto_slides/Agile-Mar-3-2023.html#/videos-to-learn-more)",
   zoom = ""
 )
