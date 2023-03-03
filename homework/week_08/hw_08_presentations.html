@@ -321,23 +321,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -390,10 +384,10 @@ Science</h4>
 <p><br></p>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>This week we saw how to create an HTML presentation with <strong>R
-Markdown</strong>. Your assignment is to create a short presentation
-that introduces yourself and discusses some of the things you learned in
-class this quarter. Specifically, you will use the
+<p>Two weeks ago we saw how to create an HTML presentation with
+<strong>R Markdown</strong>. Your assignment is to create a short
+presentation about yourself and discusses some of the things you learned
+in class this quarter. Specifically, you will use the
 <strong>ioslides</strong> format for an HTML presentation.</p>
 <hr />
 </div>
@@ -402,7 +396,7 @@ class this quarter. Specifically, you will use the
 <p>Create a new repo on <strong>GitHub</strong> called
 <code>Assignment-8</code> and create a new project in
 <strong>RStudio</strong> based upon that repo. Make sure to include a
-short <code>README.md</code> file that briefly describe’s the repo’s
+short <code>README.md</code> file that briefly describes the repo’s
 contents. Then invite Mark as a collaborator to your repo.</p>
 </div>
 <div id="elements" class="section level1">
@@ -413,7 +407,7 @@ contents. Then invite Mark as a collaborator to your repo.</p>
 <p>This should include the following:</p>
 <ul>
 <li><p>Title: “Some things I learned this quarter”</p></li>
-<li><p>Subtitle: “FISH 497”</p></li>
+<li><p>Subtitle: “FISH 549”</p></li>
 <li><p>Name:</p>
 <ol style="list-style-type: decimal">
 <li>Your first and last names<br />
@@ -456,28 +450,12 @@ contents. Then invite Mark as a collaborator to your repo.</p>
 </ul></li>
 </ul>
 </div>
-<div id="slide-5-about-me-continued" class="section level3">
-<h3>Slide 5: About me (continued)</h3>
-<p>This should include the following:</p>
-<ul>
-<li><p>Title/Heading: “About me”</p></li>
-<li><p>Subtitle: “Things I’ve missed during the pandemic”</p></li>
-<li><p>Ordered list:</p>
-<ol style="list-style-type: decimal">
-<li>Something or someone I miss doing or seeing<br />
-</li>
-<li>Something or someone I miss doing or seeing<br />
-</li>
-<li>Something or someone I miss doing or seeing</li>
-</ol></li>
-</ul>
-</div>
-<div id="slide-6-section-break" class="section level3">
-<h3>Slide 6: Section break</h3>
+<div id="slide-5-section-break" class="section level3">
+<h3>Slide 5: Section break</h3>
 <p>This slide should the word “Data science”.</p>
 </div>
-<div id="slide-7-things-ive-learned" class="section level3">
-<h3>Slide 7: Things I’ve learned</h3>
+<div id="slide-6-things-ive-learned" class="section level3">
+<h3>Slide 6: Things I’ve learned</h3>
 <p>This should include the following:</p>
 <ul>
 <li><p>Title/Heading: “Course topics”</p></li>
@@ -492,8 +470,8 @@ contents. Then invite Mark as a collaborator to your repo.</p>
 </ol></li>
 </ul>
 </div>
-<div id="slide-8-things-i-want-to-learn-more-about" class="section level3">
-<h3>Slide 8: Things I want to learn more about</h3>
+<div id="slide-7-things-i-want-to-learn-more-about" class="section level3">
+<h3>Slide 7: Things I want to learn more about</h3>
 <p>This should include the following:</p>
 <ul>
 <li><p>Title/Heading: “Course topics”</p></li>
@@ -508,8 +486,8 @@ contents. Then invite Mark as a collaborator to your repo.</p>
 </ol></li>
 </ul>
 </div>
-<div id="slide-9-closing-image" class="section level3">
-<h3>Slide 9: Closing image</h3>
+<div id="slide-8-closing-image" class="section level3">
+<h3>Slide 8: Closing image</h3>
 <p>Create a slide with <em>any</em> background image you’d like. The
 image/picture should fill the entire slide without any other text or
 annotations.</p>
