@@ -71,7 +71,7 @@ publishing <- list(
   rmd = "homework/week_06/hw_06_publishing.Rmd",
   html = "homework/week_06/hw_06_publishing.html",
   data = "homework/week_06/hw_06_template.Rmd",
-  key = "" # "homework/week_06/hw_06_publishing_key.Rmd"
+  key = "homework/week_06/hw_06_publishing_key.html"
 )
 
 ## week 8
