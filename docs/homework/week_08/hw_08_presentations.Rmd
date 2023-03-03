@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-This week we saw how to create an HTML presentation with **R Markdown**. Your assignment is to create a short presentation that introduces yourself and discusses some of the things you learned in class this quarter. Specifically, you will use the **ioslides** format for an HTML presentation.
+Two weeks ago we saw how to create an HTML presentation with **R Markdown**. Your assignment is to create a short presentation about yourself and discusses some of the things you learned in class this quarter. Specifically, you will use the **ioslides** format for an HTML presentation.
 
 ***
 
 # Setup
 
-Create a new repo on **GitHub** called `Assignment-8` and create a new project in **RStudio** based upon that repo. Make sure to include a short `README.md` file that briefly describe's the repo's contents. Then invite Mark as a collaborator to your repo.
+Create a new repo on **GitHub** called `Assignment-8` and create a new project in **RStudio** based upon that repo. Make sure to include a short `README.md` file that briefly describes the repo's contents. Then invite Mark as a collaborator to your repo.
 
 # Elements
 
@@ -38,7 +38,7 @@ This should include the following:
 
 * Title: "Some things I learned this quarter"
 
-* Subtitle: "FISH 497"
+* Subtitle: "FISH 549"
 
 * Name:
 
@@ -76,25 +76,11 @@ This should include the following:
     - Undergraduate institution    
     - Undergraduate major    
 
-### Slide 5: About me (continued)
-
-This should include the following:
-
-* Title/Heading: "About me"
-
-* Subtitle: "Things I've missed during the pandemic"
-
-* Ordered list:
-
-    1) Something or someone I miss doing or seeing    
-    2) Something or someone I miss doing or seeing    
-    3) Something or someone I miss doing or seeing  
-
-### Slide 6: Section break
+### Slide 5: Section break
 
 This slide should the word "Data science".
 
-### Slide 7: Things I've learned
+### Slide 6: Things I've learned
 
 This should include the following:
 
@@ -108,7 +94,7 @@ This should include the following:
     2) Something I learned    
     3) Something I learned  
 
-### Slide 8: Things I want to learn more about
+### Slide 7: Things I want to learn more about
 
 This should include the following:
 
@@ -122,7 +108,7 @@ This should include the following:
     2) A topic I'd like to learn more about    
     3) A topic I'd like to learn more about  
 
-### Slide 9: Closing image
+### Slide 8: Closing image
 
 Create a slide with *any* background image you'd like. The image/picture should fill the entire slide without any other text or annotations.
 
