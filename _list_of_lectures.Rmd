@@ -296,9 +296,9 @@ guest_holmes <- list(
   topics = c("<i>Dr. Elizabeth Holmes</i>", "<b>Data science teamwork & data science sprints</b>",
              "Guest presentation"),
   pdf = c(""),
-  rmd = "",
-  html = "",
-  background = "",
+  rmd = "lectures/week_09/Agile-Mar-3-2023.qmd",
+  html = "https://rverse-tutorials.github.io/quarto_slides/Agile-Mar-3-2023.html",
+  background = "[Short Agile Videos](https://rverse-tutorials.github.io/quarto_slides/Agile-Mar-3-2023.html#/videos-to-learn-more)",
   zoom = ""
 )
 
