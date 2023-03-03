@@ -1,0 +1,229 @@
+---
+title: "Intro to Lean and Agile"
+subtitle: "for science teams"
+author: Eli Holmes<br>Northwest Fisheries Science Center, NOAA<br>[NMFS Open Science](https://nmfs-opensci.github.io/)<br><br>Fish 549 March 3, 2023
+logo: https://raw.githubusercontent.com/nmfs-opensci/assets/main/logo/nmfs-opensci-logo3.png
+format:
+  revealjs: 
+    theme: [sky, custom.scss]
+    footer: "[Home](index.html){style='padding-right: 100px;'}"
+---
+
+## Today's Plan {style="\"position:absolute;" top="20;" left="0"}
+
+-   A Kaizen (aka continuous improvement) group game!
+-   Learn about the core ideas of "lean" and "Agile" for team projects
+-   Intro to the basics of Scrum Sprints
+-   Demo of Scrum Sprint on GitHub project boards
+
+## What is agile?
+
+A **lightweight** workflow **structure** for software development which is characterized by 4 key features.
+
+Term is traced back to the 2001 [Agile Manifesto](https://agilemanifesto.org/), but the ideas are much earlier and broader. Very related to Lean Methodology (aka Toyota Way).
+
+::: callout-important
+Agile methods are ubiquitous in software developement. This is how modern teams work because it [Drives Creation and Completion]{style="color: blue"}
+:::
+
+## Four elements {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](images/agile-elements.png){fig-align="center" width="100%"}
+:::
+
+::: {.column width="50%"}
+-   Breaking work into chunks
+-   Reflection and planning after each chunk
+-   Radically anti-hierarchical team structure
+-   Regular facetime
+-   Respect for the individual (learning focus)
+-   Early and regular end-user feedback
+:::
+:::
+
+## Iterative Cycles
+
+A key principle: dividing work into 10-30 day chunks with plan and review (or check) elements
+
+![](images/PDCA-Multi-Loop.png){fig-align="center" width="80%"}
+
+## Self-organizing teams {.smaller}
+
+<hr>
+
+Adopt habits that organically improve team flow and efficiency.
+
+<hr>
+
+::: columns
+::: {.column width="50%"}
+### Task boards
+
+-   visualize your workflow
+-   team awareness
+-   encourages cycles of work
+-   helps team not waste time on unimportant things
+:::
+::: {.column width="50%"}
+### Facetime
+
+-   short daily check-ins, aka "stand-ups"
+-   co-working, group or often paired
+:::
+:::
+
+## Task boards
+
+![](images/GitHub-task-board.png){fig-align="center" width="100%"}
+
+## Why use a task board? {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](images/Kanban_board_example.jpeg){fig-align="center" width="100%"}
+:::
+
+::: {.column width="50%"}
+-   team awareness fundamentally changes the team dynamic
+
+-   forces work to be iterative and incremental
+
+-   helps team define a minimally complete chunk of work that can be reviewed
+
+-   quickly reveals bottlenecks and barriers
+:::
+:::
+
+## Keeping the task board up to date {.smaller}
+
+Keeping the team task board fresh won't happen by itself. Everyone get pulled into their own rabbit hole and then team becomes silo-ed.
+
+::: columns
+::: {.column width="50%"}
+**Daily Standup**
+
+![](images/standup-cartoon.jpeg){fig-align="center" width="100%"}
+:::
+
+::: {.column style="border:4px solid black; padding: 10px; width: 40%;"}
+
+time-boxed 15 minutes
+
+what I did yesterday, what I plan to do today, any barriers
+
+a designated team facilitator runs this
+
+done around the task board
+
+can be done asynchronously but much better if it is live
+
+gets the team in flow
+:::
+:::
+
+## Scrum
+
+Most popular and widely used method in software development, but not restricted to software at all.
+
+![](images/scrum-cycle.png){fig-align="center" width="80%"}
+
+Formalizes the workflow cycles and events
+
+## Scrum Roles and Artifacts {.smaller}
+
+::: columns
+::: {.column width="50%"}
+**Roles**
+
+-   **Product Owner**: Job is to decide what the group is doing and curate the backlog of tasks
+-   **Scrum master**: Facilitator and coach the team
+-   **Developers**: Do the tasks
+:::
+
+::: {.column width="50%"}
+**Artifacts**
+
+-   **Backlog**: All the planned tasks in various stages of ready
+-   **Sprint Backlog**: Things to be completed in current sprint
+-   **Product Increment**: What you will complete in this sprint. Needs to be something you can demo or present
+:::
+:::
+
+## Sprint Cycle {.smaller}
+
+**Product Owner** Works on the backlog and gets tasks ready for next sprint.
+
+::: columns
+::: {.column width="50%"}
+**Scrum Master**
+
+-   Day 1: **Facilitates** planning mtg
+-   Day 8-28:
+    -   **Runs** daily standups.
+    -   **Helps** team members with barriers
+    -   **Works with** product owner
+-   Last day: **Facilitate** Retrospective meeting
+:::
+
+::: {.column style="width: 50%; color: blue"}
+**Team**
+
+-   Day 1: **Sprint Planning**
+-   Day 8-28: **Work on tasks** with daily standups
+-   2 days before end of sprint: **Sprint Review** Show work to "customer"<sup>1</sup>
+-   Last day: **Retrospective** Team reflects on how their process of work did and picks one thing to do better
+:::
+:::
+
+::: smaller
+1 In a science context, this might be a presentation outside of the team. Formal enough that you need to do a good job.
+:::
+
+## I left out some big parts of Scrum {.smaller}
+
+### This is a Lean/Agile/Kaizen approach
+
+-   radically anti-hierarchical team structure
+-   importance of intentionality
+-   rethinking of human agency within team structures
+-   radical candor and authenticity within teams
+
+### Velocity
+
+Scrum in software dev is used to speed up development cycles. Velocity and measuring the size of tasks is a key part of Scrum in this context.
+
+## 
+
+{{< video https://www.youtube.com/embed/eit4s9hRwfA width="100%" height="100%" >}}
+
+## Videos to learn more
+
+::: columns
+::: {.column width="50%"}
+### Kanban Boards
+
+Atlassian Kanban video series
+
+[{{< fa brands youtube >}} intro](https://www.youtube.com/watch?v=iVaFVa7HYj4)
+
+[{{< fa brands youtube >}} designing your Kanban board](https://www.youtube.com/watch?v=Bcid33tgq8A)
+
+[{{< fa brands youtube >}} work in progress limits](https://www.youtube.com/watch?v=zEJn6eQO6FE)
+
+[{{< fa brands youtube >}} writing kanban cards](https://www.youtube.com/watch?v=PxXdcQrPIUI)
+:::
+
+::: {.column width="50%"}
+### Scrum
+
+These cover the basic elements
+
+[{{< fa brands youtube >}} 5 minute intro to Scrum](https://www.youtube.com/watch?v=ZiEcq9uvi4Y&t=12s) Basic Structure of Scrum
+
+[{{< fa brands youtube >}} 12 minute intro to Scrum](https://www.youtube.com/watch?v=XU0llRltyFM) Product development perspective
+
+[{{< fa brands youtube >}} LabScrum](https://labscrum.org/video-resources)
+:::
+:::
