@@ -1,7 +1,7 @@
 ---
 title: "Code reviews"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
-date: "8 March 2023"
+date: "6 March 2023"
 output:
   ioslides_presentation:
     css: lecture_slides.css
