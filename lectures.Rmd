@@ -64,9 +64,9 @@ week_lecs$L25 <- shiny_1
 week_lecs$L26 <- shiny_2
 week_lecs$L27 <- guest_holmes
 ## week 10: Mar 6-10
-week_lecs$L28 <- docker
-week_lecs$L29 <- code_reviews
-week_lecs$L30 <- ethics
+week_lecs$L28 <- code_reviews
+week_lecs$L29 <- ethics
+week_lecs$L30 <- docker
 ```
 
 ```{r topics, include = FALSE, eval = FALSE}
