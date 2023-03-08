@@ -186,7 +186,7 @@ Is the analysis transparent and reproducible?
 What are the likely misinterpretations of the results and what can be done to prevent them?
 
 
-## [Oxford-Munich code of conduct](http://www.code-of-ethics.org/code-of-conduct/) | for professional data scientists
+## Oxford-Munich code of conduct | for professional data scientists
 
 * Lawfulness
 
@@ -196,7 +196,7 @@ What are the likely misinterpretations of the results and what can be done to pr
 
 > - Algorithms and models
 
-> - Transparency objectivity and truth
+> - Transparency, objectivity & truth
 
 > - Working alone and with others
 
