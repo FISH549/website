@@ -8,6 +8,8 @@ navbar:
       href: lectures.html
     - text: "Assignments"
       href: homework.html
+    - text: "Package reviews"
+      href: pkg_reviews.html
     - text: "References"
       href: references.html
     - text: ""
