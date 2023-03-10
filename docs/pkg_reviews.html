@@ -333,6 +333,9 @@ div.tocify {
   <a href="homework.html">Assignments</a>
 </li>
 <li>
+  <a href="pkg_reviews.html">Package reviews</a>
+</li>
+<li>
   <a href="references.html">References</a>
 </li>
 <li>
@@ -361,615 +364,871 @@ div.tocify {
 of any package they enjoyed or used frequently. Here is a list of some
 of their responses, provided with permission.</p>
 <hr />
-<div id="broom" class="section level1">
-<h1><code>{broom}</code></h1>
+<div id="heel" class="section level1">
+<h1><code>{HEEL}</code></h1>
 <p><br></p>
-<p>Contributed by M Feddern</p>
+<p>Contributed by G Henry</p>
 <p><br></p>
-<div id="location" class="section level3">
-<h3>Location</h3>
-<p>You can install this package directly from <a
-href="https://cran.r-project.org/web/packages/broom/index.html">CRAN</a>
-or you can install it from <a
-href="https://github.com/cran/broom">GitHub</a>.</p>
+<div id="location" class="section level2">
+<h2>Location</h2>
+<p><a href="https://github.com/gholtgrieve/HEEL"
+class="uri">https://github.com/gholtgrieve/HEEL</a></p>
 </div>
-<div id="vignettes" class="section level3">
-<h3>Vignettes</h3>
-<p>This package has multiple vignettes</p>
-<div id="adding-tidiers" class="section level5">
-<h5>Adding Tidiers</h5>
-<p>This vignette describes the process of adding a new tidiers to the
-broom package for package development. It also contains a link to the
-tidy model website which has a tutorial on how to create your own broom
-tidiers.</p>
+<div id="vignettes" class="section level2">
+<h2>Vignette(s)</h2>
+<p>This package does not have any vignettes.</p>
 </div>
-<div id="available-methods" class="section level5">
-<h5>Available Methods</h5>
-<p>This vignette describes all of the different types of model output
-that broom is compatible with, from Arima to zoo, in alphabetical order
-of the package name. This is useful to see if your errors are because of
-the package/model object you are using – or if it is something else.</p>
+<div id="applications" class="section level2">
+<h2>Application(s)</h2>
+<p>There are no websites or applications from this package.</p>
 </div>
-<div id="tidy-boostrapping" class="section level5">
-<h5>Tidy Boostrapping</h5>
-<p>This vignette describes how to apply bootstrap resampling to estimate
-uncertainty in model parameters.</p>
-</div>
-<div id="intro-to-broom" class="section level5">
-<h5>Intro to broom</h5>
-<p>This vignette introduces users to the concept of “tidy data” and how
-broom bridges the gap between “un-tidy” predictions and estimates from
-modelling packages and converts them to a tidy tibble. It is
-specifically designed to take a not tabular format (unlike reshape2 and
-tidyr) and convert it to a tibble.</p>
-</div>
-<div id="broom-and-dplyr" class="section level5">
-<h5>broom and dplyr</h5>
-<p>This vignette focuses on high-throughput applications, where you can
-combine results from multiple analyses using other packages –
-specifically <code>{purrr}</code>, <code>{dplyr}</code>,
-<code>{ggplot2}</code>, and <code>{tidyr}</code>.</p>
-</div>
-<div id="kmeans-with-dplyr-and-broom" class="section level5">
-<h5>kmeans with dplyr and broom</h5>
-<p>This vignette summarizes clustering characteristics and estimate the
-best number of clusters for a data set by combining broom with the
-tidymodels package.</p>
-</div>
-</div>
-<div id="applications" class="section level3">
-<h3>Application(s)</h3>
-<p>There are so many! Here are a few:</p>
-<ol style="list-style-type: decimal">
-<li><p>One of my favorites is the “learn” section of the <a
-href="https://www.tidymodels.org/learn/develop/broom/">Tidymodels
-website</a>.</p></li>
-<li><p>I personally have used <a
-href="https://cran.r-project.org/web/packages/dotwhisker/vignettes/dotwhisker-vignette.html">this
-application</a> that combines the package <code>{dotwhisker}</code> with
-<code>{broom}</code>. This application is great if you have multiple
-supported models and you want to put all of the coefficients of those
-models into a single plot.</p></li>
-<li><p><a href="https://socviz.co/modeling.html">This</a> is another
-example of how broom can be leveraged to make plots</p></li>
-</ol>
-</div>
-<div id="review" class="section level3">
-<h3>Review</h3>
-<p>The primary use of <code>{broom}</code> is to convety ‘un-tidy’ data
-that is not easily manipulated into a tabular format into a tidy tibble.
-Most other similar packages are designed to work with tabular data, but
-most modeling packages produce output that far from tabular and thus
-very challenging to analyze, manipulate, or plot the output further.
-This allows the user to manipulate model output into an easier to use
-format. This is particularly useful for:</p>
-<ol style="list-style-type: decimal">
-<li>reporting results<br />
-</li>
-<li>creating plots<br />
-</li>
-<li>work with large numbers of models at once (particularly to compare
-their output)<br />
-</li>
-<li>bootstrapping model output</li>
-</ol>
-<p>I personally use <code>{broom}</code> most frequently when I am
-plotting model output for multiple models and/or multiple coefficients.
-The package is easy to learn for users who are already familiar with
-tidyverse, the benefits of tidy data, and piping but may have a steeper
-learning curve for those who haven’t used tidy before. Regardless its
-pretty simple, as most model objects can simply be put into a function.
-The vignettes also make it easier to leverage this package in more
-powerful ways, I would highly recommend this package to anyone
-conducting an analysis that involves comparing model output of multiple
-models.</p>
+<div id="review" class="section level2">
+<h2>Review</h2>
+<p>This package is a collection of functions that have been written by
+members of the Holtgrieve Ecosystem Ecology Lab that generally are all
+related to stable isotope data analysis. Personally, I most frequently
+use the “EA.NACHO” functionality of the package, which takes raw stable
+isotope analysis data and finalizes that data by comparing it with a
+known standard value. It also makes graphs to check the accuracy and
+precision of the mass spec and elemental analyzer and drift corrects the
+data. It outputs a PDF file that has lots of helpful information about
+the samples being analyzed. This package is easy to use and has lots of
+good documentation to help the user understand how to use it and what it
+is doing which I like. There is nothing specific that I wish it did
+differently, but it also took a few versions to get it working how it
+currently is. When I first started using this package it was still in
+development and so some of the functionality didn’t work well yet. I
+would only reccommend this package to people also using the SAFS EA and
+mass spec because a lot of the functionality is specific to our
+system.</p>
 <hr />
 </div>
 </div>
-<div id="corrplot" class="section level1">
-<h1><code>{corrplot}</code></h1>
+<div id="dadjokeapi" class="section level1">
+<h1><code>{dadjokeapi}</code></h1>
+<p><br></p>
+<p>Contributed by J Peraza</p>
+<p><br></p>
+<div id="location-1" class="section level2">
+<h2>Location</h2>
+<p>You can access this package from GitHub by installing:</p>
+<pre class="r"><code># install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;jhollist/dadjokeapi&quot;)</code></pre>
+<p>And it is also on CRAN:</p>
+<pre class="r"><code>install.packages(&quot;dadjokeapi&quot;)</code></pre>
+</div>
+<div id="vignettes-1" class="section level2">
+<h2>Vignette(s)</h2>
+<p>This package unfortunately has no vignettes, which is extremely
+disappointing–I think this needs to change. But, there is a standard
+help file when you run.</p>
+<pre class="r"><code>?groan</code></pre>
+</div>
+<div id="applications-1" class="section level2">
+<h2>Application(s)</h2>
+<p>There is one application of this package, and it’s this incredible
+website: <a href="https://icanhazdadjoke.com/"
+class="uri">https://icanhazdadjoke.com/</a>. The package is used in this
+website to generate a new dad joke every time you click the green button
+“new joke” at the top of the webpage.</p>
+<p>A basic application of the package:</p>
+<pre class="r"><code>dadjokeapi::groan()</code></pre>
+<p>Here is the generated joke:</p>
+<p><strong>Today, my son asked “Can I have a book mark?” and I burst
+into tears. 11 years old and he still doesn’t know my name is
+Brian.</strong></p>
+</div>
+<div id="review-1" class="section level2">
+<h2>Review</h2>
+<p>The primary purpose of this package, as defined by the creator
+themselves, is to “make you laugh in spite of yourself.” Whenever you
+are feeling down, just generate a new dad joke for giggles. What I
+really like about this package is its simplicity in that it is a single
+function. A plus is the function being named “groan,” it can’t get
+better than that. I do wish this package had more functions. For
+example, maybe different functions to generate different dad jokes that
+fall under certain categories like “one-liners,” “corny,”
+“cringeworthy,” and “pun-tastic.” I think there’s real potential here. I
+100% recommend this package for anyone who needs a dad joke on the
+fly!</p>
+<hr />
+</div>
+</div>
+<div id="gganimate" class="section level1">
+<h1><code>{gganimate}</code></h1>
+<p><br></p>
+<p>Contributed by T Code</p>
+<p><br></p>
+<div id="availability" class="section level2">
+<h2>Availability</h2>
+<p>Available on both CRAN (use
+<code>install.packages("gganimate")</code> and on GitHub via
+<code>install_github('thomasp85/gganimate')</code>.</p>
+</div>
+<div id="vignettes-2" class="section level2">
+<h2>Vignettes</h2>
+<p><code>{gganimate}</code> has a vignette that includes function
+definitions, examples of code and the graph outcomes. It also explains
+how to find your animation, and provides options for additional
+rendering formats.</p>
+</div>
+<div id="applications-2" class="section level2">
+<h2>Applications</h2>
+<p>There are many blogs that describe the usefulness of gganimate
+including posts from solarchemist, Medium, R-bloggers, and others that
+highlight the usefulness of the package. I have seen used to show the
+progression of COVID cases, the relationship between GDP and life
+expectancy, and NYC housing trends overtime.</p>
+</div>
+<div id="review-2" class="section level2">
+<h2>Review</h2>
+<p>The purpose of this package is to add animation to an otherwise
+static graphic. This package allows you animate points to easily show
+how data changes over time. I like how it builds off of ggplot and is
+easy to implement on graphs that are already coded. I like how much
+online chatter there is about this package, it makes it easy to get
+ideas on how to use it effectively. That being said, it seems that folks
+online struggle with getting animations to work without additional
+packages installed. I haven’t run into these errors but it shows that in
+some instances, gganimate isn’t as easy as it seems. Overall, I would
+definitely recommend this package to someone! The graphics produced by
+this package would be perfect to include in a presentation or on a
+project website.</p>
+<hr />
+</div>
+</div>
+<div id="camtrapr" class="section level1">
+<h1><code>{camtrapR}</code></h1>
 <p><br></p>
 <p>Contributed by Anonymous</p>
 <p><br></p>
-<div id="location-1" class="section level3">
-<h3>Location</h3>
-<p>This package is located on <a
-href="https://cran.r-project.org/web/packages/corrplot/index.html">CRAN</a>
-as well as <a href="https://github.com/taiyun/corrplot">GitHub</a>.</p>
+<div id="location-2" class="section level2">
+<h2>Location</h2>
+<p>You can install the release version of <code>{camtrapR}</code> from
+CRAN:</p>
+<pre class="r"><code>install.packages(&quot;camtrapR&quot;)</code></pre>
+<p>or the latest GitHub version (containing recent changes and new
+features) via:</p>
+<pre class="r"><code>remotes::install_github(&quot;jniedballa/camtrapR&quot;, build_vignettes = TRUE)</code></pre>
 </div>
-<div id="vignettes-1" class="section level3">
-<h3>Vignettes</h3>
-<p>The <code>{corrplot}</code> package has <a
-href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">one
-formal vignette</a> located on the CRAN website. It’s a basic
-introduction to the package, including the seven visualization methods
-and three layout types of the correlation plot. There’s also a section
-on reordering the correlation matrix, using different color spectra, and
-other ways to customize the correlation matrix plot.</p>
+<div id="vignettes-3" class="section level2">
+<h2>Vignette(s)</h2>
+<p>The package has 5 formal vignettes that help users navigate it.</p>
+<ol style="list-style-type: decimal">
+<li><p>Organising raw camera trap images in camtrapR</p></li>
+<li><p>Species and Individual Identification</p></li>
+<li><p>Data Extraction from Images and videos, creating occupancy &amp;
+secr input</p></li>
+<li><p>Data exploration and visualisation</p></li>
+<li><p>Multi-species occupancy models</p></li>
+</ol>
 </div>
-<div id="applications-1" class="section level3">
-<h3>Applications</h3>
-<p>There are many example posts on twitter using the hashtag
-<code>#corrplot</code>. Some of the twitter posts are displaying data
-from <code>#tidytuesday</code> challenges and some users are displaying
-their own data.</p>
+<div id="applications-3" class="section level2">
+<h2>Application(s)</h2>
+<p>The camtrapR package has been used in a wide range of conservation
+and research projects. For example, the Wildlife Conservation Society
+has used it for monitoring and research projects relating to wildlife as
+they use it to process and analyze camera trap data. The package has
+also been used by researchers at the Smithsonian Institution. They
+studied the distribution and abundance of large mammals in tropical
+forests. There are other applications of this package, all demonstrating
+that it can help analyze camera trap data and estimate parameters such
+as density, abundance, and behavior of wildlife species.</p>
 </div>
-<div id="review-1" class="section level3">
-<h3>Review</h3>
-<p>The <code>{corrplot}</code> package is used for plotting correlation
-data and seems to be widely used among R users. I don’t know of any
-other R package that creates correlation matrix plots. Since the package
-is located on CRAN, as well as GitHub, it must be very robust and
-well-tested. I like how easy it is to use the package (you don’t have to
-enter a lot of arguments to get a beautiful plot). I think I’ll have to
-spend more time using the package before I have things to improve about
-it. Yes, I would recommend this package to someone else, especially with
-the vignette to help.</p>
-<hr />
-</div>
-</div>
-<div id="deseq2" class="section level1">
-<h1><code>{DESeq2}</code></h1>
-<p><br></p>
-<p>Contributed by A Coyle</p>
-<p><br></p>
-<div id="location-and-installation" class="section level3">
-<h3>Location and Installation:</h3>
-<p>DESeq2 is hosted on Bioconductor, which provides open-source tools
-for analysis of bioinformatics data. To install DESeq2, you must first
-install the BiocManager package with
-<code>install.packages("BiocManager")</code>. Once BiocManager is
-installed, you can install DESeq2 with
-<code>BiocManager::install("DESeq2")</code>.</p>
-</div>
-<div id="vignettes-2" class="section level3">
-<h3>Vignettes</h3>
-<p>At the time of writing, there is one vignette available for DESeq2.
-It demonstrates the workflow for analyzing RNA-seq data. The vignette
-can be seen with <code>browseVignettes("DESeq2")</code>.</p>
-</div>
-<div id="application" class="section level3">
-<h3>Application</h3>
-<p><a
-href="https://rstudio-pubs-static.s3.amazonaws.com/329027_593046fb6d7a427da6b2c538caf601e1.html">Here</a>
-is a good breakdown of how to format inputs for DESeq2 and some ways to
-interpret results.</p>
-</div>
-<div id="review-2" class="section level3">
-<h3>Review</h3>
-<p><code>{DESeq2}</code> is an R package used to conduct analyses of
-RNA-seq data, thus providing the statistical significance of any
-observed differences in gene expression</p>
-<p>As input, you provide a table containing all contigs and their counts
-for each sample, with each sample as a different column. This means that
-prior to DESeq2, you must quantify your RNA-seq data. This can either be
-done by a variety of tools, including <a
-href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">Bowtie2</a>
-or <a href="https://www.nature.com/articles/nbt.3519">kallisto</a>. You
-also must provide a dataframe mapping each sample (e.g. each column) to
-your experimental conditions. Of course, replication in experimental
-conditions is necessary for DESeq2 to be able to draw any statistical
-comparisons.</p>
-<p>DESeq2 can provide a large number of formats - PCA plots, MA plots,
-tables of contigs with p-values and adjusted p-values for differential
-expression, dispersion estimates, tables of differentially-expressed
-contigs, and more!</p>
-<p>As a warning to new users, the runtime for the <code>DESeq()</code>
-function can be quite long - on a laptop, it may be several hours until
-the function has finished running. If you have hundreds of samples, the
-runtime may be far, far longer. In that case, it may be optimal to
-switch to <a
-href="https://ucdavis-bioinformatics-training.github.io/2018-June-RNA-Seq-Workshop/thursday/DE.html">limma-voom</a>,
-which utilizes the voom package</p>
-<p>Overall, DESeq2 is quite an impressive package. It is powerful, can
-be easily streamlined, and is excellent at what it does. However, it
-does have some downsides. One of the biggest issues is that it isn’t
-optimized for user-friendliness. To some degree, this makes sense.
-DESeq2 is an extremely specific package, with no uses beyond analyzing
-RNA-seq data. This means that generally, potential users will already
-have a general idea of what your potential inputs should be and how to
-generate them. However, the vignette is precisely detailed to an
-overwhelming degree, which can cause less-knowledgeable users to easily
-become lost in the details. This could be remedied by providing a
-tutorial for new users with some example data and a single workflow.</p>
-<p>There are several alternatives to DESeq2, most notably the package
-edgeR (also a Bioconductor package). Both are roughly equivalent in
-precision and use roughly the same process to determine differential
-expression. If you are deciding between the two, I suggest using
-whichever package is most often used by members of your lab in order to
-maximize help if you run into issues! If you’re still having trouble
-deciding, <a
-href="https://mikelove.wordpress.com/2016/09/28/deseq2-or-edger/">I
-suggest consulting this article</a>!</p>
+<div id="review-3" class="section level2">
+<h2>Review</h2>
+<p>The <code>{camtrapR}</code> package is a very useful tool for
+analyzing camera trap data. This package contains a set of functions
+that can be used to process, analyze, and visualize camera trap data. It
+is designed to handle challenges associated with camera trap data
+including missing data and repeated detections. I like that this package
+is a comprehensive set of functions that are important for the type of
+data I’m working with as it is very messy in nature. It contains
+functions that will help me do my analysis including estimating animal
+abundance, occupancy, activity patterns, and it can also help plot and
+visualize that data. The documentation and vignettes associated with
+this package are also very thorough and provide detailed explanations of
+the functions, their parameters, and examples. As a beginner to this
+type of camera data analysis, I find this package to be very helpful.
+Because I haven’t spent much time working with this package, I still
+don’t know if there any changes I’d like to see associated with this
+package, but I think it has been relatively easy to learn compared to
+other packages. Overall, I would recommend this package to anyone
+working with camera trap data, as it provides a comprehensive set of
+tools for processing and analyzing data.</p>
 <hr />
 </div>
 </div>
 <div id="ggplot2" class="section level1">
 <h1><code>{ggplot2}</code></h1>
 <p><br></p>
-<p>Contributed by A Brewer, D Radcliffe &amp; S Shorna</p>
+<p>Contributed by N Chambers &amp; Anonymous</p>
 <p><br></p>
-<div id="location-2" class="section level3">
-<h3>Location</h3>
-<p>This package is part of the Tidyverse which can be installed via <a
+<div id="location-3" class="section level2">
+<h2>Location</h2>
+<p>You can install this package on both <a
 href="https://cran.r-project.org/web/packages/ggplot2/index.html">CRAN</a>
-or <a href="https://ggplot2.tidyverse.org/">GitHub</a>.</p>
+and <a href="https://github.com/tidyverse/ggplot2">Github</a></p>
 </div>
-<div id="vignettes-3" class="section level3">
-<h3>Vignettes</h3>
-<p>The <code>{ggplot2}</code> package has three formal vignettes listed
-on the CRAN website that address different topics within the
-package:</p>
+<div id="vignettes-4" class="section level2">
+<h2>Vignette(s)</h2>
+<p><code>{ggplot2}</code> has several vignettes in addition to standard
+help files. It has three topics covered:</p>
 <ol style="list-style-type: decimal">
-<li><p><a
-href="https://cran.r-project.org/web/packages/ggplot2/vignettes/extending-ggplot2.html">This
-vignette</a> shows how to extend ggplot2 by creating a new stat, geom,
-or theme:</p></li>
-<li><p><a
-href="https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-in-packages.html">This
-vignette</a> is intended for package developers who use ggplot2 within
-their package code:</p></li>
-<li><p><a
-href="https://cran.r-project.org/web/packages/ggplot2/vignettes/ggplot2-specs.html">This
-vignette</a> summarizes the various formats that grid drawing functions
-take.</p></li>
+<li><p>aesthetic specifications,</p></li>
+<li><p>extending <code>{ggplot2}</code>, and</p></li>
+<li><p>using <code>{ggplot2}</code> in packages.</p></li>
 </ol>
+<p>The first topic is probably the most commonly referred to vignette as
+it covers the primary calls/arguments when using <code>{ggplot2}</code>
+to plot.</p>
 </div>
-<div id="applications-2" class="section level3">
-<h3>Applications</h3>
-<p>There are a vast number of applications of <code>{ggplot2}</code> in
-various puplications, twitter posts, websites and tutorials. It is
-likely one of the most popular packages in the Tidyverse.</p>
+<div id="applications-4" class="section level2">
+<h2>Application(s)</h2>
+<p>Since this package is part of the Tidyverse it has a dedicated
+section on the Tidyverse website. This website provides a lot of detail
+with regard to how the functions contained in the package can be used.
+It also has a section with 120 extensions to the package with examples
+of what they do. One reason I feel the need to learn this package is
+there are more examples on the internet of how to build figures with
+ggplot than with base R. Thus there are thousands of websites and pages
+giving examples of how to use this package to produce useful plots.</p>
+<p>There is a website like the one we built, which can be found <a
+href="https://ggplot2.tidyverse.org/">here</a>. This website includes a
+variety of resources including a cheat sheet which can be pulled from
+github <a
+href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">here</a>.</p>
 </div>
-<div id="review-3" class="section level3">
-<h3>Review</h3>
-<p>[Brewer] The primary purpose of this package is a plotting package
-that is more streamlined than the base R plot function. When compared to
-the plot function, <code>{ggplot2}</code> has a wide variety of options
-and many R users have also made various aesthetic arguments that can be
-used such as custom color palettes. I’m still learning the ins and outs
-of <code>{ggplot2}</code>, along with many tidyverse packages but I have
-yet to find something I don’t like. Since the R community that uses this
-package is so large, there are many resources for help, including the <a
-href="https://community.rstudio.com/">RStudio community</a> and <a
-href="https://stackoverflow.com/questions/tagged/ggplot2?sort=frequent&amp;pageSize=50">Stack
-Overflow</a>.</p>
-<p>[Radcliffe] <code>{ggplot2}</code> is used for graphing and
-visualizing data that is supplied by the user, and is one of the most
-widely used tools for that purpose, at least in R. I like that there are
-many options for customizability of graphs, and the fact that the
-package is common enough that help is easy to find. There are several
-things I don’t like about though, primarily that it was a bit weird and
-difficult to learn to use the full capability of <code>{ggplot2}</code>.
-What is an ‘aesthetic’ and what is a ‘theme’ still isn’t entirely clear
-to me, and often I need to trial and error with aes() calls to figure
-out where to put them in a new graph. I think this could be because the
-people I learned <code>{ggplot2}</code> from were fairly new to it
-themselves, but I have done several other class tutorials and a full
-online class on ggplot since, where I’ve had these things ‘explained’,
-but still find some of those points confusing. Maybe I need to check out
-that first vignette :) However, after a couple years of consistent use I
-could usually code up a polished graph pretty quickly without Googling,
-so I think the code is simple enough to learn. I first I found the ugly
-default settings pretty frustrating and wished they’d done those
-differently. But now I appreciate that it makes the user think
-critically about the graph they want to produce, and keeps everybody
-from making the same graph. I would recommend the package, but also that
-a systematic effort is required to learn it.</p>
-<p>[Shorna] <code>{ggplot2}</code> is a plotting package that makes it
-simple to create complex plots from data in a data frame. It provides a
-more programmatic interface for specifying what variables to plot, how
-they are displayed, and general visual properties. Therefore, we only
-need minimal changes if the underlying data change or if we decide to
-change from a bar plot to a scatterplot. This helps in creating
-publication quality plots with minimal amounts of adjustments and
-tweaking. As a beginner programmer I find this packages very useful
-while creating plots. This package was not very hard learn, but it has
-wide range of features which needs time to explore.</p>
+<div id="review-4" class="section level2">
+<h2>Review</h2>
+<p>This package is primarily used for plotting data and developing
+figures for publications. I like that the package is no more difficult
+to use or learn that base R plotting, and it uses less code overall to
+produce similar figures. I also appreciate the amazing amount of support
+this package has on online resources such as stack overflow and various
+tutorial websites. It does a great job of being able to produce complex
+and appealing figures while still maintaining its user friendly
+functionality when producing exploratory plots. Since I have only used
+it a few times I only have one complaint so far; I am not a big fan of
+the grey background that is produced in plots by default. This is a
+minor complaint however as it can be turned into a transparent
+background easily. I have found the package to be easy to learn and I am
+committed to learning to use this in favor of base R. At this point I
+would reccomend this package to others, it seems to be the standard and
+I have eoncountered no major downsides with several large upsides.</p>
+<p>The primary purpose of the <code>{ggplot2}</code> package is for
+graphics and visualizing data. This package improves on plotting in base
+R in that you can easily call aesthetic arguments (e.g., black and
+white) to create clean, easy-to-read figures. One of the most common
+uses I have with <code>{ggplot2}</code> is its faceting capabilities.
+With one easy line, <code>facet_wrap()</code>, I can break up data into
+groups and visualize each group side-by-side in subplots. Generally,
+this package was pretty easy to learn in its basic form. However,
+learning to customize my figures using <code>{ggplot2}</code> took more
+patience and skill. For example, custom colors can be tricky depending
+on what you want. I have also found that a <code>{ggplot2}</code> call
+for a single plot can very quickly become dozens of lines of code which
+becomes a bit cumbersome to edit/review, especiall if annotated with
+comments. In any case, I think there is a lot of utility in this
+package, and I have and will continue to recommend this package to other
+R users.</p>
 <hr />
 </div>
 </div>
-<div id="janitor" class="section level1">
-<h1><code>{janitor}</code></h1>
-<p><br></p>
-<p>Contributed by A DuVall</p>
-<p><br></p>
-<div id="location-3" class="section level3">
-<h3>Location</h3>
-<p>This package can be installed in two ways:</p>
-<ol style="list-style-type: decimal">
-<li>the most recent officially-released version can be installed from
-the CRAN using:</li>
-</ol>
-<pre class="r"><code>install.packages(&quot;janitor&quot;)</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>the latest development version can be installed from GitHub
-using:</li>
-</ol>
-<pre class="r"><code>install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;sfirke/janitor&quot;)</code></pre>
-</div>
-<div id="vignette" class="section level3">
-<h3>Vignette</h3>
-<p>A vignette that includes a full description of each function,
-organized by topic, can be found <a
-href="http://sfirke.github.io/janitor/articles/janitor.html">here</a>.</p>
-</div>
-<div id="application-1" class="section level3">
-<h3>Application</h3>
-<p>This package is compatible with the <code>tidyverse</code> and is
-useful for data cleaning and data exploration.</p>
-</div>
-<div id="review-4" class="section level3">
-<h3>Review</h3>
-<p>I discovered the <code>janitor</code> package a few months ago and
-I’ve quickly adopted it as a go-to package for cleaning messy data,
-where a lot of my work involves compiling multiple data sheets with
-different structures. The <code>clean_names()</code> function is a quick
-and easy way to standardize field names in a dataframe using a format
-that is friendly for analysis. The default case is snake but the
-<code>case=</code> argument can be used to select other options (e.g.,
-camel, title, etc). I also use the <code>compare_df_cols()</code>
-function often to make sure that a set data frames have identical field
-names and field types prior to binding them into one master data frame.
-Similarly, the <code>get_dupes()</code> function will identify duplicate
-records in a data frame that need to be addressed. I am aware of another
-function (<code>taybl()</code>), which is a tidyverse-oriented replace
-for <code>table()</code>, but I have not used this function as often.
-This function counts combinations of one+ variables and prints a summary
-table that is compatible with the <code>knitr::kable()</code> function
-for building report-style tables. This function can also be combined
-with the <code>adorn_*</code> functions that specify the table output;
-for example <code>adorn_totals()</code> to sum values or
-<code>adorn_percentages()</code> to calculate percentages of select
-variables. Here is a code example available on the <code>tabyls()</code>
-vignette: </br></p>
-<pre class="r"><code>humans %&gt;%
-  tabyl(gender, eye_color) %&gt;%
-  adorn_totals(c(&quot;row&quot;, &quot;col&quot;)) %&gt;%
-  adorn_percentages(&quot;row&quot;) %&gt;% 
-  adorn_pct_formatting(rounding = &quot;half up&quot;, digits = 0) %&gt;%
-  adorn_ns() %&gt;%
-  adorn_title(&quot;combined&quot;) %&gt;%
-  knitr::kable()</code></pre>
-<p></br> I found this package to be useful and easy to learn. It has
-helped me save time while cleaning and compiling data frames and I wish
-I had found out about it sooner! I recommend it for anyone dealing with
-compiling messy data sets (which I suspect includes a lot of people in
-ecology).</p>
-<hr />
-</div>
-</div>
-<div id="knitr" class="section level1">
-<h1><code>{knitr}</code></h1>
+<div id="vcfr" class="section level1">
+<h1><code>{vcfR}</code></h1>
 <p><br></p>
 <p>Contributed by Anonymous</p>
 <p><br></p>
-<div id="vignettes-4" class="section level3">
-<h3>Vignettes</h3>
-<p><code>knitr</code> has a collection of vignettes covering topics,
-such as an introduction to the package, custom print methods, and
-<code>knit_expand()</code> to name a few.</p>
+<div id="location-4" class="section level2">
+<h2>Location</h2>
+<p>This package is located on Github at <a
+href="https://github.com/knausb/vcfR"
+class="uri">https://github.com/knausb/vcfR</a> as well as CRAN.</p>
 </div>
-<div id="applications-3" class="section level3">
-<h3>Applications</h3>
-<p>The package <code>knitr</code> has a <a
-href="https://yihui.org/knitr/">website</a>, where many examples of
-<code>knitr</code> in use are included under the “Examples” tab. Not
-only is there a list of examples included on the site page, but there is
-also a link to a Github repository that holds an even larger collection
-of knitr examples and a link to applications curated by other users.</p>
+<div id="vignettes-5" class="section level2">
+<h2>Vignette(s)</h2>
+<p>This package has not one but four formal vignettes. These include a
+vignette on what a VCF (Variant Call Format) file is, one on a general
+intro to <code>{vcfR}</code>, one on the workflow for
+<code>{vcfR}</code>, and one for converting objects in
+<code>{vcfR}</code> to other data or file formats.</p>
 </div>
-<div id="review-5" class="section level3">
-<h3>Review</h3>
-<p>According to the creators, the <code>knitr</code> was created to
-generate dynamic reports with R, wherein the user has full access to the
-input and output components. Additionally, <code>knitr</code> tackles
-“some long-standing problems in Sweave and combines features in other
-add-on packages into one package.” I was <strong>super</strong>
-impressed with the package’s ability to incorporate the formating of
-various academic journals, on top of the creation of other documents
-like class materials and CVs. If this wasn’t enough, I really liked the
-ability and ease of including chunks of code and equations within
-documents. I, an R novice in many respects, found the package easy
-enough to learn and would deem it user-friendly. I did run into some
-snags along the way (to be expected), though I cannot pinpoint if those
-sangs resulted from an issue with the package, an issue within R, or my
-beginning stages R skills. All in all, I have no major problems to
-report. Though I’ve only taking my first steps into the exploration the
-<code>knitr</code> package, I am already stunned by its utility,
-especially when paired with the <code>knitcitations</code> package. I
-would have never considered writing documents in R Markdown prior to
-this class, but have already recommended doing so to others in my
-lab!</p>
+<div id="applications-5" class="section level2">
+<h2>Application(s)</h2>
+<p>There are two thorough applications of this package that are both
+linked in the README. One is an entire website devoted to the package,
+covering everything from background information on R and file types used
+(they give a nice background as to what a VCF file is and how it’s
+structured) as well as many tutorials as to analyses <code>{vcfR}</code>
+can be used for. In addition, they link another website they’ve build
+all about population genetics and genomics in R, giving a really nice
+work through of how you can use R to perform all sorts of filtering,
+visualization, and analyses for population genetic/genomic studies. I
+was really impressed by all this documentation.</p>
+</div>
+<div id="review-5" class="section level2">
+<h2>Review</h2>
+<p><code>{vcfR}</code> is described as a package to “help visualize,
+manipulate and quality filter VCF data”. Genetic/genomic data is often
+stored in VCF files and there exist many tools for filtering,
+manipulating, and analyzing these data. However, a disadvantage of many
+of these tools, such as VCFtools, is that they are run in Linux, making
+any sort of code documentation or data visualization difficult. This can
+make setting thresholds for filtering difficult as well.
+<code>{vcfR}</code> allows us to visualize this data though and keep
+records of code and previous filtering steps, allowing for better
+threshold determination and more consistent filtering across different
+datasets. An aspect I especially appreciate is how easy it is to output
+these data to other file formats that may be necessary for additional
+analyses. The authors of this package did a fantastic job providing all
+sorts of tutorials and documentation on the applications this package
+has, as well as how R can be utilized in population genetic/genomic
+studies in general. This makes learning how to use this package and its
+various utilities very easy to learn.</p>
+<p>The only aspect of this package I’m not a huge fan of is that the
+functions in <code>{vcfR}</code> are designed to only work on a single
+chromosome. When you have data from across the genome, it can be tedious
+to have to break data down chromosome by chromosome, especially in
+organisms like salmonids, which can have chromosome numbers in the high
+twenties. It would be nice if <code>{vcfR}</code> could be expanded to
+work with data across the genome simultaneously. Overall though I would
+recommend <code>{vcfR}</code> to anyone working with genetic/genomic
+data.</p>
 <hr />
 </div>
 </div>
-<div id="magick" class="section level1">
-<h1><code>{magick}</code></h1>
+<div id="wesanderson" class="section level1">
+<h1><code>{wesanderson}</code></h1>
 <p><br></p>
-<p>Contributed by R Stiling</p>
+<p>Contributed by N Doran</p>
 <p><br></p>
-<div id="location-4" class="section level3">
-<h3>Location</h3>
-<p>The package is available on CRAN via
-<code>install.packages("magick")</code> and also on <a
-href="https://github.com/ropensci/magick">GitHub</a> (for
-development).</p>
+<div id="locations" class="section level2">
+<h2>Location(s)</h2>
+<p>The <code>{wesanderson}</code> package has color palettes based on
+Wes Anderson films. It is on both GitHub and CRAN.</p>
+<pre class="r"><code>install.packages(&quot;wesanderson&quot;)</code></pre>
 </div>
-<div id="vignettes-5" class="section level3">
-<h3>Vignettes</h3>
-<p>The package has a vigniette that quickly, intuitively, and with a bit
-of humor, demostrates the basic functionality of the package. <a
-href="https://cran.r-project.org/web/packages/magick/vignettes/intro.html"
-class="uri">https://cran.r-project.org/web/packages/magick/vignettes/intro.html</a></p>
+<div id="vignettes-6" class="section level2">
+<h2>Vignette(s)</h2>
+<p>The package does have a vignette but it is not very complete. The
+most helpful way to learn about applications of this package are on the
+Github repo: <a href="https://github.com/karthik/"
+class="uri">https://github.com/karthik/</a><code>{wesanderson}</code></p>
 </div>
-<div id="applications-4" class="section level3">
-<h3>Applications</h3>
-<p>Images of all types can be easily cropped, combined, and edited
-within R. Can also be used to construct and deconstruct gifs.</p>
+<div id="applications-6" class="section level2">
+<h2>Application(s)</h2>
+<p>In the description it has the functions needed to see the palette
+names and see the different palettes. One of the applications it
+mentions is the Zissou1 palette (inspired by the Life Aquatic with Steve
+Zissou) is good for creating heat maps. The end of the description also
+has a list of examples of this palette being used in publications. There
+are more applications of it on R bloggers: <a
+href="https://www.r-bloggers.com/2022/07/colorful-r-plots-with-wes-anderson-palettes-pirate-ships/"
+class="uri">https://www.r-bloggers.com/2022/07/colorful-r-plots-with-wes-anderson-palettes-pirate-ships/</a></p>
+<p>Most palettes have only 4 to 5 colors in them, but you can include an
+argument in the function wespalette() to create a continuous gradient to
+pull more colors from, which is demonstrated in examples in the
+description file.</p>
+<pre class="r"><code>names(wes_palettes)</code></pre>
+<p>My favorite palette is probably the Royal1 palette inspired by the
+<em>Royal Tenenbaums</em>. I’ve used this palette as inspiration for
+posters and powerpoint presentations because I like the gradient of warm
+colors with the blue accent color. Taking the red from Ben Stiller’s
+tracksuit is a nice touch.</p>
+<pre class="r"><code>wes_palette(&quot;Royal1&quot;)</code></pre>
 </div>
-<div id="review-6" class="section level3">
-<h3>Review</h3>
-<p>Although this package is used for advanced image manipulation, it is
-quite simple to use. I like it because it does precise image processing
-and annotating with simple functions. I discovered <code>{magick}</code>
-when I was unable to use another favorite package
-(<code>{patchwork}</code>) to compile a multi-panel plot. In my case,
-<code>{patchwork}</code> could not recognize ternary diagrams produced
-by <code>{ggtern}</code> because the usual ggplot geometry (ie x-y
-coordinates) had been overwritten and lost. With a few simple commands,
-I was able to take my two plots and put them together into a single
-figure with A,B annotation. The package <code>{magick}</code> allows for
-precise image manipulation that you might do with PowerPoint or
-Photoshop, but in an R code structure, which makes any steps taken to
-alter figures/images reproducible. With this package it is easy combine
-different file types (png, jpg, etc), cropping, resizing, layering, etc.
-I like that you store images as objects, and then combine them together
-in a number of different ways, and that you can see what you are doing
-the Plots pane of RStudio. I also like that you can use pipe syntax to
-make your code easily readable.</p>
-<p>The vignettes and tutorials make it surprisingly simple to use. The
-main help page is organized extremely well, with
-<strong>pictures</strong>, so each thing you wish to do (re-size, stack,
-overlay, annotate, etc) it is simple to find at a glance by scaning the
-help page for pictures of what you may be trying to do with your
-images.</p>
-<p>Overall, I think this package is amazing, I highly recommend it, and
-it can do far more than I’ve used it for!</p>
+<div id="review-6" class="section level2">
+<h2>Review</h2>
+<p>I’m not familiar with many different R packages so I thought this
+would be a fun one to highlight after the lecture we had on graphic
+design and color palettes. As a film nerd I always really liked how
+color is used in Wes Anderson films and these palettes capture the
+aesthetics of some of my favorite movies, so that’s fun. It doesn’t look
+like the newest film French Dispatch has been added, so I would like to
+see that because one of the skits has a nice color palette of pink,
+blue, and yellow that aren’t as pastel-like as the Moonrise Kingdom
+palette with similar colors.</p>
+<pre class="r"><code>wes_palette(&quot;Moonrise3&quot;)</code></pre>
+<p>I don’t really have anything else to say–they’re color palettes. They
+are easy to use in both base R and <code>{ggplot}</code>, many are
+color-blind friendly. It’s just fun to have cultural references in data
+science.</p>
 <hr />
 </div>
 </div>
 <div id="patchwork" class="section level1">
 <h1><code>{patchwork}</code></h1>
-<p>Contributed by J Morris</p>
-<div id="location-5" class="section level3">
-<h3>Location</h3>
-<p>Download from <a
-href="https://cloud.r-project.org/web/packages/patchwork/index.html"><strong>CRAN</strong></a></p>
-<pre class="markdown"><code>install.packages(&#39;patchwork&#39;)</code></pre>
-<p>Development version from <a
-href="https://github.com/thomasp85/patchwork"><strong>GitHub</strong></a>.</p>
-<pre class="markdown"><code># install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;thomasp85/patchwork&quot;)</code></pre>
+<p><br></p>
+<p>Contributed by K Veggerby</p>
+<p><br></p>
+<div id="location-5" class="section level2">
+<h2>Location</h2>
+<p>The package is on CRAN and can be installed in RStudio using the
+following R command:</p>
+<pre class="r"><code>install.packages(&quot;patchwork&quot;)</code></pre>
 </div>
-<div id="vignettes-6" class="section level3">
-<h3>Vignettes</h3>
-<p><a
-href="https://cran.r-project.org/web/packages/patchwork/patchwork.pdf">Reference
-manual</a>: Describes package information and details main
-functions.</p>
-<p><a
-href="https://cloud.r-project.org/web/packages/patchwork/vignettes/patchwork.html">Getting
-Started</a>: Tutorial for working through the basics of using
-<code>patchwork</code>. Includes example plots, basic use, controlling
-layout, stacking and packing plots, and annotating the composition.</p>
-<p><a
-href="https://patchwork.data-imaginist.com/articles/guides/assembly.html">Plot
-Assembly</a>: Tutorial of the different operators and functions
-available for plot assembly. Includes adding plots to the patchwork,
-nesting the left-hand side, and modifying patches.</p>
-<p><a
-href="https://patchwork.data-imaginist.com/articles/guides/layout.html">Controlling
-Layouts</a>: Tutorial for controlling plot layouts. Includes adding an
-empty area, controlling the grid, moving beyond the grid, fixed aspect
-plots, insets, and controlling guides.</p>
-<p><a
-href="https://patchwork.data-imaginist.com/articles/guides/annotation.html">Adding
-Annotation and Style</a>: Tutorial for adding titles, subtitles and
-captions, tagging, and styling the patchwork.</p>
-<p><a
-href="https://patchwork.data-imaginist.com/articles/guides/multipage.html">Multipage
-Alignment</a>: Tutorial for aligning plots across pages, especially
-useful for designing slideshows.</p>
+<div id="vignettes-7" class="section level2">
+<h2>Vignette(s)</h2>
+<p>There is a <a
+href="https://cran.r-project.org/web/packages/patchwork/vignettes/patchwork.html">short
+vignette</a> going through the basics of patchwork syntax. This is
+helpful if you are new to patchwork and want to see how it works. The
+idea is to combine plots, figures, maps etc in R as simply as possible.
+It also contains many options for more complex or detailed plot
+combinations. For more detailed examples see: <a
+href="https://patchwork.data-imaginist.com/"
+class="uri">https://patchwork.data-imaginist.com/</a></p>
+<p>If you’re interested in learning patchwork, I would spend about 5
+minutes on the cran page familiarizing yourself with the basics, and
+then spend the rest of your time on the package website listed
+above.</p>
 </div>
-<div id="applications-5" class="section level3">
-<h3>Applications</h3>
-<p><a
-href="https://patchwork.data-imaginist.com/index.html">Website</a>:
-Provides instructions for download and installation, vignettes, and
-helpful references.</p>
+<div id="applications-7" class="section level2">
+<h2>Application(s)</h2>
+<p><a href="https://patchwork.data-imaginist.com/"
+class="uri">https://patchwork.data-imaginist.com/</a></p>
+<p>This website built by the developers goes through many examples of
+how to use patchwork mainly using the mtcars dataset in R.</p>
 </div>
-<div id="review-7" class="section level3">
-<h3>Review</h3>
-<p><code>{patchwork}</code> makes it simple to create complex (<em>&amp;
-beautiful!</em>) plot layouts suitable for publication-worthy figures.
-Along with an extensive suite of helpful vignettes,
-<code>patchwork</code> has a very intuitive and readable coding syntax
-that makes it extremely easy to use. For example, to arrange two plots
-(<code>p1</code> &amp; <code>p2</code>) side by side, you would ‘add’
-the plots together using <code>p1 + p2</code>. Want them stacked
-vertically? Just ‘divide’ the plots using <code>p1 / p2</code>. Want a
-third plot (<code>p3</code>) to the right? ‘Add’ it to the nested plots
-using <code>(p1 / p2) + p3</code>. The possibilities are virtually
-endless.</p>
-<p>There are a lot of things I love about <code>patchwork</code>: - The
-package automatically aligns plot dimensions, eliminating the need to
-painstakingly define plot coordinates. - The plot layout options are
-very versatile, allowing you to easily control plot arrangement, size,
-orientation, and add blank space. - The package allows for adding
-additional ggplot arguments (e.g., to unify themes across all plots) -
-Adding annotations is simple, including auto-tagging capabilities for
-subplots. - <code>patchwork</code> can integrate components from other
-plotting packages like <code>cowplot</code> and
-<code>gridExtra</code>.</p>
-<p>The main drawback to <code>patchwork</code> is that all plots must be
-ggplot objects. Regardless, <em>I would absolutely recommend this
-package</em> to anyone looking for a simple but powerful way to combine
-multiple plots into a single multipaneled figure.</p>
+<div id="review-7" class="section level2">
+<h2>Review</h2>
+<p>The purpose of patchwork is to combine plots, maps, pictures etc. in
+R into multiplots as simply as possible. The syntax is such that it
+visually makes sense to the human eye.</p>
+<p>For instance:</p>
+<pre class="r"><code>plot1 + plot2 </code></pre>
+<p>produces a figure that has plot1 and plot2 side by side.</p>
+<pre class="r"><code>plot1 / plot2 </code></pre>
+<p>produces a figure that has plot1 and plot2 stacked vertically.</p>
+<p>Beyond the simplicity of the commands and syntax, the package has a
+huge list of options to customize multiplots and make small tweaks to
+customize pretty much every aspect of a figure. Different commands can
+be added on by adding a <code>+</code> and another line, in the same way
+that ggplot adds additional items. Patchwork accepts most R objects as
+inputs. For instance, you could generate a series of plots in ggplot,
+and then add them all together with patchwork.</p>
+<p>Example: <code>ggplot1</code>, <code>gis.shape.file</code>,
+<code>ggplot3</code>, and <code>png.object</code> could be made into a 2
+x 2 multiplot using simply:</p>
+<pre class="r"><code>Cool_plot &lt;- (ggplot1 + gis.shape.file) / (ggplot3 + png.object)</code></pre>
+<p>There are a number of other plot combine packages out there like
+<code>{grid}</code> and <code>{cowplot}</code>. While these can be
+helpful, patchwork generally can do everything that other packages can
+do, but it does them better or more efficiently with less code. In fact,
+the creator of (I believe) cowplot has stated that people should just
+use patchwork for 90% of their plot combination needs.</p>
+<p>Given how easy patchwork is to use and understand, the customization,
+and the large amount of tutorial/documentation, this should be
+everyone’s go-to plot combination package. Along with other packages
+such as ggplot and Rcolorbrewer, patchwork forms part of a core group of
+data visualization packages that everyone should know.</p>
 <hr />
 </div>
 </div>
-<div id="unmarked" class="section level1">
-<h1><code>{unmarked}</code></h1>
+<div id="ss3sim" class="section level1">
+<h1><code>{ss3sim}</code></h1>
 <p><br></p>
-<p>Contributed by Y Hentati</p>
+<p>Contributed by Anonymous</p>
 <p><br></p>
-<p>Models for Data from Unmarked Animals.</p>
-<div id="location-6" class="section level3">
-<h3>Location</h3>
-<p>You can install {unmarked} through <a
-href="https://github.com/rbchan/unmarked">GitHub</a> or <a
-href="https://cran.r-project.org/web/packages/unmarked/index.html">CRAN</a>.</p>
-</div>
-<div id="vignettes-7" class="section level3">
-<h3>Vignettes</h3>
-<p>This package has 5 vignettes available for users.</p>
+<div id="location-6" class="section level2">
+<h2>Location</h2>
+<p>The package can be downloaded from Cran or from Github.</p>
 <ol style="list-style-type: decimal">
-<li><code>cap-recap</code> covers capture-recapture methods</li>
-<li><code>coltext</code> covers dynamic occupancy models<br />
-</li>
-<li><code>distsamp</code> covers distance sampling analysis<br />
-</li>
-<li><code>spp-dist</code> covers species distributions<br />
-</li>
-<li><code>unmarked</code> is an overview of the whole package</li>
+<li>Cran</li>
 </ol>
+<pre class="r"><code>install.packages(&#39;ss3sim&#39;,
+                 repos=&#39;https://cran.r-project.org/web/packages/ss3sim/index.html&#39;,
+                 dependencies=TRUE)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Github</li>
+</ol>
+<pre class="r"><code>remotes::install_github(&quot;ss3sim/ss3sim&quot;,
+                        ref = &quot;main&quot;,
+                        build_vignettes = TRUE, dependencies = TRUE )</code></pre>
 </div>
-<div id="applications-6" class="section level3">
-<h3>Application(s)</h3>
-<p>I’m not sure if this is specifically talking about web applications
-(?) but I couldn’t find any.</p>
+<div id="vignettes-8" class="section level2">
+<h2>Vignette(s)</h2>
+<p><code>{ss3sim}</code> has a number of useful help files.</p>
+<p>There are three documents which are useful when working with
+<code>{ss3sim}</code>. The first is the <code>README.md</code>, which is
+comprehensive and offers notes on the installation, file structure and
+an example simulation of the package. The <code>README.md</code> can be
+found <a
+href="https://github.com/ss3sim/ss3sim/blob/main/README.md">here</a>.</p>
+<p>There are three vignettes available on the github which cover</p>
+<ol style="list-style-type: decimal">
+<li><p><a
+href="https://ss3sim.github.io/ss3sim/articles/introduction.html">Introduction</a></p></li>
+<li><p><a
+href="https://github.com/ss3sim/ss3sim/blob/main/vignettes/making-models.Rmd">Making
+models</a></p></li>
+<li><p><a
+href="https://github.com/ss3sim/ss3sim/blob/main/vignettes/modifying-models.Rmd">Modifying
+models</a>.</p></li>
+</ol>
+<p>The package is actively under development by NOAA, and as such the <a
+href="https://github.com/ss3sim/ss3sim/discussions">discussion
+board</a>,on GitHub is particularly useful for resolving queries.</p>
+<p>There is also an introduction <a
+href="https://cran.r-project.org/web/packages/ss3sim/vignettes/introduction.html">avilable
+on CRAN</a>, but it is deprecated and following the instructions will
+not allow the user to create simulations. This is particularly
+problematic as when Google is used to <a
+href="https://www.google.com/search?q=introduction+to+ss3sim&amp;oq=introduction+to+ss3sim&amp;aqs=chrome..69i57j69i60l2.4403j0j7&amp;sourceid=chrome&amp;ie=UTF-8">search
+for introductory material</a>, the CRAN intro is the first result.</p>
 </div>
-<div id="review-8" class="section level3">
-<h3>Review</h3>
-<p>This package is used for statistical modeling; specifically, this
-package fits models for data from non-invasive survey methods. With this
-package, you can build single- and multi-season occupancy models,
-binomial N-mixture models, multinomial N-mixture models, and several
-other types of models. I am only familiar with the single- and multi-
-season occupancy models, and have found the package relatively easy to
-use in conjunction with occupancy model literature and reading papers
-using this specific package. The package uses an S4 class called an
-<code>unmarkedFrame</code> to store covariate and response data as well
-as metadata. The user reads in their data and calls the specific type of
-<code>unmarkedFrame</code> based on the model-fitting function they are
-using, then the <code>unmarkedFrame</code> is passed to the appropriate
-estimation function. I would recommend it to those looking to run
-single-species models with camera trap data that account for imperfect
-detection (i.e. occupancy models). I haven’t yet used it or other
-occupancy modeling packages/methods enough to know what I would like it
-to do differently yet.</p>
+<div id="applications-8" class="section level2">
+<h2>Application(s)</h2>
+<p>The primary application of the package is that it allows users to
+crate simulated fish populations and estimate them using the <a
+href="https://nmfs-stock-synthesis.github.io/doc/SS330_User_Manual.html">Stock
+Synthesis 3</a> modelling framework.The package has been employed for
+simulation testing documented in peer-review literature. Notable
+publications include:</p>
+<p>Monnahan et al. (<a href="#ref-monnahan_effect_2016">2016</a>)<br />
+Ono et al. (<a href="#ref-ono_importance_2015">2015</a>)<br />
+Rudd et al. (<a href="#ref-rudd_catch_2021">2021</a>)</p>
+</div>
+<div id="review-8" class="section level2">
+<h2>Review</h2>
+<p><code>{ss3sim}</code> is an R package which allows users to simulate
+fish stock populations and asses them using <a
+href="https://nmfs-stock-synthesis.github.io/doc/SS330_User_Manual.html">Stock
+Synthesis 3</a> modelling framework. The package was initially developed
+as part of a graduate class project in the school of Aquatic and
+fisheries Science, University of Washington, with the project being led
+by Sean Anderson (Anderson et al. (<a
+href="#ref-anderson_ss3sim_2014">2014</a>)). Each simulation has three
+components an Operating model (OM) which represent the true population
+such as natural mortality <em>M</em>, recruitment <em>R</em> and fishing
+mortality <em>F</em>,the Estimation method (EM) (Stock assessments,
+survey data etc) which denotes how the population is to be assessed and
+the control file, which allows the users how and when they would like to
+alter the EM and OM.</p>
+<p>While the file structure of the does appear cumbersome at first,
+running a pre-specification (or boiler plate) is realities
+straightforward by following the introduction vignette. The package
+allows users to alter SS3 assessments in a relatively straightforward
+fashion,compared to editing the large .text files which SS3 assessments
+use. The other nice aspect of the package is there are three boiler
+plates, each mimicking a different fish life-history pattern. The
+species are Cod <em>Gadus morhua</em>, pacific anchovy <em>Engraulis
+mordax</em> and yellowtail flounder <em>Pleuronectes
+ferruginea</em>.</p>
+<p>I would recommend the package to anyone interested in fisheries
+simulation testing or with <code>{ss3sim}</code>. As a user who had no
+SS3 experience, I was able to alter the boiler plates and simulate the
+effect of having <em>F</em> set far higher than is suitable. The effect
+of this on a fishery over a time period (I chose 100 years) could then
+be observed.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p>Anderson, S.C., Monnahan, C.C., Johnson, K.F., Ono, K., Valero, J.L.,
+2014. ss3sim: An R Package for Fisheries Stock Assessment Simulation
+with Stock Synthesis. PLoS ONE 9, e92725. <a
+href="https://doi.org/10.1371/journal.pone.0092725"
+class="uri">https://doi.org/10.1371/journal.pone.0092725</a></p>
+<p>Monnahan, C.C., Ono, K., Anderson, S.C., Rudd, M.B., Hicks, A.C.,
+Hurtado-Ferro, F., Johnson, K.F., Kuriyama, P.T., Licandeo, R.R.,
+Stawitz, C.C., Taylor, I.G., Valero, J.L., 2016. The effect of length
+bin width on growth estimation in integrated age-structured stock
+assessments. Fisheries Research, Growth: Theory, estimation, and
+application in fishery stock assessment models 180, 103–112. <a
+href="https://doi.org/10.1016/j.fishres.2015.11.002"
+class="uri">https://doi.org/10.1016/j.fishres.2015.11.002</a></p>
+<p>Ono, K., Licandeo, R., Muradian, M.L., Cunningham, C.J., Anderson,
+S.C., Hurtado-Ferro, F., Johnson, K.F., McGilliard, C.R., Monnahan,
+C.C., Szuwalski, C.S., Valero, J.L., Vert-Pre, K.A., Whitten, A.R.,
+Punt, A.E., 2015. The importance of length and age composition data in
+statistical age-structured models for marine species. ICES Journal of
+Marine Science 72, 31–43. <a
+href="https://doi.org/10.1093/icesjms/fsu007"
+class="uri">https://doi.org/10.1093/icesjms/fsu007</a></p>
+<p>Rudd, M.B., Cope, J.M., Wetzel, C.R., Hastie, J., 2021. Catch and
+Length Models in the Stock Synthesis Framework: Expanded Application to
+Data-Moderate Stocks. Frontiers in Marine Science 8, 663554. <a
+href="https://doi.org/10.3389/fmars.2021.663554"
+class="uri">https://doi.org/10.3389/fmars.2021.663554</a></p>
+<hr />
+</div>
+</div>
+<div id="fd" class="section level1">
+<h1><code>{FD}</code></h1>
+<p><br></p>
+<p>Contributed by E Bishop</p>
+<p><br></p>
+<div id="location-7" class="section level2">
+<h2>Location</h2>
+<p>You can find this package on <a
+href="https://cran.r-project.org/web/packages/FD/index.html">CRAN</a>
+and also on <a href="https://github.com/cran/FD">Github</a> as a
+read-only mirror of the CRAN repository.</p>
+</div>
+<div id="vignettes-9" class="section level2">
+<h2>Vignette(s)</h2>
+<p>There are no vignettes as part of this package.</p>
+</div>
+<div id="applications-9" class="section level2">
+<h2>Application(s)</h2>
+<p>I haven’t found any applications of this package yet outside of
+scientific publications. It’s a relatively new package.</p>
+</div>
+<div id="review-9" class="section level2">
+<h2>Review</h2>
+<p>The primary purpose of this package is for community ecologists to
+analyze functional trait data. Functional traits are characteristics of
+species that describe the ecological niche they occupy within a
+community. Once a user has created matrices of site x species and
+species x trait data they can use this package to calculate several
+diversity indices using the <span class="math inline">\(dbFD\)</span>
+function. For example, these indices include functional richness,
+evenness, and divergence, which are all aspects of alpha (within
+community) diversity. The diversity indices are based on a Principal
+Coordinate Analysis (PCoA) and users can extract the PCoA coordinates
+from the <span class="math inline">\(dbFD\)</span> output to visualize
+the ordination. I like this package because the output of one function
+gives quite a bit of information about a community dataset. I do,
+however, wish there was more documentation and more help files to make
+it more user-friendly. You have to have your input matrices formatted in
+a very particular way, and there’s no examples online of how to do this,
+so using the package involves a lot of trial and error therefore making
+it a little tricky to learn how to use. I would recommend this package
+because I think the output is super interesting, but in recommending the
+package to a friend I would also share my R code with them so they could
+have an easier time getting started.</p>
+<hr />
+</div>
+</div>
+<div id="siber" class="section level1">
+<h1><code>{SIBER}</code></h1>
+<p><br></p>
+<p>Contributed by C Backstrom</p>
+<p><br></p>
+<div id="location-8" class="section level2">
+<h2>Location</h2>
+<p>You can download the Stable Isotope Bayesian Ellipses in R
+(<code>{SIBER}</code>) package, created by Dr. Andrew Jackson and
+Dr. Andrew Parnell, on the web both via CRAN (<a
+href="https://cran.r-project.org/web/packages/SIBER/index.html"
+class="uri">https://cran.r-project.org/web/packages/SIBER/index.html</a>)
+and via Andrew Jackson’s Github repository (<a
+href="https://github.com/AndrewLJackson/SIBER"
+class="uri">https://github.com/AndrewLJackson/SIBER</a>).</p>
+</div>
+<div id="vignettes-10" class="section level2">
+<h2>Vignette(s)</h2>
+<p>The CRAN repository for the <code>{SIBER}</code> package offers 11
+vignettes demonstrating different features of the R code calculations
+and their interpretation. Topics covered in these vignettes range from
+vector statistics on stable isotope biplot centroids to plot
+customization to differences between comparing community and population
+isotope biplots.</p>
+</div>
+<div id="applications-10" class="section level2">
+<h2>Application(s)</h2>
+<p>The <code>{SIBER}</code> package can be used to calculate the overlap
+in isotopic niche space (e.g., biplots of carbon-13 and nitrogen-15
+signatures) between two or more groups of organisms (such as species,
+populations, or communities) to determine the trophic
+similarity/difference between these groups. <code>{SIBER}</code> biplots
+have appeared in scientific articles in various areas of biology and
+ecology since the initial creation of the package in 2011.</p>
+</div>
+<div id="review-10" class="section level2">
+<h2>Review</h2>
+<p>The primary purpose of the <code>{SIBER}</code> package is to compare
+the trophic state of different groups of organisms (e.g., different
+populations or species) by generating biplots of carbon and nitrogen
+stable isotopic signatures and producing Bayesian ellipses to
+statistically compare the overlap in signatures between those different
+groups. As a coral ecophysiologist, I use <code>{SIBER}</code> to
+quantify the overlap in isotopic signatures between corals and their
+algal symbionts, interpreting higher percent overlap as a higher
+exchange of resources (i.e., a higher degree of mutualism) between these
+two members of coral symbiosis (see <a
+href="https://www.science.org/doi/10.1126/sciadv.aaz5443">Conti-Jerpe et
+al. (2020)</a>.</p>
+<p>I really appreciate how easy it is to use this package for both
+plotting and statistical analysis of isotopic data. The vignettes
+provide extensive comments explaining every code line and its
+interpretation, and the generated isotopic biplots are easy to
+manipulate using your own code. The <code>{SIBER}</code> model runs
+relatively quickly (in my experience, being able to process 4000
+Bayesian simulations of sample sets of ~50 per each of 2 groups of data
+in just a few minutes) and the associated Hotelling’s T2 and centroid
+data for the ellipses are relatively easy to interpret. Having first
+learned to use <code>{SIBER}</code> without much background in R or R
+Studio, I can attest that the package is easy to learn to use, and that
+the package creators are available by email to answer any further
+questions.</p>
+<p>My only warning for using the <code>{SIBER}</code> package would be
+to keep up to date with the newest discussions of the limitations and
+applications of the model itself. Especially in coral-centric fields,
+<code>{SIBER}</code> applications are still in their infancy, and many
+isotopic experts (including those reviewing my manuscripts) often have
+nuanced interpretations of the results that may not be evident from the
+previous literature.</p>
+<hr />
+</div>
+</div>
+<div id="tidyr" class="section level1">
+<h1><code>{tidyr}</code></h1>
+<p><br></p>
+<p>Contributed by Anonymous</p>
+<p><br></p>
+<div id="location-9" class="section level2">
+<h2>Location</h2>
+<p>This package can be accessed by installing Tidyverse as a whole via
+CRAN: <code>install.packages("tidyverse")</code>.</p>
+<p>Alternatively, the singular package can be installed with
+<code>install.packages("tidyr")</code>.</p>
+<p>The development version of package can also be installed via GitHub
+with <code>devtools::install_github("tidyverse/tidyr")</code>.</p>
+</div>
+<div id="vignettes-11" class="section level2">
+<h2>Vignette(s)</h2>
+<p>There are 5 categories of functions within the package and they are
+listed on the <a href="https://tidyr.tidyverse.org/index.html">Tidyverse
+website.</a>. Each category has extended guides to describe the
+functions within.</p>
+<ul>
+<li>Pivoting</li>
+<li>Rectangling</li>
+<li>Nesting</li>
+<li>Splitting and Combining</li>
+<li>Making Implicit Values Explicit</li>
+</ul>
+</div>
+<div id="applications-11" class="section level2">
+<h2>Application(s)</h2>
+<p>The goal of <code>{tidyr}</code> is in the title–it is meant to help
+you tidy your data! <a href="https://tidyr.tidyverse.org/">The
+website</a> provides a cheatsheet and further explanation of various
+situations that it may be applicable in.</p>
+</div>
+<div id="review-11" class="section level2">
+<h2>Review</h2>
+<p>I learned about <code>{tidyr}</code> when taking a very simple
+Introduction to R course in the final year of my undergraduate career. I
+was briefly reintroduced to the package in FISH 552/553 and I was glad
+to be reminded about a tool that could aid in the time-consuming process
+of cleaning one’s data. Because 90% of research is data wrangling, I
+find that this package can be incredibly useful despite having yet to
+use it personally. Particularly, it would have been applicable for the
+dense spatial data of my undergraduate research and made the process of
+managing more complex data more straightforward. As an individual who is
+still relatively new to R and coding languages, I find it enticing to
+streamline a workflow.</p>
+<p>The package highlights the two main properties of tidy data: each
+column is a variable and each row is an observation. This concept is
+ideal for consistency in your coding workflow because it arranges your
+data in the same manner. The structure ultimately enables you to push
+your data through various functions without worrying about
+compatibility.</p>
+<p><code>{tidyr}</code> is particular useful for:</p>
+<ul>
+<li>Changing the shape of a data set</li>
+<li>Changing the hierarchy of data set</li>
+<li>Handling deeply nested data sets</li>
+<li>Working with missing values (explicit and implicit)</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="purrr" class="section level1">
+<h1><code>{purrr}</code></h1>
+<p><br></p>
+<p>Contributed by Anonymous</p>
+<p><br></p>
+<div id="location-10" class="section level2">
+<h2>Location</h2>
+<p>You can install <code>{purrr}</code> from CRAN with</p>
+<pre class="r"><code>install.packages(&quot;purrr&quot;)</code></pre>
+</div>
+<div id="vignettes-12" class="section level2">
+<h2>Vignette(s)</h2>
+<p>The package does have a formal vignette. It covers topics such as
+what tools it draws inspiration from as well as the goals of
+<code>{purrr}</code>.</p>
+</div>
+<div id="applications-12" class="section level2">
+<h2>Application(s)</h2>
+<p><span class="citation">@joshmccrain</span> on Twitter posted an
+introduction and application of the package showing its basic functions
+and how to create models and visualizations with <code>{purrr}</code> In
+his demonstration he created a list of <code>{ggplot}</code> objects to
+apply to a map, which gives you the ability to call them separately.</p>
+</div>
+<div id="review-12" class="section level2">
+<h2>Review</h2>
+<p>I don’t have too much experience with <code>{purrr}</code>, but from
+what I’ve used it for and read about it online I find it really
+interesting. The package is meant to provide a set of functions that can
+make your coding more efficient for working with functions and vectors
+in R. For example the map function completes the same tasks as a for
+loop but with different coding, like the different R apply functions.
+Though <code>{purrr}</code> functions are named more consistently than
+apply functions and can make code more readable. I like the consistency
+of this package, lambda functions are needed as much so it makes
+navigating data manipulation easier and more readable/reproducible for
+me. While I’m still learning all of the possibilities of the package, I
+do not find it hard to figure out, there is very good documentation
+available for it and lots of online resources for different applications
+of the function. I don’t necessarily have any complaints for the
+package, as it applications for what I have used are simple. I would
+recommend the <code>{purrr}</code> package to those who do not like the
+application of the apply function family in R, as <code>{purrr}</code>
+can be easier to read and use, though if you are already used to the
+apply functions, <code>{purrr}</code> may not be worth learning.</p>
+<hr />
+</div>
+</div>
+<div id="tidyverse" class="section level1">
+<h1><code>{tidyverse}</code></h1>
+<p><br></p>
+<p>Contributed by Anonymous</p>
+<p><br></p>
+<div id="install-from-cran" class="section level2">
+<h2>Install from CRAN</h2>
+<pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+</div>
+<div id="vignettes-13" class="section level2">
+<h2>Vignettes</h2>
+<p><a
+href="https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html">The
+Tidyverse Manifesto</a></p>
+<p><a
+href="https://cran.r-project.org/web/packages/tidyverse/vignettes/paper.html">Welcome
+to the Tidyverse</a></p>
+</div>
+<div id="application" class="section level2">
+<h2>Application</h2>
+<p>The primary website for the package can be found <a
+href="https://tidyverse.tidyverse.org/">here</a>. There are plenty of
+online examples for the applications of the package (which is
+essentially a collection of packages). This book is one example of a
+pretty comprehensive reference:</p>
+<p><a href="https://r4ds.had.co.nz/introduction.html">R for Data Science
+by Hadley Wickham and Garrett Grolemund</a></p>
+<p>Additionally, there are plenty of “cheat sheets” for <a
+href="https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf">plotting</a>
+and <a
+href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">data
+wrangling</a>, and much more that can be found with a google search!</p>
+</div>
+<div id="review-13" class="section level2">
+<h2>Review</h2>
+<p>The <code>{tidyverse}</code> package is actually a collection of a
+variety of useful, harmonious packages and is meant to simplify the
+installation and use those packages. According to their website, the
+<code>{tidyverse}</code> is “an opinionated collection of R packages
+designed for data science. All packages share an underlying design
+philosophy, grammar, and data structures.” The <code>{tidyverse}</code>
+package and associated methodologies essentially streamline data
+manipulation and visualization in a way that I find more intuitive and
+useful as an ecologist (who is also definitely not a coding guru).</p>
 </div>
 </div>
 
