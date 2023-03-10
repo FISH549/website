@@ -582,3 +582,55 @@ Additionally, there are plenty of "cheat sheets" for  [plotting](https://statsan
 
 The `{tidyverse}` package is actually a collection of a variety of useful, harmonious packages and is meant to simplify the installation and use those packages. According to their website, the `{tidyverse}` is “an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.” The `{tidyverse}` package and associated methodologies essentially streamline data manipulation and visualization in a way that I find more intuitive and useful as an ecologist (who is also definitely not a coding guru).
 
+***
+
+# `{forcats}`
+
+<br>
+
+Contributed by E Jameson
+
+<br>
+
+## Location
+
+This is a popular tidyverse package and is installed when you install the package `{tidyverse}`. The majority of the information comes from the `{forcats}` website found here https://forcats.tidyverse.org/
+
+The following R code will install the package in R
+
+```{r}
+# The easiest way to get forcats is to install the whole tidyverse:
+install.packages("tidyverse")
+
+# Alternatively, install just forcats:
+install.packages("forcats")
+
+# Or the the development version from GitHub:
+# install.packages("devtools")
+devtools::install_github("tidyverse/forcats")
+```
+
+## Vignettes
+
+Yes, there are great vignettes for the `{forcats}` package. The following article provides examples for the following functions within the `{forcats}` package.
+
+```{r}
+fct_infreq()
+fct_na_value_to_level()
+fct_na_level_to_value()
+fct_lump()
+fct_reorder()
+fct_shuffle()
+fct_relevel()
+```
+
+## Application
+
+The website linked above provides a lot of different resources including a cheat sheet https://raw.githubusercontent.com/rstudio/cheatsheets/main/factors.pdf
+
+The first example uses the starwars dataset to create a table displaying the number of characters that fall into the top 3 species using `fct_lump()`. The second example creates a bar chart displaying the number of characters with different eye colors. They then sort the bars for aesthetics by reordering the factors with `fct_infreq()`.
+
+
+## Review
+
+This package was created to make working with factor variables easier. I used this package in a previous research project which involved several factor variables such as plant species, level of invasiveness, and site. I most commonly used it to reorder factors or rename the factor levels for figures and models. I like the easy-to-read function names. It is easy to figure out what they do based on their title. Additionally, as part of the tidyverse this package has very good documentation and examples. The combination of easy-to-read function names and the supporting materials make this package very easy to learn. I have not used the package in a while, but I don't remember encountering any challenges that were not quickly remedied with the existing documentation. I that you could use base R to accomplish similar tasks and therefore the package may be redundant. Overall, however, I would definitely recommend using this package to someone else. Especially as the hex sticker is adorable.
