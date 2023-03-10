@@ -13,7 +13,7 @@
 
 <title>Package reviews</title>
 
-<script src="site_libs/header-attrs-2.20.1/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
@@ -146,15 +146,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -183,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -192,9 +188,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -1229,6 +1232,75 @@ philosophy, grammar, and data structures.” The <code>{tidyverse}</code>
 package and associated methodologies essentially streamline data
 manipulation and visualization in a way that I find more intuitive and
 useful as an ecologist (who is also definitely not a coding guru).</p>
+<hr />
+</div>
+</div>
+<div id="forcats" class="section level1">
+<h1><code>{forcats}</code></h1>
+<p><br></p>
+<p>Contributed by E Jameson</p>
+<p><br></p>
+<div id="location-11" class="section level2">
+<h2>Location</h2>
+<p>This is a popular tidyverse package and is installed when you install
+the package <code>{tidyverse}</code>. The majority of the information
+comes from the <code>{forcats}</code> website found here <a
+href="https://forcats.tidyverse.org/"
+class="uri">https://forcats.tidyverse.org/</a></p>
+<p>The following R code will install the package in R</p>
+<pre class="r"><code># The easiest way to get forcats is to install the whole tidyverse:
+install.packages(&quot;tidyverse&quot;)
+
+# Alternatively, install just forcats:
+install.packages(&quot;forcats&quot;)
+
+# Or the the development version from GitHub:
+# install.packages(&quot;devtools&quot;)
+devtools::install_github(&quot;tidyverse/forcats&quot;)</code></pre>
+</div>
+<div id="vignettes-14" class="section level2">
+<h2>Vignettes</h2>
+<p>Yes, there are great vignettes for the <code>{forcats}</code>
+package. The following article provides examples for the following
+functions within the <code>{forcats}</code> package.</p>
+<pre class="r"><code>fct_infreq()
+fct_na_value_to_level()
+fct_na_level_to_value()
+fct_lump()
+fct_reorder()
+fct_shuffle()
+fct_relevel()</code></pre>
+</div>
+<div id="application-1" class="section level2">
+<h2>Application</h2>
+<p>The website linked above provides a lot of different resources
+including a cheat sheet <a
+href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/factors.pdf"
+class="uri">https://raw.githubusercontent.com/rstudio/cheatsheets/main/factors.pdf</a></p>
+<p>The first example uses the starwars dataset to create a table
+displaying the number of characters that fall into the top 3 species
+using <code>fct_lump()</code>. The second example creates a bar chart
+displaying the number of characters with different eye colors. They then
+sort the bars for aesthetics by reordering the factors with
+<code>fct_infreq()</code>.</p>
+</div>
+<div id="review-14" class="section level2">
+<h2>Review</h2>
+<p>This package was created to make working with factor variables
+easier. I used this package in a previous research project which
+involved several factor variables such as plant species, level of
+invasiveness, and site. I most commonly used it to reorder factors or
+rename the factor levels for figures and models. I like the easy-to-read
+function names. It is easy to figure out what they do based on their
+title. Additionally, as part of the tidyverse this package has very good
+documentation and examples. The combination of easy-to-read function
+names and the supporting materials make this package very easy to learn.
+I have not used the package in a while, but I don’t remember
+encountering any challenges that were not quickly remedied with the
+existing documentation. I that you could use base R to accomplish
+similar tasks and therefore the package may be redundant. Overall,
+however, I would definitely recommend using this package to someone
+else. Especially as the hex sticker is adorable.</p>
 </div>
 </div>
 
