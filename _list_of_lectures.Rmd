@@ -374,10 +374,11 @@ markdown_4 <- list(
 docker <- list(
   title = "Dockers",
   topics = c("<i>Dr. Dara Farrell</i>", "<b>Dockers</b>", "Containers", "Images"),
-  pdf = c(""),
+  pdf = "",
   rmd = "",
-  html = "",
-  background = c(""),
+  html = c("lectures/week_10/rocker_workflow.pdf"),
+  background = c("[Rocker Project](https://rocker-project.org/)",
+                 "[Intro to Docker for R Users](https://colinfay.me/docker-r-reproducibility/)"),
   zoom = ""
 )
 
