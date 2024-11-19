@@ -373,7 +373,7 @@ markdown_4 <- list(
 ## day ?? ####
 docker <- list(
   title = "Dockers",
-  topics = c("<i>Dr. Dara Farrell</i>", "<b>Dockers</b>", "Containers", "Images"),
+  topics = c("<b>Dockers</b>", "Containers", "Images"),
   pdf = "",
   rmd = "",
   html = c("lectures/week_10/rocker_workflow.pdf"),
