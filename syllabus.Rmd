@@ -72,11 +72,8 @@ Chief Technology Officer, Sharper Informatics Solutions
 [**Dr. Elizabeth Holmes**](https://eeholmes.github.io/)  
 Research Fish Biologist, NOAA Northwest Fisheries Science Center
 
-[**Dr. Margaret Siple**](https://twitter.com/margaretsiple)  
+[**Dr. Margaret Siple**](https://margaretsiple-noaa.github.io/siple-quarto/)  
 Research Fish Biologist, NOAA Alaska Fisheries Science Center
-
-[**Dr. Dara Farrell**](https://escience.washington.edu/member/dara-farrell/)  
-Postdoctoral Scholar, School of Aquatic & Fishery Sciences & eScience Institute
 
 <br>
 
