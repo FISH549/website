@@ -1,6 +1,6 @@
 ---
 title: "Best Practices in Environmental Data Science"
-subtitle: "FISH 549 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Winter 2023"
+subtitle: "FISH 549 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Winter 2025"
 output: html_document
 ---
 
@@ -27,7 +27,7 @@ h3 {
 
 <br>
 
-<center>&copy; Mark Scheuerell 2023</center>
+<center>&copy; Mark Scheuerell 2025</center>
 
 <br>
 
