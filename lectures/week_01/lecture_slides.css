@@ -28,6 +28,13 @@
   clear: both;
 }
 
+.footer {
+  position: fixed;
+  text-align: center;
+  margin: 0px auto;
+  bottom: 0;
+}
+
 .citation {
   position: fixed;
   bottom: 3em;
