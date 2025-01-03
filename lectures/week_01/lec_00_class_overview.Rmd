@@ -21,7 +21,8 @@ WHO AM I?
 ## Mark Scheuerell
 
 ### Assistant Unit Leader
-#### _U.S. Geological Survey Washington Cooperative Fish and Wildlife Research Unit_
+#### _U.S. Geological Survey_
+#### _Washington Cooperative Fish and Wildlife Research Unit_
 
 <br>
 
@@ -59,6 +60,8 @@ WHO ARE YOU?
 1. Your school/department
 
 2. Your area of study
+
+3. Something you're excited to learn this quarter
 
 
 ## {.flexbox .vcenter .bigger}
