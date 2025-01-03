@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GitHub"
-date: "11 January 2023"
+date: "15 January 2025"
 output:
   html_document:
     theme: spacelab
@@ -291,6 +291,16 @@ which will yield this
 
 ![](images/FISH549_hex_sticker.png)
 
+You can adjust the size of the image by specifying the height and width in percentages within curly brackets. For example,
+
+```
+![](hexsticker.png){ height=30% width=30% }
+```
+
+will yield this
+
+![](images/FISH549_hex_sticker.png){ height=30% width=30% }
+
 ## Displaying R code
 
 One of the truly great features of Markdown is the ability to include code within a document. This course uses **R**, but people also use many other languages in Markdown documents (eg, Python).
@@ -380,7 +390,7 @@ This is your first introduction to **Git**. When committing a file, you need to 
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Good commit messages are no more than 50 characters long.
+**Tip:** Good commit messages are no more than 50 characters long. Mark likes to begin his with a past-tense verb.
 </div>
 
 <br>
