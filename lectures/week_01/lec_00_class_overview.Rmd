@@ -4,6 +4,7 @@ subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -21,8 +22,7 @@ WHO AM I?
 ## Mark Scheuerell
 
 ### Assistant Unit Leader
-#### _U.S. Geological Survey_
-#### _Washington Cooperative Fish and Wildlife Research Unit_
+#### _U.S. Geological Survey Washington Cooperative Fish and Wildlife Research Unit_
 
 <br>
 
