@@ -4,6 +4,7 @@ subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -59,6 +60,8 @@ WHO ARE YOU?
 1. Your school/department
 
 2. Your area of study
+
+3. Something you're excited to learn this quarter
 
 
 ## {.flexbox .vcenter .bigger}

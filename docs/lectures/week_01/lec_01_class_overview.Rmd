@@ -1,10 +1,11 @@
 ---
-title: "Course overview"
+title: "Course introduction"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "4 January 2023"
+date: "8 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -25,10 +26,12 @@ What is *data science*?
 
 > - 80% preparing data, 20% complaining about preparing data
 
-> - 90% Googling and 10% pasting from Stack Overflow
+> - 90% Googling and 10% pasting from [Stack Overflow](https://stackoverflow.com/)
 
 
 ## Data science motto
+
+<br>
 
 <p style="text-align:center; font-size:170%;">
 If at first you don’t succeed,<br>call it version 1.0!
@@ -47,7 +50,7 @@ If at first you don’t succeed,<br>call it version 1.0!
 * Communication
 
 
-## Data science process | This should all be reproducible
+## Data science process
 
 1. Define the question of interest  
 2. Get the data  
@@ -55,6 +58,20 @@ If at first you don’t succeed,<br>call it version 1.0!
 4. Explore the data  
 5. Fit statistical models  
 6. Communicate the results  
+
+
+## Data science process
+
+1. Define the question of interest  
+2. Get the data  
+3. Clean the data  
+4. Explore the data  
+5. Fit statistical models  
+6. Communicate the results  
+
+<br>
+
+<center>**This should ALL be reproducible**</center>  
 
 
 ## Data science time
@@ -66,27 +83,28 @@ If at first you don’t succeed,<br>call it version 1.0!
 5. ~~Fit statistical models~~  
 6. **Communicate the results**  
 
-**Making this reproducible**  
-
 
 ## &nbsp; {data-background=images/data_sci_overview.png data-background-size=90%}
 
 
-## {.flexbox .vcenter}
+## &nbsp;
 
-### Good data science is distinguished from bad data science primarily by a repeatable, thoughtful, skeptical application of an analytic process to data in order to arrive at supportable conclusions.
+### "Good data science is distinguished from bad data science primarily by a repeatable, thoughtful, skeptical application of an analytic process to data in order to arrive at supportable conclusions."
 
-### -- Jeff Leek
+<br>
 
-
-## {.flexbox .vcenter .bigger}
-
-<font size="10">
-Questions in data science
-</font>
+### -- [Jeff Leek](https://www.fredhutch.org/en/faculty-lab-directory/leek-jeff.html), Vice President and Chief Data Officer, Fred Hutch
 
 
-## {data-background=images/leek_peng_Q.png data-background-size=80% .futnote}
+# Questions in data science
+
+
+## {data-background=images/leek_peng_Q.png data-background-size=70% .futnote}
+
+Leek & Peng (2015) *Science*
+
+
+## {data-background=images/leek_peng_Q_1.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
@@ -98,11 +116,21 @@ Summarizes the information in a single data set without further interpretation
 ex: the US Census
 
 
+## {data-background=images/leek_peng_Q_2.png data-background-size=70% .futnote}
+
+Leek & Peng (2015) *Science*
+
+
 ## Exploratory
 
 Searches for trends, correlations, etc among multiple variables
 
 ex: "data mining"
+
+
+## {data-background=images/leek_peng_Q_3.png data-background-size=70% .futnote}
+
+Leek & Peng (2015) *Science*
 
 
 ## Inferential
@@ -119,6 +147,11 @@ Uses a subset of the data to parameterize a model and predicts out-of-sample dat
 ex: using weather to predict recreational fishing effort
 
 
+## {data-background=images/leek_peng_Q_4.png data-background-size=70% .futnote}
+
+Leek & Peng (2015) *Science*
+
+
 ## Causal
 
 Seeks to understand the *average* magnitude and direction of a response
@@ -133,11 +166,7 @@ Seeks to understand the *specific* magnitude and direction of relationships
 ex: engineering studies
 
  
-## {.flexbox .vcenter .bigger}
-
-<font size="10">
-Storytelling in data science
-</font>
+# Storytelling in data science
 
 
 ## Communicating an analysis
@@ -175,6 +204,8 @@ Belief is more broadly related to previous work and other factors (external)
 
 3. The things you did not do
 
+<br>
+
 The trick is to strike a balance to achieve trust and belief
 
 
@@ -204,7 +235,7 @@ The trick is to strike a balance to achieve trust and belief
 
 * Use *lots* of online resources
 
-* Use open/live coding
+> - Use open/live coding
 
-* Rely on our community for help
+> - Rely on our community for help
 
