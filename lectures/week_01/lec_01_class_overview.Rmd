@@ -5,6 +5,7 @@ author: "Mark Scheuerell"
 date: "8 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -98,12 +99,12 @@ If at first you don’t succeed,<br>call it version 1.0!
 # Questions in data science
 
 
-## {data-background=images/leek_peng_Q.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
 
-## {data-background=images/leek_peng_Q_1.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q_1.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
@@ -115,7 +116,7 @@ Summarizes the information in a single data set without further interpretation
 ex: the US Census
 
 
-## {data-background=images/leek_peng_Q_2.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q_2.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
@@ -127,7 +128,7 @@ Searches for trends, correlations, etc among multiple variables
 ex: "data mining"
 
 
-## {data-background=images/leek_peng_Q_3.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q_3.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
@@ -146,7 +147,7 @@ Uses a subset of the data to parameterize a model and predicts out-of-sample dat
 ex: using weather to predict recreational fishing effort
 
 
-## {data-background=images/leek_peng_Q_4.png data-background-size=80% .futnote}
+## {data-background=images/leek_peng_Q_4.png data-background-size=70% .futnote}
 
 Leek & Peng (2015) *Science*
 
@@ -166,13 +167,6 @@ ex: engineering studies
 
  
 # Storytelling in data science
-
-
-## {.flexbox .vcenter .bigger}
-
-<font size="10">
-Storytelling in data science
-</font>
 
 
 ## Communicating an analysis
@@ -210,6 +204,8 @@ Belief is more broadly related to previous work and other factors (external)
 
 3. The things you did not do
 
+<br>
+
 The trick is to strike a balance to achieve trust and belief
 
 
@@ -239,7 +235,7 @@ The trick is to strike a balance to achieve trust and belief
 
 * Use *lots* of online resources
 
-* Use open/live coding
+> - Use open/live coding
 
-* Rely on our community for help
+> - Rely on our community for help
 
