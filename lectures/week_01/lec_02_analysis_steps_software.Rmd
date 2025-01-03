@@ -2,9 +2,10 @@
 title: "Steps & software for analysis"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "6 January 2023"
+date: "10 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -43,7 +44,9 @@ This content draws upon material developed by Jeff Leek & Roger Peng for their A
 5. Fit statistical models  
 6. Communicate the results  
 
-**Make your analysis reproducible!**
+<br>
+
+<center>**This should ALL be reproducible**</center>  
 
 
 ## Steps to an analysis | 1. Define the question of interest  
@@ -72,9 +75,11 @@ This is usually the most time intensive step
 It's also the most important & the hardest to teach
 
 
-## &nbsp; {data-background=images/twitter_data_cleaning.png data-background-size=80% .futnote}
+## {data-background=images/twitter_data_cleaning.png data-background-size=70% data-background-position=50%25%}
 
-[See this on Twitter](https://twitter.com/vboykis/status/1089920316644704256)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<center>[See this on Twitter / X](https://twitter.com/vboykis/status/1089920316644704256)</center>
 
 
 ## Steps to an analysis | 4. Explore the data  
@@ -90,11 +95,13 @@ Do the data meet your expectations?
 
 ## Steps to an analysis | 5. Fit statistical models  
 
-Where to start?
+Start with first principles
 
-> - Start with first principles
+> - Type of data (discrete, continuous)
 
-> - Keep it simple
+> - Distributions of data (normal, Poisson)
+
+> - Start simple and build from it!
 
 
 ## Steps to an analysis | 6. Communicate the results  
@@ -114,9 +121,12 @@ Who's your audience? What's your medium?
 
 Consider these real scenarios
 
-> - "Can you re-run the analysis with these new data?"
+> - Your collaborator asks, "Can you re-run the analysis with these new data?"
 
-> - "Your closest collaborator is you six months ago, but you don’t reply to emails" (Karl Broman)
+> - "Your closest collaborator is you six months ago, but you don’t reply to emails." (Karl Broman)
+
+
+# Types of analyses
 
 
 ## Types of analysis | Raw
@@ -130,21 +140,25 @@ This is your "sandbox"
 
 Soften the edges of the raw results
 
-> - Focus the analysis ("refine the arc")
+> - Focus the analysis or "refine the arc"
 
 > - Improve the presentation
 
 > - Narrow your conclusions
 
 
-## &nbsp; {data-background=images/tt_logo.png data-background-size=90% .futnote}
+## &nbsp; {data-background=images/tt_logo.png data-background-size=80%}
 
-[TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<center>[see TidyTuesday on GitHub](https://github.com/rfordatascience/tidytuesday)</center>
 
 
-## &nbsp; {data-background=images/siple_tt_post.jpeg data-background-size=75% .futnote}
+## &nbsp;  {data-background=images/siple_tt_post.jpeg data-background-size=60% data-background-position=50%35%}
 
-[M Siple on Twitter](https://twitter.com/margaretsiple/status/1332827208721821698)
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<center>[TidyTuesday example from Megsie Siple](https://twitter.com/margaretsiple/status/1332827208721821698)</center>
 
 
 ## Types of analysis | Formal
@@ -161,7 +175,7 @@ A refined analysis and presentation
 Here are some useful questions to ask yourself
 
 
-## A rubric | Answering the question
+## A rubric for analyses | Answering the question posed
 
 > - Could the question be answered with the available data?
 
@@ -170,7 +184,7 @@ Here are some useful questions to ask yourself
 > - Did you record the experimental design?
 
 
-## A rubric | Cleaning the data
+## A rubric for analyses | Cleaning the data
 
 > - Are the data "tidy"?
 
@@ -179,7 +193,7 @@ Here are some useful questions to ask yourself
 > - Did you record all parameters, units, and functions applied to the data?
 
 
-## A rubric | Exploratory analysis
+## A rubric for analyses | Exploratory analysis
 
 > - Did you make univariate plots (histograms, density plots, boxplots)?
 
@@ -190,7 +204,7 @@ Here are some useful questions to ask yourself
 > - Did you try to identify any errors or miscoding of variables?
 
 
-## A rubric | Statistical analysis
+## A rubric for analyses | Statistical analysis
 
 > - Did you identify the quantities of interest in your model?
 
@@ -199,7 +213,7 @@ Here are some useful questions to ask yourself
 > - Is this a correlative or causative study?
 
 
-## A rubric | Communication
+## A rubric for analyses | Communication
 
 > - Did you describe the data set, experimental design, and question you are answering?
 
@@ -208,7 +222,7 @@ Here are some useful questions to ask yourself
 > - Does each table/figure communicate an important piece of information?
 
 
-## A rubric | Reproducibility
+## A rubric for analyses | Reproducibility
 
 > - Did you create a script that reproduces all your analyses?
 
@@ -224,9 +238,9 @@ Here are some useful questions to ask yourself
 
 ## Software in this course
 
-Is free
+1) Is free
 
-Is well supported by the user community
+2) Is well supported by the user community
 
 
 ## R Software | An environment for statistical computing and graphics
@@ -256,7 +270,7 @@ Most of R's current capabilities come from *packages*
 > - Built-in tools & GUIs for **Git** & **R Markdown**
 
 
-## &nbsp; {data-background=images/RStudio_desktop.png data-background-size=cover}
+## &nbsp; {data-background=images/RStudio_desktop.png data-background-size=80%}
 
 
 ## RStudio benefits
@@ -268,7 +282,7 @@ Most of R's current capabilities come from *packages*
 ### [Webinars, links, etc](https://resources.rstudio.com/)
 
 
-## &nbsp; {data-background=images/RStudio_cheatsheet.png data-background-size=cover}
+## &nbsp; {data-background=images/RStudio_cheatsheet.png data-background-size=80%}
 
 
 ## GitHub | Cloud-based code repository & collaboration platform
@@ -280,10 +294,10 @@ Most of R's current capabilities come from *packages*
 > - Uses **Git** for version control
 
 
-## &nbsp; {data-background=images/gh_signup.png data-background-size=100%}
+## &nbsp; {data-background=images/gh_signup.png data-background-size=80%}
 
 
-## &nbsp; {data-background=images/GitHub_repo.png data-background-size=100%}
+## &nbsp; {data-background=images/GitHub_repo.png data-background-size=80%}
 
 
 ## Git | Version control system (VCS)
