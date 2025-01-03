@@ -8,6 +8,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+## TBD ####
+TBD <- list(
+  title = "",
+  topics = c("<b>TBD</b>"),
+  pdf = c(""),
+  rmd = c(""),
+  html = c(""),
+  background = c(""),
+  zoom = ""
+)
+
 ## day 0 ####
 intro_1 <- list(
   title = "Introduction",
