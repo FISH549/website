@@ -127,7 +127,7 @@ workflows <- list(
 ## day 9 ####
 working_with_data <- list(
   title = "Working with data",
-  topics = c("<b>Working with data</b>", "Chain of custody", "Tidy data", "Manual entry"),
+  topics = c("<i>Markus Min</i>", "<b>Working with data</b>", "Chain of custody", "Tidy data", "Manual entry"),
   pdf = c(""),
   rmd = "lectures/week_03/lec_09_working_with_data.Rmd",
   html = "lectures/week_03/lec_09_working_with_data.html",
