@@ -1,10 +1,11 @@
 ---
 title: "Working with data"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
-author: "Mark Scheuerell"
-date: "23 January 2023"
+author: "Markus Min"
+date: "27 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -116,14 +117,14 @@ Use a *tidy* format where
 > - linked IDs for columns
 
 
-## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig5.png data-background-size=90%}
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig5.png data-background-size=90% data-background-position=50%60%}
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 These are *not* tidy
 
 
-## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-position="50% 60%" data-background-size=90%}
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig6.png data-background-position="50% 60%" data-background-size=80%}
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -145,7 +146,7 @@ Create a *data dictionary*, which includes info like
 > - summary statistics (eg, min & max values)  
 
 
-## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig9.png data-background-position="50% 55%" data-background-size=80%}
+## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/BW2018_fig9.png data-background-position="50% 55%" data-background-size=70%}
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
@@ -163,7 +164,7 @@ Be very cautious of Excel workbooks and Google sheets
 
 ## Organizing data in spreadsheets | Broman & Woo (2018) {data-background=images/bad_sheets.png data-background-position="50% 45%" data-background-size=80%}
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
 How many issues can you identify?
 
@@ -197,7 +198,7 @@ Items to include:
 > - values for non-constants
 
 
-## An example using R Markdown {data-background=images/recipe_ex.png data-background-position="50% 70%" data-background-size=55%}
+## An example with<br>R Markdown {data-background=images/recipe_ex.png data-background-position="90% 50%" data-background-size=55%}
 
 
 ## What's next?
