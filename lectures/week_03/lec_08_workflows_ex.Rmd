@@ -1,6 +1,6 @@
 ---
 title: "Examples of collaborative workflows"
-date: "20 January 2023"
+date: "24 January 2025"
 output:
   html_document:
     theme: spacelab
