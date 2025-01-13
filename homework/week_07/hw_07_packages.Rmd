@@ -2,7 +2,7 @@
 title: "Exploring R packages"
 subtitle: "Assignment #7"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "24 February 2023"
+date: "28 February 2025"
 output:
   html_document:
     theme: spacelab
