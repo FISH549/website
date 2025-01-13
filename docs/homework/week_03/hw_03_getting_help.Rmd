@@ -2,7 +2,7 @@
 title: "Getting help with errors in R"
 subtitle: "Assignment #3"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "27 January 2023"
+date: "31 January 2025"
 output:
   html_document:
     theme: spacelab

@@ -2,7 +2,7 @@
 title: "Forking a repo and submitting a pull request"
 subtitle: "Assignment #2"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "20 January 2023"
+date: "24 January 2025"
 output:
   html_document:
     theme: spacelab
