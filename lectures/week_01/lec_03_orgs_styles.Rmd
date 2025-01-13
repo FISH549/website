@@ -2,9 +2,10 @@
 title: "Organization and styles"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "9 January 2023"
+date: "13 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
@@ -31,7 +32,7 @@ We are witnessing an increasing number of examples where the original analysis c
 
 According to the National Science Foundation:
 
-The calculation of quantitative scientific results by independent researchers using the original data and methods
+_The calculation of quantitative scientific results by independent researchers using the original data and methods_
 
 
 ## What does it mean to be reproducible?
@@ -47,7 +48,9 @@ Reproducibility can be further broken down
 
 ## What is a research compendium?
 
-"A standard and easily recognizable way for organizing the digital materials of a project to enable others to inspect, reproduce, and extend the research." (Marwick et al. 2018)
+_A standard and easily recognizable way for organizing the digital materials of a project to enable others to inspect, reproduce, and extend the research._
+
+Marwick et al. (2018)
 
 
 ## 3 principles of research compendia
@@ -113,22 +116,22 @@ Reproducibility can be further broken down
 Organize your compendium so another person knows what to expect from the plain meaning of the file and directory names
 
 
-## Simple compendium {data-background=images/compendium_1.png data-background-size=45% .citation}
+## Simple compendium {data-background=images/compendium_1.png data-background-size=40% data-background-position=50%60% .citation}
 
 Marwick et al (2018)
 
 
-## Simple compendium {data-background=images/compendium_2.png data-background-size=45% .citation}
+## Simple compendium {data-background=images/compendium_2.png data-background-size=35% data-background-position=50%60% .citation}
 
 Marwick et al (2018)
 
 
-## Medium compendium {data-background=images/compendium_3.png data-background-size=30% .citation}
+## Medium<br>compendium {data-background=images/compendium_3.png data-background-size=30% data-background-position=50%50% .citation}
 
 Marwick et al (2018)
 
 
-## Large {data-background=images/compendium_4.png data-background-size=30% .citation}
+## Large<br>compendium {data-background=images/compendium_4.png data-background-size=25% data-background-position=50%50% .citation}
 
 Marwick et al (2018)
 
@@ -181,7 +184,7 @@ Marwick et al (2018)
 
     > - Publishing data with a DOI requires a description of the data themselves
 
-    > - Who, what, where, when, how
+    > - who, what, where, when, how
 
 
 ## Tools for creating a compendium
@@ -196,27 +199,33 @@ Alternatively, consider some existing tools
 
 > - Ben Marwick's [{rrtools}](https://github.com/benmarwick/rrtools)
 
+> - Scheuerell Lab's [compendium](https://github.com/scheuerell-lab/compendium-template)
+
 
 # Coding styles
 
 
-## A note on directory structure | Does your code begin with something like this? {.smaller}
+## A note on directory structure | Does your R code begin with something like this? 
 
 `setwd("/Users/Mark/Documents/projects/salmon/final_code")`
 
 
-## A note on directory structure | Does your code begin with something like this? {.smaller}
+## A note on directory structure | Does your R code begin with something like this?
 
 `setwd("/Users/Mark/Documents/projects/salmon/final_code")`
 
-Do you see any problems with this approach?
+<br>
+
+<center>**Do you see any problems with this approach?**</center>
 
 
-## A note on directory structure | Does your code begin with something like this? {.smaller}
+## A note on directory structure | Does your R code begin with something like this?
 
 `setwd("/Users/Mark/Documents/projects/salmon/final_code")`
 
-This won't work unless your directory structure matches mine
+<br>
+
+<center>**This won't work unless your directory structure matches mine!**</center>
 
 
 ## Relative vs absolute paths
@@ -227,12 +236,12 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 ```
 ## Absolute path
-## /Users/Mark/Documents/projects/salmon/data
+## setwd("/Users/Mark/Documents/projects/salmon/data")
 
 ## Relative path
-> data_dir <- here::here("data")
+> data_dir <- here::here("salmon", data")
 > data_dir
-> [1] "/Users/Mark/Documents/projects/salmon/data"
+> [1] "/Users/Julio/research/thesis/salmon/data"
 ```
 
 
@@ -260,34 +269,23 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 ## A cautionary tale from the real world
 
-Consider all of these special characters
+Consider all of these "special characters"
 
 ~`!@#$%^&()+={}[]|\:";'<,>.?/*
 
 
 ## A cautionary tale from the real world
 
-Consider all of these special characters
+Consider all of these "special characters"
 
 ~`!@#$%^&()+={}[]|\:";'<,>.?/*
 
-The pipe | was the only character available for use as a delimiter in a plain text file for an energy efficiency database **because all the others had been used in variable names**.
+<br>
+
+Of them, the pipe | was the only character available for use as a delimiter in a plain text file for a statewide energy efficiency database **because all the others had been used in variable names**.
 
 
-## Example file names
-
-### Bad
-
-* `resume.docx`
-
-* `Mark's data.xlsx`
-
-* `figure 1.pdf`
-
-
-## Example file names
-
-### Bad
+## Example file names | Bad
 
 * `resume.docx`
 
@@ -295,9 +293,19 @@ The pipe | was the only character available for use as a delimiter in a plain te
 
 * `figure 1.pdf`
 
-### Good
 
-* `scheuerell_resume_2021-01-01.docx`
+## Example file names | Bad
+
+* `resume.docx` -- whose?
+
+* `Mark's data.xlsx` -- which project?
+
+* `figure 1.pdf` -- of what?
+
+
+## Example file names | Much better
+
+* `scheuerell_resume_2025-01-03.docx`
 
 * `marks_skagit_steelhead_age-composition.xlsx`
 
@@ -319,27 +327,30 @@ The pipe | was the only character available for use as a delimiter in a plain te
     > - "zero-pad" numbers
 
 
-## Example file names
-
-### Chronological order
+## Example file names | Chronological order
 
 ```
 2019-10-20_skagit_harvest-commerical.csv
+
 2019-10-20_skagit_harvest-recreational.csv
+
 2020-09-18_nooksack_harvest-commerical.csv
+
 2020-09-18_nooksack_harvest-recreational.csv
 ```
 
 
-## Example file names
-
-### Logical order
+## Example file names | Logical order
 
 ```
 01_data-ingest.R
+
 02_data-cleaning.R
+
 03_data-QAQC.R
+
 04_model-fitting.R
+
 05_create-figures.R
 ```
 
@@ -351,11 +362,4 @@ Taking the time to invest in these styles and strategies can save you a lot of t
 ## What's next?
 
 We'll learn about GitHub and how to use it for personal and collaborative projects
-
-
-
-
-
-
-
 

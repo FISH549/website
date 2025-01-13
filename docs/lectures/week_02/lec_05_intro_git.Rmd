@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Git"
-date: "13 January 2023"
+date: "17 January 2025"
 output:
   html_document:
     theme: spacelab
@@ -111,7 +111,7 @@ We'll begin by creating a so-called "sandbox" for playing around with the variou
 **Task:** Open RStudio and set your working directory to the `tryout` folder (directory) you just created using the command line or menu options.
 </div>
 
-### Command line
+### Option 1: command line
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** `username` below is your user name on your computer.
@@ -129,9 +129,11 @@ We'll begin by creating a so-called "sandbox" for playing around with the variou
 > setwd("C:/Desktop/tryout")
 ```
 
-### RStudio menu
+<br>
 
-![](images/rstudio_setwd.png)
+### Option 2: RStudio menu
+
+![](images/rstudio_setwd.png){ height=80% width=80% }
 
 <br>
 
@@ -147,7 +149,7 @@ Although you can use any suitable terminal interface (e.g.,  **Terminal** on Mac
 **Task:** Click on the **Terminal** tab to switch from the R console to the terminal.
 </div>
 
-![](images/term_open.png)
+![](images/term_open.png){ height=80% width=80% }
 
 <br>
 
@@ -165,7 +167,7 @@ At this point our R working directory and our terminal directory are different, 
 **Task:** Click on the "Terminal 1" downarrow and select "Go to Current Directory".
 </div>
 
-![](images/term_current_dir.png)
+![](images/term_current_dir.png){ height=80% width=80% }
 
 <br>
 
@@ -173,7 +175,7 @@ At this point our R working directory and our terminal directory are different, 
 **Tip:** The terminal will echo the actual command you would use to change directories (`cd ~/Desktop/tryout`) and the directory has switched from `[computer-name]:~` to `[computer-name]:tryout`.
 </div>
 
-![](images/term_dir_set.png)
+![](images/term_dir_set.png){ height=80% width=80% }
 
 <br>
 
@@ -288,7 +290,7 @@ Before you can commit a file to the tracking history, you need to "add" it to th
 **Task:** Open a new R script by selecting **File > New File > R Script** from the RStudio menu.
 </div>
 
-![](images/R_script_new.png)
+![](images/R_script_new.png){ height=80% width=80% }
 
 <br>
 
@@ -302,7 +304,7 @@ a <- 1
 b <- 2
 ```
 
-![](images/R_script_add_1.png)
+![](images/R_script_add_1.png){ height=80% width=80% }
 
 <br>
 
@@ -310,7 +312,7 @@ b <- 2
 **Task:** Save your R script to your `tryout` folder as `test_script.R` .
 </div>
 
-![](images/R_script_saved_1.png)
+![](images/R_script_saved_1.png){ height=80% width=80% }
 
 <br>
 
@@ -507,7 +509,7 @@ This figure from [Blischak et al. (2018)](https://journals.plos.org/ploscompbiol
 
 <br>
 
-![](images/git_workflow.png)
+![](images/git_workflow.png){ height=70% width=70% }
 
 ***
 
@@ -526,7 +528,7 @@ Let's now imagine you wanted to return to the R script we created earlier and ad
 a + b
 ```
 
-![](images/R_script_add_2.png)
+![](images/R_script_add_2.png){ height=80% width=80% }
 
 <br>
 
@@ -689,7 +691,7 @@ Now we can see both of our commits, with the most recent one at the top.
 (a + b) / 0
 ```
 
-![](images/R_script_add_3.png)
+![](images/R_script_add_3.png){ height=80% width=80% }
 
 <br>
 
@@ -874,7 +876,7 @@ a + b
 **Note:** Your open R script in RStudio should have also reverted to the previous version.
 </div>
 
-![](images/R_script_add_2.png)
+![](images/R_script_add_2.png){ height=80% width=80% }
 
 <br>
 
