@@ -2,9 +2,10 @@
 title: "Understanding workflows"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "20 January 2023"
+date: "24 January 2025"
 output:
   ioslides_presentation:
+    widescreen: true
     css: lecture_slides.css
 ---
 
