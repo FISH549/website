@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GitHub remotes"
-date: "18 January 2023"
+date: "22 January 2025"
 output:
   html_document:
     theme: spacelab
