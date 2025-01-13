@@ -2,7 +2,7 @@
 title: "Creating an expository figure"
 subtitle: "Assignment #5"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "10 February 2023"
+date: "14 February 2025"
 output:
   html_document:
     theme: spacelab
