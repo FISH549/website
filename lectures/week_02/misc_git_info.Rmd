@@ -1,7 +1,7 @@
 ---
 title: "Introduction to GitHub remotes"
 author: "Mark Scheuerell"
-date: "15 January 2023"
+date: "22 January 2025"
 output:
   html_document:
     theme: spacelab
@@ -38,12 +38,12 @@ Step 1: Make a new repository on github and grab the link from the clone with SS
 
 Step 2: Make a new project in R studio with Git control and copy the link.
 
-## Basic GIT workflow
+## Basic Git workflow
 
 Basic workflow:
 + `git add` to add from your working directory to your staging area
-+ `git commit` to add the files to your local GIT
-+ `git push` to add the files to your remote GIT  
++ `git commit` to add the files to your local Git
++ `git push` to add the files to your remote Git  
 
 
 ```
@@ -79,7 +79,7 @@ Note on adding files to the remote:
 
 
 **Gitignore:**  
-Add a file `.gitignore` which lists all files that should be ignored by GIT. To add files to `.gitignore` within the command line:
+Add a file `.gitignore` which lists all files that should be ignored by Git. To add files to `.gitignore` within the command line:
 
 + `touch .gitignore`: will create a .gitignore file
 + `echo *.Rproj > .gitignore`: create and add R project file to ignore
@@ -174,7 +174,7 @@ Instead of merging, you can also `git rebase` (see later).
 <br>
 <hr>
 
-## GIT tags
+## Git tags
 
 To tag the current state of master (tag will be added to the last commit):
 ```
@@ -190,7 +190,7 @@ Useful:
 
 <br><hr>
 
-## GIT Stash
+## Git Stash
 
 To stash some changes to perhaps use later again. By making a stash, you bring the repo back to the previous committed stage.
 
@@ -225,8 +225,8 @@ Useful:
 
 ### Files and folders
 
-If you've renamed or moved a file, GIT by default will see it as a deletion and a new addition of a file, and not realize that these files are related.  
-You can also get GIT to rename/move a file via `git mv` in which case history will be preserved. After renaming/moving, `git status` will not show an addition/deletion but a rename that is already staged and ready to be committed.
+If you've renamed or moved a file, Git by default will see it as a deletion and a new addition of a file, and not realize that these files are related.  
+You can also get Git to rename/move a file via `git mv` in which case history will be preserved. After renaming/moving, `git status` will not show an addition/deletion but a rename that is already staged and ready to be committed.
 
 To rename a file:
 ```
