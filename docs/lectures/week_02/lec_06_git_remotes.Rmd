@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GitHub remotes"
-date: "22 January 2025"
+date: "17 January 2025"
 output:
   html_document:
     theme: spacelab
@@ -39,7 +39,7 @@ There are several ways to connect a remote repository to your local computer. He
 
 <br>
 
-![](images/gh_copy_address.png)
+![](images/gh_copy_address.png){ width=90% }
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Open RStudio and select *File* > *New Project...*, which will bring up a dialogue box.
@@ -117,7 +117,7 @@ There are several ways to connect a remote repository to your local computer. He
 
 <br>
 
-![](images/rstudio_new_proj.png)
+![](images/rstudio_new_proj.png){ width=90% }
 
 ***
 
@@ -125,7 +125,7 @@ There are several ways to connect a remote repository to your local computer. He
 
 There are several things to note here in RStudio (note that your views may differ depending on how you have the window panes set up). In the **Files** tab, you should see a `README.md` file plus the `/R/` and `/data/` folders we that we previously created from within GitHub. In addition, you should see a `.gitignore` and a `testing.Rproj` file.
 
-![](images/rstudio_file_pane.png)
+![](images/rstudio_file_pane.png){ width=90% }
 
 <br> 
 
@@ -140,7 +140,7 @@ There are several things to note here in RStudio (note that your views may diffe
 .Ruserdata
 ```
 
-![](images/rstudio_gitignore.png)
+![](images/rstudio_gitignore.png){ width=90% }
 
 <br>
 
@@ -160,7 +160,7 @@ One of the nice features about RStudio is that you can interact directly with Gi
 **Task:** Locate the Git tab in the pane with other tabs for **Environment**, **History**, etc. and click on it.
 </div>
 
-![](images/rstudio_git_tab.png)
+![](images/rstudio_git_tab.png){ width=90% }
 
 <br>
 
@@ -172,7 +172,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 **Task:** Click the check box in the column marked "Staged" to the left of the `.gitignore` file and you will see that a green **A** appears in the column marked "Status" (i.e., this is equivalent to typing `git add .gitignore`).
 </div>
 
-![](images/rstudio_git_add.png)
+![](images/rstudio_git_add.png){ width=90% }
 
 ## Commit a file
 
@@ -180,7 +180,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 **Task:** Click on the "Commit" button just above the file name, which will bring up a new commit window.
 </div>
 
-![](images/rstudio_git_commit.png)
+![](images/rstudio_git_commit.png){ width=90% }
 
 <br>
 
@@ -238,7 +238,7 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 **Note:** The `.gitignore` file has disappeared from the Git tab because it's just been committed.
 </div>
 
-![](images/rstudio_git_window_2.png)
+![](images/rstudio_git_window_2.png){ width=90% }
 
 <br>
 
@@ -250,7 +250,7 @@ Now that we've committed our `.gitignore` file to history, we can *push* it up t
 **Task:** Click on the green up arrow, which is the RStudio symbol for `git push`.
 </div>
 
-![](images/rstudio_git_push.png)
+![](images/rstudio_git_push.png){ width=90% }
 
 <br>
 
@@ -268,7 +268,7 @@ To https://github.com/mdscheuerell/testing
 **Tip:** The first line is the actual Git command for pushing to a remote repo, and the second and third lines are the results of that command.
 </div>
 
-![](images/rstudio_git_push_window.png)
+![](images/rstudio_git_push_window.png){ width=90% }
 
 <br>
 
@@ -293,7 +293,7 @@ You can now check to see that your committed `.gitignore` file was indeed pushed
 **Tip:** If you don't see the file, try refreshing the view on your browser.
 </div>
 
-![](images/gh_new_pushed_file.png)
+![](images/gh_new_pushed_file.png){ width=90% }
 
 <br>
 
@@ -307,7 +307,7 @@ Now let's see how to *pull* changes from a remote repo to your local computer. T
 **Task:** Click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
 </div>
 
-![](images/gh_edit_readme_pencil.png)
+![](images/gh_edit_readme_pencil.png){ width=90% }
 
 <br>
 
@@ -315,7 +315,7 @@ Now let's see how to *pull* changes from a remote repo to your local computer. T
 **Task:** Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
 </div>
 
-![](images/gh_edit_readme_pull.png)
+![](images/gh_edit_readme_pull.png){ width=90% }
 
 <br>
 
@@ -330,7 +330,7 @@ Type a *short but informative* commit message and press the green **Commit chang
 </div>
 
 
-![](images/gh_new_readme.png)
+![](images/gh_new_readme.png){ width=90% }
 
 <br>
 
@@ -338,7 +338,7 @@ Type a *short but informative* commit message and press the green **Commit chang
 **Tip:** Return to RStudio and look in the **Git** tab for the blue down arrow. This is how you *pull* files from your remote repo to your local project.
 </div>
 
-![](images/rstudio_pull_arrow.png)
+![](images/rstudio_pull_arrow.png){ width=90% }
 
 <br>
 
@@ -360,7 +360,7 @@ Fast-forward
 **Tip:** The first line is the actual Git command and the remaining lines are what Git is reporting back from `git pull`, including the file name and its contents.
 </div>
 
-![](images/rstudio_pull_window.png)
+![](images/rstudio_pull_window.png){ width=90% }
 
 <br>
 
@@ -368,7 +368,7 @@ Fast-forward
 **Task:** Close the Git Pull window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from GitHub.
 </div>
 
-![](images/rstudio_readme_pulled.png)
+![](images/rstudio_readme_pulled.png){ width=90% }
 
 <br>
 
