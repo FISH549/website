@@ -22,7 +22,7 @@ TBD <- list(
 ## day 0 ####
 intro_1 <- list(
   title = "Introduction",
-  topics = c("<b>Course overview</b>"),
+  topics = c("<b>Course overview</b>", "Required software"),
   pdf = c(""),
   rmd = c("lectures/week_01/lec_00_class_overview.Rmd"),
   html = c("lectures/week_01/lec_00_class_overview.html"),
@@ -35,8 +35,8 @@ intro_2 <- list(
   title = "Introduction",
   topics = c("<b>What is data science?</b>", "Types of questions", "Storytelling"),
   pdf = c(""),
-  rmd = c("lectures/week_01/lec_01_class_overview.Rmd"),
-  html = c("lectures/week_01/lec_01_class_overview.html"),
+  rmd = c("lectures/week_01/lec_01_intro_to_data_science.Rmd"),
+  html = c("lectures/week_01/lec_01_intro_to_data_science.html"),
   background = c("[Leek & Peng (2015)](references/Leek_Peng_2015_what_is_the_Q.pdf)", "[D’Agostino McGowan (2020)](https://docs.google.com/presentation/d/1pZe8Sp350iYzsKsweZzR374179gvRwpI3cAX_NObgj8/edit#slide=id.p)", "[Peng (2018)](https://simplystatistics.org/posts/2018-06-04-trustworthy-data-analysis/)"),
   zoom = ""
 )
@@ -44,10 +44,10 @@ intro_2 <- list(
 ## day 2 ####
 analysis_steps <- list(
   title = "Steps to an analysis",
-  topics = c("<b>Steps to an analysis</b>", "Informal vs formal", "Rubrics", "Required software"),
+  topics = c("<b>Steps to an analysis</b>", "Informal vs formal", "Rubrics"),
   pdf = c(""),
-  rmd = c("lectures/week_01/lec_02_analysis_steps_software.Rmd"),
-  html = c("lectures/week_01/lec_02_analysis_steps_software.html"),
+  rmd = c("lectures/week_01/lec_02_analysis_steps.Rmd"),
+  html = c("lectures/week_01/lec_02_analysis_steps.html"),
   background = c("[Cooper & Hsing (2017)](references/BES_guide_to_reproducible_code.pdf)"),
   zoom = ""
 )
