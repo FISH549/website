@@ -64,6 +64,111 @@ WHO ARE YOU?
 3. Something you're excited to learn this quarter
 
 
+# Software requirements
+
+
+## Software in this course
+
+1) Is free
+
+2) Is well supported by the user community
+
+
+## R Software | An environment for statistical computing and graphics
+
+> - Enormous developer & support communities
+
+> - [Learn more here](https://www.r-project.org/about.html)
+
+
+## R packages
+
+Most of R's current capabilities come from *packages*
+
+> - We'll use a variety of them for many different tasks
+
+> - We'll also learn how to create our own!
+
+
+## RStudio | An integrated development environment (IDE) for R
+
+> - Syntax highlighting, code completion, smart indentation  
+
+> - Easily manage multiple working directories using projects  
+
+> - Extensive package development tools  
+
+> - Built-in tools & GUIs for **Git** & **R Markdown**
+
+
+## &nbsp; {data-background=images/RStudio_desktop.png data-background-size=80%}
+
+
+## RStudio benefits
+
+### [Cheat sheets](https://rstudio.com/resources/cheatsheets/)
+
+<br>
+
+### [Webinars, links, etc](https://resources.rstudio.com/)
+
+
+## &nbsp; {data-background=images/RStudio_cheatsheet.png data-background-size=80%}
+
+
+## GitHub | Cloud-based code repository & collaboration platform
+
+> - Store, manage, track changes to code
+
+> - Communicate with other team members
+
+> - Uses **Git** for version control
+
+
+## &nbsp; {data-background=images/gh_signup.png data-background-size=80%}
+
+
+## &nbsp; {data-background=images/GitHub_repo.png data-background-size=80%}
+
+
+## Git | Version control system (VCS)
+
+[Git](https://git-scm.com/about) records changes to a file or set of files over time so that you can recall specific versions later
+
+
+## PostgreSQL | Open source relational database system
+
+> - Uses & extends the SQL language
+
+> - Highly extensible (eg, define your own data types)
+
+> - Active user community
+
+
+## R Markdown
+
+Notebook interface to weave together text, equations, and code into nicely formatted output
+
+Allows you to create and document fully reproducible workflows
+
+
+## R Markdown
+
+Supports dozens of static and dynamic output formats
+
+* HTML  
+* PDF  
+* MS Word  
+* HTML5 slides  
+* Books  
+* Shiny apps  
+* Scientific articles  
+* websites
+
+[Gallery here](https://rmarkdown.rstudio.com/gallery.html)
+
+
+
 ## {.flexbox .vcenter .bigger}
 
 <font size="10">
