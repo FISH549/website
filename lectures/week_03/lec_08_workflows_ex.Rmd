@@ -29,29 +29,29 @@ A centralized workflow uses a single repo for all changes to the project. All te
 
 Imagine Juan sits down to work on his new **testing** project that Mary and Aisha have been working on as well. The first thing Juan does is **pull** from the remote repository.
 
-![](images/central_git_pull.png)
+![](images/central_git_pull.png){ width=70% }
 
 <br>
 
 Everything is up to date, so Juan works on the R script for doing some simple math operations. He adds 2 lines to the script to demonstrate a subtraction operation, and then saves his changes.
 
-![](images/central_new_lines_code.png)
+![](images/central_new_lines_code.png){ width=70% }
 
 <br>
 
 After basking in the glow of his wonderful new code, Juan decides he should take a break for awhile, so he commits his changes.
 
-![](images/central_commit_1.png)
+![](images/central_commit_1.png){ width=70% }
 
 <br>
 
-![](images/central_commit_2.png)
+![](images/central_commit_2.png){ width=70% }
 
 <br>
 
 The last step before Juan takes a break is to **push** his local commit up to the shared repo on GitHub.
 
-![](images/central_push_fail.png)
+![](images/central_push_fail.png){ width=70% }
 
 <br>
 
@@ -61,7 +61,7 @@ What went wrong? Git is telling us that there are some changes on the remote rep
 
 Juan goes ahead and pulls Mary's recent changes to his local repo, which issues another warning about a so-called *merge conflict* in `R/00_testing.R` that Juan will have to fix.
 
-![](images/central_pull_error.png)
+![](images/central_pull_error.png){ width=70% }
 
 <br>
 
@@ -79,7 +79,7 @@ num + demo
 >>>>>>> d1ab55e3cf1979efd0a61954305f742cfbb38e11
 ```
 
-![](images/central_merge_conflict.png)
+![](images/central_merge_conflict.png){ width=70% }
 
 <br>
 
@@ -99,17 +99,17 @@ Everything between `=======` and `>>>>>>> d1ab55e3cf1979efd0a61954305f742cfbb38e
 
 After confirming that Mary is done making changes for awhile, Juan can return to resolving the current merge conflict. To do so, Juan inspects the new changes that Mary made and decides if he wants to merge them into his version of the file, or whether he wants to discard them. In this case, Juan is happy with the new addition operation that Mary made, so he accepts them by simply deleting the conflict dividers.
 
-![](images/central_merge_resolve.png)
+![](images/central_merge_resolve.png){ width=70% }
 
 <br>
 
 Now Juan can commit his resolved changes and push them to the remote repo.
 
-![](images/central_resolved_commit.png)
+![](images/central_resolved_commit.png){ width=70% }
 
 <br>
 
-![](images/central_push_succeed.png)
+![](images/central_push_succeed.png){ width=70% }
 
 <br>
 
@@ -147,7 +147,7 @@ The second option for creating a new branch, which we'll follow here, is to do s
 **Task:** Click on the purple button with 2 rectangles and a diamond in the **Git** pane, which will bring up a dialogue window where you can enter the name of your new branch (we'll call it "develop"). Press the **Create** button when you're done.
 </div>
 
-![](images/feature_new_branch_rstudio.png)
+![](images/feature_new_branch_rstudio.png){ width=60% }
 
 <br>
 
@@ -160,7 +160,7 @@ The second option for creating a new branch, which we'll follow here, is to do s
 You should also note that Git is suggesting you create a so-called *pull request* to move changes from the **develop** branch into the **main** branch by navigating to your remote repo on GitHub.
 </div>
   
-![](images/feature_new_branch_rstudio_window.png)
+![](images/feature_new_branch_rstudio_window.png){ width=70% }
 
 <br>
 
@@ -178,7 +178,7 @@ Let's go ahead and make a small change to our R test script (note that the follo
 **Task:** Add the following 2 lines of code to the `00_testing.R` script. Save the changes when you are finished.
 </div>
 
-![](images/feature_new_lines_in_testing.png)
+![](images/feature_new_lines_in_testing.png){ width=70% }
 
 <br>
 
@@ -186,7 +186,7 @@ Let's go ahead and make a small change to our R test script (note that the follo
 **Task:** Add the file to staging and commit it. Include a _short but informative_ commit message and click the **Commit** button when ready.
 </div>
 
-![](images/feature_new_commit.png)
+![](images/feature_new_commit.png){ width=80% }
 
 <br>
 
@@ -198,7 +198,7 @@ Let's go ahead and make a small change to our R test script (note that the follo
 **Note:** RStudio will pop open a window echoing your push command and the destination.
 </div>
 
-![](images/feature_new_commit_push.png)
+![](images/feature_new_commit_push.png){ width=80% }
 
 <br>
 
@@ -271,7 +271,9 @@ Recall that a forking workflow is commonly used when a developer is *not* a memb
 
 ## Step 1: Fork the repo
 
-![](images/gh_fork_1.png)
+<br>
+
+![](images/gh_fork_1.png){ width=70% }
 
 <br>
 
@@ -311,7 +313,9 @@ You will now see a new forked version of the original repository with some infor
 
 ## Step 2: Clone the repo
 
-![](images/gh_fork_2.png)
+<br>
+
+![](images/gh_fork_2.png){ width=70% }
 
 <br>
 
@@ -323,7 +327,9 @@ You will now see a new forked version of the original repository with some infor
 
 ## Step 3: Add remote repo
 
-![](images/gh_fork_3.png)
+<br>
+
+![](images/gh_fork_3.png){ width=70% }
 
 <br>
 
@@ -355,7 +361,7 @@ git remote add upstream https://github.com/FISH549/ex-fork
 **Task:** Open up your project in RStudio and click on the "New branch" button in the **Git** pane (i.e., the button with the 2 purple rectangles and a diamond).
 </div>
 
-![](images/gh_fork_rs_add_remote_1.png)
+![](images/gh_fork_rs_add_remote_1.png){ width=70% }
 
 <br>
 
@@ -363,7 +369,7 @@ git remote add upstream https://github.com/FISH549/ex-fork
 **Task:** Click on the button labeled "Add remote...".
 </div>
 
-![](images/gh_fork_rs_add_remote_2.png)
+![](images/gh_fork_rs_add_remote_2.png){ width=70% }
 
 <br>
 
@@ -371,7 +377,7 @@ git remote add upstream https://github.com/FISH549/ex-fork
 **Task:** In the "Remote Name:" box, type `upstream`. In the "Remote URL:" box, enter the name of the **owner's** repo you forked in Step 1: `https://github.com/FISH549/ex-fork` (you can copy/paste if you'd like). When you are finished, click the **Add** button.
 </div>
 
-![](images/gh_fork_rs_add_remote_3.png)
+![](images/gh_fork_rs_add_remote_3.png){ width=70% }
 
 <br>
 
@@ -380,7 +386,7 @@ git remote add upstream https://github.com/FISH549/ex-fork
 </div>
 
 
-![](images/gh_fork_rs_add_remote_4.png)
+![](images/gh_fork_rs_add_remote_4.png){ width=70% }
 
 <br>
 
@@ -403,13 +409,15 @@ upstream        https://github.com/FISH549/ex-fork (push)
 
 <br>
 
-![](images/gh_fork_rs_add_remote_5.png)
+![](images/gh_fork_rs_add_remote_5.png){ width=70% }
 
 <br>
 
 ## Step 4: Make local changes
 
-![](images/gh_fork_4.png)
+<br>
+
+![](images/gh_fork_4.png){ width=70% }
 
 <br>
 
@@ -440,7 +448,7 @@ Already up to date.
 
 If you examine your forked copy of the repo on GitHub, you'll notice that it contains 2 branches: **main** and **develop**. However, if you inspect the local branches in your current project in RStudio, you'll see that only **main** exists there.
 
-![](images/gh_fork_branch_view_1.png)
+![](images/gh_fork_branch_view_1.png){ width=70% }
 
 <br>
 
@@ -448,11 +456,11 @@ If you examine your forked copy of the repo on GitHub, you'll notice that it con
 **Tip:** To set the local branch to **develop** (where we'd like to do our work), click on **develop** under (REMOTE: ORIGIN), which will bring up a message box from Git informing you that you've created and switched over to a new branch called **develop**.
 </div>
 
-![](images/gh_fork_branch_view_2.png)
+![](images/gh_fork_branch_view_2.png){ width=70% }
 
 <br>
 
-![](images/gh_fork_branch_switch.png)
+![](images/gh_fork_branch_switch.png){ width=70% }
 
 <br>
 
@@ -469,7 +477,7 @@ If you examine your forked copy of the repo on GitHub, you'll notice that it con
 You can also track the **main branch** on the remote upstream (located at `https://github.com/FISH549/ex-fork`)
 </div>
 
-![](images/gh_fork_branch_view_3.png)
+![](images/gh_fork_branch_view_3.png){ width=70% }
 
 <br>
 
@@ -479,19 +487,21 @@ Let's create a new file in our local repo so we have something to commit and pus
 **Task:** Go ahead and make a simple R script and commit it (I'm called mine `simple_addition.R`).
 </div>
 
-![](images/gh_fork_ex_script.png)
+![](images/gh_fork_ex_script.png){ width=70% }
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** When you're happy with your script, go ahead and commit it.
 </div>
 
-![](images/gh_fork_ex_commit.png)
+![](images/gh_fork_ex_commit.png){ width=70% }
 
 <br>
 
 ## Step 5: Push to GitHub
 
-![](images/gh_fork_5.png)
+<br>
+
+![](images/gh_fork_5.png){ width=70% }
 
 <br>
 
@@ -503,13 +513,15 @@ Now it's time to push your simple script to your own remote located at
 **Task:** Click the green uparrow to push your new script to GitHub.
 </div>
 
-![](images/gh_fork_ex_push.png)
+![](images/gh_fork_ex_push.png){ width=70% }
 
 <br>
 
 ## Step 6: Submit a pull request
 
-![](images/gh_fork_6.png)
+<br>
+
+![](images/gh_fork_6.png){ width=70% }
 
 <br>
 
