@@ -44,20 +44,27 @@ Create a new branch in your local repo called `develop`.
 
 # Task 4
 
-In the `develop` branch, create a new R script with the following information:
+In the `develop` branch, create a new R script with the following information, making sure to replace `First Last` with your name:
 
 ```{r eval = FALSE}
 ## A simple function for adding 2 numbers
+## written by First Last
 add <- function(a, b) {
   return(a + b)
 }
 ```
 
-Save this script as `add.R` and then commit it to your local repo. When you are finished, push this file to your remote repo on GitHub.
+Save this script as `add_FL.R`, making sure to replace `FL` with the initials of your first and last name.
 
 ***
 
 # Task 5
+
+Commit the new R script you just created to your local repo. When you are finished, push this file to your remote repo on GitHub.
+
+***
+
+# Task 6
 
 Navigate to your remote repo on GitHub to review your new file and submit a pull request (PR). Give your PR an informative title and leave a short description of what your new file does. When you're finished, submit the PR for Mark's review.
 
