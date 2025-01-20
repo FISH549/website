@@ -172,3 +172,15 @@
 .boxy-blue blockquote {
   border-left-color: #31708f;
 }
+
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
+
+img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
