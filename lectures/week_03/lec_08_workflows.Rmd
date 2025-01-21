@@ -2,11 +2,11 @@
 title: "Understanding workflows"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "24 January 2025"
+date: "22 January 2025"
 output:
   ioslides_presentation:
     widescreen: true
-    css: lecture_slides.css
+    css: ["lecture_slides.css" , "lecture_inst.css"]
 ---
 
 ```{r setup, include=FALSE}
@@ -54,50 +54,52 @@ It *should not* be a burden
 
 ## Centralized workflow | Uses a single repo for all changes to the project
 
-![](images/central_work.svg)
+![](images/central_work.svg){ width=80% }
 
 
 ## Centralized workflow | Juan works on his code
 
-![](images/central_ex_1.svg)
-
-
-## Centralized workflow{data-background=images/central_diverge.svg data-background-position="50% 50%" data-background-size=90%}
-
-
-## Centralized workflow | Mary works on her code
-
-![](images/central_ex_2.svg)
-
-
-## Centralized workflow | Juan pushes his commits `(git push origin main)`
-
-![](images/central_ex_3.svg)
-
-
-## Centralized workflow | Mary tries to push, but it fails  `(git push origin main)`
-
-![](images/central_ex_4.svg)
-
-
-## Centralized workflow | Mary *rebases* `(git pull --rebase origin main)`
-
-![](images/central_ex_5.svg)
-
-
-## Centralized workflow | `rebase` moves Mary's commits to tip
-
-![](images/mary_repo.png)
-
-
-## Centralized workflow | Mary resolves her *merge conflict*
-
-![](images/central_ex_6.svg)
+![](images/central_ex_1.svg){ width=80% }
 
 
 ## Centralized workflow
 
-![](images/mary_repo_2.png)
+![](images/central_diverge.svg){ width=90% }
+
+
+## Centralized workflow | Mary works on her code
+
+![](images/central_ex_2.svg){ width=80% }
+
+
+## Centralized workflow | Juan pushes his commits `(git push origin main)`
+
+![](images/central_ex_3.svg){ width=80% }
+
+
+## Centralized workflow | Mary tries to push, but it fails  `(git push origin main)`
+
+![](images/central_ex_4.svg){ width=80% }
+
+
+## Centralized workflow | Mary *rebases* `(git pull --rebase origin main)`
+
+![](images/central_ex_5.svg){ width=80% }
+
+
+## Centralized workflow | `rebase` moves Mary's commits to tip
+
+![](images/mary_repo.png){ width=70% }
+
+
+## Centralized workflow | Mary resolves her *merge conflict*
+
+![](images/central_ex_6.svg){ width=80% }
+
+
+## Centralized workflow
+
+![](images/mary_repo_2.png){ width=70% }
 
 ```
 git status
@@ -107,7 +109,7 @@ git rebase --continue
 
 ## Centralized workflow | Mary pushes her commits `(git push origin main)`
 
-![](images/central_ex_7.svg)
+![](images/central_ex_7.svg){ width=80% }
 
 
 ## Centralized workflow | Pros and cons
@@ -144,6 +146,8 @@ git rebase --continue
 
 ![](images/branch_ex_1.svg)
 
+<br>
+
 ```
 git checkout -b marys-feature main
 ```
@@ -151,32 +155,32 @@ git checkout -b marys-feature main
 
 ## Feature branch | Mary pushes `(git push -u origin marys-feature)` 
 
-![](images/branch_ex_2.svg)
+![](images/branch_ex_2.svg){ width=80% }
 
 
 ## Feature branch | Mary finishes her changes & submits a pull request
 
-![](images/branch_ex_3.svg)
+![](images/branch_ex_3.svg){ width=80% }
 
 
 ## Feature branch | Juan receives pull request
 
-![](images/branch_ex_4.svg)
+![](images/branch_ex_4.svg){ width=80% }
 
 
 ## Feature branch | Juan & Mary discuss changes
 
-![](images/branch_ex_4.svg)
+![](images/branch_ex_4.svg){ width=80% }
 
 
 ## Feature branch | Mary makes changes
 
-![](images/branch_ex_5.svg)
+![](images/branch_ex_5.svg){ width=80% }
 
 
 ## Feature branch | Changes are accepted & merged (by Juan or Mary)
 
-![](images/branch_ex_6.svg)
+![](images/branch_ex_6.svg){ width=80% }
 
 <br>
 
@@ -235,7 +239,7 @@ git push
 
 ## What's next?
 
-We'll learn about best practices for creating, reading, and sharing data 
+We'll see these workflows in practice
 
 
 
