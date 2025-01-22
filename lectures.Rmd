@@ -28,17 +28,17 @@ week_lecs <- vector("list", 30)
 names(week_lecs) <- paste0("L", seq(30))
 ## lecture topics
 ## week 1: Jan 6-10
-week_lecs$L1 <- intro_1
-week_lecs$L2 <- intro_2
-week_lecs$L3 <- analysis_steps
+week_lecs$L1 <- intro
+week_lecs$L2 <- analysis_steps
+week_lecs$L3 <- organization_styles
 ## week 2: Jan 13-17
-week_lecs$L4 <- organization_styles
-week_lecs$L5 <- github
-week_lecs$L6 <- remotes
+week_lecs$L4 <- github
+week_lecs$L5 <- remotes
+week_lecs$L6 <- version_control
 ## week 3: Jan 20-24
 week_lecs$L7 <- holiday_1
-week_lecs$L8 <- version_control
-week_lecs$L9 <- workflows
+week_lecs$L8 <- workflows_1
+week_lecs$L9 <- workflows_2
 ## week 4: Jan 27-31
 week_lecs$L10 <- working_with_data
 week_lecs$L11 <- data_ingest
