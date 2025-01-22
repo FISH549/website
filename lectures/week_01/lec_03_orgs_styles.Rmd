@@ -2,7 +2,7 @@
 title: "Organization and styles"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "13 January 2025"
+date: "10 January 2025"
 output:
   ioslides_presentation:
     widescreen: true

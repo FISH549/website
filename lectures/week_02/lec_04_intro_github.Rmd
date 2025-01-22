@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GitHub"
-date: "15 January 2025"
+date: "13 January 2025"
 output:
   html_document:
     theme: spacelab
