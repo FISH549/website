@@ -6,7 +6,7 @@ date: "27 January 2025"
 output:
   ioslides_presentation:
     widescreen: true
-    css: lecture_slides.css
+    css: ["lecture_slides.css", "lecture_inst.css"]
 ---
 
 ```{r setup, include=FALSE}
@@ -83,22 +83,22 @@ Choose good names
 | obs_01      | first_obs   | 1st Obs. |
 
 
-## An aside on cases in coding
+## An aside on cases in coding {.slide}
 
 ![](images/allison_horst_cases.png){ width=80% }
 
 
-## The janitor package handles suboptimal column names
+## The {janitor} package | Helps with non-standard column names
 
-* The [janitor](https://www.rdocumentation.org/packages/janitor/versions/2.2.1) package has an extremely useful function called `clean_names()` which will handle all of your gross header names for you
+* The [{janitor}](https://www.rdocumentation.org/packages/janitor/versions/2.2.1) package has an extremely useful function called `clean_names()` which will handle all of your gross header names for you
 
 * From the `clean_names()` documentation:
 
-<br>
+*Resulting names are unique and consist only of the _ character, numbers, and letters. Capitalization preferences can be specified using the case parameter.*
 
-<center>Resulting names are unique and consist only of the _ character, numbers, and letters. Capitalization preferences can be specified using the case parameter.</center>  
 
 ## Organizing data in spreadsheets | Broman & Woo (2018)
+
 
 No empty cells -- use `NA` or some other placeholder
 
