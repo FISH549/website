@@ -2,7 +2,7 @@
 title: "Course introduction"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "8 January 2025"
+date: "6 January 2025"
 output:
   ioslides_presentation:
     widescreen: true
