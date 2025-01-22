@@ -83,6 +83,21 @@ Choose good names
 | obs_01      | first_obs   | 1st Obs. |
 
 
+## An aside on cases in coding
+
+![](images/allison_horst_cases.png){ width=80% }
+
+
+## The janitor package handles suboptimal column names
+
+* The [janitor](https://www.rdocumentation.org/packages/janitor/versions/2.2.1) package has an extremely useful function called `clean_names()` which will handle all of your gross header names for you
+
+* From the `clean_names()` documentation:
+
+<br>
+
+<center>Resulting names are unique and consist only of the _ character, numbers, and letters. Capitalization preferences can be specified using the case parameter.</center>  
+
 ## Organizing data in spreadsheets | Broman & Woo (2018)
 
 No empty cells -- use `NA` or some other placeholder
