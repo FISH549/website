@@ -133,7 +133,7 @@ workflows_1 <- list(
   rmd = c("lectures/week_03/lec_08_workflows.Rmd"),
   html = c("lectures/week_03/lec_08_workflows.html"),
   background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
-                 "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
+                 "[Learn Git branching](https://learngitbranching.js.org/)"),
   zoom = ""
 )
 
@@ -145,7 +145,7 @@ workflows_2 <- list(
   rmd = c("lectures/week_03/lec_08_workflows_ex.Rmd"),
   html = c("lectures/week_03/lec_08_workflows_ex.html"),
   background = c("[Sec VI of HGG](https://happygitwithr.com/workflows-intro.html)",
-                 "[Learn Git branching](https://pcottle.github.com/learnGitBranching/)"),
+                 "[Learn Git branching](https://learngitbranching.js.org/)"),
   zoom = ""
 )
 
