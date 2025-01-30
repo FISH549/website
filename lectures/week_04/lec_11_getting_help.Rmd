@@ -1,6 +1,6 @@
 ---
 title: "Getting help from others"
-date: "27 January 2023"
+date: "31 January 2025"
 output:
   html_document:
     theme: spacelab
@@ -223,7 +223,9 @@ a / b
 **Tip:** If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
 </div>
 
-![](images/reprex_result.png)
+![](images/reprex_result.png){ width=75% }
+
+<br>
 
 <div class="boxy boxy-orange boxy-lightbulb">
 **Tip:** Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)).
@@ -270,7 +272,7 @@ a / b
 **Task:** Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
 </div>
 
-![](images/reprex_rs_popup.png)
+![](images/reprex_rs_popup.png){ width=80% }
 
 <br>
 
