@@ -44,21 +44,21 @@ week_lecs$L10 <- working_with_data
 week_lecs$L11 <- data_ingest
 week_lecs$L12 <- getting_help
 ## week 5: Feb 3-7
-week_lecs$L13 <- databases_1
-week_lecs$L14 <- databases_2
-week_lecs$L15 <- databases_3
+week_lecs$L13 <- metadata # databases_1
+week_lecs$L14 <- analysis_visualization # databases_2
+week_lecs$L15 <- markdown_1 # databases_3
 ## week 6: Feb 10-14
-week_lecs$L16 <- metadata
-week_lecs$L17 <- analysis_visualization
-week_lecs$L18 <- markdown_1
+week_lecs$L16 <- markdown_2 # metadata
+week_lecs$L17 <- markdown_3 # analysis_visualization
+week_lecs$L18 <- markdown_4 # markdown_1
 ## week 7: Feb 17-21
 week_lecs$L19 <- holiday_2
-week_lecs$L20 <- markdown_2
-week_lecs$L21 <- markdown_3
+week_lecs$L20 <- packages_1 # markdown_2
+week_lecs$L21 <- packages_2 # markdown_3
 ## week 8: Feb 24-28
-week_lecs$L22 <- markdown_4
-week_lecs$L23 <- packages_1
-week_lecs$L24 <- packages_2
+week_lecs$L22 <- databases_1
+week_lecs$L23 <- databases_2
+week_lecs$L24 <- databases_3
 ## week 9: Mar 3-7
 week_lecs$L25 <- shiny_1
 week_lecs$L26 <- shiny_2
