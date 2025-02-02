@@ -1,8 +1,8 @@
 ---
 title: "Exploring R packages"
-subtitle: "Assignment #7"
+subtitle: "Assignment #6"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "28 February 2025"
+date: "21 February 2025"
 output:
   html_document:
     theme: spacelab

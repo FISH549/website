@@ -1,8 +1,8 @@
 ---
 title: "Publishing with R Markdown"
-subtitle: "Assignment #6"
+subtitle: "Assignment #5"
 author: "FISH 549 - Best Practices in Environmental Data Science"
-date: "21 February 2025"
+date: "14 February 2025"
 output:
   html_document:
     theme: spacelab
