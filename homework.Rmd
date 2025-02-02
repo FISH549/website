@@ -29,10 +29,10 @@ names(week_hw) <- paste0("L", seq(8))
 week_hw$L1 <- github
 week_hw$L2 <- forking_workflows
 week_hw$L3 <- getting_help
-week_hw$L4 <- databases
-week_hw$L5 <- data_viz
-week_hw$L6 <- publishing
-week_hw$L7 <- packages 
+week_hw$L4 <- data_viz # databases
+week_hw$L5 <- publishing # data_viz
+week_hw$L6 <- packages # publishing
+week_hw$L7 <- databases # packages 
 week_hw$L8 <- presentations
 ```
 
