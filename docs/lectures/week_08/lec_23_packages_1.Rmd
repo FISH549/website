@@ -1,7 +1,7 @@
 ---
 title: "Creating R packages"
 subtitle: "Part 1"
-date: "<br>22 February 2023"
+date: "<br>19 February 2025"
 output:
   html_document:
     theme: spacelab
