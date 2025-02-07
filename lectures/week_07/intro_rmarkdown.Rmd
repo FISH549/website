@@ -76,10 +76,10 @@ You can specify different levels of headings using the hash tag (pound) symbol `
 
 will render to 
 
-> # Heading 1
-> ## Heading 2
-> ### Heading 3
-> #### Heading 4
+> <p style="font-weight:300; font-size:2em">Heading 1</p>
+> <p style="font-weight:300; font-size:1.5em">Heading 2</p>
+> <p style="font-weight:300; font-size:1.17em">Heading 3</p>
+> <p style="font-weight:300; font-size:1em">Heading 4</p>
 
 ## Emphasis
 
@@ -284,7 +284,7 @@ Here are the references for the links. For some reason I put the full address he
 
 ### Image size
 
-YOu can adjust the width of an image in your Markdown document by adding a `width` argument in curly braces:
+You can adjust the width of an image in your Markdown document by adding a `width` argument in curly braces:
 
 ```
 ## set the image width to 50%
