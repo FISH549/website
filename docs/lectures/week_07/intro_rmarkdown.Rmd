@@ -1,6 +1,5 @@
 ---
 title: "Introduction to R Markdown"
-date: "10 February 2023"
 output:
   html_document:
     theme: spacelab
@@ -33,7 +32,7 @@ The front matter is defined in a block of text that begins and ends with 3 dashe
 ---
 title: "I really like R Markdown"
 author: "Mark Scheuerell"
-date: "10 February 2023"
+date: "7 February 2025"
 output: html_document
 ---
 ```
@@ -43,14 +42,16 @@ The YAML can include a lot more information as well, including fields for variou
 ```
 ---
 title: "Introduction to R Markdown"
-date: "10 February 2023"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
+bibliography: "references.bib"
+csl: "ecology.csl"
 ---
 ```
 
@@ -75,10 +76,10 @@ You can specify different levels of headings using the hash tag (pound) symbol `
 
 will render to 
 
-> # Heading 1
-> ## Heading 2
-> ### Heading 3
-> #### Heading 4
+> <p style="font-weight:300; font-size:2em">Heading 1</p>
+> <p style="font-weight:300; font-size:1.5em">Heading 2</p>
+> <p style="font-weight:300; font-size:1.17em">Heading 3</p>
+> <p style="font-weight:300; font-size:1em">Heading 4</p>
 
 ## Emphasis
 
@@ -280,6 +281,17 @@ Here are the references for the links. For some reason I put the full address he
 
 [1]: http://www.google.com
 [2]: safs_mural.jpeg
+
+### Image size
+
+You can adjust the width of an image in your Markdown document by adding a `width` argument in curly braces:
+
+```
+## set the image width to 50%
+Check out the SAFS mural: ![](safs_mural.jpeg){ width=50% }
+```
+
+> Check out the SAFS mural: ![](safs_mural.jpeg){ width=50% }
 
 
 # Writing code
