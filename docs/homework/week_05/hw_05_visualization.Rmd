@@ -67,22 +67,23 @@ You are welcome to use **R Markdown** to complete this assignment, but if you'd 
 
 # Task 1
 
-Create a new repo on **GitHub** called `Assignment-5` and populate it with a short `README.md` document that briefly describes your assignment. 
+You should use the `fish549` **GitHub** repo and associated **RStudio** project [you created for assignment 1](../../homework/week_01/hw_01_github_remotes.html). 
 
-Your repo should ultimately contain the following structure:
+After you've finished this assignment, your repo should contain the following (in addition to the stuff already in there):
 
-* a folder `data` that includes the `.csv` file for the assignment
+* the `siscowet.csv` data file you downloaded for the assignment placed into the `data` folder
 
-* a folder `figures` that should include your `.Rmd` or `.R` files used for creating your figures, and any saved figures you might generate
+* a new `figures` folder that should include your `.Rmd` or `.R` files used for creating your figures, and any saved figures you might generate
 
 
 # Task 2
 
-Create a new project in **RStudio** from the repo you created in **Task 1**, and work from there to create and edit your code for cleaning and plotting the data. Make sure to commit any changes and push them up to your remote repo.
+Use **RStudio** to create and edit your code for cleaning and plotting the data. Make sure to commit any changes and push them up to your remote repo.
+
 
 # Task 3
 
-When you are finished with your assignment, create a new issue within your `Assignment-5` repo that briefly describes what you've done, and tag Mark in the issue so he knows when you're finished.
+When you are finished with your assignment, create a new issue within your `fish549` repo that briefly describes what you've done, and tag Mark in the issue so he knows when you're finished.
 
 
 
