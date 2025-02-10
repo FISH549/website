@@ -33,7 +33,7 @@ The basic information in the `YAML` of a blank `.Rmd` document set for `.pdf` ou
 ```{r yaml, eval = FALSE}
 title: "A catchy title"
 author: "First Last"
-date: "13 February 2023"
+date: "10 February 2025"
 output: pdf_document
 ```
 
@@ -41,7 +41,7 @@ output: pdf_document
 **Tip:** You can also add a subtitle with the `subtitle` argument and set the data to automatically update with the inline **R** code `Sys.Date()`. You can create a custom format for the date as well.
 </div>
 
-For example, the following `date` option will print as `day full_month_name four_digit_year`. Check out the options for the R function `format()` to see how to change the date format.
+For example, the following `date` option will print as `day full-month-name four-digit-year`. Check out the options for the R function `format()` to see how to change the date format.
 
 ```{r yaml_2, eval = FALSE}
 title: "A catchy title"
@@ -69,7 +69,7 @@ The `article` class is a basic layout that has relatively large margins.
 ```{r article, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 ```
@@ -81,7 +81,7 @@ The `report` class will create a separate title page and insert page breaks betw
 ```{r report, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: report
 ```
@@ -93,7 +93,7 @@ You can create a document with two columns of text with the `classoption` argume
 ```{r twocolumn, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: report
 classoption: twocolumn
@@ -107,7 +107,7 @@ You can set the margin spacing to be the same for all four sides, or set each of
 ```{r margins_1, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1.5in
@@ -122,7 +122,7 @@ Here's an example of setting the top and bottom margins in an `article` to 1 inc
 ```{r margins_2, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry:
@@ -143,7 +143,7 @@ You can increase the line spacing with the `linestretch` argument. For example, 
 ```{r line_spacing, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1in
@@ -163,7 +163,7 @@ For example, it looks like this for a double-spaced article with 1-inch margins:
 ```{r line_numbers, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1in
@@ -183,7 +183,7 @@ You can set the font size in your document with the `fontsize` argument. For exa
 ```{r font_size, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1in
@@ -224,7 +224,7 @@ For example, this document will use the Arial font.
 ```{r font_fam_1, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output:
   pdf_document: 
     latex_engine: pdflatex
@@ -246,7 +246,7 @@ fontsize: 12pt
 ```{r font_fam_2, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output:
   pdf_document: 
     latex_engine: xelatex
@@ -271,7 +271,7 @@ To automatically create a table of contents, set the `toc` argument to `true`. Y
 ```{r toc, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: report
 geometry: margin=1in
@@ -339,7 +339,7 @@ If you want to place the float at *exactly the location* in the **LaTeX** code, 
 ```{r float, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
-date: "2/13/2023"
+date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1in
@@ -370,7 +370,7 @@ header-includes:
 <!-- ```{r subfigs, eval = FALSE} -->
 <!-- title: "Example template for exploring formatting options" -->
 <!-- author: "First Last" -->
-<!-- date: "2/13/2023" -->
+<!-- date: "2/10/2025" -->
 <!-- output: pdf_document -->
 <!-- documentclass: article -->
 <!-- geometry: margin=1in -->
@@ -415,7 +415,7 @@ header-includes:
 <!-- ```{r headfoot, eval = FALSE} -->
 <!-- title: "Example template for exploring formatting options" -->
 <!-- author: "First Last" -->
-<!-- date: "2/13/2023" -->
+<!-- date: "2/10/2025" -->
 <!-- output: pdf_document -->
 <!-- documentclass: article -->
 <!-- geometry: margin=1in -->
