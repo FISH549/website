@@ -2,7 +2,7 @@
 title: "My very first presentation using ioslides"
 subtitle: "FISH 549"
 author: "First Last<br>School of Aquatic and Fishery Sciences<br>University of Washington"
-date: "15 February 2023"
+date: "12 February 2025"
 output:
   ioslides_presentation:
     css: custom_styles.css
