@@ -12,7 +12,7 @@ output:
 
 ## R Markdown | Worship
 
-- Such an amazing tool  
+* Such an amazing tool  
 - The possibilities seem endless
 
     1) publishing  
@@ -41,7 +41,7 @@ a / b
 
 ## Adding hidden code
 
-```{r simple_code_2, echo = FALSE}
+```{r simple_code_2, eval = FALSE, echo = TRUE}
 a <- 1
 b <- 2
 a / b
