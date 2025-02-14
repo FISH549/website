@@ -46,8 +46,8 @@ databases <- list(
   title = "Databases",
   topics = c("Relational databases"),
   pdf = "",
-  rmd = "homework/week_04/hw_04_databases.Rmd",
-  html = "homework/week_04/hw_04_databases.html",
+  rmd = "homework/week_07/hw_07_databases.Rmd",
+  html = "homework/week_07/hw_07_databases.html",
   data = "",
   key = ""
 )
@@ -57,9 +57,9 @@ data_viz <- list(
   title = "Data visualization",
   topics = c("Data visualization"),
   pdf = "",
-  rmd = "homework/week_05/hw_05_visualization.Rmd",
-  html = "homework/week_05/hw_05_visualization.html",
-  data = "homework/week_05/data/siscowet.csv",
+  rmd = "homework/week_04/hw_04_visualization.Rmd",
+  html = "homework/week_04/hw_04_visualization.html",
+  data = "homework/week_04/data/siscowet.csv",
   key = ""
 )
 
@@ -68,9 +68,9 @@ publishing <- list(
   title = "Publishing with R Markdown",
   topics = c("Publishing with R Markdown"),
   pdf = "",
-  rmd = "homework/week_06/hw_06_publishing.Rmd",
-  html = "homework/week_06/hw_06_publishing.html",
-  data = "homework/week_06/hw_06_template.Rmd",
+  rmd = "homework/week_05/hw_05_publishing.Rmd",
+  html = "homework/week_05/hw_05_publishing.html",
+  data = "homework/week_05/hw_05_template.Rmd",
   key = ""
 )
 
@@ -90,8 +90,8 @@ packages <- list(
   title = "R packages",
   topics = c("R packages"),
   pdf = "",
-  rmd = "homework/week_07/hw_07_packages.Rmd",
-  html = "homework/week_07/hw_07_packages.html",
+  rmd = "homework/week_06/hw_06_packages.Rmd",
+  html = "homework/week_06/hw_06_packages.html",
   data = "",
   key = ""
 )
