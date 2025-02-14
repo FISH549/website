@@ -20,11 +20,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-This past week you saw various ways to format `.pdf` documents using **R Markdown** and some simple **LaTeX** commands. Your assignment is to create a `report` based upon the template [here](hw_06_template.Rmd) that includes all of the attributes below. When you save and open the template, you will see that the `YAML` section is missing. You will have to add one and modify it accordingly to match the criteria below.
+This past week you saw various ways to format `.pdf` documents using **R Markdown** and some simple **LaTeX** commands. Your assignment is to create a `report` based upon the template [here](hw_05_template.Rmd) that includes all of the attributes below. When you save and open the template, you will see that the `YAML` section is missing. You will have to add one and modify it accordingly to match the criteria below.
 
 ## Title page
 
-* Title: "My Report for Assignment 6"  
+* Title: "My Report for Assignment 5"  
 * Author: your first and last names
 * Date: dynamically assigned when knitted using a format of `month_name day, four_digit_year`
 
@@ -73,7 +73,7 @@ You will need to insert 2 citations into the **Discussion** section at the locat
 
 # Submission
 
-You should create a new **GitHub** repo called `Assignment-6` that includes both your `.Rmd` source file and the resulting `.pdf`. When you are finished,
+You should create a new **GitHub** repo called `Assignment-5` that includes both your `.Rmd` source file and the resulting `.pdf`. When you are finished,
 
 1) invite Mark as a collaborator to your repo;
 
