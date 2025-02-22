@@ -11,9 +11,9 @@
 
 <meta name="author" content="FISH 549 - Best Practices in Environmental Data Science" />
 
-<meta name="date" content="2023-02-26" />
+<meta name="date" content="2025-02-21" />
 
-<title>Publishing with R Markdown</title>
+<title>Exploring R packages</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -372,67 +372,73 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Publishing with R Markdown</h1>
-<h3 class="subtitle">Assignment #6 - Answer Key</h3>
+<h1 class="title toc-ignore">Exploring R packages</h1>
+<h3 class="subtitle">Assignment #6</h3>
 <h4 class="author">FISH 549 - Best Practices in Environmental Data
 Science</h4>
-<h4 class="date">26 February 2023</h4>
+<h4 class="date">21 February 2025</h4>
 
 </div>
 
 
 <p><br></p>
-<div id="settings" class="section level1">
-<h1>Settings</h1>
-<p>Here are the settings I used to generate my report.</p>
-<div id="yaml" class="section level2">
-<h2>YAML</h2>
-<pre class="r"><code>---
-title: &quot;My Report for Assignment 6&quot;
-author: &quot;Mark Scheuerell&quot;
-date: &quot;`r format(Sys.time(), &#39;%B %d, %Y&#39;)`&quot;
-output: pdf_document
-documentclass: report
-geometry:
-- top=1.25in
-- bottom=1.25in
-- left=1in
-- right=1in
-linestretch: 1.5
-fontsize: 11pt
-toc: TRUE
-toc-depth: 2
-header-includes:
-- \usepackage{fancyhdr}
-bibliography: &quot;references.bib&quot;
-csl: &quot;ecology.csl&quot;
----</code></pre>
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>This week we saw how to build a basic <strong>R</strong> package,
+document its contents, write unit tests, and create a vignette and
+website to better display the package’s purpose and contents. Your
+assignment this week is to write a short description of your favorite
+package (or a package that you find yourself using quite often). Your
+write-up should include the following elements.</p>
+<div id="package-title" class="section level3">
+<h3>Package title</h3>
+<p>What is the package’s title?</p>
 </div>
-<div id="latex" class="section level2">
-<h2>LaTeX</h2>
-<p>This text goes in the body of the report.</p>
-<pre><code>\pagestyle{fancy}
-\fancyhead[LO,LE]{Scheuerell}
-\fancyhead[RO,RE]{Assignment 6}</code></pre>
+<div id="location" class="section level3">
+<h3>Location</h3>
+<p>From where can you install this package on the web? Is it on CRAN or
+GitHub or both?</p>
 </div>
-<div id="code-block" class="section level2">
-<h2>Code block</h2>
-<p>I placed this block near the top before any calls to
-<code>citep()</code> or <code>citet()</code>.</p>
-<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
-
-## load knitcitations
-library(knitcitations)
-
-## clean up any existing library
-cleanbib()
-
-## set print options
-options(&quot;citation_format&quot; = &quot;pandoc&quot;)</code></pre>
-<p>I then used this block at the end to create the
-<strong>References</strong> section.</p>
-<pre class="r"><code>write.bibtex(file = &quot;references.bib&quot;)</code></pre>
+<div id="vignettes" class="section level3">
+<h3>Vignette(s)</h3>
+<p>Does the package have any formal vignettes, or just the standard
+collection of help files? If there are one or more vignettes, what
+topics do they cover?</p>
 </div>
+<div id="applications" class="section level3">
+<h3>Application(s)</h3>
+<p>Are there any applications of the package, as demonstrated on a
+website like we built, someone’s blog, Twitter post, etc? If so,
+describe some of them.</p>
+</div>
+<div id="review" class="section level3">
+<h3>Review</h3>
+<p>Write a short (&lt;300 words) review of the package. What is the
+primary purpose of the package (eg, is used for plotting, reading or
+scraping data, manipulating data, statistical modeling, etc)? What are
+the things you like about the package? Are there things you don’t like
+or wish it did differently? Was the package easy to learn how to use?
+Would you recommend this package to someone else?</p>
+</div>
+</div>
+<div id="submission" class="section level1">
+<h1>Submission</h1>
+<p>Please create a new repo called <code>assignment-6</code> and
+populate it with a <code>README.md</code>. You can then edit the
+<code>README.md</code> file to include the above information. When you
+are finished, invite Mark as a collaborator. After he accepts your
+invite, tag him in an issue that <em>briefly</em> introduces your
+assignment. Last, please choose one of the options below and note that
+in your issue.</p>
+<ol style="list-style-type: decimal">
+<li><p>I am OK with Mark posting my review to the course website
+<strong>and</strong> he can use my name (i.e., attribute the review to
+me).</p></li>
+<li><p>I am OK with Mark posting my review to the course website
+<strong>but</strong> please do not use my name (i.e., make it
+anonymous).</p></li>
+<li><p>Please do not post my review.</p></li>
+</ol>
 </div>
 
 
