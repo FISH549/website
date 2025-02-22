@@ -38,7 +38,7 @@ getting_help <- list(
   rmd = "homework/week_03/hw_03_getting_help.Rmd",
   html = "homework/week_03/hw_03_getting_help.html",
   data = "",
-  key = ""
+  key = "homework/week_03/hw_03_getting_help_key.html"
 )
 
 ## week 5
