@@ -3,7 +3,10 @@ title: "Metadata"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
 date: "3 February 2025"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    widescreen: true
+    css: ["lecture_slides.css", "lecture_inst.css"]
 ---
 
 ```{r setup, include=FALSE}
