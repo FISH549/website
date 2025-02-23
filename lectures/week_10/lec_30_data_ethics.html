@@ -9,7 +9,7 @@
 
 
 
-  <meta name="date" content="2023-03-08" />
+  <meta name="date" content="2025-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -3062,18 +3062,21 @@ var loadDeck = function(event) {
   });
 };
 
-if (document.readyState !== "loading" &&
-    document.querySelector('slides') === null) { 
-  // if the document is done loading but our element hasn't yet appeared, defer
-  // loading of the deck
-  window.setTimeout(function() {
-    loadDeck(null);
-  }, 0);
-} else {
-  // still loading the DOM, so wait until it's finished
-  document.addEventListener("DOMContentLoaded", loadDeck);
-}
+if (!window.Shiny) {
+  // If Shiny is loaded, the slide deck is initialized in ioslides template
 
+  if (document.readyState !== "loading" &&
+      document.querySelector('slides') === null) {
+    // if the document is done loading but our element hasn't yet appeared, defer
+    // loading of the deck
+    window.setTimeout(function() {
+      loadDeck(null);
+    }, 0);
+  } else {
+    // still loading the DOM, so wait until it's finished
+    document.addEventListener("DOMContentLoaded", loadDeck);
+  }
+}
 
 
 </script>
@@ -3163,12 +3166,170 @@ font-size: 90%;
 font-size: 2em;
 }
 </style>
+  <style type="text/css">:root {
+--color-primary: #95b540;
+--color-primary-light: #E9F2D1;
+--color-primary-lighter: #f6f9ec;
+--color-primary-dark: #96b43f;
+--color-border: #ccc;
+--color-text: #424949;
+--color-code-bg: #f4f6f6;
+--color-code-inline: #5d6d7e;
+--color-boxy-bg: #fbfcfc;
+--color-shadow: #E0E0E0;
+--font-base: 'Source Sans Pro';
+--font-highlight: 'Source Sans Pro';
+--font-code: 'Ubuntu Mono';
+}
+.boxy {
+color: var(--color-primary-dark);
+background-color: var(--color-primary-lighter);
+border: 1px solid var(--color-primary-light);
+border-left: 6px solid var(--color-primary-dark);
+border-radius: 0px 4px 4px 0px;
+padding: 10px 10px 0px 10px;
+margin: 10px 0px 10px 0px;
+position: relative;
+}
+.boxy::before {
+background-color: var(--color-primary-dark) !important;
+font-family: "Font Awesome 6 Free";
+font-size: 15px;
+font-weight: 900;
+height: 24px;
+width: 24px;
+color: white;
+border-radius: 50%;
+-moz-border-radius: 50%;
+left: -15px;
+text-align: center;
+text-indent: 1px;
+position: absolute;
+}
+.boxy-grey {
+color: var(--color-text);
+background-color: var(--color-boxy-bg);
+border-color: var(--color-border);
+}
+.boxy-grey::before {
+background-color: var(--color-border) !important;
+}
+.boxy-orange {
+color: #bf6300;
+background-color: #fdf1e5;
+border-color: #fad7b2;
+border-left-color: #bf6300;
+}
+.boxy-orange::before {
+background-color: #bf6300 !important;
+}
+.boxy-yellow {
+color: #8a6d3b;
+background-color: #fcf8e3;
+border-color: #faebcc;
+border-left-color: #8a6d3b;
+}
+.boxy-yellow::before {
+background-color: #8a6d3b !important;
+}
+.boxy-green {
+color: #3c763d;
+background-color: #dff0d8;
+border-color: #d6e9c6;
+border-left-color: #3c763d;
+}
+.boxy-green::before {
+background-color: #3c763d !important;
+}
+.boxy-red {
+color: #a94442;
+background-color: #f2dede;
+border-color: #ebccd1;
+border-left-color: #a94442;
+}
+.boxy-red::before {
+background-color: #a94442 !important;
+}
+.boxy-blue {
+color: #31708f;
+background-color: #d9edf7;
+border-color: #bce8f1;
+border-left-color: #31708f;
+}
+.boxy-blue::before {
+background-color: #31708f !important;
+}
+.boxy-exclamation::before {
+content: "\f12a";
+}
+.boxy-lightbulb::before {
+content: "\f0eb";
+}
+.boxy-clipboard-list::before {
+content: "\f46d";
+}
+.boxy-comments::before {
+content: "\f086";
+}
+.boxy-desktop::before {
+content: "\f108";
+}
+.boxy-cloud::before {
+content: "\f0c2";
+}
+.boxy-check::before {
+content: "\f00c";
+}
+.boxy-times::before {
+content: "\f00d";
+}
+.boxy-skull::before {
+content: "\f54c";
+}
+
+.boxy-exclamation > p:first-child, .boxy-lightbulb > p:first-child, .boxy-clipboard-list > p:first-child, .boxy-comments > p:first-child, .boxy-desktop > p:first-child, .boxy-cloud > p:first-child, .boxy-check > p:first-child, .boxy-times > p:first-child, .boxy-skull > p:first-child {
+text-indent: 10px;
+}
+
+.boxy a {
+color: var(--color-text);
+}
+.boxy a:hover {
+color: var(--color-text);
+text-decoration: underline;
+}
+.boxy-orange blockquote {
+border-left-color: #bf6300;
+}
+.boxy-green blockquote {
+border-left-color: #3c763d;
+}
+.boxy-yellow blockquote{
+border-left-color: #8a6d3b;
+}
+.boxy-red blockquote {
+border-left-color: #a94442;
+}
+.boxy-blue blockquote {
+border-left-color: #31708f;
+}
+img[src*='#center'] {
+display: block;
+margin: auto;
+}
+img {
+display: block;
+float: none;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
 
 </head>
 
 <body style="opacity: 0">
 
-<slides>
+<slides class="layout-widescreen">
 
   <slide class="title-slide segue nobackground">
         <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
@@ -3176,7 +3337,7 @@ font-size: 2em;
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">8 March 2023</p>
+            <p style="margin-top: 6px; margin-left: -2px;">12 March 2025</p>
           </hgroup>
   </slide>
 
@@ -3430,6 +3591,11 @@ font-size: 2em;
        window.jQuery(document).on('slideenter', function(e) {
          window.jQuery(e.target).trigger('shown');
       });
+    }
+    if (window.Shiny) {
+      // Initialize slides when this script appears on the page, since it
+      // indicates that the <slides> markup has been fully loaded.
+      window.loadDeck();
     }
   })();
 </script>
