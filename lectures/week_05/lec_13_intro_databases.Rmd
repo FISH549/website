@@ -3,7 +3,10 @@ title: "Introduction to relational databases"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Jennifer Scheuerell"
 date: "24 February 2025"
-output: ioslides_presentation
+output:
+  ioslides_presentation:
+    widescreen: true
+    css: ["lecture_slides.css", "lecture_inst.css"]
 ---
 
 
@@ -28,19 +31,28 @@ knitr::opts_chunk$set(echo = TRUE,
 
 * Co-founder, Sharper Informatics Solutions (2020-present)
 
+* Founding Board Member, Sound Data Science (2023-present)
 
-## Relational Theory | Definition from Wikipedia
 
-"A relational database is a digital database based on the relational model of data, as proposed by E. F. Codd in 1970."
+## Relational databases | Definition
+
+* a relational database organizes data into tables comprising<br>rows and columns
+
+> * related information is contained in either the same table _or_<br>across multiple tables
 
 
 ## High level concepts
 
-Relational databases are created and manipulated using Structured Query Language (SQL)
+Relational databases are created and manipulated using _Structured Query Language_ (SQL)
 
-Relational database software (RDBMS) allow users to create relational databases using SQL
 
-Some well know RDBMS include
+## High level concepts
+
+Relational databases are created and manipulated using _Structured Query Language_ (SQL)
+
+_Relational database management systems_ allow users to create relational databases using SQL
+
+Some well known systems include:
 
 * PostgreSQL  
 * MySQL  
@@ -48,58 +60,78 @@ Some well know RDBMS include
 * Microsoft SQL Server
 
 
+## An aside on MS Access
+
+* proprietary software $(\$\$\$)$
+
+> * will only run on Windows OS
+
+> * more here
+
+
 ## Organizing data in tables
 
 Relational databases store data in tables
 
-* Each database table is a named collection of rows
-
-> - Each row of a given table has the same set of named columns
-
-> - Each column is of a specific data type
-
-
-## Jargon
-
-* Table, field/column, record  
-
-> - Primary and foreign keys  
-
-> - Joins  
-
-> - Atomic values  
-
-> - Null values  
-
-> - Query and result set  
-
-> - View  
-
-
-## Table concept
-
-* Data are stored in *tables*
-
 > - Columns in a table are fixed *fields*
 
-> - Fields have unique data types (eg, `INTEGER`, `TEXT`)
+> - Fields have unique _data types_ (eg, `INTEGER`, `TEXT`)
 
 > - Rows are unique *records*
 
 > - Columns have a fixed order in each table, but SQL does not guarantee the order of the rows within a table
 
-> - Tables are grouped into databases
-
->- A collection of databases managed by a single PostgreSQL server instance constitutes a *database cluster*
-
 
 ## An example table
 
-| Field_ID | Color | Smell | Count | Last_updated |
+| record_ID | color | smell | count | last_updated |
 |----------|:-----:|:-----:|:-----:|-------------:|
-| Record_one | Green | Pine trees | 13 | 2/1/2021 | 
-| Record_two | Yellow | Lemon | 20 | 1/21/2021 | 
-| Record_three | Red | Cherry | 4.5 | 2/1/2021 | 
+| record_one | green | pine  | 13 | 2024-02-17 | 
+| record_two | yellow | lemon | 20 | 2024-12-13 | 
+| record_three | red | cherry | 5 | 2025-02-19 | 
+
+
+## Same table again
+
+| record_ID | color | smell | count | last_updated |
+|----------|:-----:|:-----:|:-----:|-------------:|
+| record_three | red | cherry | 5 | 2025-02-19 | 
+| record_one | green | pine  | 13 | 2024-02-17 | 
+| record_two | yellow | lemon | 20 | 2024-12-13 | 
+
+
+## Jargon | Primary and foreign keys  
+
+
+
+## Jargon | Joins  
+
+
+
+## Jargon | Atomic values  
+
+
+
+## Jargon | Null values  
+
+
+
+## Jargon | Query & result set  
+
+
+
+## Jargon | View  
+
+
+
+## Tables in databases
+
+* 2+ tables are grouped into databases
+
+> * multiple databases within a server constitute a *database cluster*
+
+
+## Designing a database {data-background=images/data_model_diagram.png data-background-size=75% data-background-position=50%70%}
 
 
 ## Data Normalization | Third Normal Form
