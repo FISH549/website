@@ -21,17 +21,17 @@ knitr::opts_chunk$set(echo = TRUE,
 
 * BS, Forestry, University of Washington
 
-* MS, SAFS, University of Washington
+* MS, Aquatic and Fishery Sciences, University of Washington
 
 **Appointments**
 
-* UW Alaska Salmon Program (2004-2007)
+* Database Specialist, [UW Alaska Salmon Program](https://alaskasalmonprogram.org/) (2004-2007)
 
-* Founder, Sound Data Management (2008-present)
+* Founder, [Sound Data Management](https://www.sound-data.com/) (2008-present)
 
-* Co-founder, Sharper Informatics Solutions (2020-present)
+* Co-founder, [Sharper Informatics Solutions](https://www.sharperinfo.com/) (2020-present)
 
-* Founding Board Member, Sound Data Science (2023-present)
+* Founding Board Member, [Sound Data Science](https://www.sound-data-science.org/) (2023-present)
 
 
 ## Relational databases | Definition
@@ -131,7 +131,10 @@ Relational databases store data in tables
 > * multiple databases within a server constitute a *database cluster*
 
 
-## Designing a database {data-background=images/data_model_diagram.png data-background-size=75% data-background-position=50%70%}
+## Designing a database {data-background=images/data_model.png data-background-size=71% data-background-position=32%58%}
+
+
+## Designing a database {data-background=images/data_model_plus_table.png data-background-size=85% data-background-position=63%57%}
 
 
 ## Data Normalization | Third Normal Form
