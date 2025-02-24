@@ -75,13 +75,15 @@ Some well known systems include:
 
 Relational databases store data in tables
 
-> - Columns in a table are fixed *fields*
+> - columns in a table are fixed *fields*
 
-> - Fields have unique _data types_ (eg, `INTEGER`, `TEXT`)
+> - fields have unique _data types_ (eg, `INTEGER`, `TEXT`)
 
-> - Rows are unique *records*
+> - rows are unique *records*
 
-> - Columns have a fixed order in each table, but SQL does not guarantee the order of the rows within a table
+> - columns have a fixed order in each table, but...
+
+> - ...SQL does not guarantee the order of the rows within a table
 
 
 ## An example table
@@ -104,12 +106,12 @@ Relational databases store data in tables
 
 ## Jargon | Primary and foreign keys  
 
-a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+a _primary key_ is one (or more) field(s) in a table that<br>uniquely identifies each record in the table
 
 
 ## Jargon | Primary and foreign keys  
 
-a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+a _primary key_ is one (or more) field(s) in a table that<br>uniquely identifies each record in the table
 
 <br>
 
@@ -135,7 +137,7 @@ an _atomic value_ is a singular piece of information
 
 <br>
  
-**NOTE**: relational databases expect only one piece of information to be stored in any one field within a record
+**NOTE**: relational databases expect only one piece of information<br>to be stored in any one field within a record
 
 
 ## Example table with non-atomic values
@@ -149,12 +151,12 @@ an _atomic value_ is a singular piece of information
 
 ## Jargon | Null values  
 
-a _null value_ is used to denote that the information for that field for that record is missing
+a _null value_ indicates that the information for that field for that record is missing
 
 
 ## Jargon | Null values  
 
-a _null value_ is used to denote that the information for that field for that record is missing
+a _null value_ indicates that the information for that field for that record is missing
 
 <br>
 
@@ -194,7 +196,7 @@ a _view_ is a saved `select query`
 
 <br>
 
-A _view_ is to SQL as a _script_ is to R
+In other words, a _view_ is to SQL as a _script_ is to R
 
 
 ## Tables in databases
