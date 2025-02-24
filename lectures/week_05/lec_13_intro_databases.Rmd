@@ -210,9 +210,14 @@ A _view_ is to SQL as a _script_ is to R
 ## Designing a database {data-background=images/data_model_plus_table.png data-background-size=85% data-background-position=63%57%}
 
 
-## Data Normalization | Third Normal Form
+## Database normalization 
 
-"[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key, so help me Codd."
+_Normalization_ ensures that the database is  
+
+* consistent
+* efficient  
+* easy to maintain  
+* free of unnecessary data duplication
 
 
 ## Next time
