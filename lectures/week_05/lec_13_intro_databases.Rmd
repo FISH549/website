@@ -36,21 +36,21 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Relational databases | Definition
 
-* a relational database organizes data into tables comprising<br>rows and columns
+* a relational database organizes data into tables<br>comprising rows and columns
 
 > * related information is contained in either the same table _or_<br>across multiple tables
 
 
 ## High level concepts
 
-Relational databases are created and manipulated using _Structured Query Language_ (SQL)
+Relational databases are created and manipulated using<br>_Structured Query Language_ (SQL)
 
 
 ## High level concepts
 
-Relational databases are created and manipulated using _Structured Query Language_ (SQL)
+Relational databases are created and manipulated using<br>_Structured Query Language_ (SQL)
 
-_Relational database management systems_ allow users to create relational databases using SQL
+_Relational database management systems_ allow users<br>to create relational databases using SQL
 
 Some well known systems include:
 
@@ -62,7 +62,7 @@ Some well known systems include:
 
 ## An aside on MS Access
 
-* proprietary software $(\$\$\$)$
+* proprietary software $(\$)$
 
 > * will only run on Windows OS
 
