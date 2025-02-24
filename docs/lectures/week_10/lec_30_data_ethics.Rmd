@@ -1,10 +1,11 @@
 ---
 title: "Ethics in data science"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
-date: "8 March 2023"
+date: "12 March 2025"
 output:
   ioslides_presentation:
-    css: lecture_slides.css
+    widescreen: true
+    css: ["lecture_slides.css", "lecture_inst.css"]
 ---
 
 ```{r setup, include=FALSE}
