@@ -66,7 +66,9 @@ Some well known systems include:
 
 > * will only run on Windows OS
 
-> * more here
+> * modest size limits
+
+> * cannot be hosted securely online
 
 
 ## Organizing data in tables
@@ -85,7 +87,7 @@ Relational databases store data in tables
 ## An example table
 
 | record_ID | color | smell | count | last_updated |
-|----------|:-----:|:-----:|:-----:|-------------:|
+|----------|:-----:|:-----:|:-----:|:------------:|
 | record_one | green | pine  | 13 | 2024-02-17 | 
 | record_two | yellow | lemon | 20 | 2024-12-13 | 
 | record_three | red | cherry | 5 | 2025-02-19 | 
@@ -94,7 +96,7 @@ Relational databases store data in tables
 ## Same table again
 
 | record_ID | color | smell | count | last_updated |
-|----------|:-----:|:-----:|:-----:|-------------:|
+|----------|:-----:|:-----:|:-----:|:------------:|
 | record_three | red | cherry | 5 | 2025-02-19 | 
 | record_one | green | pine  | 13 | 2024-02-17 | 
 | record_two | yellow | lemon | 20 | 2024-12-13 | 
@@ -102,26 +104,97 @@ Relational databases store data in tables
 
 ## Jargon | Primary and foreign keys  
 
+a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+
+
+## Jargon | Primary and foreign keys  
+
+a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+
+<br>
+
+a _foreign key_ is a field in a table that joins to a field in a second table
 
 
 ## Jargon | Joins  
 
+a _join_ brings together two tables using one or more fields they share in common 
+
+
+## An example join {data-background=images/simple_example_join.png data-background-size=75% data-background-position=50%50%}
 
 
 ## Jargon | Atomic values  
 
+an _atomic value_ is a singular piece of information
+
+
+## Jargon | Atomic values  
+
+an _atomic value_ is a singular piece of information
+
+<br>
+ 
+**NOTE**: relational databases expect only one piece of information to be stored in any one field within a record
+
+
+## Example table with non-atomic values
+
+| record_ID | date | site | wind_speed_direction |
+|----------|:-----:|:-----:|:-----:|
+| record_one | 2024-06-02 | Madison Park | 10N |
+| record_two | 2024-06-02 | Magnuson Pt | 13NE |
+| record_three | 2024-06-02 | St Edwards | 7E |
 
 
 ## Jargon | Null values  
 
+a _null value_ is used to denote that the information for that field for that record is missing
 
 
-## Jargon | Query & result set  
+## Jargon | Null values  
 
+a _null value_ is used to denote that the information for that field for that record is missing
+
+<br>
+
+**NOTE**: in **R** this is an `NA`
+
+
+## Jargon | Select query & result set  
+
+a _select query_ is a SQL statement that extracts data from one or more tables
+
+
+## Jargon | Select query & result set  
+
+a _select query_ is a SQL statement that extracts data from one or more tables
+
+<br>
+
+a _result set_ is the data that are returned by the `select query` statement 
 
 
 ## Jargon | View  
 
+a _view_ is a saved `select query`
+
+<br>
+
+**NOTE**: only the SQL statement is saved, not the result set from running the query
+
+
+## Jargon | View  
+
+a _view_ is a saved `select query`
+
+<br>
+
+**NOTE**: only the SQL statement is saved, not the result set from running the query
+
+<br>
+
+A _view_ is to SQL as a _script_ is to R
 
 
 ## Tables in databases
@@ -140,3 +213,13 @@ Relational databases store data in tables
 ## Data Normalization | Third Normal Form
 
 "[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key, so help me Codd."
+
+
+## Next time
+
+* connect to a remote database via **RStudio**
+
+* view tables
+
+* write a simple query
+
