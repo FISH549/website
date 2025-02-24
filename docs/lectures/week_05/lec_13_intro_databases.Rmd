@@ -36,21 +36,21 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Relational databases | Definition
 
-* a relational database organizes data into tables comprising<br>rows and columns
+* a relational database organizes data into tables<br>comprising rows and columns
 
 > * related information is contained in either the same table _or_<br>across multiple tables
 
 
 ## High level concepts
 
-Relational databases are created and manipulated using _Structured Query Language_ (SQL)
+Relational databases are created and manipulated using<br>_Structured Query Language_ (SQL)
 
 
 ## High level concepts
 
-Relational databases are created and manipulated using _Structured Query Language_ (SQL)
+Relational databases are created and manipulated using<br>_Structured Query Language_ (SQL)
 
-_Relational database management systems_ allow users to create relational databases using SQL
+_Relational database management systems_ allow users<br>to create relational databases using SQL
 
 Some well known systems include:
 
@@ -62,7 +62,7 @@ Some well known systems include:
 
 ## An aside on MS Access
 
-* proprietary software $(\$\$\$)$
+* proprietary software $(\$)$
 
 > * will only run on Windows OS
 
@@ -75,13 +75,15 @@ Some well known systems include:
 
 Relational databases store data in tables
 
-> - Columns in a table are fixed *fields*
+> - columns in a table are fixed *fields*
 
-> - Fields have unique _data types_ (eg, `INTEGER`, `TEXT`)
+> - fields have unique _data types_ (eg, `INTEGER`, `TEXT`)
 
-> - Rows are unique *records*
+> - rows are unique *records*
 
-> - Columns have a fixed order in each table, but SQL does not guarantee the order of the rows within a table
+> - columns have a fixed order in each table, but...
+
+> - ...SQL does not guarantee the order of the rows within a table
 
 
 ## An example table
@@ -104,12 +106,12 @@ Relational databases store data in tables
 
 ## Jargon | Primary and foreign keys  
 
-a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+a _primary key_ is one (or more) field(s) in a table that<br>uniquely identifies each record in the table
 
 
 ## Jargon | Primary and foreign keys  
 
-a _primary key_ is one (or more) field(s) in a table that uniquely identifies each record in the table
+a _primary key_ is one (or more) field(s) in a table that<br>uniquely identifies each record in the table
 
 <br>
 
@@ -135,7 +137,7 @@ an _atomic value_ is a singular piece of information
 
 <br>
  
-**NOTE**: relational databases expect only one piece of information to be stored in any one field within a record
+**NOTE**: relational databases expect only one piece of information<br>to be stored in any one field within a record
 
 
 ## Example table with non-atomic values
@@ -149,12 +151,12 @@ an _atomic value_ is a singular piece of information
 
 ## Jargon | Null values  
 
-a _null value_ is used to denote that the information for that field for that record is missing
+a _null value_ indicates that the information for that field for that record is missing
 
 
 ## Jargon | Null values  
 
-a _null value_ is used to denote that the information for that field for that record is missing
+a _null value_ indicates that the information for that field for that record is missing
 
 <br>
 
@@ -194,7 +196,7 @@ a _view_ is a saved `select query`
 
 <br>
 
-A _view_ is to SQL as a _script_ is to R
+In other words, a _view_ is to SQL as a _script_ is to R
 
 
 ## Tables in databases
@@ -210,9 +212,14 @@ A _view_ is to SQL as a _script_ is to R
 ## Designing a database {data-background=images/data_model_plus_table.png data-background-size=85% data-background-position=63%57%}
 
 
-## Data Normalization | Third Normal Form
+## Database normalization 
 
-"[every] non-key [attribute] must provide a fact about the key, the whole key, and nothing but the key, so help me Codd."
+_Normalization_ ensures that the database is  
+
+* consistent
+* efficient  
+* easy to maintain  
+* free of unnecessary data duplication
 
 
 ## Next time
