@@ -3,7 +3,7 @@ title: "Shiny Part 1: Build!"
 subtitle: "<br/>FISH 549"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
-date: "2023-02-27 (updated: `r Sys.Date()`)"
+date: "2024-03-03 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -34,9 +34,8 @@ class: center, middle
 
 # Introductions
 
-I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
+I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Science Center in the Groundfish Assessment Program. I live in Beacon Hill with two cats, Molly and Loki.
 
-![squirrelmolly](img/squirrelmolly.jpg)
 
 ---
 
@@ -134,6 +133,7 @@ There are many other things available in the repo that we won't cover today, but
 
 > 6. *Generating Markdown reports from Shiny*
 
+
 ---
 
 # Why I learned Shiny
@@ -154,6 +154,8 @@ There are many other things available in the repo that we won't cover today, but
 # What is Shiny?
 
 ![whatisshiny](img/whatisshiny.png)
+
+
 
 ---
 
@@ -193,6 +195,7 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 ![poll](img/filepoll.png)
 
 ---
+
 
 # Each Shiny app has two components
 
@@ -322,6 +325,7 @@ ui <- fluidPage(
 ]
 ---
 
+
 # What's on the server?
 
 R code... mostly :)
@@ -378,6 +382,8 @@ class: center, middle
 
 ---
 
+
+
 class: center, middle
 
 # Lessons I learned from developing a Shiny app
@@ -428,7 +434,7 @@ class: center, middle
 ### contact
 
 `r emoji::emoji("email")`: margaret.siple@noaa.gov
-`r emoji::emoji("bird")`: @margaretsiple
+`r emoji::emoji("cloud")`: @mcsiple on BlueSky
 
 #### **More Shiny resources:**
 
@@ -449,3 +455,4 @@ Emoji options at [gitmoji.dev](https://gitmoji.dev/)
 ***
 
 Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
+
