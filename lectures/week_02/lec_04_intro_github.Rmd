@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ["lecture_inst.css", "lecture_slides.css", "fontawesome.css", "solid.css"]
     toc: true
     toc_float: true
     toc_depth: 3
