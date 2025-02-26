@@ -6,7 +6,7 @@ institute: "NOAA AFSC - RACE/GAP"
 date: "2024-03-03 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
-    css: xaringan-themer.css
+    css: [xaringan-themer.css, animate.css]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -48,11 +48,18 @@ I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Scien
 ---
 
 class: center, middle
-![sempe](img/sempe.jpg)
+![os1](img/OSSCS1.jpg)
+<sub><sup>Photo: Shaya Lyon</sup></sub>
 
 ---
 
-# Fisheries science can be like an orchestra
+class: center, middle
+![os2](img/OSSCS2.jpg)
+<sub><sup>Photo: Shaya Lyon</sup></sub>
+
+---
+
+# Applied fisheries management can be like playing music
 
 Each musician has areas where they’re very specialized, and areas where they are clueless
 
@@ -66,30 +73,17 @@ But we’re all working together to try to make a big, beautiful thing happen
 
 ---
 
-class: center, middle
-![os1](img/OSSCS1.jpg)
-<sub><sup>Photo: Shaya Lyon</sup></sub>
+## To successfully provide scientific advice for fisheries management, we need many components to work together:  
 
----
+### 1) Best available science (+ reproducibility)
 
-class: center, middle
-![os2](img/OSSCS2.jpg)
-<sub><sup>Photo: Shaya Lyon</sup></sub>
+### 2) Clear pathways for implementing advice
 
----
-## How we channel complexity in an orchestra: 
-
-### Clean it up
-
-### Use building blocks
-
-### Streamline our communications
-
-### Stay aware of the big picture
+### 3) Trust and communication between researchers and stakeholders
 
 --
 
-### <mark> Many of these concepts apply to the sciences! Shiny can help us do these things *and* create something beautiful that communicates data and concepts. </mark>
+### <mark> Shiny can help us do these things *and* create something beautiful that communicates data and models in a new way. </mark>
 
 
 ---
@@ -196,11 +190,38 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 
 ---
 
+# Each Shiny app has two components
+
+.pull-left[
+The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+
+If you put in the console:
+```{r eval = FALSE}
+shiny::titlePanel("Here is a title")
+```
+
+It returns this html:
+```{r eval = FALSE}
+<h2>Old Faithful Geyser Data</h2>
+```
+]
+
+---
 
 # Each Shiny app has two components
 
 .pull-left[
 The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+
+If you put in the console:
+```{r eval = FALSE}
+shiny::titlePanel("Here is a title")
+```
+
+It returns this html:
+```{r eval = FALSE}
+<h2>Old Faithful Geyser Data</h2>
+```
 ]
 
 .pull-right[
