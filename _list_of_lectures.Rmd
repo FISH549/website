@@ -226,10 +226,12 @@ databases_1 <- list(
 ## day 14 ####
 databases_2 <- list(
   title = "Database design (pt 1)",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Creating a database</b>", "New users & databases", "Adding data"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Creating a database</b>", "Adding data", "Cleaning data", "Joining tables"),
   pdf = c(""),
-  rmd = "lectures/week_05/lec_14_intro_databases.Rmd",
-  html = "lectures/week_05/lec_14_intro_databases.html",
+  rmd = c("lectures/week_05/lec_14_intro_databases.Rmd",
+          "lectures/week_05/lec_15_intro_databases.Rmd"),
+  html = c("lectures/week_05/lec_14_intro_databases.html",
+           "lectures/week_05/lec_15_intro_databases.html"),
   background = "",
   zoom = ""
 )
@@ -237,10 +239,10 @@ databases_2 <- list(
 ## day 15 ####
 databases_3 <- list(
   title = "Database design (pt 2)",
-  topics = c("<i>Jennifer Scheuerell</i>", "<b>Working with a database</b>", "Cleaning data", "Joining tables"),
+  topics = c("<i>Jennifer Scheuerell</i>", "<b>Working with a database</b>", "SQL from R", "Queries"),
   pdf = c(""),
-  rmd = "lectures/week_05/lec_15_intro_databases.Rmd",
-  html = "lectures/week_05/lec_15_intro_databases.html",
+  rmd = "lectures/week_05/lec_16_working_databases.Rmd",
+  html = "lectures/week_05/lec_16_working_databases.html",
   background = "",
   zoom = ""
 )
