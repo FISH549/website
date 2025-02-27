@@ -1,0 +1,41 @@
+---
+title: "Working with a PostgreSQL database"
+date: "<br>28 February 2025"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      fig.align = "center", out.width = '70%')
+```
+
+<br>
+
+# Background 
+
+We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database where we brought in the limnology data from the `lwa_limno.csv` file. The `staging` schema provides a clear place in our workflow where we can now manipulate and clean up the limnology data before writing it into the final table form with numeric data types in the `public` schema.  Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
+
+Here we will learn how to:
+
+- Cast data into new data types
+
+- Clean up the data
+
+- Modify the data
+
+- Write data between tables
+
+- Join our tables together in a query
+
+- Create a view of our joined query
+
+
+
+ 
