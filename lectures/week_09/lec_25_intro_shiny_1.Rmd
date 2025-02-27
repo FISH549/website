@@ -36,7 +36,16 @@ class: center, middle
 
 I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Science Center in the Groundfish Assessment Program. I live in Beacon Hill with two cats, Molly and Loki.
 
-## My team at AFSC uses many FISH 549 skills!
+.pull-left[
+![molly](img/molly_cat.jpg)
+]
+.pull-right[
+![kiki](img/Loki_cat.jpg)
+]
+
+---
+
+# My team at AFSC uses many FISH 549 skills
 
 We use GitHub to [manage survey deployment and share code](https://github.com/afsc-gap-products), SQL to interact with our databases, R packages to store and share reproducible methods (e.g. [coldpool](https://github.com/afsc-gap-products/coldpool)), and Markdown to create reproducible reports ([Bering Sea](https://github.com/afsc-gap-products/gap_bs_data_report), [Gulf of Alaska/Aleutian Islands](https://github.com/MargaretSiple-NOAA/goa-ai-data-reports))
 
