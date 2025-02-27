@@ -8,15 +8,17 @@ library(RPostgres)
 # Username: postgres
 # Password: FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo
 
-conn <- dbConnect(drv = Postgres(), 
-                  dbname = "postgres", 
-                  host = "p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com", 
-                  port = "5432", 
-                  user = "postgres", 
-                  password = "FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo")
+con <- dbConnect(drv = Postgres(), 
+                 # dbname = "postgres", 
+                 dbname = "lake_wa", 
+                 host = "p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com", 
+                 port = "5432", 
+                 user = "postgres", 
+                 password = "FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo")
 
-dbListTables(conn)
+dbListTables(con)
 
+tbl(con, from = "limno")
 
 #### tables ####
 
