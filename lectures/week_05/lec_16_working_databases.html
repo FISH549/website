@@ -1512,29 +1512,60 @@ border-radius: 0px;
 </div>
 
 
+<hr />
+<div id="draft-copy-incomplete" class="section level1">
+<h1>DRAFT COPY – INCOMPLETE</h1>
+<hr />
 <p><br></p>
+</div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>We <a href="lec_14_intro_databases.html">saw previously</a> how to
-create a PostgreSQL database for staging our data. We also created a
-<code>staging</code> schema in our database where we brought in the
-limnology data from the <code>lwa_limno.csv</code> file. The
-<code>staging</code> schema provides a clear place in our workflow where
-we can now manipulate and clean up the limnology data before writing it
-into the final table form with numeric data types in the
-<code>public</code> schema. Recall that we used the <a href="https://www.convertcsv.com/csv-to-sql.htm">Convert CSV to SQL</a>
-website to generate the <code>CREATE TABLE</code> and
-<code>INSERT INTO</code> SQL statements we then ran in
-<strong>pgAdmin</strong> to write our csv data into the database.</p>
-<p>Here we will learn how to:</p>
+</div>
+<div id="remote-databases" class="section level1">
+<h1>Remote databases</h1>
+<p>As we discussed previously, most databases are hosted on a server to
+which users connect remotely.</p>
+<pre class="r"><code>## load packages for db connection
+library(DBI)
+library(RPostgres)
+
+## load packages for db queries
+library(dplyr)
+library(dbplyr)</code></pre>
+<div id="connecting-to-a-database" class="section level2">
+<h2>Connecting to a database</h2>
+<p>When connecting remotely to a database, the user will need to provide
+several pieces of information. These include:</p>
 <ul>
-<li><p>Cast data into new data types</p></li>
-<li><p>Clean up the data</p></li>
-<li><p>Modify the data</p></li>
-<li><p>Write data between tables</p></li>
-<li><p>Join our tables together in a query</p></li>
-<li><p>Create a view of our joined query</p></li>
+<li>Hostname<br />
+</li>
+<li>Port<br />
+</li>
+<li>Database name</li>
+<li>Username</li>
+<li>Password</li>
 </ul>
+<p>Here is the information you’ll need to connect to the remote Lake
+Washington database:</p>
+<pre><code>Hostname: p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com
+Port:     5432
+Database: lake_wa
+Username: postgres
+Password: FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo</code></pre>
+<pre class="r"><code>## connect to the remote db
+con &lt;- dbConnect(drv = Postgres(), 
+                 dbname = &quot;lake_wa&quot;, 
+                 host = &quot;p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com&quot;, 
+                 port = &quot;5432&quot;, 
+                 user = &quot;postgres&quot;, 
+                 password = &quot;FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo&quot;)</code></pre>
+<pre class="r"><code>## list the available table
+dbListTables(con)</code></pre>
+<pre><code>## [1] &quot;pdo&quot;                     &quot;pg_stat_statements_info&quot;
+## [3] &quot;pg_stat_statements&quot;      &quot;limno&quot;</code></pre>
+<pre class="r"><code>## get the `limno` table from the db
+limno &lt;- tbl(con, from = &quot;limno&quot;)</code></pre>
+</div>
 </div>
 
 

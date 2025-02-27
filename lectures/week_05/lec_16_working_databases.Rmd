@@ -12,30 +12,72 @@ output:
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
+knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center", out.width = '70%')
 ```
+
+***
+
+# DRAFT COPY -- INCOMPLETE
+
+***
 
 <br>
 
 # Background 
 
-We [saw previously](lec_14_intro_databases.html) how to create a PostgreSQL database for staging our data. We also created a `staging` schema in our database where we brought in the limnology data from the `lwa_limno.csv` file. The `staging` schema provides a clear place in our workflow where we can now manipulate and clean up the limnology data before writing it into the final table form with numeric data types in the `public` schema.  Recall that we used the [Convert CSV to SQL](https://www.convertcsv.com/csv-to-sql.htm) website to generate the `CREATE TABLE` and `INSERT INTO` SQL statements we then ran in **pgAdmin** to write our csv data into the database.  
+# Remote databases
 
-Here we will learn how to:
+As we discussed previously, most databases are hosted on a server to which users connect remotely.
 
-- Cast data into new data types
+```{r load_pkgs, message = FALSE}
+## load packages for db connection
+library(DBI)
+library(RPostgres)
 
-- Clean up the data
+## load packages for db queries
+library(dplyr)
+library(dbplyr)
+```
 
-- Modify the data
+## Connecting to a database
 
-- Write data between tables
+When connecting remotely to a database, the user will need to provide several pieces of information. These include:
 
-- Join our tables together in a query
+* Hostname  
+* Port  
+* Database name
+* Username
+* Password
 
-- Create a view of our joined query
+Here is the information you'll need to connect to the remote Lake Washington database:
+
+```
+Hostname: p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com
+Port:     5432
+Database: lake_wa
+Username: postgres
+Password: FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo
+```
 
 
+
+```{r db_connect}
+## connect to the remote db
+con <- dbConnect(drv = Postgres(), 
+                 dbname = "lake_wa", 
+                 host = "p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com", 
+                 port = "5432", 
+                 user = "postgres", 
+                 password = "FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo")
+```
 
  
+```{r get_limno_tbl}
+## list the available table
+dbListTables(con)
+
+## get the `limno` table from the db
+limno <- tbl(con, from = "limno")
+```
+
