@@ -1,7 +1,7 @@
 ---
 title: "Set up a PostgreSQL database"
 subtitle: "Part 2"
-date: "<br>28 February 2025"
+date: "<br>26 February 2025"
 output:
   html_document:
     theme: spacelab
@@ -327,12 +327,14 @@ SELECT
 FROM public.limno JOIN public.pdo ON limno.year_month = pdo.date;
 ```
 
+<br>
+
 * [*Alternatively*] Use the open file button to select the saved SQL file `6_join_pdo_limno.sql` and then run it
 
 We can now check in the **pgAdmin** browser to see that our newly created view called `pdo_and_limno` is there.
 
 <br>
-```{r, echo = FALSE}
+```{r, echo = FALSE, out.width = "50%"}
 knitr::include_graphics("images/create_view.png")
 ```
 <br>

@@ -1,0 +1,83 @@
+---
+title: "Working with a PostgreSQL database"
+date: "<br>28 February 2025"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.align = "center", out.width = '70%')
+```
+
+***
+
+# DRAFT COPY -- INCOMPLETE
+
+***
+
+<br>
+
+# Background 
+
+# Remote databases
+
+As we discussed previously, most databases are hosted on a server to which users connect remotely.
+
+```{r load_pkgs, message = FALSE}
+## load packages for db connection
+library(DBI)
+library(RPostgres)
+
+## load packages for db queries
+library(dplyr)
+library(dbplyr)
+```
+
+## Connecting to a database
+
+When connecting remotely to a database, the user will need to provide several pieces of information. These include:
+
+* Hostname  
+* Port  
+* Database name
+* Username
+* Password
+
+Here is the information you'll need to connect to the remote Lake Washington database:
+
+```
+Hostname: p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com
+Port:     5432
+Database: lake_wa
+Username: postgres
+Password: FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo
+```
+
+
+
+```{r db_connect}
+## connect to the remote db
+con <- dbConnect(drv = Postgres(), 
+                 dbname = "lake_wa", 
+                 host = "p.nxh57cg2izb6dbv27dykuuxztq.db.postgresbridge.com", 
+                 port = "5432", 
+                 user = "postgres", 
+                 password = "FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo")
+```
+
+ 
+```{r get_limno_tbl}
+## list the available table
+dbListTables(con)
+
+## get the `limno` table from the db
+limno <- tbl(con, from = "limno")
+```
+
