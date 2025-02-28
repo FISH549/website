@@ -34,7 +34,7 @@ knitr::include_graphics("images/RS_db_connect.png")
 
 # Remote databases
 
-As we discussed previously, most databases are hosted on a server to which users connect remotely. To do so, one could use a dedicated IDE, such as **pgAdmin** shown [here](lec_14_intro_databases.html#Getting_oriented_in_pgAdmin). Alternatively, and as we'll see here, you can use various R packages within RStudio to connect to a remote database.
+As we discussed previously, most databases are hosted on a server to which users connect remotely. To do so, one could use a dedicated IDE, such as **pgAdmin** shown [here](lec_14_intro_databases.html#Getting_oriented_in_pgAdmin). Alternatively, as we'll see here, you can use various R packages within RStudio to connect to a remote database.
 
 
 ## Connecting to a database
@@ -50,7 +50,7 @@ library(DBI)
 library(RPostgres)
 ```
 
-When connecting remotely to a database, the user will need to provide several pieces of information. These include:
+When connecting remotely to a database, the user typically needs to provide several pieces of information. These include:
 
 * Hostname  
 * Port  
@@ -81,8 +81,22 @@ con <- dbConnect(drv = Postgres(),
 ```
 
 # Interacting with a db
- 
-To _interact_ with our remote database, we'll use two related packages:
+
+We [saw previously](lec_15_intro_databases.html) how to interact with a database using regular SQL commands. Alternatively, we can use the **{dplyr}** package to interact with databases directly by translating the **{dplyr}** functions in the form of verbs into SQL queries. This allows you to interact directly with the database from within R. Other advantages of this approach are:
+
+* Use SQL to run the data transformations within the database itself.
+
+* All of your code is written in R. Because **{dplyr}** is used to communicate with the database, there is no need to alternate between languages or tools to perform the data exploration.
+
+The following figure courtesy of Posit shows conceptually our process of using **{dplyr}** to interact with a remote SQL database.
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/RS_db_dplyr.png")
+```
+<br>
+
+In addition, we can use the related **{dbplyr}** to convert R commands into actual SQL commands, or simply pass raw SQL commands if you want a more sophisticated query. So, to _interact_ with our remote database, we'll use two related packages:
 
 1) **{dplyr}**
 2) **{dbplyr}**
