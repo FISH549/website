@@ -119,12 +119,12 @@ dbListTables(db_con)
 
 Here we can see that there are `r length(dbListTables(db_con))` tables in our database, which is a bit odd because we only added 2 of them: `limno` and `pdo`.
 
-What's up with the others beginning with `pg_stat`? Those tables contain metadata about the database itself.
+What's up with the others beginning with `pg_stat`? Those tables track statistics with repsect to all SQL statements executed on the server.
 
 
 ## Retrieve a table
 
-Conveniently, we can use `dplyr::tbl()` to retrieve a table from a remote database and assign it to an object, if we'd like. Let's inspect the 2 tables containing metadata.
+Conveniently, we can use `dplyr::tbl()` to retrieve a table from a remote database and assign it to an object, if we'd like. Let's inspect the 2 tables containing the SQL statistics.
 
 ```{r inspect_pg_stat_tables}
 ## inspect metadata tables
@@ -184,7 +184,7 @@ The columns ("fields" in database parlance) are as follows:
 **Task:** Find out the range of years in the database.
 </div>
 
-```{r}
+```{r chk_unique_yrs}
 ## unique years of data
 unique(limno$year)
 ```
@@ -197,7 +197,7 @@ Because we're working with a remote database, all operations are "lazy", meaning
 **Task:** Assign `limno` to a local **R** object with `collect()`.
 </div>
 
-```{r}
+```{r collect limno}
 ## create a local copy of the table
 limno <- collect(limno)
 ```
@@ -206,7 +206,7 @@ limno <- collect(limno)
 **Task:** Check again for the range of years in the database.
 </div>
 
-```{r}
+```{r get_years}
 ## unique years of data
 unique(limno$year)
 
@@ -226,7 +226,7 @@ If you look closely at the classes for all of the non-date related fields, you'l
 **Note:** R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
 </div>
 
-```{r}
+```{r convert_char_numeric}
 ## convert data types to `numeric`
 limno <- limno |>
   mutate_if(is.character, as.numeric)
@@ -235,19 +235,20 @@ limno <- limno |>
 
 ### Time series of temperature
 
-Let's extract and plot the monthly time series of water temperature for the 20 years from 1970-1989. To begin, we'll create a new `date` column based on `year` and `month` so we can better use `ggplot()`. 
+Let's extract and plot the monthly time series of water temperature for the 20 years from 1970-1989. To begin, we'll create a new `date` column based on `year` and `month` so we can better use `ggplot()`. To do so, we'll make use of the **{lubridate}** package.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Use `lubridate::make_date()` to create a new `date` field.
 </div>
 
-```{r}
+```{r mutate_date_limno}
 ## if necessary, install {lubridate}
 # install.package(lubridate)
+library(lubridate)
 
 ## create new `date` field; assume first day of year
 limno <- limno |>
-  mutate(date = lubridate::make_date(year, month))
+  mutate(date = make_date(year, month))
 ```
 
 Now we can filter the table to choose the correct timespan and plot the temperature.
@@ -256,7 +257,7 @@ Now we can filter the table to choose the correct timespan and plot the temperat
 **Task:** Filter the table and plot the time series of temperature.
 </div>
 
-```{r}
+```{r plot_lwa_temp}
 ## load ggplot2
 library(ggplot2)
 
@@ -270,4 +271,72 @@ limno |>
   ylab("Temperature (C)\n") +
   theme_gray(base_size = 16)
 ```
+
+
+## Pacific Decadal Oscillation
+
+Let's make a similar plot of the Pacific Decadal Oscillation. To begin, we'll get the remote table and collect it into a local R object.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Get the PDO table from our database and assign it to `pdo`.
+</div>
+
+```{r get_pdo_tbl}
+## get the `pdo` table from the db & collect it
+pdo <- tbl(db_con, from = "pdo") |>
+  collect()
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Inspect the data in PDO table.
+</div>
+
+```{r peep_pdo_tbl}
+## inspect the top of the `pdo` table
+pdo
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** The `date` field here appears a bit odd; it's of the form `YYYYMM`.
+</div>
+
+Once again we can use the **{lubridate}** package to construct a proper `date` object. Specifically, we'll use the `ym()` function, which converts a date in a `YYYYMM` format to the ISO-standard `YYYY-MM-DD`
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `lubridate::ym()` to create a new `date` field.
+</div>
+
+```{r mutate_date_pdo}
+## if necessary, install {lubridate}
+# install.package(lubridate)
+
+## create new `date` field; assume first day of year
+pdo <- pdo |>
+  mutate(date = ym(date)) |>
+  select(date, pdo)
+```
+
+
+### Time series of PDO
+
+Let's look at the time series of PDO values from 1970-1989.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Filter the PDO table and plot the time series.
+</div>
+
+```{r plot_pdo}
+pdo |>
+  # choose years 1970-1989
+  filter(year(date) >= 1970 & year(date) <= 1989) |>
+  # plot the time series of temperature
+  ggplot(aes(x = date, y = pdo)) +
+  geom_line() + 
+  xlab("\nTime") +
+  ylab("PDO\n") +
+  theme_gray(base_size = 16)
+```
+
+
+
 
