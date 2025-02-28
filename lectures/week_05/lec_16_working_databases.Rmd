@@ -16,31 +16,39 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center", out.width = '70%')
 ```
 
-***
-
-# DRAFT COPY -- INCOMPLETE
-
-***
 
 <br>
 
-# Background 
+# Overview 
+
+These notes will walk you through the process of connecting to a remote database and running some simple queries on the database using the verb-like functions in some common R packages. If you'd like to review the process of creating a new PostgreSQL database, adding some files, and querying the database using tools other than R, please look [here](lec_14_intro_databases.html).
+
+The following figure courtesy of Posit shows a high-level overview of our process. Recall that a database is a collection of tables and views created and manipulated using _Structured Query Language_ (SQL). Specifically, we use a _relational database management system_ to create relational databases using SQL (eg, PostgreSQL). One could then use SQL to access and wrangle data directly with the database or, as we'll see here, one could use R packages to connect to a database and interact with it completely within RStudio.
+
+<br>
+```{r, echo = FALSE}
+knitr::include_graphics("images/RS_db_connect.png")
+```
+<br>
+
 
 # Remote databases
 
-As we discussed previously, most databases are hosted on a server to which users connect remotely.
+As we discussed previously, most databases are hosted on a server to which users connect remotely. To do so, one could use a dedicated IDE, such as **pgAdmin** shown [here](lec_14_intro_databases.html#Getting_oriented_in_pgAdmin). Alternatively, and as we'll see here, you can use various R packages within RStudio to connect to a remote database.
 
-```{r load_pkgs, message = FALSE}
+
+## Connecting to a database
+
+To _connect_ to our remote database, we'll use two packages:
+
+1) **{DBI}**
+2) **{RPostgres}**
+
+```{r load_conect, message = FALSE}
 ## load packages for db connection
 library(DBI)
 library(RPostgres)
-
-## load packages for db queries
-library(dplyr)
-library(dbplyr)
 ```
-
-## Connecting to a database
 
 When connecting remotely to a database, the user will need to provide several pieces of information. These include:
 
@@ -72,7 +80,21 @@ con <- dbConnect(drv = Postgres(),
                  password = "FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo")
 ```
 
+# Interacting with a db
  
+To _interact_ with our remote database, we'll use two related packages:
+
+1) **{dplyr}**
+2) **{dbplyr}**
+
+```{r load_pkgs_qry, message = FALSE}
+## load packages for db queries
+library(dplyr)
+library(dbplyr)
+```
+
+
+
 ```{r get_limno_tbl}
 ## list the available table
 dbListTables(con)
