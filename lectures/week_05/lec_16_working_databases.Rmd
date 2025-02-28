@@ -214,6 +214,25 @@ unique(limno$year)
 unique(limno$year) |> length()
 ```
 
+### Convert field classes
+
+If you look closely at the classes for all of the non-date related fields, you'll see that they're currently all `character`'s. This can be traced back to the `NA`'s in the database itself. Before we can do any real operations on them, we'll need to convert them to class `numeric`. This is easily done using the {tidyverse}.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Use `mutate_if()` to convert `character` to `numeric`.
+</div>
+
+```{r}
+## convert data types to `numeric`
+limno <- limno |>
+  mutate_if(is.character, as.numeric)
+```
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
+</div>
+
+
 ### Time series of temperature
 
 Let's extract and plot the monthly time series of water temperature for the 20 years from 1970-1989. To begin, we'll create a new `date` column based on `year` and `month` so we can better use `ggplot()`. 
@@ -229,5 +248,26 @@ Let's extract and plot the monthly time series of water temperature for the 20 y
 ## create new `date` field; assume first day of year
 limno <- limno |>
   mutate(date = lubridate::make_date(year, month))
+```
+
+Now we can filter the table to choose the correct timespan and plot the temperature.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Filter the table and plot the time series of temperature.
+</div>
+
+```{r}
+## load ggplot2
+library(ggplot2)
+
+limno |>
+  # choose years 1970-1989
+  filter(year >= 1970 & year <= 1989) |>
+  # plot the time series of temperature
+  ggplot(aes(x = date, y = temp)) +
+  geom_line() + 
+  xlab("\nTime") +
+  ylab("Temperature (C)\n") +
+  theme_gray(base_size = 16)
 ```
 
