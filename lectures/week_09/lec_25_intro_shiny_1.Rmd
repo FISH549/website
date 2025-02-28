@@ -143,19 +143,15 @@ We’re all working together to try to make a big, beautiful thing happen
 
 # Outline
 
-1. `shiny` basics - when to use it, how to do it
+1. `shiny` basics - when to use it, what it's good for
 
 --
 
-2. Some features you can use to improve functionality
-
-  User uploads & downloads
-
-  Making dashboards with `{flexdashboard}`
+2. How to make an app
   
 --
 
-3. Lessons I learned from developing "mmBIET"
+3. Lessons learned from developing a Shiny app for management advice
 
 --
 
@@ -233,7 +229,7 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 # Each Shiny app has two components
 
 .pull-left[
-The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+The **`ui`** (user interface) object dictates the appearance of the app. For something to appear in your app, it needs to be in the UI. UI functions write HTML. 
 
 If you put in the console:
 ```{r eval = FALSE}
