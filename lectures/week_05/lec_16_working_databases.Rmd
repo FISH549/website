@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = TRUE,
 
 These notes will walk you through the process of connecting to a remote database and running some simple queries on the database using the verb-like functions in some common R packages. If you'd like to review the process of creating a new PostgreSQL database, adding some files, and querying the database using tools other than R, please look [here](lec_14_intro_databases.html).
 
-The following figure courtesy of Posit shows a high-level overview of our process. Recall that a database is a collection of tables and views created and manipulated using _Structured Query Language_ (SQL). Specifically, we use a _relational database management system_ to create relational databases using SQL (eg, PostgreSQL). One could then use SQL to access and wrangle data directly with the database or, as we'll see here, one could use R packages to connect to a database and interact with it completely within RStudio.
+The following figure courtesy of Posit shows a high-level overview of our process. Recall that a database is a collection of tables and views created and manipulated using _Structured Query Language_ (SQL). Specifically, we use a _relational database management system_ (eg, PostgreSQL) to create relational databases using SQL. One could then use SQL to access and wrangle data directly with the database or, as we'll see here, one could use R packages to connect to a database and interact with it completely within RStudio.
 
 <br>
 ```{r, echo = FALSE}
@@ -222,15 +222,15 @@ If you look closely at the classes for all of the non-date related fields, you'l
 **Task:** Use `mutate_if()` to convert `character` to `numeric`.
 </div>
 
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
+</div>
+
 ```{r}
 ## convert data types to `numeric`
 limno <- limno |>
   mutate_if(is.character, as.numeric)
 ```
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
-</div>
 
 
 ### Time series of temperature
