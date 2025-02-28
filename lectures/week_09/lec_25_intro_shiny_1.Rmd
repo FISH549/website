@@ -1,8 +1,8 @@
 ---
-title: "Shiny Part 1: Build!"
+title: "Shiny Part 1: Build apps"
 subtitle: "<br/>FISH 549"
 author: "Megsie Siple"
-institute: "NOAA AFSC - RACE/GAP"
+institute: "NOAA AFSC - Groundfish Assessment Program"
 date: "2024-03-03 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
@@ -40,29 +40,70 @@ I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Scien
 ![molly](img/molly_cat.jpg)
 ]
 .pull-right[
-![kiki](img/Loki_cat.jpg)
+  ![kiki](img/Loki_cat.jpg)
 ]
+
+---
+
+# Work and research
+
+INSERT VIDEO OF AKP!
+
+
+---
+
+# Why I learned Shiny
+
+![dolphins](img/Common_Striped_Boyd.jpg)
+.caption[
+**Image:** Jeff Moore
+]
+
+---
+
+# Why I learned Shiny
+
+![mmbiet](img/mmbiet.gif)
+
 
 ---
 
 # My team at AFSC uses many FISH 549 skills
 
-We use GitHub to [manage survey deployment and share code](https://github.com/afsc-gap-products), SQL to interact with our databases, R packages to store and share reproducible methods (e.g. [coldpool](https://github.com/afsc-gap-products/coldpool)), and Markdown to create reproducible reports ([Bering Sea](https://github.com/afsc-gap-products/gap_bs_data_report), [Gulf of Alaska/Aleutian Islands](https://github.com/MargaretSiple-NOAA/goa-ai-data-reports))
+.pull-left[
+- Using GitHub
+
+- Documenting data
+
+- Using SQL to query databases
+
+- Writing unit tests
+
+- Creating packages and writing unit tests
+
+- Using Markdown to create documentation
+]
+
+.pull-right[
+`r emoji::emoji("white_check_mark")` We use GH daily, including to [plan survey deployment](https://github.com/afsc-gap-products)
+
+`r emoji::emoji("white_check_mark")`[Story of our lives](https://afsc-gap-products.github.io/gap_products/)
+
+`r emoji::emoji("white_check_mark")`We store bottom trawl survey data in a SQL database
+
+`r emoji::emoji("white_check_mark")`Interior and public packages use unit tests and CI (e.g., [`coldpool`](https://github.com/afsc-gap-products/coldpool))
+
+`r emoji::emoji("white_check_mark")`We use Markdown for software dx, reproducible reports([Bering Sea](https://github.com/afsc-gap-products/gap_bs_data_report), [Gulf of Alaska/Aleutian Islands](https://github.com/MargaretSiple-NOAA/goa-ai-data-reports)), and more 
+]
 
 
 ---
 
-# Introductions 
+# Introductions - FIX LINK
 
 [Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
 
 ![qrcodeforpoll](img/mentimeter_qr.png)
-
----
-
-class: center, middle
-![os1](img/OSSCS1.jpg)
-<sub><sup>Photo: Shaya Lyon</sup></sub>
 
 ---
 
@@ -78,34 +119,25 @@ Each musician has areas where they’re very specialized, and areas where they a
 
 --
 
-What we do is a combination of highly technical skilled work and more whimsical multitasking/creativity
+What we do is a combination of highly technical skilled work, creativity and multitasking
 
 --
 
-But we’re all working together to try to make a big, beautiful thing happen 
+We’re all working together to try to make a big, beautiful thing happen 
 
 ---
 
 ## To successfully provide scientific advice for fisheries management, we need many components to work together:  
 
-### 1) Best available science (+ reproducibility)
+ 1) Best available science (+ reproducibility)
 
-### 2) Clear pathways for implementing advice
+ 2) Clear pathways for implementing advice
 
-### 3) Trust and communication between researchers and stakeholders
+ 3) Trust and communication between researchers and stakeholders
 
 --
 
 ### <mark> Shiny can help us do these things *and* create something beautiful that communicates data and models in a new way. </mark>
-
-
----
-
-class: center, middle
-
-Shiny can be a little gnarly at first.
-
-![stinkspirit](https://i.gifer.com/TR2i.gif)
 
 ---
 
@@ -143,21 +175,6 @@ There are many other things available in the repo that we won't cover today, but
 
 ---
 
-# Why I learned Shiny
-
-![dolphins](img/Common_Striped_Boyd.jpg)
-.caption[
-**Image:** Jeff Moore
-]
-
----
-
-# Why I learned Shiny
-
-![mmbiet](img/mmbiet.gif)
-
----
-
 # What is Shiny?
 
 ![whatisshiny](img/whatisshiny.png)
@@ -172,15 +189,25 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 
 --
 
-- teaching a package
+- teaching people how to use a package
+
+--
+
+- giving non-experts a way to "get to know" models and data
 
 --
 
 - streamlining certain code-intensive activities (like summarizing and communicating simulation outputs)
 
---
 
-- giving non-experts a way to "get to know" models and data
+
+---
+
+class: center, middle
+
+Shiny can be a little gnarly at first.
+
+![stinkspirit](https://i.gifer.com/TR2i.gif)
 
 ---
 
@@ -250,7 +277,7 @@ The server function and UI object are passed to the `shinyApp()` function to cre
 
 ---
 
-# **ui.R**/server.R
+# ui.R
 
 .pull-left[
 The ui looks like this (the "interactive" part is highlighted):
@@ -281,7 +308,7 @@ The corresponding ui looks like this:
 
 ---
 
-# **ui.R**/server.R
+# ui.R
 
 The ui code contains the following information: 
 
@@ -304,7 +331,7 @@ The ui code contains the following information:
 <!-- devtools::install_github("hadley/emo") -->
 ---
 
-# ui.R/**server.R**
+# server.R
 
 The server builds a list-like object called `output`. The contents of `output` can be displayed in the ui.
 
@@ -362,7 +389,7 @@ ui <- fluidPage(
 
 # What's on the server?
 
-R code... mostly :)
+R code... mostly `r emoji::emoji("stuck_out_tongue_winking_eye")`
 
 --
 
@@ -370,7 +397,7 @@ R code... mostly :)
 
 ---
 
-# ui.R/**server.R**
+# server.R
 
 - **Rendering functions** (`renderPlot()`, `renderTable()`, etc.)
   - Build a new object to display every time the inputs change
