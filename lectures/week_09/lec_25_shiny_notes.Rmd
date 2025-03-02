@@ -17,20 +17,25 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <br>
 
-# Shiny apps
+# Lecture 25 (Day 1): Intro to Shiny apps
+
+## Shiny
 
 Shiny apps are not your standard websites!
 
-- Most web pages are a set of static pages that you navigate through (like this course website)
-- Shiny apps are *reactive* apps, which received packets of information from other places (in our case, usually the user) and respond to those packets of information in real time.
+- Most web pages are a set of static pages that you navigate with links (like this course website!)
+- Shiny apps are *reactive* apps, which received packets of information from other places (in our case, the user-- but it could be other things like databases) and respond to those packets of information in real time.
+- Shiny apps are composed of elements (often called *widgets*) that the user interacts with.
 - `shiny` is an R package that helps you write Shiny apps. 
-- Production-ready apps must be deployed on a server. Posit provides free server instances for Shiny users, but this can also be an instance hosted by your institution. 
 
 ![whatisshiny](img/whatisshiny.png)
+- Production-ready apps must be deployed on a server. Posit provides free server instances for Shiny users, but this can also be an instance hosted by your institution. 
+- You can also use Shiny to capture the logic within the app and use it to return code that will reproduce certain outputs ([shinymeta](https://github.com/rstudio/shinymeta))
+- More on this later, but Shiny apps can also be embedded in things like RMarkdown documents.
 
 ***
 
-# Creating a Shiny App
+## Creating a Shiny app
 
 
 <div class="boxy boxy-blue boxy-clipboard-list">
@@ -46,7 +51,7 @@ Shiny apps are not your standard websites!
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
-**Note:** The distinction between the 'Multiple File' and 'Single file' options is purely a matter of how you like to work. This choice will not affect functionality or anything else. I prefer two files because both files can get very long and I like being able to easily know whether I'm working on server or ui code.
+**Note:** The distinction between the 'Multiple File' and 'Single file' options is purely a matter of how you like to work. This choice will not affect functionality.
 </div>
 
 
@@ -65,7 +70,7 @@ Shiny apps are not your standard websites!
 ![](img/shinyappsetup03.PNG){ width=90% }
 
 
-# Adding an element
+## Adding an element
 
 Now that you have a template shiny app set up, you can build on it!
 
@@ -108,11 +113,6 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 
 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green up arrow, which is the RStudio symbol for `git push`.
-</div>
-
-![](images/rstudio_git_push.png){ width=90% }
 
 <br>
 
@@ -123,7 +123,10 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You've now pushed a change on your local computer up to your remote repo on GitHub.
-</div>
+# Lecture 26 (Day 2): Building out and deploying Shiny apps
 
+
+
+# Resources
+
+- [shiny.posit.co](https://shiny.posit.co/) has great resources for building and deploying Shiny apps in both R and Python(!). 
