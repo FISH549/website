@@ -17,7 +17,7 @@ output:
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
 style_mono_accent(
-  base_color = "#2a5674",
+  base_color = "#2a5674",link_color = "forestgreen",
   header_font_google = google_font("Source Sans Pro"),
   text_font_google   = google_font("Source Sans Pro", "500", "500i"),
   code_font_google   = google_font("Fira Mono"),
@@ -49,6 +49,12 @@ I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Scien
 
 INSERT VIDEO OF AKP!
 
+---
+
+# A note about public resources in this presentation
+
+<mark>Many components of this work were made possible by public resources, including 18F. </mark>
+
 
 ---
 
@@ -71,6 +77,8 @@ INSERT VIDEO OF AKP!
 # My team at AFSC uses many FISH 549 skills
 
 .pull-left[
+**FISH 549 learning goals**
+
 - Using GitHub
 
 - Documenting data
@@ -85,9 +93,11 @@ INSERT VIDEO OF AKP!
 ]
 
 .pull-right[
+**GAP Activities**
+
 `r emoji::emoji("white_check_mark")` We use GH daily, including to [plan survey deployment](https://github.com/afsc-gap-products)
 
-`r emoji::emoji("white_check_mark")`[Story of our lives](https://afsc-gap-products.github.io/gap_products/)
+`r emoji::emoji("white_check_mark")`[Documenting data is the story of our lives](https://afsc-gap-products.github.io/gap_products/)
 
 `r emoji::emoji("white_check_mark")`We store bottom trawl survey data in a SQL database
 
@@ -131,7 +141,7 @@ We’re all working together to try to make a big, beautiful thing happen
 
  1) Best available science (+ reproducibility)
 
- 2) Clear pathways for implementing advice
+ 2) Well-defined pathways for implementing advice
 
  3) Trust and communication between researchers and stakeholders
 
@@ -155,16 +165,16 @@ We’re all working together to try to make a big, beautiful thing happen
 
 --
 
-If you'd like to follow along, clone this directory and follow the examples!
+If you want practice or you learn well from hands-on examples, check out
 [https://github.com/mcsiple/shinyoverview](https://github.com/mcsiple/shinyoverview)
 
 --
 
 There are many other things available in the repo that we won't cover today, but examples are included so you can try them on your own:
 
-> 4. *Translating your Shiny apps using `{shiny.18n}`*
+> 4. *Live-translating your Shiny apps into other languages using `{shiny.18n}`*
 
-> 5. *Using Shiny to supercharge your remote teaching with `{learnr}`*
+> 5. *Using Shiny to teach remotely with `{learnr}`*
 
 > 6. *Generating Markdown reports from Shiny*
 
@@ -247,7 +257,7 @@ It returns this html:
 # Each Shiny app has two components
 
 .pull-left[
-The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+The **`ui`** (user interface) object dictates the appearance of the app. For something to appear in your app, it needs to be in the UI. UI functions write HTML. 
 
 If you put in the console:
 ```{r eval = FALSE}
@@ -414,38 +424,27 @@ R code... mostly `r emoji::emoji("stuck_out_tongue_winking_eye")`
 
 class: center, middle
 
-# 01_basics/app.R
-
----
-
-# Shiny dashboards
-
-Show a dataset several ways in one place (and automatically update it!)
-Use it for:
-
-- communicating data in a polished way
-
-- offering access to visualizations from a database
-
-- showing a "data story" in a tailored way
-
-![confdash](img/confdash.png)
+# lec_25_shiny_notes.Rmd
 
 ---
 
 class: center, middle
 
-# 06_flexdashboard/app.R
-
----
-
-
-
-class: center, middle
-
-# Lessons I learned from developing a Shiny app
+# Lessons learned from developing `mmrefpoints` and its Shiny tool
 
 ![droplets](https://i.gifer.com/g5.gif)
+---
+
+# The long (and rewarding!) path
+
+- The Ocean Modeling Forum's request: a free, online app that would allow stakeholders to do a scenario analysis for a marine mammal stock of their choice
+- International Ttarget audience
+- Year 1: Consultation with scientists; building and testing the population dynamics model
+- Year 1: Consultation with international stakeholders interested in the tool
+- Year 2: Show app to actual web developers (humbling `r emoji::emoji("laughing")`)
+- Year 2: Testing with students, stakeholders, other scientists, other developers
+- Year 3(?): Publish [R package and app](https://joss.theoj.org/papers/10.21105/joss.03888) in JOSS; present finished product
+
 
 ---
 
