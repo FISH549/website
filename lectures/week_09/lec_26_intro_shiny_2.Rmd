@@ -3,7 +3,7 @@ title: "Shiny Part 2: Handing data in Shiny & making maps with leaflet"
 subtitle: "<br/>FISH 549"
 author: "Megsie Siple"
 institute: "NOAA AFSC - RACE/GAP"
-date: "2023-03-01 (updated: `r Sys.Date()`)"
+date: "2025-03-05 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -28,7 +28,7 @@ style_mono_accent(
 
 # On Monday we talked about
 
-- Shiny: what is it good for?
+- Shiny: when should we use it?
 
 - How to build a basic Shiny app
 
@@ -201,16 +201,16 @@ class: center, middle
 
 # Fin
 
-#### Today's code treat `r emo::ji("pastry")`
+#### Today's Shiny-relevant code treats `r emoji::emoji("pastry")`
 
 `Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny. 
 
-`r emo::ji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
+`r emoji::emoji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
 
 #### contact
-`r emo::ji("email")`: margaret.siple@noaa.gov
+`r emoji::emoji("email")`: margaret.siple@noaa.gov
 
-If you're developing a Shiny app for a project, would love to help you! Send me questions, issues, use code from the `shinyoverview` repo, whatevas.
+If you're developing a Shiny app for a project, would love to help you! Send me questions, issues, use code from the `shinyoverview` repo, whatever you want!
 
 #### For Friday!
 Eli Holmes will introduce Scrum and how to do a Scrum Sprint with GitHub Project pages and GitHub issues.  To prepare, you can watch [**this**](https://www.youtube.com/watch?v=sLK3EHPCw14) ~5-min video on scrum style workflows.
