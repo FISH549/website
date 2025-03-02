@@ -19,12 +19,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Lecture 25 (Day 1): Intro to Shiny apps
 
-## Shiny
+## What is Shiny?
 
 Shiny apps are not your standard websites!
 
 - Most web pages are a set of static pages that you navigate with links (like this course website!)
-- Shiny apps are *reactive* apps, which received packets of information from other places (in our case, the user-- but it could be other things like databases) and respond to those packets of information in real time.
+- Shiny apps are *reactive* apps, which receive packets of information from other places (in our case, the user-- but it could be other things like databases) and respond to those packets of information in real time.
 - Shiny apps are composed of elements (often called *widgets*) that the user interacts with.
 - `shiny` is an R package that helps you write Shiny apps. 
 
@@ -127,6 +127,9 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 
 
 
+
 # Resources
 
 - [shiny.posit.co](https://shiny.posit.co/) has great resources for building and deploying Shiny apps in both R and Python(!). 
+
+- Appsilon's virtual Shiny Conference is April 9-11 2025 ([free registration link](https://www.shinyconf.com/))
