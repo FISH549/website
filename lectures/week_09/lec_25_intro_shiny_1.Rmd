@@ -424,7 +424,7 @@ R code... mostly `r emoji::emoji("stuck_out_tongue_winking_eye")`
 
 class: center, middle
 
-# lec_25_shiny_notes.Rmd
+# lec_25_26_shiny_notes.Rmd
 
 ---
 
