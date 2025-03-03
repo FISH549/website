@@ -505,7 +505,7 @@ class: center, middle
 
 Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny app workflow and production
 
-We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
+We love a [cheatsheet](https://shiny.posit.co/r/articles/start/cheatsheet/)
 
 
 #### Today's code treat `r emoji::emoji("food")`
