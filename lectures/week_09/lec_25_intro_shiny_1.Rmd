@@ -45,10 +45,26 @@ I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Scien
 
 ---
 
+# Introductions
+
+[Here](https://www.menti.com/almmwxm6k5pi) is a brief poll so I can get to know you.
+
+![qrcodeforpoll](img/mentimeter_qr.png)
+
+
+---
+
 # Work and research
 
-INSERT VIDEO OF AKP!
+.pull-left[
+<video width="640" height="480" controls muted autoplay>
+  <source src="img/AKP_tow.mov" type="video/mp4">
+</video>
+]
 
+.pull-right[
+![](img/herring.JPG)
+]
 ---
 
 # A note about public resources in this presentation
@@ -105,15 +121,6 @@ INSERT VIDEO OF AKP!
 
 `r emoji::emoji("white_check_mark")`We use Markdown for software dx, reproducible reports([Bering Sea](https://github.com/afsc-gap-products/gap_bs_data_report), [Gulf of Alaska/Aleutian Islands](https://github.com/MargaretSiple-NOAA/goa-ai-data-reports)), and more 
 ]
-
-
----
-
-# Introductions - FIX LINK
-
-[Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
-
-![qrcodeforpoll](img/mentimeter_qr.png)
 
 ---
 
@@ -438,7 +445,7 @@ class: center, middle
 # The long (and rewarding!) path
 
 - The Ocean Modeling Forum's request: a free, online app that would allow stakeholders to do a scenario analysis for a marine mammal stock of their choice
-- International Ttarget audience
+- International target audience
 - Year 1: Consultation with scientists; building and testing the population dynamics model
 - Year 1: Consultation with international stakeholders interested in the tool
 - Year 2: Show app to actual web developers (humbling `r emoji::emoji("laughing")`)
@@ -479,7 +486,7 @@ If you are designing an app for management, a good UI is essential.
 # Quick poll
 
 What material would you like to cover on Wednesday? 
-Poll [here](https://www.menti.com/alhsjbv7aqsq)
+Poll [here](https://www.menti.com/almmwxm6k5pi)
 
 ---
 
