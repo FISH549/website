@@ -44,7 +44,7 @@ getting_help <- list(
 ## week 5
 databases <- list(
   title = "Databases",
-  topics = c("Relational databases"),
+  topics = c("Relational databases [optional]"),
   pdf = "",
   rmd = "homework/week_07/hw_07_databases.Rmd",
   html = "homework/week_07/hw_07_databases.html",
