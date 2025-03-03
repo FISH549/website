@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Shiny Part 1: Build!</title>
+    <title>Shiny Part 1: Build apps</title>
     <meta charset="utf-8" />
     <meta name="author" content="Megsie Siple" />
-    <script src="libs/header-attrs-2.20.1/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="animate.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
 .title[
-# Shiny Part 1: Build!
+# Shiny Part 1: Build apps
 ]
 .subtitle[
 ## <br/>FISH 549
@@ -21,10 +22,10 @@ class: center, middle, inverse, title-slide
 ### Megsie Siple
 ]
 .institute[
-### NOAA AFSC - RACE/GAP
+### NOAA AFSC - Groundfish Assessment Program
 ]
 .date[
-### 2023-02-27 (updated: 2023-02-27)
+### 2024-03-03 (updated: 2025-03-02)
 ]
 
 ---
@@ -40,105 +41,43 @@ class: center, middle
 
 # Introductions
 
-I am Margaret Siple (I go by Megsie) and I work at NOAA Alaska Fisheries Science Center. I live in Beacon Hill with two cats, Squirrel and Molly.
+I am Margaret Siple (I go by Megsie) and I work at NOAA's Alaska Fisheries Science Center in the Groundfish Assessment Program. I live in Beacon Hill with two cats, Molly and Loki.
 
-![squirrelmolly](img/squirrelmolly.jpg)
+.pull-left[
+![molly](img/molly_cat.jpg)
+]
+.pull-right[
+  ![kiki](img/Loki_cat.jpg)
+]
 
 ---
 
-# Introductions 
+# Introductions
 
-[Here](https://www.menti.com/alhsjbv7aqsq) is a brief poll so I can get to know you.
+[Here](https://www.menti.com/almmwxm6k5pi) is a brief poll so I can get to know you.
 
 ![qrcodeforpoll](img/mentimeter_qr.png)
 
----
-
-class: center, middle
-![sempe](img/sempe.jpg)
 
 ---
 
-# Fisheries science can be like an orchestra
+# Work and research
 
-Each musician has areas where they’re very specialized, and areas where they are clueless
+.pull-left[
+&lt;video width="640" height="480" controls muted autoplay&gt;
+  &lt;source src="img/AKP_tow.mov" type="video/mp4"&gt;
+&lt;/video&gt;
+]
 
---
-
-What we do is a combination of highly technical skilled work and more whimsical multitasking/creativity
-
---
-
-But we’re all working together to try to make a big, beautiful thing happen 
-
+.pull-right[
+![](img/herring.JPG)
+]
 ---
 
-class: center, middle
-![os1](img/OSSCS1.jpg)
-&lt;sub&gt;&lt;sup&gt;Photo: Shaya Lyon&lt;/sup&gt;&lt;/sub&gt;
+# A note about public resources in this presentation
 
----
+&lt;mark&gt;Many components of this work were made possible by public resources, including 18F. &lt;/mark&gt;
 
-class: center, middle
-![os2](img/OSSCS2.jpg)
-&lt;sub&gt;&lt;sup&gt;Photo: Shaya Lyon&lt;/sup&gt;&lt;/sub&gt;
-
----
-## How we channel complexity in an orchestra: 
-
-### Clean it up
-
-### Use building blocks
-
-### Streamline our communications
-
-### Stay aware of the big picture
-
---
-
-### &lt;mark&gt; Many of these concepts apply to the sciences! Shiny can help us do these things *and* create something beautiful that communicates data and concepts. &lt;/mark&gt;
-
-
----
-
-class: center, middle
-
-Shiny can be a little gnarly at first.
-
-![stinkspirit](https://i.gifer.com/TR2i.gif)
-
----
-
-# Outline
-
-1. `shiny` basics - when to use it, how to do it
-
---
-
-2. Some features you can use to improve functionality
-
-  User uploads &amp; downloads
-
-  Making dashboards with `{flexdashboard}`
-  
---
-
-3. Lessons I learned from developing "mmBIET"
-
---
-
-If you'd like to follow along, clone this directory and follow the examples!
-[https://github.com/mcsiple/shinyoverview](https://github.com/mcsiple/shinyoverview)
-
---
-
-There are many other things available in the repo that we won't cover today, but examples are included so you can try them on your own:
-
-&gt; 4. *Translating your Shiny apps using `{shiny.18n}`*
-
-&gt; 5. *Using Shiny to supercharge your remote teaching with `{learnr}`*
-
-&gt; 6. *Generating Markdown reports from Shiny*
 
 ---
 
@@ -155,11 +94,112 @@ There are many other things available in the repo that we won't cover today, but
 
 ![mmbiet](img/mmbiet.gif)
 
+
+---
+
+# My team at AFSC uses many FISH 549 skills
+
+.pull-left[
+**FISH 549 learning goals**
+
+- Using GitHub
+
+- Documenting data
+
+- Using SQL to query databases
+
+- Writing unit tests
+
+- Creating packages and writing unit tests
+
+- Using Markdown to create documentation
+]
+
+.pull-right[
+**GAP Activities**
+
+✅ We use GH daily, including to [plan survey deployment](https://github.com/afsc-gap-products)
+
+✅[Documenting data is the story of our lives](https://afsc-gap-products.github.io/gap_products/)
+
+✅We store bottom trawl survey data in a SQL database
+
+✅Interior and public packages use unit tests and CI (e.g., [`coldpool`](https://github.com/afsc-gap-products/coldpool))
+
+✅We use Markdown for software dx, reproducible reports([Bering Sea](https://github.com/afsc-gap-products/gap_bs_data_report), [Gulf of Alaska/Aleutian Islands](https://github.com/MargaretSiple-NOAA/goa-ai-data-reports)), and more 
+]
+
+---
+
+class: center, middle
+![os2](img/OSSCS2.jpg)
+&lt;sub&gt;&lt;sup&gt;Photo: Shaya Lyon&lt;/sup&gt;&lt;/sub&gt;
+
+---
+
+# Applied fisheries management can be like playing music
+
+Each musician has areas where they’re very specialized, and areas where they are clueless
+
+--
+
+What we do is a combination of highly technical skilled work, creativity and multitasking
+
+--
+
+We’re all working together to try to make a big, beautiful thing happen 
+
+---
+
+## To successfully provide scientific advice for fisheries management, we need many components to work together:  
+
+ 1) Best available science (+ reproducibility)
+
+ 2) Well-defined pathways for implementing advice
+
+ 3) Trust and communication between researchers and stakeholders
+
+--
+
+### &lt;mark&gt; Shiny can help us do these things *and* create something beautiful that communicates data and models in a new way. &lt;/mark&gt;
+
+---
+
+# Outline
+
+1. `shiny` basics - when to use it, what it's good for
+
+--
+
+2. How to make an app
+  
+--
+
+3. Lessons learned from developing a Shiny app for management advice
+
+--
+
+If you want practice or you learn well from hands-on examples, check out
+[https://github.com/mcsiple/shinyoverview](https://github.com/mcsiple/shinyoverview)
+
+--
+
+There are many other things available in the repo that we won't cover today, but examples are included so you can try them on your own:
+
+&gt; 4. *Live-translating your Shiny apps into other languages using `{shiny.18n}`*
+
+&gt; 5. *Using Shiny to teach remotely with `{learnr}`*
+
+&gt; 6. *Generating Markdown reports from Shiny*
+
+
 ---
 
 # What is Shiny?
 
 ![whatisshiny](img/whatisshiny.png)
+
+
 
 ---
 
@@ -169,15 +209,25 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 
 --
 
-- teaching a package
+- teaching people how to use a package
+
+--
+
+- giving non-experts a way to "get to know" models and data
 
 --
 
 - streamlining certain code-intensive activities (like summarizing and communicating simulation outputs)
 
---
 
-- giving non-experts a way to "get to know" models and data
+
+---
+
+class: center, middle
+
+Shiny can be a little gnarly at first.
+
+![stinkspirit](https://i.gifer.com/TR2i.gif)
 
 ---
 
@@ -186,7 +236,7 @@ When we want to make R code accessible outside of an R or RStudio environment. F
 Install **shiny**:
 
 
-```r
+``` r
 install.packages("shiny")
 ```
 
@@ -204,7 +254,39 @@ You can choose between single (**app.R**) or multiple files (**ui.R** and **serv
 # Each Shiny app has two components
 
 .pull-left[
-The **`ui`** (user interface) object dictates the appearance of the app. UI functions write HTML. For something to appear in your app, it needs to be in the UI.
+The **`ui`** (user interface) object dictates the appearance of the app. For something to appear in your app, it needs to be in the UI. UI functions write HTML. 
+
+If you put in the console:
+
+``` r
+shiny::titlePanel("Here is a title")
+```
+
+It returns this html:
+
+``` r
+&lt;h2&gt;Old Faithful Geyser Data&lt;/h2&gt;
+```
+]
+
+---
+
+# Each Shiny app has two components
+
+.pull-left[
+The **`ui`** (user interface) object dictates the appearance of the app. For something to appear in your app, it needs to be in the UI. UI functions write HTML. 
+
+If you put in the console:
+
+``` r
+shiny::titlePanel("Here is a title")
+```
+
+It returns this html:
+
+``` r
+&lt;h2&gt;Old Faithful Geyser Data&lt;/h2&gt;
+```
 ]
 
 .pull-right[
@@ -220,14 +302,14 @@ The server function and UI object are passed to the `shinyApp()` function to cre
 
 ---
 
-# **ui.R**/server.R
+# ui.R
 
 .pull-left[
 The ui looks like this (the "interactive" part is highlighted):
 
 
 
-```r
+``` r
 ui &lt;- fluidPage(
     titlePanel("Old Faithful Geyser Data"),
     sidebarLayout(
@@ -252,15 +334,13 @@ The corresponding ui looks like this:
 
 ---
 
-# **ui.R**/server.R
+# ui.R
 
 The ui code contains the following information: 
 
 1. The UI type 
   - `fluidPage()` puts elements in rows that can include columns 🍰
-
-  - `navbarPage()` has a navigation bar 📂
-
+  - `navbarPage()` has a navigation bar 📁
 
 2. Layout elements (`sidebarLayout()` etc.)
 
@@ -277,13 +357,13 @@ The ui code contains the following information:
 &lt;!-- devtools::install_github("hadley/emo") --&gt;
 ---
 
-# ui.R/**server.R**
+# server.R
 
-The server builds a list-like object called `output`. The contents of `output` are displayed in the ui.
+The server builds a list-like object called `output`. The contents of `output` can be displayed in the ui.
 
 
-```r
-server &lt;- function(input, output) {
+``` r
+server &lt;- function(input, output) { 
     output$distPlot &lt;- renderPlot({
         # generate bins based on input$bins from ui.R
         x    &lt;- faithful[, 2]
@@ -302,7 +382,7 @@ The server builds a list-like object called `output`. `output` objects are displ
 
 .pull-left[
 
-```r
+``` r
 server &lt;- function(input, output) {
 *    output$distPlot &lt;- renderPlot({
         # generate bins based on input$bins from ui.R
@@ -317,7 +397,7 @@ server &lt;- function(input, output) {
 
 .pull-right[
 
-```r
+``` r
 ui &lt;- fluidPage(
     titlePanel("Old Faithful Geyser Data"),
     sidebarLayout(
@@ -335,9 +415,10 @@ ui &lt;- fluidPage(
 ]
 ---
 
+
 # What's on the server?
 
-R code... mostly :)
+R code... mostly 😜
 
 --
 
@@ -345,7 +426,7 @@ R code... mostly :)
 
 ---
 
-# ui.R/**server.R**
+# server.R
 
 - **Rendering functions** (`renderPlot()`, `renderTable()`, etc.)
   - Build a new object to display every time the inputs change
@@ -366,36 +447,27 @@ R code... mostly :)
 
 class: center, middle
 
-# 01_basics/app.R
-
----
-
-# Shiny dashboards
-
-Show a dataset several ways in one place (and automatically update it!)
-Use it for:
-
-- communicating data in a polished way
-
-- offering access to visualizations from a database
-
-- showing a "data story" in a tailored way
-
-![confdash](img/confdash.png)
+# lec_25_26_shiny_notes.Rmd
 
 ---
 
 class: center, middle
 
-# 06_flexdashboard/app.R
-
----
-
-class: center, middle
-
-# Lessons I learned from developing a Shiny app
+# Lessons learned from developing `mmrefpoints` and its Shiny tool
 
 ![droplets](https://i.gifer.com/g5.gif)
+---
+
+# The long (and rewarding!) path
+
+- The Ocean Modeling Forum's request: a free, online app that would allow stakeholders to do a scenario analysis for a marine mammal stock of their choice
+- International target audience
+- Year 1: Consultation with scientists; building and testing the population dynamics model
+- Year 1: Consultation with international stakeholders interested in the tool
+- Year 2: Show app to actual web developers (humbling 😆)
+- Year 2: Testing with students, stakeholders, other scientists, other developers
+- Year 3(?): Publish [R package and app](https://joss.theoj.org/papers/10.21105/joss.03888) in JOSS; present finished product
+
 
 ---
 
@@ -430,7 +502,7 @@ If you are designing an app for management, a good UI is essential.
 # Quick poll
 
 What material would you like to cover on Wednesday? 
-Poll [here](https://www.menti.com/alhsjbv7aqsq)
+Poll [here](https://www.menti.com/almmwxm6k5pi)
 
 ---
 
@@ -441,7 +513,7 @@ class: center, middle
 ### contact
 
 📧: margaret.siple@noaa.gov
-🐦: @margaretsiple
+☁️: @mcsiple on BlueSky
 
 #### **More Shiny resources:**
 
@@ -452,7 +524,7 @@ Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny 
 We love a [cheatsheet](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf)
 
 
-#### Today's code treat 🥑
+#### Today's code treat 🥚
 
 Put emoji in your GitHub commits by using the `::` syntax, e.g., 
 `git commit -m this code is still growing :seedling:`
@@ -462,6 +534,7 @@ Emoji options at [gitmoji.dev](https://gitmoji.dev/)
 ***
 
 Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
