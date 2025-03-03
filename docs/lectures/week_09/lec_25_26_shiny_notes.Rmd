@@ -1,0 +1,135 @@
+---
+title: "Introduction Shiny apps"
+date: "3 March 2025"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Lecture 25 (Day 1): Intro to Shiny apps
+
+## What is Shiny?
+
+Shiny apps are not your standard websites!
+
+- Most web pages are a set of static pages that you navigate with links (like this course website!)
+- Shiny apps are *reactive* apps, which receive packets of information from other places (in our case, the user-- but it could be other things like databases) and respond to those packets of information in real time.
+- Shiny apps are composed of elements (often called *widgets*) that the user interacts with.
+- `shiny` is an R package that helps you write Shiny apps. 
+
+![whatisshiny](img/whatisshiny.png)
+- Production-ready apps must be deployed on a server. Posit provides free server instances for Shiny users, but this can also be an instance hosted by your institution. 
+- You can also use Shiny to capture the logic within the app and use it to return code that will reproduce certain outputs ([shinymeta](https://github.com/rstudio/shinymeta))
+- More on this later, but Shiny apps can also be embedded in things like RMarkdown documents.
+
+***
+
+## Creating a Shiny app
+
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go to a new RStudio window and go to File --> New File --> Shiny web app. You'll get a pop-up window that asks you to choose an app name and a directory.
+</div>
+
+<br>
+
+![](img/shinyappsetup01.PNG){ width=90% }
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Pick your app name and `Multiple File` and click 'Create'.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Note:** The distinction between the 'Multiple File' and 'Single file' options is purely a matter of how you like to work. This choice will not affect functionality.
+</div>
+
+
+-  You will see two scripts, "ui.R" and "server.R".
+-  These files are automatically populated with code for a dummy app- sometimes the easiest way to build an app is to start with these building blocks and start changing elements to get the functionality you want. 
+-  From either file, you can click "Run App" and it will open a window with the app as it would appear.  
+
+![](img/shinyappsetup02.PNG){ width=90% }
+
+<br>
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Voila! You have rendered your first app. As you're building your app, you will end up pressing this button many...many times.
+</div>
+
+![](img/shinyappsetup03.PNG){ width=90% }
+
+
+## Adding an element
+
+Now that you have a template shiny app set up, you can build on it!
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Let's add a plot element to this app called `EruptionScatter`. Go to server.R and add this to the server:
+</div>
+
+```{r eval= FALSE}
+
+  output$EruptionScatter <- renderPlot({
+      
+      # just a little scatterplot
+      plot(faithful$eruptions,faithful$waiting, 
+           pch = 19,col = scales::alpha("darkblue",0.5),
+           xlab = "Eruption time (mins)", ylab = "Waiting time to next eruption (mins)")
+    })
+    
+```
+
+When you click "Render App", it doesn't appear in the app! Why not? Because we also need to put it in the UI in order for it to appear. After you have been writing code all day, the easiest oversights to make are calling something the wrong type of `render` object or putting something in the server but forgetting to add it to the ui.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** You have to tell R what type of output object it is. Add the element `EruptionScatter` to the ui, so that your `mainPanel` section looks like this:
+</div>
+
+```{r eval=FALSE}
+ mainPanel(
+            plotOutput("distPlot"),
+            plotOutput("EruptionScatter")
+        )
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Note:** In order for something to appear in your app, it must be in the ui.R. 
+</div>
+
+When you click "Run App," yay! Your new plot element has appear in the UI.
+
+![](img/shinyappsetup04.PNG){ width=90% }
+
+
+
+
+<br>
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** You should see a smaller **Git Push** window with the following information from Git.
+</div>
+
+
+<br>
+
+# Lecture 26 (Day 2): Building out and deploying Shiny apps
+
+
+
+
+# Resources
+
+- [shiny.posit.co](https://shiny.posit.co/) has great resources for building and deploying Shiny apps in both R and Python(!). 
+
+- Appsilon's virtual Shiny Conference is April 9-11 2025 ([free registration link](https://www.shinyconf.com/))
