@@ -9,6 +9,7 @@ output:
     toc: true
     toc_float: true
     toc_depth: 3
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -57,7 +58,7 @@ Shiny apps are not your standard websites!
 
 -  You will see two scripts, "ui.R" and "server.R".
 -  These files are automatically populated with code for a dummy app- sometimes the easiest way to build an app is to start with these building blocks and start changing elements to get the functionality you want. 
--  From either file, you can click "Run App" and it will open a window with the app as it would appear.  
+-  From either file, you can click "Run App" and it will open a window with the app as it would appear. This button is the equivalent of a call to `runApp()` in the console. 
 
 ![](img/shinyappsetup02.PNG){ width=90% }
 
@@ -113,19 +114,98 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 
 
 
-
-<br>
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You should see a smaller **Git Push** window with the following information from Git.
-</div>
-
-
 <br>
 
 # Lecture 26 (Day 2): Building out and deploying Shiny apps
 
+To be filled soon, depending on Monday's survey responses!
 
+## Display modes
+
+Shiny has different display modes. 
+
+### Normal display
+
+The default is `display.mode = "normal"` which returns the usual Shiny looking interface:
+
+![](img/displaymode_normal.PNG)
+
+### Showcase display
+
+But you can also use `display.mode = "showcase"`, which shows the source code for the app alongside the content. This can be nice for teaching!
+
+![](img/displaymode_showcase.PNG)
+
+## Embedding a Shiny app in a Markdown document
+
+You can embed a Shiny app in a Markdown / Quarto page. You can do it with an inline definition, like this:
+
+```{r, eval=FALSE}
+library(palmerpenguins)
+library(ggplot2)
+library(shiny)
+shinyApp(
+
+  ui = fluidPage(
+    selectInput("species", "Species:",
+                choices = unique(penguins$species)),
+    plotOutput("penguinPlot")
+  ),
+
+  server = function(input, output) {
+    output$penguinPlot = renderPlot({
+      p1 <- ggplot(penguins, aes(x=bill_length_mm, y= bill_depth_mm, color = species)) +
+        geom_point() +
+        scale_color_brewer(palette = "Dark2") +
+        ylab("Bill depth (mm)") +
+        xlab("Bill length (mm)")
+      p1
+    })
+  },
+
+  options = list(height = 500)
+)
+```
+
+To get an embedded app that looks like this:
+```{r, echo=FALSE}
+library(palmerpenguins)
+library(ggplot2)
+library(shiny)
+shinyApp(
+
+  ui = fluidPage(
+    selectInput("species", "Species:",
+                choices = unique(penguins$species)),
+    plotOutput("penguinPlot")
+  ),
+
+  server = function(input, output) {
+    output$penguinPlot = renderPlot({
+      p1 <- ggplot(penguins, aes(x=bill_length_mm, y= bill_depth_mm, color = species)) +
+        geom_point() +
+        scale_color_brewer(palette = "Dark2") +
+        ylab("Bill depth (mm)") +
+        xlab("Bill length (mm)")
+      p1
+    })
+  },
+
+  options = list(height = 500)
+)
+```
+
+You can also call a Shiny app defined in another directory; it would look like this:
+
+```{r eval=FALSE}
+library(shiny)
+shinyAppDir(
+  system.file("examples/01_hello", package="shiny"),
+  options = list(width = "100%", height = 700)
+)
+```
+
+Note that "showcase mode" (the shiny interface that shows both ui and code at the same time) won't work in Markdown docs.
 
 
 # Resources
@@ -133,3 +213,24 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 - [shiny.posit.co](https://shiny.posit.co/) has great resources for building and deploying Shiny apps in both R and Python(!). 
 
 - Appsilon's virtual Shiny Conference is April 9-11 2025 ([free registration link](https://www.shinyconf.com/))
+
+- [Official Shiny cheatsheet](https://shiny.posit.co/r/articles/start/cheatsheet/)
+
+- [Mastering Shiny](https://mastering-shiny.org/) by Hadley Thee Wickham 
+
+- Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny app workflow and production
+
+
+
+## User experience (UX)
+
+Since you're at UW, you can take advantage of UW IT's *UX testing consultations*: [https://uxdesign.uw.edu/consultations.html](https://uxdesign.uw.edu/consultations.html)
+
+
+## Testing
+
+- if your institution doesn't have UX resources, design pilot testing so that you get helpful feedback on UX:
+  - [18F Methods](https://methods.18f.gov/validate/) and [Maze](https://maze.design/guides/usability-testing/questions/) have great lists of testing questions and methods
+  - 18F Methods also has an [example agreement](https://methods.18f.gov/participant-agreement/) for testers
+  - Depending on the final format, places like  [UsabilityHub](https://usabilityhub.com/) have interfaces that will provide data on clicks and scrolling behavior when testing is remote
+  - Check accessibility using the app's URL using the [Web Accessibility Evaluation (WAVE) Tool](https://wave.webaim.org/)
