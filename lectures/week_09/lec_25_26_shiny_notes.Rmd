@@ -118,7 +118,16 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 
 # Lecture 26 (Day 2): Building out and deploying Shiny apps
 
-To be filled soon, depending on Monday's survey responses!
+## Leaflet maps in Shiny
+
+Leaflet makes maps you can serve as standalone HTMLs. You can also embed them in:
+
+- Markdown or Quarto 
+- Shiny
+
+They're very flexible! And they're interactive.
+
+
 
 ## Display modes
 
@@ -138,7 +147,21 @@ But you can also use `display.mode = "showcase"`, which shows the source code fo
 
 ## Embedding a Shiny app in a Markdown document
 
-You can embed a Shiny app in a Markdown / Quarto page. You can do it with an inline definition, like this:
+You can embed a Shiny app in a Markdown / Quarto page. 
+
+A Markdown document with shiny widgets and outputs is called an "interactive document."
+
+To make a Markdown document interactive, you add the following to the yaml header:
+
+```{r eval = FALSE}
+---
+runtime: shiny
+output:html_document
+---
+```
+
+
+You can do it with an inline definition, like this:
 
 ```{r, eval=FALSE}
 library(palmerpenguins)
@@ -207,6 +230,23 @@ shinyAppDir(
 
 Note that "showcase mode" (the shiny interface that shows both ui and code at the same time) won't work in Markdown docs.
 
+# Gallery of fun Shiny apps `r emoji::emoji("art")`
+
+Sam Czik's hiking/biking [Strava dashboard](https://samanthacsik.shinyapps.io/strava_dashboard/) (leaflet + flexdashboard)
+
+A cool example of how to use Shiny instead of a lengthy paper appendix to illustrate a point: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) from the paper *Projecting marine species range shifts from only temperature masks climate vulnerability* by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
+
+[tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham aggregates #TidyTuesday entries from the internet (and it uses an API!) 
+
+[Sentify](https://rcharlie.shinyapps.io/sentify/) provides effective data viz on large datasets. By Charlie Thompson
+
+A whole gallery of great apps, complete with source code (and a great way to get recognized for your Shiny work!) All the submissions are [here](https://community.rstudio.com/c/shiny/shiny-contest/30) and the winners from the last contest (2021) are [here](https://posit.co/blog/winners-of-the-3rd-annual-shiny-contest/).
+
+## Apps I talked about during Mon/Wed lectures
+
+Novel-gazing, for analyzing your goodreads shelves as if they are ecological communities: https://msiple.shinyapps.io/NovelGazingApp/
+
+[Adopt Don't Shop](https://forum.posit.co/t/adopt-dont-shop-2020-shiny-contest-submission/59166) has sadly been deprecated because the shelter changed their website!
 
 # Resources
 
@@ -220,14 +260,12 @@ Note that "showcase mode" (the shiny interface that shows both ui and code at th
 
 - Colin Fay has several [talks](https://colinfay.me/talks-publications/) on Shiny app workflow and production
 
-
-
 ## User experience (UX)
 
 Since you're at UW, you can take advantage of UW IT's *UX testing consultations*: [https://uxdesign.uw.edu/consultations.html](https://uxdesign.uw.edu/consultations.html)
 
 
-## Testing
+## Pilot testing
 
 - if your institution doesn't have UX resources, design pilot testing so that you get helpful feedback on UX:
   - [18F Methods](https://methods.18f.gov/validate/) and [Maze](https://maze.design/guides/usability-testing/questions/) have great lists of testing questions and methods
