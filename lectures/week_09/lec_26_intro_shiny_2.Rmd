@@ -50,7 +50,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 --
 
-- ...and some cool app examples
+- ...and we will look at some cool apps.
 
 ---
 
@@ -58,9 +58,28 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 Leaflet is an open-source JavaScript library that makes interactive maps.
 
-It's *very cool*! And the [`leaflet`](https://rstudio.github.io/leaflet/articles/leaflet.html) R package integrates well with Markdown files and Shiny apps so you can show spatial data in an interactive way.
+It's *cool*! And the [`leaflet`](https://rstudio.github.io/leaflet/articles/leaflet.html) R package integrates well with Markdown files and Shiny apps so you can show spatial data in an interactive way.
 
 It gets fancy very fast.
+
+```{r, out.width = "400px",echo=FALSE,fig.align='center'}
+knitr::include_graphics("img/do-maps-with-ggplot-leaflet-and-tmap-in-r.png")
+```
+
+---
+
+# 'Normal' leaflet plots
+
+`leaflet` code builds plots in layers, similar to visualization tools like `ggplot2`.
+
+You build an interactive map like this:
+
+```{r}
+library(leaflet)
+leaflet() |> 
+  addTiles() |>
+  setView( -122.31637,47.65316, zoom = 17)
+```
 
 ---
 
