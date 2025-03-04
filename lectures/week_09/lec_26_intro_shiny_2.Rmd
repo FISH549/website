@@ -26,6 +26,12 @@ style_mono_accent(
 )
 ```
 
+```{r setup, include=FALSE, warning=FALSE, message = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+---
+
 # On Monday we talked about
 
 - Shiny: when should we use it?
@@ -37,114 +43,14 @@ style_mono_accent(
 
 # Today (Wednesday) we will cover
 
-- Getting data in and out of Shiny - so many options!
-
-- Building cool/interactive maps using `{leaflet}`
-
---
-
-- ...and then we'll just gaze at some great apps
-
-- [here](https://github.com/mcsiple/shinyoverview) is a link to the code examples for today 
-
-
----
-
-class: center, middle, inverse
-
-# Getting data into and out of Shiny
-
----
-
-
-# Get data into a Shiny app
-
-Shiny can accept data from many file types. 
-
-- a file the user uploads
-- a database
-- a persistent file packaged with your app
-
----
-
-# User uploads data
-If you want to design your app so that people can bring in their own data:
-
-Add a file upload input in the UI using the function `fileInput()`. In the `server` function, access the uploaded files via `input$mydata`:
-```{r eval=FALSE}
-ui <- fluidPage(
-  titlePanel("Uploading Files"),
-  sidebarLayout(
-    sidebarPanel(
-      # refer to input$mydata in the server code to reference this object:
-      fileInput("mydata", "Choose CSV File",
-                multiple = FALSE,
-                accept = c("text/csv",
-                         "text/comma-separated-values,text/plain",
-                         ".csv")),
-```
-
----
-
-# Put the data on the server
-
-You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
-
----
-
-# More on data storage in Shiny
-
-Dean Attali's [Persistent Data Storage With Shiny](https://daattali.com/shiny/persistent-data-storage/) app 
-
-[This](https://shiny.rstudio.com/articles/persistent-data-storage.html) blog post about data storage in Shiny (also by Dean Attali)
-
-RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/dashboards/) shows how to connect a `shinydashboard` to a database
-
----
-
-# Getting data out of Shiny
-
-You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
-
-```{r eval=FALSE}
-ui <- fluidPage(
-  downloadLink("downloadData", "Download")
+- Building interactive maps with `{leaflet}` (shiny code example: *website/lectures/week_09/mapExample/*
 )
-server <- function(input, output) {
-  # Our dataset
-  data <- mtcars
-  output$downloadData <- downloadHandler(
-    filename = function() {
-      paste("data-", Sys.Date(), ".csv", sep="")
-    },
-    content = function(file) {
-      write.csv(data, file)
-    }
-  )
-}
-```
 
----
-
-# Getting data out of Shiny
-
-- Download **CSV or txt files** from Shiny apps
+- More basic shiny principles: reactive elements, using modules, etc.
 
 --
 
-- Generate reports in Markdown that are knitted to **html** (details on how to do that [here](https://shiny.rstudio.com/articles/generating-reports.html))
-
---
-
-- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
-
-
----
-
-class: center, middle, inverse
-
-# 02_dataindataout/explore_ram/ui.R
-
+- ...and some cool app examples
 
 ---
 
@@ -152,15 +58,90 @@ class: center, middle, inverse
 
 Leaflet is an open-source JavaScript library that makes interactive maps.
 
-It's *very cool*! And the `leaflet` R package integrates well with Markdown files and Shiny apps so you can show spatial data.
+It's *very cool*! And the [`leaflet`](https://rstudio.github.io/leaflet/articles/leaflet.html) R package integrates well with Markdown files and Shiny apps so you can show spatial data in an interactive way.
 
-It gets fancy very fast. [Here](https://rstudio.github.io/leaflet/) is the guide for using `leaflet` in R and integrating it with Shiny.
+It gets fancy very fast.
+
+---
+
+# Demo: mackerel eggs
+
+Basic leaflet code has this 'layered' style:
+
+```{r eval=FALSE}
+          library(leaflet)
+          library(gamair) # mack dataset (mackerel eggs)
+          
+          data(mack)
+          x <- mack
+          fishpal <- RColorBrewer::brewer.pal(6, name = "YlOrRd")
+          dat2plot <- mack |>
+            dplyr::filter(egg.dens > 0 & !is.na(vessel))
+          
+          
+*          leaflet(data = dat2plot) |>
+*            addTiles() |>
+*            addCircleMarkers(
+*              ~lon, ~lat,
+*              radius = ~ egg.dens / 30,
+*              color = ~ fishpal,
+*              stroke = FALSE,
+*              fillOpacity = 0.5
+*            ) |>
+*            addProviderTiles("Esri.WorldImagery")
+
+```
+
+---
+
+# Demo: mackerel eggs 
+
+```{r eval=TRUE, echo = FALSE}
+library(leaflet)
+library(gamair) # mack dataset
+
+data(mack)
+x <- mack
+fishpal <- RColorBrewer::brewer.pal(6, name = "YlOrRd")
+dat2plot <- mack |>
+  dplyr::filter(egg.dens > 0 & !is.na(vessel))
+
+leaflet(data = dat2plot) |>
+  addTiles() |>
+  addCircleMarkers(
+    ~lon, ~lat,
+    radius = ~ egg.dens / 30,
+    color = ~ fishpal,
+    stroke = FALSE,
+    fillOpacity = 0.5
+  ) |>
+  addProviderTiles("Esri.WorldImagery")
+
+```
+
+--- 
+
+# If you already have a {leaflet} script that generates HTML:
+
+You can show this code inside a Shiny app with the function `renderLeaflet()`
+
 
 ---
 
 class: center, middle, inverse
 
-# 0n_maps/app.R
+# website/lectures/week_09/mapExample
+
+---
+
+
+
+---
+
+class: center, middle, inverse
+
+# More Shiny basics
+
 
 
 ---
