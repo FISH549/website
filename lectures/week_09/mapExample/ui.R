@@ -2,6 +2,7 @@
 
 library(shiny)
 library(leaflet)
+library(ggplot2)
 library(gamair) # contains mackerel dataset
 library(shinythemes)
 

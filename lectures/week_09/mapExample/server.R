@@ -13,8 +13,8 @@ server <- function(input, output, session) {
     x <- var2plot()
     
     dat2plot <- mack |>
-      add_column(x) |>
-      filter(egg.dens > 0 & !is.na(x))
+      tibble::add_column(x) |>
+      dplyr::filter(egg.dens > 0 & !is.na(x))
     
     leaflet(data = dat2plot) |>
       addTiles() |>
@@ -33,7 +33,7 @@ server <- function(input, output, session) {
     x <- var2plot()
     
     mack |>
-      add_column(x) |>
+      tibble::add_column(x) |>
       ggplot(aes(x = egg.dens / 30, y = x)) +
       geom_point() +
       xlab("Egg density / 30") +
