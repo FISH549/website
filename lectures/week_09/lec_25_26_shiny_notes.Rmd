@@ -28,7 +28,7 @@ Shiny apps are not your standard websites!
 - Shiny apps are composed of elements (often called *widgets*) that the user interacts with.
 - `shiny` is an R package that helps you write Shiny apps. 
 
-![whatisshiny](www/whatisshiny.png)
+![whatisshiny](img/whatisshiny.png)
 - Production-ready apps must be deployed on a server. Posit provides free server instances for Shiny users, but this can also be an instance hosted by your institution. 
 - You can also use Shiny to capture the logic within the app and use it to return code that will reproduce certain outputs ([shinymeta](https://github.com/rstudio/shinymeta))
 - More on this later, but Shiny apps can also be embedded in things like RMarkdown documents.
@@ -44,7 +44,7 @@ Shiny apps are not your standard websites!
 
 <br>
 
-![](www/shinyappsetup01.PNG){ width=90% }
+![](img/shinyappsetup01.PNG){ width=90% }
 
 <div class="boxy boxy-blue boxy-clipboard-list">
 **Task:** Pick your app name and `Multiple File` and click 'Create'.
@@ -59,7 +59,7 @@ Shiny apps are not your standard websites!
 -  These files are automatically populated with code for a dummy app- sometimes the easiest way to build an app is to start with these building blocks and start changing elements to get the functionality you want. 
 -  From either file, you can click "Run App" and it will open a window with the app as it would appear. This button is the equivalent of a call to `runApp()` in the console. 
 
-![](www/shinyappsetup02.PNG){ width=90% }
+![](img/shinyappsetup02.PNG){ width=90% }
 
 <br>
 
@@ -67,7 +67,7 @@ Shiny apps are not your standard websites!
 **Success:** Voila! You have rendered your first app. As you're building your app, you will end up pressing this button many...many times.
 </div>
 
-![](www/shinyappsetup03.PNG){ width=90% }
+![](img/shinyappsetup03.PNG){ width=90% }
 
 
 ## Adding an element
@@ -109,7 +109,7 @@ When you click "Render App", it doesn't appear in the app! Why not? Because we a
 
 When you click "Run App," yay! Your new plot element has appear in the UI.
 
-![](www/shinyappsetup04.PNG){ width=90% }
+![](img/shinyappsetup04.PNG){ width=90% }
 
 
 
@@ -122,27 +122,15 @@ When you click "Run App," yay! Your new plot element has appear in the UI.
 Leaflet makes maps you can serve as standalone HTMLs. You can also embed them in:
 
 - Markdown or Quarto 
-- Shiny
+- Shiny apps
 
 They're very flexible! And they're interactive.
 
+### Making your base leaflet plot
+
+You can make a map in `leaflet` that renders to an HTML without any extra bells and whistles.
 
 
-## Display modes
-
-Shiny has different display modes. 
-
-### Normal display
-
-The default is `display.mode = "normal"` which returns the usual Shiny looking interface:
-
-![](www/displaymode_normal.PNG)
-
-### Showcase display
-
-But you can also use `display.mode = "showcase"`, which shows the source code for the app alongside the content. This can be nice for teaching!
-
-![](www/displaymode_showcase.PNG)
 
 ## Embedding a Shiny app in a Markdown document
 
@@ -167,24 +155,34 @@ library(palmerpenguins)
 library(ggplot2)
 library(shiny)
 shinyApp(
-
   ui = fluidPage(
-    selectInput("species", "Species:",
-                choices = unique(penguins$species)),
+    checkboxGroupInput(
+      inputId = "species",
+      label = "Penguin species:",
+      c(
+        "Gentoo" = "Gentoo",
+        "Adelie" = "Adelie",
+        "Chinstrap" = "Chinstrap"
+      ),
+      selected = c("Gentoo", "Adelie")
+    ),
     plotOutput("penguinPlot")
   ),
-
   server = function(input, output) {
-    output$penguinPlot = renderPlot({
-      p1 <- ggplot(penguins, aes(x=bill_length_mm, y= bill_depth_mm, color = species)) +
-        geom_point() +
+    output$penguinPlot <- renderPlot({
+      penguins_plot <- subset(penguins, species == input$species)
+      p1 <- ggplot(
+        penguins_plot,
+        aes(x = bill_length_mm, y = bill_depth_mm, color = species)
+      ) +
+        geom_point(size = 4) +
         scale_color_brewer(palette = "Dark2") +
         ylab("Bill depth (mm)") +
-        xlab("Bill length (mm)")
+        xlab("Bill length (mm)") +
+        theme_light(base_size = 14)
       p1
     })
   },
-
   options = list(height = 500)
 )
 ```
@@ -199,9 +197,30 @@ shinyAppDir(
 )
 ```
 
+
+# Creating interactive documents with Markdown and Shiny
+
+You can embed shiny widgets in Markdown documents. Because those render differently than a static HTML file (like this one), there are instructions for creating interactive documents [here](https://margaretsiple.shinyapps.io/interactiveShinyNotes/) and source code [here](https://github.com/MargaretSiple-NOAA/interactiveShinyNotes).
+
+# Other useful Shiny things
+
+## Display modes
+
+Shiny has different display modes. 
+
+### Normal display
+
+The default is `display.mode = "normal"` which returns the usual Shiny looking interface:
+
+![](img/displaymode_normal.PNG)
+
+### Showcase display
+
+But you can also use `display.mode = "showcase"`, which shows the source code for the app alongside the content. This can be nice for teaching!
+
 Note that "showcase mode" (the shiny interface that shows both ui and code at the same time) won't work in Markdown docs.
 
-
+![](img/displaymode_showcase.PNG)
 
 # Gallery of fun Shiny apps `r emoji::emoji("art")`
 
