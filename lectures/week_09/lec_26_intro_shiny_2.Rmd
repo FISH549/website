@@ -66,7 +66,7 @@ It gets fancy very fast.
 
 # Demo: mackerel eggs
 
-Basic leaflet code has this 'layered' style:
+Basic leaflet code (no shiny yet) has this 'layered' style:
 
 ```{r eval=FALSE}
           library(leaflet)
@@ -121,20 +121,77 @@ leaflet(data = dat2plot) |>
 
 --- 
 
-# If you already have a {leaflet} script that generates HTML:
+---
+
+# If you already have a `{leaflet}` script that generates HTML:
 
 You can show this code inside a Shiny app with the function `renderLeaflet()`
+All you have to do is create a leaflet map in your server logic, like so:
 
+```{r eval=FALSE}
+*        var2plot <- reactive(mack[, input$which_var]) # a reactive expression
+*          output$mymap <- renderLeaflet({ # leaflet object in output
+            data(mack)
+            fishpal <- colorNumeric(RColorBrewer::brewer.pal(6, name = "YlOrRd"))
+            
+            # This is how you call a reactive object in Shiny!
+*            x <- var2plot()
+            
+            dat2plot <- mack |>
+              dplyr::filter(egg.dens > 0 & !is.na(x))
+            
+           leaflet(data = dat2plot) |>
+             addTiles() |>
+              addCircleMarkers(
+                ~lon, ~lat,
+                radius = ~ egg.dens / 30,
+                color = ~ fishpal,
+                stroke = FALSE,
+                fillOpacity = 0.5
+              ) |>
+              addProviderTiles("Esri.WorldImagery")
+          })
+```
+
+---
+
+# Corresponding ui.R code
+
+```{r eval = FALSE}
+ui <- fluidPage(
+  theme = shinytheme("darkly"),
+  titlePanel("Spatial data in leaflet: Mackerel eggs"),
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(
+        inputId = "which_var",
+        label = "Which environmental variable to show:",
+        choiceValues = c("salinity", "flow", "temp.surf"),
+        choiceNames = c("Salinity", "Flow", "Surface temperature")
+      )
+    ),
+    mainPanel(
+      tabsetPanel(
+        tabPanel(
+          "Map",
+          leafletOutput("mymap"),
+          p()
+        ),
+        tabPanel(
+          "Correlation",
+          plotOutput("user_corr")
+        ),
+        tabPanel(
+          "Another map",
+          leafletOutput("new_map")
+        )))))
+```
 
 ---
 
 class: center, middle, inverse
 
-# website/lectures/week_09/mapExample
-
----
-
-
+## website/lectures/week_09/mapExample
 
 ---
 
@@ -142,7 +199,20 @@ class: center, middle, inverse
 
 # More Shiny basics
 
+---
 
+# STILL NEED TO ADD CONTENT HERE
+
+---
+
+# Write informative error messages with `validate()` and the `shinyFeedback` pkg
+
+```{r eval = FALSE}
+validate(
+  need(input$data != "", "Please select a data set")
+)
+```
+More here: https://shiny.posit.co/r/articles/improve/validation/
 
 ---
 
@@ -183,8 +253,7 @@ class: center, middle
 # Fin
 
 #### Today's Shiny-relevant code treats `r emoji::emoji("pastry")`
-
-`Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny. 
+`Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny dev.
 
 `r emoji::emoji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
 
@@ -193,14 +262,11 @@ class: center, middle
 
 If you're developing a Shiny app for a project, I would love to help you! Send me questions, issues, use code from the `shinyoverview` repo, whatever you want!
 
-#### For Friday!
-Eli Holmes will introduce Scrum and how to do a Scrum Sprint with GitHub Project pages and GitHub issues.  To prepare, you can watch [**this**](https://www.youtube.com/watch?v=sLK3EHPCw14) ~5-min video on scrum style workflows.
-
-
-
 ***
 
 Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+
 
 ---
 
