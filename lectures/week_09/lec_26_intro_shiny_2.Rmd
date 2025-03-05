@@ -30,8 +30,6 @@ style_mono_accent(
 knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
 ```
 
----
-
 # On Monday we talked about
 
 - Shiny: when should we use it?
@@ -88,6 +86,22 @@ Most used output widgets:
 `textOutput()`
 
 `uiOutput()` allows you to dynamically generate user interface components
+
+---
+
+# Use `"showcase"` mode to show code and output side by side
+
+This option is really useful for teaching people about functionality. 
+
+```{r eval=FALSE}
+runApp("MyApp", display.mode = "normal") # the default
+runApp("MyApp", display.mode = "showcase") # shows server code alongside the ui
+```
+
+<!-- ![](img/displaymode_showcase.PNG) -->
+
+An example I've referred to for teaching: [K-means clustering](https://shiny.posit.co/r/gallery/start-simple/kmeans-example/), from Posit's Shiny gallery.
+
 
 ---
 
@@ -151,13 +165,13 @@ It's *cool*! And the [`leaflet`](https://rstudio.github.io/leaflet/articles/leaf
 
 It gets fancy very fast.
 
-```{r, out.width = "400px",echo=FALSE,fig.align='center'}
-knitr::include_graphics("img/do-maps-with-ggplot-leaflet-and-tmap-in-r.png")
+```{r, echo=FALSE,fig.align='center'}
+knitr::include_graphics("img/new_leaflet_example.jpeg")
 ```
 
 ---
 
-# Normal leaflet plots
+# Normal `leaflet` plots
 
 .pull-left[`leaflet` code builds plots in layers, similar to visualization tools like `ggplot2`.
 
@@ -201,7 +215,7 @@ leaflet() |>
 library(leaflet)
 leaflet() |> 
   addTiles(urlTemplate = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png") |>
-  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+  setView( -122.31637, 47.65316, zoom = 16) # set the starting view
 ```
 ]
 
@@ -344,11 +358,27 @@ class: center, middle, inverse
 
 ---
 
-# Some cool Shiny apps
+class: center, middle
 
-A cool example of how to use Shiny instead of a lengthy paper appendix to illustrate a point: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
+![catapp](img/catapp.gif)
+Link to the original [AdoptDontShop app](https://forum.posit.co/t/adopt-dont-shop-2020-shiny-contest-submission/59166) (it doesn't work anymore because the shelter changed its interface!)
 
-A use of Shiny to aggregate useful stuff (and it uses an API!): [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
+---
+
+class: center, middle
+
+![novels](img/novels.png)
+Link to the [Novel-gazing](https://msiple.shinyapps.io/NovelGazingApp/) app.
+
+---
+
+class: center, middle
+
+# Other Shiny apps of note
+
+A cool example of how to use Shiny instead of a lengthy appendix to illustrate a point from a manuscript: [Beyond Temperature](https://heatherwelch.shinyapps.io/beyond_temperature/) by Jennifer McHenry, Heather Welch, Sarah E. Lester, and Vincent Saba
+
+An application of Shiny to aggregate data from an API (and get inspiration about data viz): [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) by Neal Grantham
 
 Use Shiny to provide effective data viz on large datasets: [Sentify](https://rcharlie.shinyapps.io/sentify/) by Charlie Thompson
 
@@ -356,23 +386,9 @@ A whole gallery of great apps, complete with source code (and a great way to get
 
 ---
 
-class: center, middle
-
-![catapp](img/catapp.gif)
-
----
-
-class: center, middle
-
-![novels](img/novels.png)
-
----
-
-class: center, middle
-
 # Fin
 
-#### Today's Shiny-relevant code treats `r emoji::emoji("pastry")`
+#### Today's Shiny-relevant code tips `r emoji::emoji("pastry")`
 `Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny dev.
 
 `r emoji::emoji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
