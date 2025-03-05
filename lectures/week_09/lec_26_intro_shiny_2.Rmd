@@ -26,6 +26,12 @@ style_mono_accent(
 )
 ```
 
+```{r setup, include=FALSE, warning=FALSE, message = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+---
+
 # On Monday we talked about
 
 - Shiny: when should we use it?
@@ -37,114 +43,103 @@ style_mono_accent(
 
 # Today (Wednesday) we will cover
 
-- Getting data in and out of Shiny - so many options!
+- More basic shiny principles: reactive elements, using modules, etc.
 
-- Building cool/interactive maps using `{leaflet}`
+- Building interactive maps with `{leaflet}` (shiny code example: *website/lectures/week_09/mapExample/*)
 
 --
 
-- ...and then we'll just gaze at some great apps
-
-- [here](https://github.com/mcsiple/shinyoverview) is a link to the code examples for today 
-
+- ...and we will look at some cool apps.
 
 ---
 
 class: center, middle, inverse
 
-# Getting data into and out of Shiny
+# More Shiny basics
 
 ---
 
+# Inputs and outputs
 
-# Get data into a Shiny app
+Most used input widgets:
 
-Shiny can accept data from many file types. 
+`checkboxInput()` (and `checkboxGroupInput()` allows multiple checkboxes)
 
-- a file the user uploads
-- a database
-- a persistent file packaged with your app
+`radioButtons()`
+
+`actionButton()`
+
+`sliderInput()` 
+
+`fileInput()`  for uploading files - very helpful!
+
+`dateInput()` and `dateRangeInput()` for selecting dates
 
 ---
 
-# User uploads data
-If you want to design your app so that people can bring in their own data:
+# Inputs and outputs
 
-Add a file upload input in the UI using the function `fileInput()`. In the `server` function, access the uploaded files via `input$mydata`:
-```{r eval=FALSE}
+Most used output widgets:
+
+`plotOutput()` can be any kind of plot, includes ggplot objects
+
+`tableOutput()`
+
+`textOutput()`
+
+`uiOutput()` allows you to dynamically generate user interface components
+
+---
+
+# Clean up Shiny code with modules
+
+- Modules are like the Shiny equivalent of functions
+- You can use modules on the server side or the UI
+
+---
+
+# Clean up Shiny code with modules
+
+.pull-left[
+Here is the existing shiny code for a "basic" shiny app that draws a histogram.
+```{r eval= FALSE}
 ui <- fluidPage(
-  titlePanel("Uploading Files"),
-  sidebarLayout(
-    sidebarPanel(
-      # refer to input$mydata in the server code to reference this object:
-      fileInput("mydata", "Choose CSV File",
-                multiple = FALSE,
-                accept = c("text/csv",
-                         "text/comma-separated-values,text/plain",
-                         ".csv")),
-```
-
----
-
-# Put the data on the server
-
-You can host small data files on the server with your app. These data can be loaded at the top of the app file (if server and ui are both located in **app.R**) or in the **ui.R** file if you're using separate files for ui and server.  
-
----
-
-# More on data storage in Shiny
-
-Dean Attali's [Persistent Data Storage With Shiny](https://daattali.com/shiny/persistent-data-storage/) app 
-
-[This](https://shiny.rstudio.com/articles/persistent-data-storage.html) blog post about data storage in Shiny (also by Dean Attali)
-
-RStudio's [best practices for dashboards](https://db.rstudio.com/best-practices/dashboards/) shows how to connect a `shinydashboard` to a database
-
----
-
-# Getting data out of Shiny
-
-You can download data from a Shiny app using `downloadLink()` or `downloadButton()` in the ui and `downloadHandler()` in the server:
-
-```{r eval=FALSE}
-ui <- fluidPage(
-  downloadLink("downloadData", "Download")
+  selectInput("var", "Variable", names(mtcars)),
+  numericInput("bins", "bins", 10, min = 1),
+  plotOutput("hist")
 )
-server <- function(input, output) {
-  # Our dataset
-  data <- mtcars
-  output$downloadData <- downloadHandler(
-    filename = function() {
-      paste("data-", Sys.Date(), ".csv", sep="")
-    },
-    content = function(file) {
-      write.csv(data, file)
-    }
+server <- function(input, output, session) {
+  data <- reactive(mtcars[[input$var]])
+  output$hist <- renderPlot({
+    hist(data(), breaks = input$bins, main = input$var)
+  }, res = 96)
+}
+```
+]
+.pull-right[
+And you can turn the whole UI into a function output with something like this.
+`NS()` means namespace.
+```{r eval=FALSE}
+histogramUI <- function(id) {
+  tagList(
+    selectInput(NS(id, "var"), "Variable", choices = names(mtcars)),
+    numericInput(NS(id, "bins"), "bins", value = 10, min = 1),
+    plotOutput(NS(id, "hist"))
   )
 }
 ```
+]
 
 ---
 
-# Getting data out of Shiny
+# Write informative error messages with `validate()` and the `shinyFeedback` pkg
 
-- Download **CSV or txt files** from Shiny apps
-
---
-
-- Generate reports in Markdown that are knitted to **html** (details on how to do that [here](https://shiny.rstudio.com/articles/generating-reports.html))
-
---
-
-- You can also download **images** that have been generated in the app (e.g., download plots generated in the app)
-
-
----
-
-class: center, middle, inverse
-
-# 02_dataindataout/explore_ram/ui.R
-
+```{r eval = FALSE}
+validate(
+  need(input$data != "", "Please select a data set")
+)
+```
+More here: https://shiny.posit.co/r/articles/improve/validation/
 
 ---
 
@@ -152,16 +147,192 @@ class: center, middle, inverse
 
 Leaflet is an open-source JavaScript library that makes interactive maps.
 
-It's *very cool*! And the `leaflet` R package integrates well with Markdown files and Shiny apps so you can show spatial data.
+It's *cool*! And the [`leaflet`](https://rstudio.github.io/leaflet/articles/leaflet.html) R package integrates well with Markdown files and Shiny apps so you can show spatial data in an interactive way.
 
-It gets fancy very fast. [Here](https://rstudio.github.io/leaflet/) is the guide for using `leaflet` in R and integrating it with Shiny.
+It gets fancy very fast.
+
+```{r, out.width = "400px",echo=FALSE,fig.align='center'}
+knitr::include_graphics("img/do-maps-with-ggplot-leaflet-and-tmap-in-r.png")
+```
+
+---
+
+# Normal leaflet plots
+
+.pull-left[`leaflet` code builds plots in layers, similar to visualization tools like `ggplot2`.
+
+You build an interactive map by element:
+```{r eval=FALSE}
+library(leaflet)
+
+leaflet() |> 
+  addTiles() |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+library(leaflet)
+leaflet() |> 
+  addTiles() |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+---
+
+# And you can customize with different tiles and styles
+
+.pull-left[
+Map code: 
+
+```{r eval=FALSE}
+library(leaflet)
+
+leaflet() |> 
+  addTiles(urlTemplate = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png") |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+library(leaflet)
+leaflet() |> 
+  addTiles(urlTemplate = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png") |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+---
+
+# Demo: mackerel eggs
+
+Basic leaflet code (no shiny yet) has this 'layered' style:
+
+```{r eval=FALSE}
+          library(leaflet)
+          library(gamair) # mack dataset (mackerel eggs)
+          
+          data(mack)
+          x <- mack
+          fishpal <- RColorBrewer::brewer.pal(6, name = "YlOrRd")
+          dat2plot <- mack |>
+            dplyr::filter(egg.dens > 0 & !is.na(vessel))
+          
+          
+*          leaflet(data = dat2plot) |>
+*            addTiles() |>
+*            addCircleMarkers(
+*              ~lon, ~lat,
+*              radius = ~ egg.dens / 30,
+*              color = ~ fishpal,
+*              stroke = FALSE,
+*              fillOpacity = 0.5
+*            ) |>
+*            addProviderTiles("Esri.WorldImagery")
+
+```
+
+---
+
+# Demo: mackerel eggs 
+
+```{r eval=TRUE, echo = FALSE}
+library(leaflet)
+library(gamair) # mack dataset
+
+data(mack)
+x <- mack
+fishpal <- RColorBrewer::brewer.pal(6, name = "YlOrRd")
+dat2plot <- mack |>
+  dplyr::filter(egg.dens > 0 & !is.na(vessel))
+
+leaflet(data = dat2plot) |>
+  addTiles() |>
+  addCircleMarkers(
+    ~lon, ~lat,
+    radius = ~ egg.dens / 30,
+    color = ~ fishpal,
+    stroke = FALSE,
+    fillOpacity = 0.5
+  ) |>
+  addProviderTiles("Esri.WorldImagery")
+
+```
+
+---
+
+# If you already have a `{leaflet}` script that generates HTML:
+
+You can show this code inside a Shiny app with the function `renderLeaflet()`
+All you have to do is create a leaflet map in your server logic, like so:
+
+```{r eval=FALSE}
+*        var2plot <- reactive(mack[, input$which_var]) # a reactive expression
+*          output$mymap <- renderLeaflet({ # leaflet object in output
+            data(mack)
+            fishpal <- colorNumeric(RColorBrewer::brewer.pal(6, name = "YlOrRd"))
+            
+            # This is how you call a reactive object in Shiny!
+*            x <- var2plot()
+            
+            dat2plot <- mack |>
+              dplyr::filter(egg.dens > 0 & !is.na(x))
+            
+           leaflet(data = dat2plot) |>
+             addTiles() |>
+              addCircleMarkers(
+                ~lon, ~lat,
+                radius = ~ egg.dens / 30,
+                color = ~ fishpal,
+                stroke = FALSE,
+                fillOpacity = 0.5
+              ) |>
+              addProviderTiles("Esri.WorldImagery")
+          })
+```
+
+---
+
+# Corresponding ui.R code
+
+```{r eval = FALSE}
+ui <- fluidPage(
+  theme = shinytheme("darkly"),
+  titlePanel("Spatial data in leaflet: Mackerel eggs"),
+  sidebarLayout(
+    sidebarPanel(
+      radioButtons(
+        inputId = "which_var",
+        label = "Which environmental variable to show:",
+        choiceValues = c("salinity", "flow", "temp.surf"),
+        choiceNames = c("Salinity", "Flow", "Surface temperature")
+      )
+    ),
+    mainPanel(
+      tabsetPanel(
+        tabPanel(
+          "Map",
+          leafletOutput("mymap"),
+          p()
+        ),
+        tabPanel(
+          "Correlation",
+          plotOutput("user_corr")
+        ),
+        tabPanel(
+          "Another map",
+          leafletOutput("new_map")
+        )))))
+```
 
 ---
 
 class: center, middle, inverse
 
-# 0n_maps/app.R
-
+## website/lectures/week_09/mapExample
 
 ---
 
@@ -202,8 +373,7 @@ class: center, middle
 # Fin
 
 #### Today's Shiny-relevant code treats `r emoji::emoji("pastry")`
-
-`Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny. 
+`Ctl-P` shortcut jumps to the close parentheses of the statement you're in. Extremely useful for Shiny dev.
 
 `r emoji::emoji("rain")` You can also enable rainbow parentheses in Global Options by going to `Code --> Display--> Rainbow parentheses`
 
@@ -212,14 +382,11 @@ class: center, middle
 
 If you're developing a Shiny app for a project, I would love to help you! Send me questions, issues, use code from the `shinyoverview` repo, whatever you want!
 
-#### For Friday!
-Eli Holmes will introduce Scrum and how to do a Scrum Sprint with GitHub Project pages and GitHub issues.  To prepare, you can watch [**this**](https://www.youtube.com/watch?v=sLK3EHPCw14) ~5-min video on scrum style workflows.
-
-
-
 ***
 
 Slides created using the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+
 
 ---
 
