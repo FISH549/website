@@ -43,14 +43,103 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 
 # Today (Wednesday) we will cover
 
-- Building interactive maps with `{leaflet}` (shiny code example: *website/lectures/week_09/mapExample/*
-)
-
 - More basic shiny principles: reactive elements, using modules, etc.
+
+- Building interactive maps with `{leaflet}` (shiny code example: *website/lectures/week_09/mapExample/*)
 
 --
 
 - ...and we will look at some cool apps.
+
+---
+
+class: center, middle, inverse
+
+# More Shiny basics
+
+---
+
+# Inputs and outputs
+
+Most used input widgets:
+
+`checkboxInput()` (and `checkboxGroupInput()` allows multiple checkboxes)
+
+`radioButtons()`
+
+`actionButton()`
+
+`sliderInput()` 
+
+`fileInput()`  for uploading files - very helpful!
+
+`dateInput()` and `dateRangeInput()` for selecting dates
+
+---
+
+# Inputs and outputs
+
+Most used output widgets:
+
+`plotOutput()` can be any kind of plot, includes ggplot objects
+
+`tableOutput()`
+
+`textOutput()`
+
+`uiOutput()` allows you to dynamically generate user interface components
+
+---
+
+# Clean up Shiny code with modules
+
+- Modules are like the Shiny equivalent of functions
+- You can use modules on the server side or the UI
+
+---
+
+# Clean up Shiny code with modules
+
+.pull-left[
+Here is the existing shiny code for a "basic" shiny app that draws a histogram.
+```{r eval= FALSE}
+ui <- fluidPage(
+  selectInput("var", "Variable", names(mtcars)),
+  numericInput("bins", "bins", 10, min = 1),
+  plotOutput("hist")
+)
+server <- function(input, output, session) {
+  data <- reactive(mtcars[[input$var]])
+  output$hist <- renderPlot({
+    hist(data(), breaks = input$bins, main = input$var)
+  }, res = 96)
+}
+```
+]
+.pull-right[
+And you can turn the whole UI into a function output with something like this.
+`NS()` means namespace.
+```{r eval=FALSE}
+histogramUI <- function(id) {
+  tagList(
+    selectInput(NS(id, "var"), "Variable", choices = names(mtcars)),
+    numericInput(NS(id, "bins"), "bins", value = 10, min = 1),
+    plotOutput(NS(id, "hist"))
+  )
+}
+```
+]
+
+---
+
+# Write informative error messages with `validate()` and the `shinyFeedback` pkg
+
+```{r eval = FALSE}
+validate(
+  need(input$data != "", "Please select a data set")
+)
+```
+More here: https://shiny.posit.co/r/articles/improve/validation/
 
 ---
 
@@ -68,18 +157,53 @@ knitr::include_graphics("img/do-maps-with-ggplot-leaflet-and-tmap-in-r.png")
 
 ---
 
-# 'Normal' leaflet plots
+# Normal leaflet plots
 
-`leaflet` code builds plots in layers, similar to visualization tools like `ggplot2`.
+.pull-left[`leaflet` code builds plots in layers, similar to visualization tools like `ggplot2`.
 
-You build an interactive map like this:
+You build an interactive map by element:
+```{r eval=FALSE}
+library(leaflet)
 
-```{r}
+leaflet() |> 
+  addTiles() |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
 library(leaflet)
 leaflet() |> 
   addTiles() |>
-  setView( -122.31637,47.65316, zoom = 17)
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
 ```
+]
+
+---
+
+# And you can customize with different tiles and styles
+
+.pull-left[
+Map code: 
+
+```{r eval=FALSE}
+library(leaflet)
+
+leaflet() |> 
+  addTiles(urlTemplate = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png") |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+library(leaflet)
+leaflet() |> 
+  addTiles(urlTemplate = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png") |>
+  setView( -122.31637, 47.65316, zoom = 17) # set the starting view
+```
+]
 
 ---
 
@@ -137,8 +261,6 @@ leaflet(data = dat2plot) |>
   addProviderTiles("Esri.WorldImagery")
 
 ```
-
---- 
 
 ---
 
@@ -211,27 +333,6 @@ ui <- fluidPage(
 class: center, middle, inverse
 
 ## website/lectures/week_09/mapExample
-
----
-
-class: center, middle, inverse
-
-# More Shiny basics
-
----
-
-# STILL NEED TO ADD CONTENT HERE
-
----
-
-# Write informative error messages with `validate()` and the `shinyFeedback` pkg
-
-```{r eval = FALSE}
-validate(
-  need(input$data != "", "Please select a data set")
-)
-```
-More here: https://shiny.posit.co/r/articles/improve/validation/
 
 ---
 
