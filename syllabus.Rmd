@@ -102,9 +102,9 @@ Students should have a working knowledge of the [**R**](https://www.r-project.or
 
 I am dedicated to providing a welcoming and supportive learning environment for all students, regardless of their background, identity, physical appearance, or manner of communication. Any form of language or behavior used to exclude, intimidate, or cause discomfort will not be tolerated. All course participants (instructor, students, guests) are expected to abide by the [SAFS Code of Conduct](https://fish.uw.edu/wp-content/uploads/sites/29/2022/11/SAFSCodeOfConduct_Sept2022.pdf). In order to foster a positive and professional learning environment, I ask the following:
 
-* Please let me know if you have a name or set of preferred pronouns that you would like me to use
+* Please let me know if you have a name or set of preferred pronouns that you would like me to use; and
 
-* Please let me know if *anyone* in class says something that makes you feel uncomfortable<sup>[[1](#endnotes)]</sup>
+* Please let me know if *anyone* in class says something that makes you feel uncomfortable^[If a student is uncomfortable discussing the matter with the instructor, the student should feel free to contact the Director of the School of Aquatic and Fishery Sciences.].
 
 In addition, I encourage the following kinds of behaviors:
 
@@ -217,8 +217,7 @@ No student should ever have to choose between buying food or textbooks. The UW F
 
 <br>
 
-## Endnotes
+## Footnotes
 
-[1] If the instructor should be the one to say something that makes a student uncomfortable, the student should feel free to contact the Director of the School of Aquatic and Fishery Sciences.
 
 
