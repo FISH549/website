@@ -31,5 +31,5 @@ h3 {
 
 <br>
 
-<center>*This site was last updated at `r format(Sys.time(), "%H:%M")` on `r format(Sys.Date(), "%d %b %Y")`*</center>
+<center>*This site was last updated at `r format(Sys.time(), "%H:%M")` on `r Sys.Date()`*</center>
 
