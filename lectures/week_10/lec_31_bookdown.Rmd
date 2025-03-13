@@ -1,0 +1,182 @@
+---
+title: "Introduction to e-books with {bookdown}"
+date: "<br>14 March 2025"
+output:
+  html_document:
+    theme: spacelab
+    highlight: textmate
+    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    toc: true
+    toc_float: true
+    toc_depth: 3
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+***
+
+# Publishing reports online
+
+Now that we've seen how to create an HTML report using R Markdown, let's publish a report online so that it can be shared with and viewed by others.
+
+## Create a new repo
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to GitHub and create a new _public_ repo called `book-demo`. Add a `README.md` file and an R `.gitignore` file as well (you can skip a license file). CLick the green **Create repository** button when you're ready.
+</div>
+
+![](images/gh_new_demo_repo.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Settings** button in the upper right.
+</div>
+
+![](images/gh_new_repo_home.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **Pages** button on the left side.
+</div>
+
+![](images/gh_new_repo_settings.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **None** button under the **Branch** heading and swith it to **main**.
+</div>
+
+![](images/gh_new_repo_pages_branch.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the **/ (root)** button under the **Branch** heading and swith it to **/docs**.
+</div>
+
+![](images/gh_new_repo_pages_folder.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** When you're ready, click on the **Save** button.
+</div>
+
+![](images/gh_new_repo_pages_set.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Your repo is now set to use GitHub Pages for displaying HTML files.
+</div>
+
+![](images/gh_new_repo_pages_done.png)
+
+## Create an RStudio project
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create a new project in RStudio from the `book-demo` repo you just created.
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_project_new.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Create **another** project in RStudio but this time select the option for **New Directory**.
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_new_project_dir.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** From the **Project Type** window, select "Book project using bookdown".
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_new_bookdown.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Set the directory name and location to anything you'd like (eg, `tmp`). This will be a temporary folder/directory to hold a few files.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Select `bs4_book` from the dropdown menu for HTML book format.
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_new_bookdown_2.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Check the box for "Open in a new session" and click the **Create Project** button.
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_new_bookdown_3.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate to the temporary project/folder/directory you create above and move **all** of the files **except** the `.Rproj` file to the folder/directory where your `book-demo` project lives.
+</div>
+
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/finder_bookdown_files.png")
+```
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have a template for creating and publishing an HTML e-book!
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/rs_bookdown_files.png")
+```
+
+<br>
+
+## Viewing your document
+
+Now that we've pushed our basic HTML report to GitHub, we should be able to view it online.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate back your `book-demo` repo on GitHub and you'll see the `/docs` folder containing the `index.Rmd` and `index.html` files you just pushed.
+</div>
+
+![](images/gh_repo_updated.png)
+
+![](images/gh_repo_docs.png)
+
+<div class="boxy boxy-red boxy-exclamation">
+**Note:** If you click on the `index.html` file, you'll notice that it just displays the raw HTML code rather than a nicely formatted website.
+</div>
+
+![](images/gh_repo_docs_index.png)
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** GitHub cannot render HTML files in a normal repo, but you can view your new document by navigating to `https://USERNAME.github.io/book-demo/` where `USERNAME` is your GitHub username.
+</div>
+
+![](images/gh_pages_rendered.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** You now have an online report that you can update by making changes in your RStudio project and pushing them to GitHub.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can add a link to your newly rendered document by edited the main page of your repo.
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Click on the small gear icon in the upper right, which will bring up a window to edit some aspects of your repo.
+</div>
+
+![](images/gh_repo_pages_link.png)
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** In the **Website** field, type or copy/paste the link to your rendered site, which should be `https://USERNAME.github.io/book-demo/` where `USERNAME` is your GitHub username. Click on the green **Save changes** button when you're done.
+</div>
+
+![](images/gh_pages_add_link.png)
+
+<div class="boxy boxy-success boxy-check">
+**Success:** Your repo has now been updated to include a direct link to your properly rendered HTML report.
+</div>
+
+![](images/gh_repo_with_link.png)
+
