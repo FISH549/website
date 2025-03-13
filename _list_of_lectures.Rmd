@@ -446,6 +446,18 @@ ethics <- list(
                  "[Fox (2020) Faculty job market](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1002/bes2.1624)"),
   zoom = ""
 )
+
+## extra ####
+ebook <- list(
+  title = "Publishing e-books",
+  topics = c("<b>Publishing e-books</b>", "Bookdown", "Analysis & inference"),
+  pdf = c(""),
+  rmd = "lectures/week_10/lec_31_bookdown.Rmd",
+  html = "lectures/week_10/lec_31_bookdown.html",
+  background = c("[{bookdown} pkg](https://bookdown.org/yihui/bookdown/)",
+                 "[Applied Ecology Lab guide](https://scheuerell-lab.github.io/lab-book/index.html)"),
+  zoom = ""
+)
 ```
 
 
