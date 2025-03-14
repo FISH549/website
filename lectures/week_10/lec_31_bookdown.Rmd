@@ -62,7 +62,7 @@ library("bookdown")
 ![](images/gh_new_repo_pages_branch.png)
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **/ (root)** button under the **Branch** heading and swith it to **/docs**.
+**Task:** Click on the **/ (root)** button under the **Branch** heading and swith it to **docs/**.
 </div>
 
 ![](images/gh_new_repo_pages_folder.png)
@@ -165,15 +165,175 @@ knitr::include_graphics("images/rs_serve_book_2.png")
 
 # Editing your book
 
+There are a few ways that you can modify the layout and content of your book. Modifying the medium (e.g., PDF, HTML) and layout of your book will require you to edit some YAML files (`.yml`). To add new or edit existing content, you'll edit some Markdown files (`.Rmd`).
+
+## Book layout
+
+There are two YAML files that control the medium and format of your book:
+
+1) `_output.yml`  
+2) `_bookdown.yml`
+
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/output_yml.png")
+```
+
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/bookdown_yml.png")
+```
 
 <br>
 
-# Viewing your document
-
-Now that we've pushed our basic HTML report to GitHub, we should be able to view it online.
+### Medium
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate back your `book-demo` repo on GitHub and you'll see the `/docs` folder containing the various HTML and other associated files.
+**Task:** Edit `_output.yml` to remove the non-HTML formats and replace `USERNAME` with your username. Save your changes when done.
+</div>
+
+```{yml}
+bookdown::bs4_book:
+  css: style.css
+  theme:
+    primary: "#096B72"
+  repo: https://github.com/USERNAME/book-demo
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can also change the hex color code in the `primary:` field to something more to your liking (see options [here](https://redketchup.io/color-picker)).
+</div>
+
+Recall that earlier we set up our GitHub repo to use the `docs/` folder for serving our GitHub Pages site. We need to add a complimentary instruction to `_bookdown.yml` to do so.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Edit `_bookdown.yml` to change `book_filename` to `"book-demo"` and add new line at the bottom with `output_dir: "docs"`. Save your changes when done.
+</div>
+
+```{yml}
+book_filename: "demo-book"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: "docs"
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Edit your `.gitignore` file by commenting out the line under `# pkgdown site` so that **Git** will start tracking the `docs/` folder and everything in it .
+</div>
+
+```{yml}
+# pkgdown site
+# docs/
+```
+
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Re-build your book to the new `docs/` folder by clicking the **Build Book** button on the **Build** tab in RStudio.
+</div>
+
+```{r, echo = FALSE, out.width = "70%", fig.align = "center"}
+knitr::include_graphics("images/book_build.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and commit all of your changed files and push them to GitHub.
+</div>
+
+
+### Format
+
+To change the actual content of your book, you can edit (or delete) the existing Markdown files and add new ones as well. The content on the landing page of your book is controlled by the `index.Rmd` file, which will be converted to the base of your book as an HTML file when the book is built.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Open the `index.Rmd` file and inspect its contents.
+</div>
+
+```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
+knitr::include_graphics("images/index_Rmd.png")
+```
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Edit the YAML section of `index.Rmd` to change your book's title and author (and date if you'd like). Also un-comment the `url:` and change it to read `url: https://USERNAME.github.io/book-demo` where `USERNAME` is your username.
+</div>
+
+```{yml}
+--- 
+title: "My first book"
+author: "Mark Scheuerell"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+url: https://mdscheuerell.github.io/book-demo
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a minimal example of using the bookdown package to write a book.
+  The HTML output format for this example is bookdown::bs4_book,
+  set in the _output.yml file.
+biblio-style: apalike
+csl: chicago-fullnote-bibliography.csl
+---
+
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If you have an image you'd like to use for the table of contents, you can un-comment the `cover-image:` line and include the path/name of your file.
+</div>
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** If your book will have citations and references like we've seen previously, you can change the output style with the `biblio-style` and `csl` fields.
+</div>
+
+## Book content
+
+At this point we can actually inspect our book skeleton to see many of the different ways to control the layout and content of your book.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Go ahead and make any changes you'd like to the landing page and save them when done. Re-build your book to see any changes.
+</div>
+
+### Chapter ordering
+
+By default, {bookdown} will order your chapters by the order of filenames (e.g., `01-intro.Rmd` will appear before `02-cross-refs.Rmd` (filenames that start with an underscore `_` are skipped). If you'd like to set the order of chapters according to your own scheme, you can add an `rmd_files` field to the `_bookdown.yml` file. For example, here I move chapter 4 to come after chapter 6:
+
+```{yml}
+book_filename: "book-demo"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: "docs"
+rmd_files: [
+  "index.Rmd",
+  "01-intro.Rmd",
+  "02-cross-refs.Rmd",
+  "03-parts.Rmd",
+  "05-blocks.Rmd",
+  "06-share.Rmd",
+  "04-citations.Rmd",
+  "07-references.Rmd",
+]
+```
+
+<div class="boxy boxy-orange boxy-lightbulb">
+**Tip:** You can find lots of other {bookdown} options [here](https://bookdown.org/yihui/rmarkdown/books.html).
+</div>
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Commit your changes and push them to GitHub.
+</div>
+
+
+# Viewing your document
+
+Now that we've pushed our basic book report to GitHub, we should be able to view it online.
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** Navigate back your `book-demo` repo on GitHub and you'll see the `docs/` folder containing the various HTML and other associated files.
 </div>
 
 ![](images/gh_repo_updated.png)
