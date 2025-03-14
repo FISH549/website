@@ -450,7 +450,7 @@ ethics <- list(
 ## extra ####
 ebook <- list(
   title = "Publishing e-books",
-  topics = c("<b>Publishing e-books</b>", "Bookdown", "Analysis & inference"),
+  topics = c("<b>Publishing e-books</b>", "Bookdown"),
   pdf = c(""),
   rmd = "lectures/week_10/lec_31_bookdown.Rmd",
   html = "lectures/week_10/lec_31_bookdown.html",
