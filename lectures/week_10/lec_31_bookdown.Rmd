@@ -12,15 +12,28 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
 library(magrittr)
 ```
 
 ***
 
-# Publishing reports online
+# Publishing an e-book
 
-Now that we've seen how to create an HTML report using R Markdown, let's publish a report online so that it can be shared with and viewed by others.
+Now that we've seen how to create a simple HTML report using R Markdown and display it online, let's build upon those skills and see how to publish an electronic book ("e-book") so that it can be shared with and viewed by others. To do so, we'll make use of the [{bookdown}](https://bookdown.org/) package, which is what Mark uses for his [lab guide](https://scheuerell-lab.github.io/lab-book/index.html). You can see many other examples of different books written with {bookdown} [here](https://bookdown.org/home/archive/).
+
+<div class="boxy boxy-blue boxy-clipboard-list">
+**Task:** If you haven't done so already, install the {bookdown} package. Load it when done.
+</div>
+
+```{r install_bookdown}
+## install bookdown if necessary
+## install.packages("bookdown")
+
+## load bookdown
+library("bookdown")
+```
+
 
 ## Create a new repo
 
@@ -150,32 +163,29 @@ knitr::include_graphics("images/rs_serve_book_2.png")
 
 <br>
 
-## Viewing your document
+# Editing your book
+
+
+<br>
+
+# Viewing your document
 
 Now that we've pushed our basic HTML report to GitHub, we should be able to view it online.
 
 <div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate back your `book-demo` repo on GitHub and you'll see the `/docs` folder containing the `index.Rmd` and `index.html` files you just pushed.
+**Task:** Navigate back your `book-demo` repo on GitHub and you'll see the `/docs` folder containing the various HTML and other associated files.
 </div>
 
 ![](images/gh_repo_updated.png)
 
-![](images/gh_repo_docs.png)
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If you click on the `index.html` file, you'll notice that it just displays the raw HTML code rather than a nicely formatted website.
-</div>
-
-![](images/gh_repo_docs_index.png)
-
 <div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** GitHub cannot render HTML files in a normal repo, but you can view your new document by navigating to `https://USERNAME.github.io/book-demo/` where `USERNAME` is your GitHub username.
+**Tip:** Recall that GitHub cannot render HTML files in a normal repo, but you can view your book by navigating to `https://USERNAME.github.io/book-demo/` where `USERNAME` is your GitHub username.
 </div>
 
 ![](images/gh_pages_rendered.png)
 
 <div class="boxy boxy-success boxy-check">
-**Success:** You now have an online report that you can update by making changes in your RStudio project and pushing them to GitHub.
+**Success:** You now have an online book that you can update by making changes in your RStudio project and pushing them to GitHub.
 </div>
 
 <div class="boxy boxy-orange boxy-lightbulb">
