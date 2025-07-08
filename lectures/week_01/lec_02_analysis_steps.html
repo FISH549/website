@@ -3070,18 +3070,21 @@ var loadDeck = function(event) {
   });
 };
 
-if (document.readyState !== "loading" &&
-    document.querySelector('slides') === null) { 
-  // if the document is done loading but our element hasn't yet appeared, defer
-  // loading of the deck
-  window.setTimeout(function() {
-    loadDeck(null);
-  }, 0);
-} else {
-  // still loading the DOM, so wait until it's finished
-  document.addEventListener("DOMContentLoaded", loadDeck);
-}
+if (!window.Shiny) {
+  // If Shiny is loaded, the slide deck is initialized in ioslides template
 
+  if (document.readyState !== "loading" &&
+      document.querySelector('slides') === null) {
+    // if the document is done loading but our element hasn't yet appeared, defer
+    // loading of the deck
+    window.setTimeout(function() {
+      loadDeck(null);
+    }, 0);
+  } else {
+    // still loading the DOM, so wait until it's finished
+    document.addEventListener("DOMContentLoaded", loadDeck);
+  }
+}
 
 
 </script>
@@ -3149,17 +3152,17 @@ content: "";
 display: table;
 clear: both;
 }
-.footer {
-position: fixed;
-text-align: center;
-margin: 0px auto;
-bottom: 0;
-}
 .citation {
 position: fixed;
 bottom: 3em;
 right: 5em;
 font-size: 90%;
+}
+.footer {
+position: fixed;
+text-align: center;
+margin: 0px auto;
+bottom: 0;
 }
 .footnote {
 position: absolute;
@@ -3172,6 +3175,9 @@ position: fixed;
 bottom: 3em;
 left: 5em;
 font-size: 90%;
+}
+.bigger {
+font-size: 2em;
 }
 </style>
 
@@ -3517,6 +3523,11 @@ font-size: 90%;
        window.jQuery(document).on('slideenter', function(e) {
          window.jQuery(e.target).trigger('shown');
       });
+    }
+    if (window.Shiny) {
+      // Initialize slides when this script appears on the page, since it
+      // indicates that the <slides> markup has been fully loaded.
+      window.loadDeck();
     }
   })();
 </script>
