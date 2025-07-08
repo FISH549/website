@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: "../lecture_inst.css"
     toc: true
     toc_float: true
     toc_depth: 3
@@ -75,13 +75,15 @@ There tends to be a strong negative correlation between the length of your code 
 
 * Take advantage of your IDE's options to create nicely formatted code.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-&nbsp; **Tip:** The following commands in **RStudio** can be helpful for formatting code:
-<ul>
-  <li>*indent lines*: `command + I` on a Mac or `ctrl + I` in Windows</li>
-  <li>*format code*: `command + shift + A` on a Mac or `ctrl + shift + A` in Windows</li>
-</ul>
-</div>
+::: tip
+
+The following commands in **RStudio** can be helpful for formatting code:
+
+* *indent lines*: `command + I` on a Mac or `ctrl + I` in Windows
+
+* *format code*: `command + shift + A` on a Mac or `ctrl + shift + A` in Windows
+
+:::
 
 
 ## Complete
@@ -111,9 +113,11 @@ In order to help you, other people will need to verify that they can indeed repr
 
 * Use a *brief, descriptive summary* of your problem as the title of your question.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You should double-check that your example reproduces the problem. It's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
-</div>
+::: tip
+
+You should double-check that your example reproduces the problem. It's good practice to quit **RStudio** (or other software) and restart it from scratch. If possible, consider testing your example on another computer or operating system.
+
+:::
 
 
 ## Metainfo
@@ -135,9 +139,11 @@ Creating a reproducible example ("reprex") can take some work, but so does answe
 
 Copying/pasting code is relatively easy, but trying to include any data necessary to create a complete reprex can be tricky. In general, including a `.csv` file or other data format is difficult without pointing someone to an external source, link, etc. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The `dput()` function provides a convenient way of writing all of the information in a data frame in a compact manner.
-</div>
+::: tip
+
+The `dput()` function provides a convenient way of writing all of the information in a data frame in a compact manner.
+
+:::
 
 Here's an example of using `dput()` on the [Palmer penguins data set](https://github.com/allisonhorst/palmerpenguins). This data set is actually quite large, so we'll only use the first 10 rows of the data frame.
 
@@ -153,13 +159,17 @@ head(penguins)
 dput(penguins[1:10,])
 ```
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information contained in a data frame.
-</div>
+::: note
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
-</div>
+The output from `dput()` may look a bit strange, but it's **R**'s way of storing the information contained in a data frame.
+
+:::
+
+::: tip
+
+You can copy/paste the output above into a post with your code and someone could simply assign it to an object and it will render just fine.
+
+:::
 
 ```{r dget_penguins}
 ## assign output to an object
@@ -190,17 +200,21 @@ The process of creating a reprex can also introduce unintended mistakes in your 
 
 ### `{reprex}` from the command line
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Begin by loading the `reprex` package.
-</div>
+::: task
+
+Begin by loading the `reprex` package.
+
+:::
 
 ```{r eval = FALSE}
 library(reprex)
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select the code you're interested in and copy it to the clipboard.
-</div>
+::: task
+
+Select the code you're interested in and copy it to the clipboard.
+
+:::
 
 ```{r eval = FALSE}
 a <- 1
@@ -208,9 +222,11 @@ b <- 0
 a / b
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Type `reprex()` at the **R** command prompt. It will think for a moment and then respond with a message about the reprex output.
-</div>
+::: task
+
+Type `reprex()` at the **R** command prompt. It will think for a moment and then respond with a message about the reprex output.
+
+:::
 
 ```{r eval = FALSE}
 > reprex()
@@ -219,21 +235,23 @@ a / b
 ✔ Reprex output is on the clipboard.
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
-</div>
+::: tip
+
+If you're using **RStudio**, you'll see a preview of your rendered reprex in the **Viewer** pane.
+
+:::
 
 ![](images/reprex_result.png){ width=75% }
 
-<br>
+::: tip
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)).
-</div>
+Your code, its result, and some additional information about the date and `reprex` version are all now sitting on your clipboard and available for pasting somewhere for help (see [below](#where)).
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** In the background, `reprex` produces this chunk of code, which will render nicely when pasted into a markdown document:
-</div>
+:::
+
+::: note
+
+In the background, `reprex` produces this chunk of code, which will render nicely when pasted into a markdown document:
 
 ````
 `r ''````{r}
@@ -244,65 +262,79 @@ a / b
 ```
 ````
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
-</div>
+:::
+
+::: tip
+
+There are a number of additional options you can pass to `reprex()` that will format the output for a particular forum for help (e.g., `venue = gh` for GitHub) or to also include the session information (e.g., `session_info = TRUE`).
+
+:::
 
 ### `{reprex}` in RStudio
 
 `{reprex}` is also designed to work seamlessly within **RStudio** and will do most of the work for you. To do so, you can access its functionality via the **Addins** pulldown menu. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins.
-</div>
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** After you've loaded the `{reprex}` package, click on the **Addins** pulldown menu in the code pane and type "reprex" in the search bar. Select **Render reprex...** from the menu.
-</div>
+Click [here](https://rstudio.github.io/rstudioaddins/) to learn more about **RStudio** addins.
+
+:::
+
+::: task
+
+After you've loaded the `{reprex}` package, click on the **Addins** pulldown menu in the code pane and type "reprex" in the search bar. Select **Render reprex...** from the menu.
+
+:::
 
 ![](images/reprex_rstudio.png)
 
-<br>
+::: note
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You should see up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information.
-</div>
+You should see up a popup window with choices about where the code is located, the target venue for help, and whether you want to append the session information.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
-</div>
+:::
+
+::: task
+
+Make your desired selections and click on the blue **Render** button in the upper right, which will copy all of the information to your clipboard and also display in the **Viewer** pane.
+
+:::
 
 ![](images/reprex_rs_popup.png){ width=80% }
 
-<br>
+::: note
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** At this point you have several options for seeking answers to your question or problem. The following example shows an option for creating an Issue in GitHub, but there are lots of others (see next section).
-</div>
+At this point you have several options for seeking answers to your question or problem. The following example shows an option for creating an Issue in GitHub, but there are lots of others (see next section).
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to a GitHub repo (perhaps the one where your coding project lives) and create a new issue with an informative title.
-</div>
+:::
+
+::: task
+
+Navigate to a GitHub repo (perhaps the one where your coding project lives) and create a new issue with an informative title.
+
+:::
 
 ![](images/reprex_gh_issue_title.png)
 
-<br>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the **Write** window, paste the reprex you created above and add some informative text above it. You may also want to select some labels on the righthand side (e.g., "bug", "help wanted").
-</div>
+In the **Write** window, paste the reprex you created above and add some informative text above it. You may also want to select some labels on the righthand side (e.g., "bug", "help wanted").
+
+:::
 
 ![](images/reprex_gh_issue_paste.png)
 
-<br>
+::: tip
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can click on the **Preview** tab to check the formatting of your reprex.
-</div>
+You can click on the **Preview** tab to check the formatting of your reprex.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are ready, scroll down and click on the green **Submit new issue** button.
-</div>
+:::
+
+::: task
+
+When you are ready, scroll down and click on the green **Submit new issue** button.
+
+:::
 
 ![](images/reprex_gh_issue_preview.png)
 
@@ -322,9 +354,9 @@ Your friends, colleagues, advisor, and committee members can be a great resource
 
 The **RStudio** community provides a [nice forum](https://community.rstudio.com/) for people to ask questions specific to **R**, **RStudio**, and various packages (e.g., the "tidyverse"). The people tend to be compassionate and caring---they genuinely want to help rather than simply espouse their knowledge to whomever will listen.
 
-## Twitter
+## Social media
 
-In general, Twitter is a great source of information on **R** and data science. I follow lots of people who are developers and users of **R** and various packages (e.g., [Hadley Wickham](https://twitter.com/hadleywickham), [Jenny Bryan](https://twitter.com/JennyBryan), [Mara Averick](https://twitter.com/dataandme), [Kara Woo](https://twitter.com/kara_woo), [Thomas Lin Pedersen](https://twitter.com/thomasp85)). Although it's difficult to squeeze a reprex into 280 characters, you can share links to locations where you've posted a reprex (e.g., a [GitHub Gist](https://gist.github.com/)). Also consider checking in on the [#rstats](https://twitter.com/search?q=%23RStats) hashtag or including it in a post asking for help.
+In general, social media is a great source of information on **R** and data science. Although it's difficult to squeeze a reprex into limited character spaces, you can share links to locations where you've posted a reprex (e.g., a [GitHub Gist](https://gist.github.com/)). Also consider checking in on the **#rstats** hashtag or including it in a post asking for help.
 
 ## GitHub
 

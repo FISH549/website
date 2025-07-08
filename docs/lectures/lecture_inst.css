@@ -1,3 +1,248 @@
+.objectives {
+  border: 1px solid #3a4f75; 
+  border-left: 5px solid #3a4f75; 
+  padding: 10px 15px 10px 20px;
+  background-color: #f8f8f8; 
+  margin: 10px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+
+
+.task {
+  background-color: #f0f8ff;
+  border: 1px solid #9acbff; 
+  border-left: 5px solid #007BFF;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+/*
+.task h4 {
+  margin-top: 0;
+  margin-left: -8px;
+  font-weight: bold;
+}
+*/
+
+.task::before {
+  content: "🛠 Task"; 
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #007BFF; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+.task ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.task ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.task li {
+  margin-bottom: 6px;
+}
+
+
+
+.tip {
+  background-color: #FFF3E0;
+  border: 1px solid #ffba81; 
+  border-left: 5px solid #e66800;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.tip::before {
+  content: "🔎 Tip"; 
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #e66800; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tip ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.tip ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.tip li {
+  margin-bottom: 6px;
+}
+
+/* 
+.tip p {
+  padding-left: 20px;  Move the text 18px to the right
+}
+ */
+
+
+
+.note {
+  background-color: #f2dede;
+  border: 1px solid #dda8a7; 
+  border-left: 5px solid #a94442;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.note::before {
+  content: "📌 Note"; 
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #a94442; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+.note ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.note ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.note li {
+  margin-bottom: 6px;
+}
+
+
+
+.success {
+  background-color: #dff0d8;
+  border: 1px solid #89c389; 
+  border-left: 5px solid #3c763d;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.success::before {
+  content: "✔️ Success"; 
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #3c763d; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+
+
+.keys {
+  background-color: #ffffe0; 
+  border: 1px solid #ffef81; 
+  border-left: 5px solid #e6c900; 
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.keys::before {
+  content: "🔑 Keys"; 
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #ccb200; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+.keys ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.keys ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.keys li {
+  margin-bottom: 6px;
+}
+
+
+
+.notable {
+  background-color: #f3e8ff; 
+  border: 1px solid #9553e6;
+  border-left: 5px solid #4a148c; 
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.notable::before {
+  content: "📓 Notable";
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #4a148c; 
+  display: block;
+  margin-bottom: 8px;
+}
+
+.notable ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.notable ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.notable li {
+  margin-bottom: 6px;
+}
+
+
+img[src*='#center'] {
+    display: block;
+    margin: auto;
+}
+
+img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+
 :root {
   --color-primary: #95b540;
   --color-primary-light: #E9F2D1;

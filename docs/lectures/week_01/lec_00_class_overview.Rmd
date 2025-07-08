@@ -5,7 +5,7 @@ author: "Mark Scheuerell"
 output:
   ioslides_presentation:
     widescreen: true
-    css: lecture_slides.css
+    css: ../lecture_slides.css
 ---
 
 ```{r setup, include=FALSE}
