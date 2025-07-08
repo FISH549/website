@@ -117,6 +117,22 @@
   margin-bottom: 8px;
 }
 
+.note ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.note ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.note li {
+  margin-bottom: 6px;
+}
+
 
 
 .success {
@@ -157,6 +173,22 @@
   color: #ccb200; 
   display: block;
   margin-bottom: 8px;
+}
+
+.keys ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.keys ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.keys li {
+  margin-bottom: 6px;
 }
 
 
