@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "lecture_slides.css", "fontawesome.css", "solid.css"]
+    css: ["../lecture_inst.css", "../lecture_slides.css"]
     toc: true
     toc_float: true
     toc_depth: 3
@@ -23,9 +23,11 @@ GitHub is a code hosting platform for version control and collaboration. It lets
 
 GitHub also runs **Git** in the background. Git is a version control software, which means it records changes to a file or set of files over time so that you can recall specific versions later. We'll learn more about Git in the next session.
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](../../references/github_signup.html) for creating one.
-</div>
+::: note
+
+You will need a GitHub account before you can start using it. If you do not have an account already, please see the info [here](../../references/github_signup.html) for creating one.
+
+:::
 
 ***
 
@@ -35,77 +37,100 @@ A repository (or "repo" for short) is a directory or storage space for your proj
 
 # Create a repository
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Log into your account on GitHub.
-</div>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **+** sign in the upper right and select **New repository**.
-</div>
+1) Log into your account on GitHub.
+
+2) Click on the **+** sign in the upper right and select **New repository**.
+
+:::
 
 ![](images/gh_new_repo.png)
 <br>
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Name your new repository **testing**
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
-</div>
+Name your new repository **testing**.
+
+:::
+
+
+::: tip
+
+Repo names can also use underscores `_` and hypens `-` as text delimiters, if you'd like.
+
+:::
 
 ![](images/gh_repo_name.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Enter some simple descriptive text in the **Description** field.
-</div>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** This can be changed later, so don't worry about its content.
-</div>
+::: task
+
+Enter some simple descriptive text in the **Description** field.
+
+:::
+
+
+::: tip
+
+This can be changed later, so don't worry about its content.
+
+:::
 
 ![](images/gh_repo_description.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
-</div>
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Go ahead and set it to the default **Public**.
-</div>
+GitHub repos can be set to **Public** or **Private**. If set to public, anyone can browse the contents of your repo. If set to private, only you and those you specify as collaborators can view the contents of the repo.
+
+:::
+
+::: task
+
+Go ahead and set it to the default **Public**.
+
+:::
 
 ![](images/gh_repo_public.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license.
-</div>
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** For now, just check the box next to **Add a README file**.
-</div>
+When you create a repo, you have the option of initializing it with a `README.md` file, a `.gitignore` file, and a license.
+
+:::
+
+::: task
+
+For now, just check the box next to **Add a README file**.
+
+:::
 
 ![](images/gh_repo_readme.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished, click on the green **Create repository** button.
-</div>
+::: task
+
+When you are finished, click on the green **Create repository** button.
+
+:::
 
 ![](images/gh_repo_create.png)
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You now have a new repo that is ready to be populated with folders, code, data sets, etc.
-</div>
+::: success
+
+You now have a new repo that is ready to be populated with folders, code, data sets, etc.
+
+:::
 
 ![](images/gh_repo_new-view.png)
 
@@ -345,9 +370,11 @@ You can treat the `README.md` file as a "landing page" for your repo. Because it
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Edit your `README.md` file by clicking on the pencil icon in the upper right.
-</div>
+::: task
+
+Edit your `README.md` file by clicking on the pencil icon in the upper right.
+
+:::
 
 ![](images/gh_edit_readme.png)
 
@@ -357,17 +384,22 @@ This brings up an editing window where you can add or modify existing text using
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add some Markdown to your `README.md` file.
-</div>
+::: task
+
+Add some Markdown to your `README.md` file.
+
+:::
 
 ![](images/gh_edit_readme-text.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can preview a formatted version of your text by clicking the **Preview** tab.
-</div>
+::: tip
+
+You can preview a formatted version of your text by clicking the **Preview** tab.
+
+:::
+
 
 ![](images/gh_edit_readme-preview.png)
 
@@ -385,13 +417,17 @@ This is your first introduction to **Git**. When committing a file, you need to 
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Go ahead and type a commit message in the box and then click the green **Commit changes** button.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Good commit messages are no more than 50 characters long. Mark likes to begin his with a past-tense verb.
-</div>
+Go ahead and type a commit message in the box and then click the green **Commit changes** button.
+
+:::
+
+::: tip
+
+Good commit messages are no more than 50 characters long. (Mark likes to begin his with a past-tense verb.)
+
+:::
 
 <br>
 
@@ -399,9 +435,11 @@ This is your first introduction to **Git**. When committing a file, you need to 
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** Your repo has a newly formatted `README.md` file.
-</div>
+::: success
+
+Your repo has a newly formatted `README.md` file.
+
+:::
 
 ![](images/gh_repo_readme_edited.png)
 
@@ -415,25 +453,31 @@ Issues are used to track to-do items, bugs, feature requests, and more. Some peo
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
-</div>
+::: task
+
+Click on the **Issues** tab in the upper left near the **Code** tab that you are on now.
+
+:::
 
 ![](images/gh_repo_issues.png)
 
 <br>
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** At this point the **Issues** page is empty except for a message from GitHub telling you a bit about Issues.
-</div>
+::: note
+
+At this point the **Issues** page is empty except for a message from GitHub telling you a bit about Issues.
+
+:::
 
 ![](images/gh_issue_landing-page.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green **New issue** button in the upper right.
-</div>
+::: task
+
+Click on the green **New issue** button in the upper right.
+
+:::
 
 ![](images/gh_issue_new.png)
 
@@ -447,9 +491,11 @@ Now you will see a window for you to enter details about the issue.
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Give your issue an informative title.
-</div>
+::: task
+
+Give your issue an informative title.
+
+:::
 
 ![](images/gh_issue_new-title.png)
 
@@ -459,49 +505,60 @@ It's common to include some details concerning an issue. For example, you might 
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add some details in the description box.
-</div>
- 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can also make use of the tool bar to help you with formatting, inserting links, etc.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can create checkboxes in Markdown with `* [ ]`.
-</div>
+Add some details in the description box.
+
+:::
+
+
+::: tip
+
+* You can also make use of the tool bar to help you with formatting, inserting links, etc.
+
+* You can create checkboxes in Markdown with `* [ ]`.
+
+:::
 
 ![](images/gh_issue_description.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Just like when editing the `README.md` file, you can preview the Markdown in an issue's description by clicking on the **Preview** tab.
-</div>
+::: tip
+
+Just like we did when editing the `README.md` file, you can preview the formatted Markdown in an issue's description by clicking on the **Preview** tab.
+
+:::
 
 ![](images/gh_issue_description-preview.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** There are some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. Notably, these labels are also searchable from the main **Issues** page.
-</div>
+::: tip
+
+There are some additional options on the righthand side for assigning collaborators to work on an issue, assigning descriptive labels to the issue to help identify its contents, priority, etc. Notably, these labels are also searchable from the main **Issues** page.
+
+:::
 
 ![](images/gh_issue_extras.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Assignees** link and then click on your username to select yourself.
-</div>
+::: task
+
+Click on the **Assignees** link and then click on your username to select yourself.
+
+:::
  
 ![](images/gh_issue_assignees.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Labels** link to see a list of preset labels.
-</div>
+::: task
+
+Click on the **Labels** link to see a list of preset labels.
+
+:::
  
 ![](images/gh_issue_labels.png)
 
@@ -521,27 +578,35 @@ In this case I've added the following labels to the issue:
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
-</div>
+::: task
+
+When you are finished adding a description, labels, etc, click on the green **Submit new issue** button at the bottom.
+
+:::
  
 ![](images/gh_issue_submit.png)
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
-</div>
+::: success
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The checkboxes we added are dynamic and can be checked as tasks are completed.
-</div>
+You will now see your new issue as a formatted Markdown document with lots of information about it being "Open", the labels you added, and another comment box at the bottom.
+
+:::
+
+::: tip
+
+The checkboxes we added are dynamic and can be checked as tasks are completed.
+
+:::
 
 ![](images/gh_issue_one.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Issues** tab in the upper left, which will bring you back to the main **Issue** page.
-</div>
+::: task
+
+Click on the **Issues** tab in the upper left, which will bring you back to the main **Issue** page.
+
+:::
 
 ![](images/gh_issues_page.png)
 
@@ -567,9 +632,11 @@ From here you can add more issues, or click on an existing issue to bring up its
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Projects** tab at the top of the page.
-</div>
+::: task
+
+Click on the **Projects** tab at the top of the page.
+
+:::
 
 ![](images/gh_project_select.png)
 
@@ -579,21 +646,27 @@ Here you will see some information about Projects and all of the things you can 
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green downarrow next to the **Link a project** button on the right and select **New project**. Then click the green **New project** button.
-</div>
+::: task
+
+Click on the green downarrow next to the **Link a project** button on the right and select **New project**. Then click the green **New project** button.
+
+:::
 
 ![](images/gh_project_new.png)
 
 <br>
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If this is your first project, you should see a welcome window like the one below.
-</div>
+::: note
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green **Jump right in** button.
-</div>
+If this is your first project, you should see a welcome window like the one below.
+
+:::
+
+::: task
+
+Click on the green **Jump right in** button.
+
+:::
 
 ![](images/gh_project_welcome.png)
 
@@ -607,9 +680,11 @@ You should now see a pop-up window for selecting a template with **Table** as th
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on **Board** on the the left side and then click the green **Create** button.
-</div>
+::: task
+
+Click on **Board** on the the left side and then click the green **Create** button.
+
+:::
 
 ![](images/gh_project_board.png)
 
@@ -623,9 +698,11 @@ You now have an untitled and empty project template with 3 gray boxes labeled **
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on link at the top labeled **\@username's untitled project** (where username is your GitHub username) to bring up the project settings.
-</div>
+::: task
+
+Click on link at the top labeled **\@username's untitled project** (where username is your GitHub username) to bring up the project settings.
+
+:::
 
 ![](images/gh_project_settings.png)
 
@@ -647,43 +724,57 @@ If you scroll down you will see the **Danger zone** where you can change the pro
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Scroll back to the top and add a project name and description. Click the green **Save** button when you are done.
-</div>
+::: task
+
+Scroll back to the top and add a project name and description. Click the green **Save** button when you are done.
+
+:::
 
 ![](images/gh_project_name-description.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Now add some text to the **README** and click the green **Save** button when you are done.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Just as with other **README** sections, you can use Markdown for emphasis, lists, links, etc.
-</div>
+Now add some text to the **README** and click the green **Save** button when you are done.
+
+:::
+
+::: tip
+
+Just as with other **README** sections, you can use Markdown for emphasis, lists, links, etc.
+
+:::
 
 ![](images/gh_project_readme.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can click on the **Manage access** link on the left to open up the project access tab. Here you can invite collaborators and set their role. </div>
+::: tip
+
+You can click on the **Manage access** link on the left to open up the project access tab. Here you can invite collaborators and set their role.
+
+:::
 
 ![](images/gh_project_access.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can click on the **Status** link on the left to open up the field settings tab, which allows you to rename the column headings in your project or add other columns/fields as well. </div>
+::: tip
+
+You can click on the **Status** link on the left to open up the field settings tab, which allows you to rename the column headings in your project or add other columns/fields as well.
+
+:::
 
 ![](images/gh_project_status.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the left arrow in the upper left to return to your project's main page.
-</div>
+::: task
+
+Click on the left arrow in the upper left to return to your project's main page.
+
+:::
 
 ![](images/gh_project_return.png)
 
@@ -697,49 +788,61 @@ Your project now has a better name.
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **+ Add item** link at the bottom of the **Todo** field.
-</div>
+::: task
+
+Click on the **+ Add item** link at the bottom of the **Todo** field.
+
+:::
 
 ![](images/gh_project_add-item.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the link to **Add item from repository**.
-</div>
+::: task
+
+Click on the link to **Add item from repository**.
+
+:::
 
 ![](images/gh_project_add-issue.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select **testing** from the dropdown menu and then check the box next to the Issue you created earlier. Click the green **Add selected items** button when you are done.
-</div>
+::: task
+
+Select **testing** from the dropdown menu and then check the box next to the Issue you created earlier. Click the green **Add selected items** button when you are done.
+
+:::
 
 ![](images/gh_project_add-from-repo.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **X** in the upper right to return to the project board.
-</div>
+::: task
+
+Click on the **X** in the upper right to return to the project board.
+
+:::
 
 ![](images/gh_project_issue-added.png)
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You now have a new project with one todo item.
-</div>
+::: success
+
+You now have a new project with one todo item.
+
+:::
 
 ![](images/gh_project_to-do.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can click on the issue title in the todo column to see its details. Click on the **X** in the upper right to close the preview window.
-</div>
+::: task
+
+You can click on the issue title in the todo column to see its details. Click on the **X** in the upper right to close the preview window.
+
+:::
 
 ![](images/gh_project_to-do-peek.png)
 
@@ -749,17 +852,21 @@ Now let's address our todo items in our open issue.
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click-and-drag the issue from **Todo** to **In progress**.
-</div>
+::: task
+
+Click-and-drag the issue from **Todo** to **In progress**.
+
+:::
 
 ![](images/gh_project_in-progress.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click in the **Search or jump to...** box at the top and select your testing repository to take you back there.
-</div>
+::: task
+
+Click in the **Search or jump to...** box at the top and select your testing repository to take you back there.
+
+:::
 
 ![](images/gh_testing_redirect.png)
 
@@ -773,9 +880,11 @@ Let's address our open issue by adding some more content to our repo. To do so, 
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Add file** button next to the green **Code** button and then select **Create new file**.
-</div>
+::: task
+
+Click on the **Add file** button next to the green **Code** button and then select **Create new file**.
+
+:::
 
 ![](images/gh_file_create-new.png)
 
@@ -789,61 +898,79 @@ We now have a window for editing the file contents similar to the one we saw ear
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and then file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
-</div>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Create a new **R** script within a folder called `R`, and name it `00_testing.R`.
-</div>
+If you'd like to create a new file within a new folder, you begin by typing the folder name followed by a `/` and then file name. You'll notice that as soon as you type the `/` after the folder name that GitHub will automatically shift the text box to focus on the file name.
+
+:::
+
+::: task
+
+Create a new **R** script within a folder called `R`, and name it `00_testing.R`.
+
+:::
 
 ![](images/gh_file_new-name.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to the editing box and add some simple **R** code (it doesn't matter what code you add).
-</div>
+::: task
+
+Navigate to the editing box and add some simple **R** code (it doesn't matter what code you add).
+
+:::
 
 ![](images/gh_file_create-code.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
-</div>
+::: task
+
+When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
+
+:::
 
 ![](images/gh_file_create-commit.png)
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You can now see the contents of the new `/R` folder, which at the moment contains only the new `00_testing.R` file we just created.
-</div>
+::: success
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** In addition to the file name, you can see the commit message you used when committing the file ("created test R script for demo") and when the file was committed ("now").
-</div>
+You can now see the contents of the new `/R` folder, which at the moment contains only the new `00_testing.R` file we just created.
+
+:::
+
+::: tip
+
+In addition to the file name, you can see the commit message you used when committing the file ("created test R script for demo") and when the file was committed ("now").
+
+:::
 
 ![](images/gh_folder_R-contents.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can click on the file name to inspect the file's contents.
-</div>
+::: tip
+
+You can click on the file name to inspect the file's contents.
+
+:::
 
 ![](images/gh_file_new-inspect.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Code** tab in the upper left, which will take you back the repo's main page. 
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Here you can see our new `R` folder just above our existing `README.md` file.
-</div>
+Click on the **Code** tab in the upper left, which will take you back the repo's main page. 
+
+:::
+
+::: tip
+
+Here you can see our new `R` folder just above our existing `README.md` file.
+
+:::
 
 ![](images/gh_repo_home_r.png)
 
@@ -853,9 +980,11 @@ Now let's add a simple data file called `example_data.csv` and place it within a
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
-</div>
+::: task
+
+Click on the **Add file** button next to the green **Code** button and then selecting **Create new file**. Type the folder name and file name in the box and add the following information in the editing box (you can copy and paste if you'd like):
+
+:::
 
 ```
 last_name, first_name, role
@@ -870,25 +999,31 @@ Manion, Lance, student
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
-</div>
+::: task
+
+When you are finished, scroll down to the **Commit new file** area, enter a brief but informative commit message, and click on the green **Commit new file** button.
+
+:::
 
 ![](images/gh_file_data-commit.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Just as when we created our **R** script within the `/R` folder, you can now see the new `example_data.csv` file we just created within the `/data` folder.
-</div>
+::: tip
+
+Just as when we created our **R** script within the `/R` folder, you can now see the new `example_data.csv` file we just created within the `/data` folder.
+
+:::
 
 ![](images/gh_data_folder_view.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Code** tab in the upper left, which will take you back the repo's main page where you will see the new `/data` folder just below our existing `/R` folder.
-</div>
+::: task
+
+Click on the **Code** tab in the upper left, which will take you back the repo's main page where you will see the new `/data` folder just below our existing `/R` folder.
+
+:::
 
 ![](images/gh_repo_home_data.png)
 
@@ -900,29 +1035,37 @@ Manion, Lance, student
 
 Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Issues** tab on the top of the page to take you back to our open issue.
-</div>
+::: task
+
+Click on the **Issues** tab on the top of the page to take you back to our open issue.
+
+:::
 
 ![](images/gh_open_issue_return.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the issue's title, which will open it up and show you all of the details. 
-</div>
+::: task
+
+Click on the issue's title, which will open it up and show you all of the details. 
+
+:::
 
 ![](images/gh_issue_return-open.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Check the boxes next to the 3 open tasks.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** As you check off boxes next to tasks, GitHub will automatically update the number completed under the issue's title.
-</div>
+Check the boxes next to the 3 open tasks.
+
+:::
+
+::: tip
+
+As you check off boxes next to tasks, GitHub will automatically update the number completed under the issue's title.
+
+:::
 
 ![](images/gh_issue_return-checked.png)
 
@@ -932,25 +1075,31 @@ At the bottom of the issue you will see a comment box with two buttons below it:
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add a comment and then click the **Close with comment** button.
-</div>
+::: task
+
+Add a comment and then click the **Close with comment** button.
+
+:::
 
 ![](images/gh_issue_close-comment.png)
 
 <br>
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You'll now see that GitHub has marked the issue with a purple "Closed" label under the issue name.
-</div>
+::: tip
+
+You'll now see that GitHub has marked the issue with a purple "Closed" label under the issue name.
+
+:::
 
 ![](images/gh_issue_closed.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Issues** tab to return to the Issues page where GitHub informs you that there aren't any open issues.
-</div>
+::: task
+
+Click on the **Issues** tab to return to the Issues page where GitHub informs you that there aren't any open issues.
+
+:::
 
 ![](images/gh_issues_main_none_open.png)
 
@@ -962,17 +1111,21 @@ Let's return to our project and check on our progress now that we've closed the 
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Projects** tab to take you back to the main Projects page where your project is listed and then click on the project name to open it back up.
-</div>
+::: task
+
+Click on the **Projects** tab to take you back to the main Projects page where your project is listed and then click on the project name to open it back up.
+
+:::
 
 ![](images/gh_project_main.png)
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** GitHub automatically moved the open issue to the **Done** column when you closed it earlier.
-</div>
+::: success
+
+GitHub automatically moved the open issue to the **Done** column when you closed it earlier.
+
+:::
 
 ![](images/gh_project_done.png)
 
