@@ -14,7 +14,7 @@
   background-color: #f0f8ff;
   border: 1px solid #9acbff; 
   border-left: 5px solid #007BFF;
-  padding: 15px;
+  padding: 10px;
   margin: 20px 0;
   border-radius: 5px;
   position: relative;
@@ -43,6 +43,12 @@
   line-height: 1.5;
 }
 
+.task ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
 .task li {
   margin-bottom: 6px;
 }
@@ -53,7 +59,7 @@
   background-color: #FFF3E0;
   border: 1px solid #ffba81; 
   border-left: 5px solid #e66800;
-  padding: 15px;
+  padding: 10px;
   margin: 20px 0;
   border-radius: 5px;
   position: relative;
@@ -68,9 +74,25 @@
   margin-bottom: 8px;
 }
 
+.tip ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.tip ol {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.tip li {
+  margin-bottom: 6px;
+}
+
 /* 
 .tip p {
-  padding-left: 30px;  Move the text 18px to the right
+  padding-left: 20px;  Move the text 18px to the right
 }
  */
 
@@ -80,7 +102,7 @@
   background-color: #f2dede;
   border: 1px solid #dda8a7; 
   border-left: 5px solid #a94442;
-  padding: 15px;
+  padding: 10px;
   margin: 20px 0;
   border-radius: 5px;
   position: relative;
@@ -101,7 +123,7 @@
   background-color: #dff0d8;
   border: 1px solid #89c389; 
   border-left: 5px solid #3c763d;
-  padding: 15px;
+  padding: 10px;
   margin: 20px 0;
   border-radius: 5px;
   position: relative;
@@ -122,7 +144,7 @@
   background-color: #ffffe0; 
   border: 1px solid #ffef81; 
   border-left: 5px solid #e6c900; 
-  padding: 15px;
+  padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
   position: relative;
@@ -143,7 +165,7 @@
   background-color: #f3e8ff; 
   border: 1px solid #9553e6;
   border-left: 5px solid #4a148c; 
-  padding: 15px;
+  padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
   position: relative;
@@ -159,6 +181,12 @@
 }
 
 .notable ul {
+  padding-left: 20px;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.notable ol {
   padding-left: 20px;
   font-size: 1em;
   line-height: 1.5;
