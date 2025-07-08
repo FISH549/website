@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: "../lecture_inst.css"
     toc: true
     toc_float: true
     toc_depth: 3
@@ -29,95 +29,109 @@ Remote repositories like GitHub allow you to store you code, data, and other inf
 
 There are several ways to connect a remote repository to your local computer. Here we will see how to do so from within RStudio. RStudio provides a nice interface for using Git for version control via "Projects". Note that these are different than the [GitHub Projects we learned about here](lec_04_intro_github.html#Projects).
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to the **testing** repo we created on GitHub in the lesson on [_Intro to GitHub_](lec_04_intro_github.html).
-</div>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Highlight and copy the full URL from your browser's address bar.
-</div>
+* Navigate to the **testing** repo we created on GitHub in the lesson on [_Intro to GitHub_](lec_04_intro_github.html).
 
-<br>
+* Highlight and copy the full URL from your browser's address bar.
 
-![](images/gh_copy_address.png){ width=90% }
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open RStudio and select *File* > *New Project...*, which will bring up a dialogue box.
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select **Version Control**
-</div>
+:::
 
 <br>
 
-![](images/rstudio_create_project.png)
+![](images/gh_copy_address.png)
+
+::: task
+
+* Open RStudio and select *File* > *New Project...*, which will bring up a dialogue box.
+
+* Select **Version Control**
+
+:::
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select **Git**
-</div>
+![](images/rstudio_create_project.png){ width=60% }
 
 <br>
 
-![](images/rstudio_create_project_kind.png)
+::: task
+
+Select **Git**
+
+:::
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the **Repository URL** box, paste the full repo address from GitHub that you copied above.
-</div>
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** `YOUR_USERNAME` in the location below should be *your* GitHub user name.
-</div>
+![](images/rstudio_create_project_kind.png){ width=60% }
 
 <br>
 
-![](images/rstudio_create_project_url.png)
+::: task
+
+In the **Repository URL** box, paste the full repo address from GitHub that you copied above.
+
+:::
+
+::: note
+
+`YOUR_USERNAME` in the location below should be *your* GitHub user name.
+
+:::
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Tab to the next box, **Project directory name**, which should auto-fill with the repo name `testing`.
-</div>
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Select the directory location where you'd like this project to live.
-</div>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Mark **strongly** suggests choosing a location that is not under some other version control software such as **Dropbox**.
-</div>
+![](images/rstudio_create_project_url.png){ width=60% }
 
 <br>
 
-![](images/rstudio_create_project_dir.png)
+::: task
+
+* Tab to the next box, **Project directory name**, which should auto-fill with the repo name `testing`.
+
+* Select the directory location where you'd like this project to live.
+
+:::
+
+::: tip
+
+Mark **strongly** suggests choosing a location that is not under some other version control software such as **Dropbox**.
+
+:::
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
-</div>
+![](images/rstudio_create_project_dir.png){ width=60% }
 
 <br>
 
-![](images/rstudio_create_project_new.png)
+::: task
+
+Check the box in the lower left that says "Open in new session" and then click on the **Create Project** button.
+
+:::
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** RStudio will open a new instance with all of the project files listed. 
-</div>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Some of the files shown in your project may look different than the image below.
-</div>
+![](images/rstudio_create_project_new.png){ width=60% }
 
 <br>
 
-![](images/rstudio_new_proj.png){ width=90% }
+::: success
+
+RStudio will open a new instance with all of the project files listed. 
+
+:::
+
+::: tip
+
+Some of the files shown in your project may look different than the image below.
+
+:::
+
+<br>
+
+![](images/rstudio_new_proj.png)
 
 ***
 
@@ -125,13 +139,15 @@ There are several ways to connect a remote repository to your local computer. He
 
 There are several things to note here in RStudio (note that your views may differ depending on how you have the window panes set up). In the **Files** tab, you should see a `README.md` file plus the `/R/` and `/data/` folders we that we previously created from within GitHub. In addition, you should see a `.gitignore` and a `testing.Rproj` file.
 
-![](images/rstudio_file_pane.png){ width=90% }
+![](images/rstudio_file_pane.png)
 
 <br> 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the `.gitignore` file to display its contents in the code pane. You should see 4 file extensions listed there.
-</div>
+::: task
+
+Click on the `.gitignore` file to display its contents in the code pane. You should see 4 file extensions listed there.
+
+:::
 
 ```
 .Rproj.user
@@ -140,15 +156,17 @@ There are several things to note here in RStudio (note that your views may diffe
 .Ruserdata
 ```
 
-![](images/rstudio_gitignore.png){ width=90% }
+![](images/rstudio_gitignore.png)
 
 <br>
 
 This `.gitignore` file contains information about the things that you **don't** want Git to pay attention to when tracking different versions of your files and folder contents. For example, some people want to exclude `.html` files that are generated by `.Rmd` source files, or environment files unique to RStudio and RStudio. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can see a list of common ignore options for RStudio [here](https://github.com/github/gitignore/blob/master/R.gitignore).
-</div>
+::: tip
+
+You can see a list of common ignore options for RStudio [here](https://github.com/github/gitignore/blob/master/R.gitignore).
+
+:::
 
 ***
 
@@ -156,11 +174,13 @@ This `.gitignore` file contains information about the things that you **don't** 
 
 One of the nice features about RStudio is that you can interact directly with Git without have to switch back and forth between the R console and the terminal window.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Locate the Git tab in the pane with other tabs for **Environment**, **History**, etc. and click on it.
-</div>
+::: task
 
-![](images/rstudio_git_tab.png){ width=90% }
+Locate the Git tab in the pane with other tabs for **Environment**, **History**, etc. and click on it.
+
+:::
+
+![](images/rstudio_git_tab.png)
 
 <br>
 
@@ -168,19 +188,23 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 
 ## Add a file to staging
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click the check box in the column marked "Staged" to the left of the `.gitignore` file and you will see that a green **A** appears in the column marked "Status" (i.e., this is equivalent to typing `git add .gitignore`).
-</div>
+::: task
 
-![](images/rstudio_git_add.png){ width=90% }
+Click the check box in the column marked "Staged" to the left of the `.gitignore` file and you will see that a green **A** appears in the column marked "Status" (i.e., this is equivalent to typing `git add .gitignore`).
+
+:::
+
+![](images/rstudio_git_add.png)
 
 ## Commit a file
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the "Commit" button just above the file name, which will bring up a new commit window.
-</div>
+::: task
 
-![](images/rstudio_git_commit.png){ width=90% }
+Click on the "Commit" button just above the file name, which will bring up a new commit window.
+
+:::
+
+![](images/rstudio_git_commit.png)
 
 <br>
 
@@ -188,37 +212,48 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 
 <br>
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** There are several important things here. The first is the menu bar across the top, which has buttons for "Changes" and "History" in the upper left, and "Pull" and "Push" in the upper right. At the moment, the "Changes" button is active, so you can see the contents of the `.gitignore` file displayed below in green. In this case, the file is brand new to Git, so everything is highlighted in green. Later you will see how this changes.
-</div>
+::: note
+
+There are several important things here. The first is the menu bar across the top, which has buttons for "Changes" and "History" in the upper left, and "Pull" and "Push" in the upper right. At the moment, the "Changes" button is active, so you can see the contents of the `.gitignore` file displayed below in green. In this case, the file is brand new to Git, so everything is highlighted in green. Later you will see how this changes.
+
+:::
 
 ![](images/rstudio_git_commit_menu.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the "History" button just to the left of the "Changes" button, which will bring up a log of your commit history. 
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** In the example below, the last file committed was `ex_data.csv` that we had previously created and committed directly from GitHub. You can see information about the the commit author, the date, and the first 7 characters from the unique commit SHA.
-</div>
+Click on the "History" button just to the left of the "Changes" button, which will bring up a log of your commit history. 
+:::
+
+::: note
+
+In the example below, the last file committed was `ex_data.csv` that we had previously created and committed directly from GitHub. You can see information about the the commit author, the date, and the first 7 characters from the unique commit SHA.
+
+:::
 
 ![](images/rstudio_git_commit_history.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the "Changes" button and type a *short but informative* commit message in the box in the upper right (e.g., "added gitignore"). When you are finished, click the **Commit** button in the lower right (i.e., this is the equivalent of typing `git commit -m "added gitignore"` via the command line).
-</div>
+::: task
+
+* Click on the "Changes" button and type a *short but informative* commit message in the box in the upper right (e.g., "added gitignore").
+
+* When you are finished, click the **Commit** button in the lower right (i.e., this is the equivalent of typing `git commit -m "added gitignore"` via the command line).
+
+:::
 
 ![](images/rstudio_git_commit_msg.png)
 
 <br>
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** RStudio will now pop open a commit window displaying the commit command at the top and the resulting reply from Git:
-</div>
+::: note
+
+RStudio will now pop open a commit window displaying the commit command at the top and the resulting reply from Git:
+
+:::
 
 ```
 [main 7e0658f] added gitignore
@@ -230,15 +265,19 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click the "Close" button in the upper right, which will return you to the main commit window. Close that window, which will return you to the main RStudio viewer. 
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** The `.gitignore` file has disappeared from the Git tab because it's just been committed.
-</div>
+Click the "Close" button in the upper right, which will return you to the main commit window. Close that window, which will return you to the main RStudio viewer. 
 
-![](images/rstudio_git_window_2.png){ width=90% }
+:::
+
+::: note
+
+The `.gitignore` file has disappeared from the Git tab because it's just been committed.
+
+:::
+
+![](images/rstudio_git_window_2.png)
 
 <br>
 
@@ -246,17 +285,21 @@ You should see the `.gitignore` file listed there with an empty box and 2 yellow
 
 Now that we've committed our `.gitignore` file to history, we can *push* it up to our remote repo on GitHub. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the green up arrow, which is the RStudio symbol for `git push`.
-</div>
+::: task
 
-![](images/rstudio_git_push.png){ width=90% }
+Click on the green up arrow, which is the RStudio symbol for `git push`.
+
+:::
+
+![](images/rstudio_git_push.png)
 
 <br>
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You should see a smaller **Git Push** window with the following information from Git.
-</div>
+::: note
+
+You should see a smaller **Git Push** window with the following information from Git.
+
+:::
 
 ```
 >>> /usr/bin/git push origin HEAD:refs/heads/main
@@ -264,36 +307,46 @@ To https://github.com/mdscheuerell/testing
    a0e9132..7e0658f  HEAD -> main
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The first line is the actual Git command for pushing to a remote repo, and the second and third lines are the results of that command.
-</div>
+::: tip
 
-![](images/rstudio_git_push_window.png){ width=90% }
+The first line is the actual Git command for pushing to a remote repo, and the second and third lines are the results of that command.
+
+:::
+
+![](images/rstudio_git_push_window.png)
 
 <br>
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You've now pushed a change on your local computer up to your remote repo on GitHub.
-</div>
+::: success
+
+You've now pushed a change on your local computer up to your remote repo on GitHub.
+
+:::
 
 
 ## Viewing your changes on GitHub
 
 You can now check to see that your committed `.gitignore` file was indeed pushed up to GitHub.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`.
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You should now see the `.gitignore` file listed along with the `README.md` file and other folders we created previously. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push.
-</div>
+Switch over to your browser and navigate back to the **testing** repo at `https://github.com/YOUR-USER-NAME/testing`.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you don't see the file, try refreshing the view on your browser.
-</div>
+:::
 
-![](images/gh_new_pushed_file.png){ width=90% }
+::: note
+
+You should now see the `.gitignore` file listed along with the `README.md` file and other folders we created previously. Next to the file name, you will also see the commit message you used and a time stamp for how long ago you made the commit and push.
+
+:::
+
+::: tip
+
+If you don't see the file, try refreshing the view on your browser.
+
+:::
+
+![](images/gh_new_pushed_file.png)
 
 <br>
 
@@ -303,48 +356,62 @@ You can now check to see that your committed `.gitignore` file was indeed pushed
 
 Now let's see how to *pull* changes from a remote repo to your local computer. To do so, we'll make some changes to our `README.md` file on GitHub, commit them, and then pull them down. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
-</div>
+::: task
 
-![](images/gh_edit_readme_pencil.png){ width=90% }
+Click on the pencil icon in the upper right to edit the `README.md` file, which will bring up the editing window.
+
+:::
+
+![](images/gh_edit_readme_pencil.png)
+
+<br>
+
+::: task
+
+Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
+
+:::
+
+![](images/gh_edit_readme_pull.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Make a few changes to the file and then scroll down to the bottom where you can commit those changes.
-</div>
-
-![](images/gh_edit_readme_pull.png){ width=90% }
-
-<br>
+::: task
 
 Type a *short but informative* commit message and press the green **Commit changes** button.
+
+:::
 
 ![](images/gh_edit_readme_pull_commit.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on either the **testing** link at the top or the **Code** tab below you username to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
-</div>
+::: task
+
+Click on either the **testing** link at the top or the **Code** tab below you username to return to the main repo. Here you will see the commit message and time stamp of your newly changed file, as well as its contents.
+
+:::
 
 
-![](images/gh_new_readme.png){ width=90% }
-
-<br>
-
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Return to RStudio and look in the **Git** tab for the blue down arrow. This is how you *pull* files from your remote repo to your local project.
-</div>
-
-![](images/rstudio_pull_arrow.png){ width=90% }
+![](images/gh_new_readme.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the pull arrow, which will open up a **Git Pull** window with information similar to the following (note that the text specifics will differ from your output):
-</div>
+::: tip
+
+Return to RStudio and look in the **Git** tab for the blue down arrow. This is how you *pull* files from your remote repo to your local project.
+
+:::
+
+![](images/rstudio_pull_arrow.png)
+
+<br>
+
+::: task
+
+Click on the pull arrow, which will open up a **Git Pull** window with information similar to the following (note that the text specifics will differ from your output):
+
+:::
 
 ```
 >>> /usr/bin/git pull
@@ -356,19 +423,23 @@ Fast-forward
  1 file changed, 3 insertions(+), 7 deletions(-)
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The first line is the actual Git command and the remaining lines are what Git is reporting back from `git pull`, including the file name and its contents.
-</div>
+::: tip
 
-![](images/rstudio_pull_window.png){ width=90% }
+The first line is the actual Git command and the remaining lines are what Git is reporting back from `git pull`, including the file name and its contents.
+
+:::
+
+![](images/rstudio_pull_window.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Close the Git Pull window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from GitHub.
-</div>
+::: task
 
-![](images/rstudio_readme_pulled.png){ width=90% }
+Close the Git Pull window and then click on the `README.md` file in the **File** viewer, which will display its contents in an editing window. Notice that it reflects the recent changes you made to the file from GitHub.
+
+:::
+
+![](images/rstudio_readme_pulled.png)
 
 <br>
 
