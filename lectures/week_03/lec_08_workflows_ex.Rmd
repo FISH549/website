@@ -161,7 +161,7 @@ The first approach is from GitHub itself. To do so, navigate to the remote repo 
 
 <br>
 
-![](images/feature_new_branch_gh.png)
+<img src="images/feature_new_branch.png" class="noborder">
 
 <br>
 
@@ -196,7 +196,8 @@ If you navigate back to the **testing** repo on GitHub and refresh your browser,
 
 :::
 
-![](images/gh_repo_both_branches.png)
+<img src="images/gh_repo_both_branches.png" class="noborder">
+
 
 <br>
 
@@ -217,7 +218,7 @@ Add the file to staging and commit it. Include a _short but informative_ commit 
 
 :::
 
-![](images/feature_new_commit.png){ width=80% }
+<img src="images/feature_new_commit.png" class="noborder">
 
 ::: task
 
@@ -231,7 +232,7 @@ RStudio will pop open a window echoing your push command and the destination.
 
 :::
 
-![](images/feature_new_commit_push.png){ width=80% }
+<img src="images/feature_new_commit_push.png" class="noborder">
 
 <br>
 
@@ -251,7 +252,8 @@ Upon arriving there, we see a message that "**develop** had recent pushes less t
 
 :::
 
-![](images/feature_gh_pr_notice.png)
+<img src="images/feature_gh_pr_notice.png" class="noborder">
+
 
 
 ::: task
@@ -266,7 +268,8 @@ At the top you will see some information about the branches from which and to wh
 
 :::
 
-![](images/feature_gh_pr_page.png)
+<img src="images/feature_gh_pr_page.png" class="noborder">
+
 
 ::: tip
 
@@ -285,7 +288,8 @@ If your pull request involves multiple files, features, etc, it's a good idea to
 :::
 
 
-![](images/feature_gh_pr_merge.png)
+<img src="images/feature_gh+pr_merge.png" class="noborder">
+
 
 <br>
 
@@ -297,13 +301,15 @@ Go ahead and click on the green **Confirm merge** button.
 
 :::
 
-![](images/feature_gh_pr_merge_confirm.png)
+<img src="images/feature_gh_pr_merge_confirm.png" class="noborder">
+
 
 <br>
 
 After doing so, GitHub will now report **Pull request successfully merged and closed** (you'll also notice that the green **Open** oval below the name of the pull request has changed to a purple **Merged** oval). GitHub also tells you that "You’re all set--the **develop** branch can be safely deleted."
 
-![](images/feature_gh_pr_merge_success.png)
+<img src="images/feature_gh_pr_merge_success.png" class="noborder">
+
 
 ::: tip
 
@@ -327,7 +333,7 @@ Recall that a forking workflow is commonly used when a developer is *not* a memb
 
 To fork a repo, navigate to its location on GitHub and look for the **Fork** button in the upper right. Press that button, which will bring up a dialogue box asking you where you would like to fork the repo. Click on the user or organization where you'd like to fork the repo and GitHub will do the rest.
 
-![](images/gh_fork_orig_repo.png)
+<img src="images/gh_fork_orig_repo.png" class="noborder">
 
 
 ::: note
@@ -342,13 +348,15 @@ Click the green **Create fork** button to proceed.
 
 :::
 
-![](images/gh_fork_create.png)
+<img src="images/gh_fork_create.png" class="noborder">
+
 
 <br>
 
 You will now see a new forked version of the original repository with some information in the upper left about its location and from where it came. You'll also see some information above the repo contents about the current branch being up to date with the "upstream" source.
 
-![](images/gh_fork_repo_forked.png)
+<img src="images/gh_fork_repo_forked.png" class="noborder">
+
 
 
 ::: note
@@ -357,7 +365,8 @@ In the not so distant past, you had to use Git via the command line to specify w
 
 :::
 
-![](images/gh_fork_sync.png)
+<img src="images/gh_fork_sync.png" class="noborder">
+
 
 <br>
 
@@ -607,7 +616,8 @@ Navigate to your forked repo on GitHub where you'll see a message about this bra
 
 :::
 
-![](images/gh_fork_remote_ahead.png)
+<img src="images/gh_fork_remote_ahead.png" class="noborder">
+
 
 ::: task
 
@@ -625,7 +635,8 @@ This will take you to the standard page for a pull request, just as we saw in th
 
 :::
 
-![](images/gh_fork_submit_pr.png)
+<img src="images/gh_fork_submit_pr.png" class="noborder">
+
 
 ::: tip
 
@@ -639,11 +650,13 @@ Give your pull request a title and description. When ready, click on the green *
 
 :::
  
-![](images/gh_fork_submit_pr_2.png)
+<img src="images/gh_fork_sumbit_pr_2.png" class="noborder">
+
 
 <br>
 
-![](images/gh_fork_pr_created.png)
+<img src="images/gh_fork_pr_created.png" class="noborder">
+
 
 ::: success
 
