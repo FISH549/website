@@ -131,7 +131,8 @@ Some of the files shown in your project may look different than the image below.
 
 <br>
 
-![](images/rstudio_new_proj.png)
+<img src="images/rstudio_new_proj.png" class="noborder">
+
 
 ***
 
@@ -139,7 +140,7 @@ Some of the files shown in your project may look different than the image below.
 
 There are several things to note here in RStudio (note that your views may differ depending on how you have the window panes set up). In the **Files** tab, you should see a `README.md` file plus the `/R/` and `/data/` folders we that we previously created from within GitHub. In addition, you should see a `.gitignore` and a `testing.Rproj` file.
 
-![](images/rstudio_file_pane.png)
+<img src="images/rstudio_file_pane.png" class="noborder">
 
 <br> 
 
@@ -156,7 +157,8 @@ Click on the `.gitignore` file to display its contents in the code pane. You sho
 .Ruserdata
 ```
 
-![](images/rstudio_gitignore.png)
+<img src="images/rstudio_gitignore.png" class="noborder">
+
 
 <br>
 
@@ -180,7 +182,8 @@ Locate the Git tab in the pane with other tabs for **Environment**, **History**,
 
 :::
 
-![](images/rstudio_git_tab.png)
+<img src="images/rstudio_git_tab.png" class="noborder">
+
 
 <br>
 
@@ -194,7 +197,8 @@ Click the check box in the column marked "Staged" to the left of the `.gitignore
 
 :::
 
-![](images/rstudio_git_add.png)
+<img src="images/rstudio_git_add.png" class="noborder">
+
 
 ## Commit a file
 
@@ -204,11 +208,13 @@ Click on the "Commit" button just above the file name, which will bring up a new
 
 :::
 
-![](images/rstudio_git_commit.png)
+<img src="images/rstudio_git_commit.png" class="noborder">
+
 
 <br>
 
-![](images/rstudio_git_commit_window.png)
+<img src="images/rstudio_git_commit_window.png" class="noborder">
+
 
 <br>
 
@@ -218,7 +224,8 @@ There are several important things here. The first is the menu bar across the to
 
 :::
 
-![](images/rstudio_git_commit_menu.png)
+<img src="images/rstudio_git_commit_menu.png" class="noborder">
+
 
 <br>
 
@@ -233,7 +240,8 @@ In the example below, the last file committed was `ex_data.csv` that we had prev
 
 :::
 
-![](images/rstudio_git_commit_history.png)
+<img src="images/rstudio_git_commit_history.png" class="noborder">
+
 
 <br>
 
@@ -245,7 +253,8 @@ In the example below, the last file committed was `ex_data.csv` that we had prev
 
 :::
 
-![](images/rstudio_git_commit_msg.png)
+<img src="images/rstudio_git_commit_msg.png" class="noborder">
+
 
 <br>
 
@@ -261,7 +270,8 @@ RStudio will now pop open a commit window displaying the commit command at the t
  create mode 100644 .gitignore
 ```
 
-![](images/rstudio_git_commit_popup.png)
+<img src="images/rstudio_git_commit_popup.png" class="noborder">
+
 
 <br>
 
@@ -277,7 +287,8 @@ The `.gitignore` file has disappeared from the Git tab because it's just been co
 
 :::
 
-![](images/rstudio_git_window_2.png)
+<img src="images/rstudio_git_window_2.png" class="noborder">
+
 
 <br>
 
@@ -291,7 +302,8 @@ Click on the green up arrow, which is the RStudio symbol for `git push`.
 
 :::
 
-![](images/rstudio_git_push.png)
+<img src="images/rstudio_git_push.png" class="noborder">
+
 
 <br>
 
@@ -313,7 +325,8 @@ The first line is the actual Git command for pushing to a remote repo, and the s
 
 :::
 
-![](images/rstudio_git_push_window.png)
+<img src="images/rstudio_git_push_window.png" class="noborder">
+
 
 <br>
 
@@ -362,7 +375,8 @@ Click on the pencil icon in the upper right to edit the `README.md` file, which 
 
 :::
 
-![](images/gh_edit_readme_pencil.png)
+<img src="images/gh_edit_readme_pencil.png" class="noborder">
+
 
 <br>
 
@@ -372,7 +386,8 @@ Make a few changes to the file and then scroll down to the bottom where you can 
 
 :::
 
-![](images/gh_edit_readme_pull.png)
+<img src="images/gh_edit_readme_pull.png" class="noborder">
+
 
 <br>
 
@@ -392,8 +407,8 @@ Click on either the **testing** link at the top or the **Code** tab below you us
 
 :::
 
+<img src="images/gh_new_readme.png" class="noborder">
 
-![](images/gh_new_readme.png)
 
 <br>
 
@@ -403,7 +418,8 @@ Return to RStudio and look in the **Git** tab for the blue down arrow. This is h
 
 :::
 
-![](images/rstudio_pull_arrow.png)
+<img src="images/rstudio_pull_arrow.png" class="noborder">
+
 
 <br>
 
@@ -429,7 +445,8 @@ The first line is the actual Git command and the remaining lines are what Git is
 
 :::
 
-![](images/rstudio_pull_window.png)
+<img src="images/rstudio_pull_window.png" class="noborder">
+
 
 <br>
 
@@ -439,7 +456,8 @@ Close the Git Pull window and then click on the `README.md` file in the **File**
 
 :::
 
-![](images/rstudio_readme_pulled.png)
+<img src="images/rstudio_readme_pulled.png" class="noborder">
+
 
 <br>
 
