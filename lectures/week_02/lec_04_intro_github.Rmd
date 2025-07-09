@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["../lecture_inst.css", "../lecture_slides.css"]
+    css: ../lecture_inst.css
     toc: true
     toc_float: true
     toc_depth: 3
@@ -314,7 +314,9 @@ Inserting links to images works much the same as for websites, but you add an ex
 
 which will yield this
 
-![](images/FISH549_hex_sticker.png)
+<img src="images/FISH549_hex_sticker.png" class="noborder">
+
+<br>
 
 You can adjust the size of the image by specifying the height and width in percentages within curly brackets. For example,
 
@@ -324,7 +326,8 @@ You can adjust the size of the image by specifying the height and width in perce
 
 will yield this
 
-![](images/FISH549_hex_sticker.png){ height=30% width=30% }
+<img src="images/FISH549_hex_sticker.png" class="noborder-small">
+
 
 ## Displaying R code
 
