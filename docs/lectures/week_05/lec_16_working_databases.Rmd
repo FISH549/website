@@ -5,7 +5,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
     toc: true
     toc_float: true
     toc_depth: 3
@@ -70,7 +70,6 @@ Password: FGE9jBmVIuizl0ImuR9N9rPer5hXAfuIifvkAazJC59EG5zhf8bIZUU3LTrN13Eo
 ```
 
 
-
 ```{r db_connect}
 ## connect to the remote db
 db_con <- dbConnect(drv = Postgres(), 
@@ -97,7 +96,7 @@ knitr::include_graphics("images/RS_db_dplyr.png")
 ```
 <br>
 
-In addition, we can use the related **{dbplyr}** to convert R commands into actual SQL commands, or simply pass raw SQL commands if you want a more sophisticated query. So, to _interact_ with our remote database, we'll use two related packages:
+In addition, we can use the related **{dbplyr}** package to convert R commands into actual SQL commands, or simply pass raw SQL commands if you want a more sophisticated query. So, to _interact_ with our remote database, we'll use two related packages:
 
 1) **{dplyr}**
 2) **{dbplyr}**
@@ -110,7 +109,13 @@ library(dbplyr)
 
 ## List of tables
 
-Let's take a look at the tables contained in our Lake Washington database so we can begin thinking about how to approach an exploratory analysis. To do so, we can use `DBI::dbListTables()` to list the names of remote tables accessible through our connection.
+Let's take a look at the tables contained in our Lake Washington database so we can begin thinking about how to approach an exploratory analysis. 
+
+::: tip
+
+We can use `DBI::dbListTables()` to list the names of remote tables accessible through our connection.
+
+:::
 
 ```{r list_tbl}
 ## list the available tables
@@ -124,7 +129,17 @@ What's up with the others beginning with `pg_stat`? Those tables track statistic
 
 ## Retrieve a table
 
-Conveniently, we can use `dplyr::tbl()` to retrieve a table from a remote database and assign it to an object, if we'd like. Let's inspect the 2 tables containing the SQL statistics.
+::: tip
+
+We can use `dplyr::tbl()` to retrieve a table from a remote database and assign it to an object, if we'd like. Let's 
+
+:::
+
+::: task
+
+Inspect the 2 tables containing the SQL statistics.
+
+:::
 
 ```{r inspect_pg_stat_tables}
 ## inspect metadata tables
@@ -139,18 +154,22 @@ tbl(db_con, from = "pg_stat_statements")
 
 Let's take an exploratory look at some of the limnological^[If you didn't already know, "limnology" refers to the study of inland waters. Some people mistakenly define it as the study of _fresh_ water, but limnologists certainly study saline lakes as well (e.g., Great Salt Lake).] data from Lake Washington, an urban lake forming the eastern boundary of Seattle (see map [here](https://www.google.com/maps/@47.629098,-122.243267,11z?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoASAFQAw%3D%3D)). We can also check out the monthly time series of the [Pacific Decadal Oscillation](https://www.ncei.noaa.gov/access/monitoring/pdo/).
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Get the limnology table from our database and assign it to `limno`.
-</div>
+::: task
+
+Get the limnology table from our database and assign it to `limno`.
+
+:::
 
 ```{r get_limno_tbl}
 ## get the `limno` table from the db
 limno <- tbl(db_con, from = "limno")
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Take a look at the data contained in `limno`.
-</div>
+::: task
+
+Take a look at the data contained in `limno`.
+
+:::
 
 ```{r peep_limno_tbl}
 ## inspect the `limno` table
@@ -180,9 +199,11 @@ The columns ("fields" in database parlance) are as follows:
 *	`non_daphnid_cladocerans`: counts of non-Daphnid cladocerans
 *	`non_colonial_rotifers`: counts of non-colonial rotifers
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Find out the range of years in the database.
-</div>
+::: task
+
+Find out the range of years in the database.
+
+:::
 
 ```{r chk_unique_yrs}
 ## unique years of data
@@ -193,18 +214,22 @@ What happened here? We can clearly see values (of class `integer`) listed in our
 
 Because we're working with a remote database, all operations are "lazy", meaning they don't do anything until we formally _request_ the data.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Assign `limno` to a local **R** object with `collect()`.
-</div>
+::: task
+
+Assign `limno` to a local **R** object with `collect()`.
+
+:::
 
 ```{r collect limno}
 ## create a local copy of the table
 limno <- collect(limno)
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Check again for the range of years in the database.
-</div>
+::: task
+
+Check again for the range of years in the database.
+
+:::
 
 ```{r get_years}
 ## unique years of data
@@ -218,13 +243,17 @@ unique(limno$year) |> length()
 
 If you look closely at the classes for all of the non-date related fields, you'll see that they're currently all `character`'s. This can be traced back to the `NA`'s in the database itself. Before we can do any real operations on them, we'll need to convert them to class `numeric`. This is easily done using the {tidyverse}.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `mutate_if()` to convert `character` to `numeric`.
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
-</div>
+Use `mutate_if()` to convert `character` to `numeric`.
+
+:::
+
+::: note
+
+R will respond with a warning about `NAs introduced by coercion`, which you can ignore.
+
+:::
 
 ```{r convert_char_numeric}
 ## convert data types to `numeric`
@@ -237,9 +266,11 @@ limno <- limno |>
 
 Let's extract and plot the monthly time series of water temperature for the 20 years from 1970-1989. To begin, we'll create a new `date` column based on `year` and `month` so we can better use `ggplot()`. To do so, we'll make use of the **{lubridate}** package.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `lubridate::make_date()` to create a new `date` field.
-</div>
+::: task
+
+Use `lubridate::make_date()` to create a new `date` field.
+
+:::
 
 ```{r mutate_date_limno}
 ## if necessary, install {lubridate}
@@ -253,11 +284,13 @@ limno <- limno |>
 
 Now we can filter the table to choose the correct timespan and plot the temperature.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Filter the table and plot the time series of temperature.
-</div>
+::: task
 
-```{r plot_lwa_temp}
+Filter the table and plot the time series of temperature.
+
+:::
+
+```{r plot_lwa_temp, class.output="img.noborder"}
 ## load ggplot2
 library(ggplot2)
 
@@ -277,9 +310,11 @@ limno |>
 
 Let's make a similar plot of the Pacific Decadal Oscillation. To begin, we'll get the remote table and collect it into a local R object.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Get the PDO table from our database and assign it to `pdo`.
-</div>
+::: task
+
+Get the PDO table from our database and assign it to `pdo`.
+
+:::
 
 ```{r get_pdo_tbl}
 ## get the `pdo` table from the db & collect it
@@ -287,24 +322,30 @@ pdo <- tbl(db_con, from = "pdo") |>
   collect()
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Inspect the data in PDO table.
-</div>
+::: task
+
+Inspect the data in PDO table.
+
+:::
 
 ```{r peep_pdo_tbl}
 ## inspect the top of the `pdo` table
 pdo
 ```
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** The `date` field here appears a bit odd; it's of the form `YYYYMM`.
-</div>
+::: note
+
+The `date` field here appears a bit odd; it's of the form `YYYYMM`.
+
+:::
 
 Once again we can use the **{lubridate}** package to construct a proper `date` object. Specifically, we'll use the `ym()` function, which converts a date in a `YYYYMM` format to the ISO-standard `YYYY-MM-DD`
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use `lubridate::ym()` to create a new `date` field.
-</div>
+::: task
+
+Use `lubridate::ym()` to create a new `date` field.
+
+:::
 
 ```{r mutate_date_pdo}
 ## if necessary, install {lubridate}
@@ -321,9 +362,11 @@ pdo <- pdo |>
 
 Let's look at the time series of PDO values from 1970-1989.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Filter the PDO table and plot the time series.
-</div>
+::: task
+
+Filter the PDO table and plot the time series.
+
+:::
 
 ```{r plot_pdo}
 pdo |>
