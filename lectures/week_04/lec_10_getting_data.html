@@ -1666,6 +1666,8 @@ float: none;
 margin-left: auto;
 margin-right: auto;
 width: 90%;
+border: 1px solid #d3d3d3;
+box-shadow: 3px 3px 3px #d3d3d3;
 }
 </style>
 
@@ -1915,19 +1917,15 @@ getwd()</code></pre>
 <pre><code>## [1] &quot;/Users/scheuerl/Documents/GitHub/FISH549/website/lectures/week_04&quot;</code></pre>
 <pre class="r"><code>## what files exist in the working directory?
 list.files()</code></pre>
-<pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
-##  [3] &quot;images&quot;                    &quot;lec_10_getting_data_cache&quot;
-##  [5] &quot;lec_10_getting_data.html&quot;  &quot;lec_10_getting_data.Rmd&quot;  
-##  [7] &quot;lec_11_getting_help.html&quot;  &quot;lec_11_getting_help.Rmd&quot;  
-##  [9] &quot;lecture_inst.css&quot;          &quot;readr_cheatsheet.pdf&quot;     
-## [11] &quot;solid.css&quot;</code></pre>
+<pre><code>## [1] &quot;data&quot;                      &quot;images&quot;                   
+## [3] &quot;lec_10_getting_data_cache&quot; &quot;lec_10_getting_data.html&quot; 
+## [5] &quot;lec_10_getting_data.Rmd&quot;   &quot;lec_11_getting_help.html&quot; 
+## [7] &quot;lec_11_getting_help.Rmd&quot;   &quot;readr_cheatsheet.pdf&quot;</code></pre>
 <pre class="r"><code>dir()</code></pre>
-<pre><code>##  [1] &quot;data&quot;                      &quot;fontawesome.css&quot;          
-##  [3] &quot;images&quot;                    &quot;lec_10_getting_data_cache&quot;
-##  [5] &quot;lec_10_getting_data.html&quot;  &quot;lec_10_getting_data.Rmd&quot;  
-##  [7] &quot;lec_11_getting_help.html&quot;  &quot;lec_11_getting_help.Rmd&quot;  
-##  [9] &quot;lecture_inst.css&quot;          &quot;readr_cheatsheet.pdf&quot;     
-## [11] &quot;solid.css&quot;</code></pre>
+<pre><code>## [1] &quot;data&quot;                      &quot;images&quot;                   
+## [3] &quot;lec_10_getting_data_cache&quot; &quot;lec_10_getting_data.html&quot; 
+## [5] &quot;lec_10_getting_data.Rmd&quot;   &quot;lec_11_getting_help.html&quot; 
+## [7] &quot;lec_11_getting_help.Rmd&quot;   &quot;readr_cheatsheet.pdf&quot;</code></pre>
 <p>Our current location is in the <code>week_04</code> sub-folder buried
 relatively deeply within the course <code>website</code> repository.</p>
 <p>Using <code>here()</code> returns the following information:</p>
@@ -2076,7 +2074,7 @@ print(flow_raw[hdr_flow], quote = FALSE)</code></pre>
 ##  [8] # Additional info: https://waterdata.usgs.gov/provisional-data-statement/            
 ##  [9] #                                                                                    
 ## [10] # Contact:   gs-w_waterdata_support@usgs.gov                                         
-## [11] # retrieved: 2025-07-08 19:38:44 EDT       (caww02)                                  
+## [11] # retrieved: 2025-07-09 14:30:19 EDT       (sdww01)                                  
 ## [12] #                                                                                    
 ## [13] # Data for the following 1 site(s) are contained in this file                        
 ## [14] #    USGS 12178000 SKAGIT RIVER AT NEWHALEM, WA                                      
