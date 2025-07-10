@@ -6,6 +6,7 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
+    css: ../lecture_inst.css
     toc: true
     toc_float: true
     toc_depth: 3
@@ -84,18 +85,18 @@ Right now we're connected to the database as the `postgres` super user, so we wa
 - Under the `General` tab, give the new role a name (here we use `lake_wa`)
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_user_2.png")
-```
-<br><br>
+
+<img src="images/new_user_2.png" class="small">
+
+<br>
 
 - Click on the `Definition` tab at the top of the window and provide a password for your user
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_user_3.png")
-```
-<br><br>
+
+<img src="images/new_user_3.png" class="small">
+
+<br>
 
 - Click on the `Privileges` tab at the top of the window to assign permissions for the role
 
@@ -106,10 +107,10 @@ knitr::include_graphics("images/new_user_3.png")
 - Click the blue **Save** button when you are done
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_user_4.png")
-```
-<br><br>
+
+<img src="images/new_user_4.png" class="small">
+
+<br>
 
 - Click on the SQL tab to see the actual SQL that **pgAdmin** is generating for you (note that the SQL view masks the password you provided). Here's the SQL to create my new user:
 
@@ -126,10 +127,10 @@ CREATE ROLE lake_wa WITH
 ```
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/new_user_5.png")
-```
-<br><br>
+
+<img src="images/new_user_5.png" class="small">
+
+<br>
 
 - Click `Save` and then verify that your user now appears under `Login/Group Roles`
 
@@ -140,29 +141,29 @@ knitr::include_graphics("images/new_user_5.png")
 - Right click on `PostgreSQL 13` in the object browser, and then click `Disconnect Server` 
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_a.png")
-```
-<br><br>
+
+<img src="images/switch_user_a.png" class="small">
+
+<br>
 
 - A window will pop up asking if you are sure you want to disconnect--click `Ok` 
 - Right click on `PostgreSQL 13` in the object browser and then select `Properties` 
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_b.png")
-```
-<br><br>
+
+<img src="images/switch_user_b.png" class="small">
+
+<br>
 
 - A window will pop up titled **PostgreSQL** 13; click the `Connection` tab at the top
 
 - Under `Username` change `postgres` to `lake_wa` (or whatever you named your user)
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_c.png")
-```
-<br><br>
+
+<img src="images/switch_user_c.png" class="small">
+
+<br>
 
 - Click the blue **Save** to close the window and save your changes
 
@@ -173,10 +174,10 @@ knitr::include_graphics("images/switch_user_c.png")
 - Input the password and click the blue **OK** button
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_d.png")
-```
-<br><br>
+
+<img src="images/switch_user_d.png" class="small">
+
+<br>
 
 - You are now connected to **PostgreSQL** as your new user
 
@@ -199,10 +200,10 @@ Next we are going to create a new database to hold our Lake Washington and PDO d
 - Give your new database a name; here we called it `lake_wa` (note that **PostgreSQL** assumes we want the current user `lake_wa` to own the new database, which is OK, so there is nothing to change here) 
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/create_db_2.png")
-```
-<br><br>
+
+<img src="images/create_db_2.png" class="small">
+
+<br>
 
 - Click on SQL to see the statement that **pgAdmin** is writing for you to create the database. 
 
@@ -217,10 +218,10 @@ CREATE DATABASE lake_wa
 ```
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/create_db_3.png")
-```
-<br><br>
+
+<img src="images/create_db_3.png" class="small">
+
+<br>
 
 - Click the blue **Save** button and then verify you now see `lake_wa` as a second database beside `postgres` in the object browser
 
@@ -245,10 +246,10 @@ Before we import our data from the `.csv` files, we need to create a new *schema
 - In the dialogue box that opens up, click on the `General` tab and enter `staging` in the `Name` field
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/create_schema_2.png")
-```
-<br><br>
+
+<img src="images/create_schema_2.png" class="small">
+
+<br>
 
 - Click on the `SQL` tab and you should see the following SQL commands
 
@@ -258,10 +259,10 @@ CREATE SCHEMA staging
 ```
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/create_schema_3.png")
-```
-<br><br>
+
+<img src="images/create_schema_3.png" class="small">
+
+<br>
 
 
 # The data
@@ -449,10 +450,10 @@ We now need to create the tables for the data within the database. We'll begin w
 - Navigate to the location where you saved your `pdo_data.sql`, select it, and then click the blue **Select** button
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/query_tool_3a.png")
-```
-<br><br>
+
+<img src="images/query_tool_3a.png" class="small">
+
+<br>
 
 - You will now see the SQL code in the editor window, that begins with 
 
@@ -528,10 +529,10 @@ ORDER BY date ASC
 - Navigate to the location where you saved your `lwa_limno.sql`, select it, and then click the blue **Select** button
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/query_tool_3.png")
-```
-<br><br>
+
+<img src="images/query_tool_3.png" class="small">
+
+<br>
 
 - You will now see the SQL code in the editor window, that begins with 
 
@@ -592,9 +593,9 @@ If, for whatever reason, you want to delete a database, do this in **pgAdmin**
 * Right-click on the `lake_wa` database and select `Delete/Drop`
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/db_drop.png")
-```
+
+<img src="images/db_drop.png" class="small">
+
 <br>
 
 ## Delete a user
@@ -604,48 +605,48 @@ You cannot delete a user while you are logged in as that person. To remove the `
 1) Right-click on **PostgreSQL 13** in the object browser and select `Disconnect Server`
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/lwa_user_disconnect.png")
-```
+
+<img src="images/lwa_user_disconnect.png" class="small">
+
 <br>
 
 2) Right-click on **PostgreSQL 13** again and select `Properties`
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_1.png")
-```
+
+<img src="images/switch_user_1.png" class="small">
+
 <br>
 
 3) Click on the `Connection` tab and change `username` to `postgres`; when you are done, click the blue **Save** button
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_2.png")
-```
+
+<img src="images/switch_user_2.png" class="small">
+
 <br>
 
 4) Right-click on **PostgreSQL 13** and select `Connect Server`
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_3.png")
-```
+
+<img src="images/switch_user_3.png" class="small">
+
 <br>
 
 5) When prompted, enter the password you used when you first installed **PostgreSQL** and click the blue **OK** button
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/switch_user_4.png")
-```
+
+<img src="images/switch_user_4.png" class="small">
+
 <br>
 
 6) Under **Login/Group Roles** in the object browser, right-click on `lake_wa` and select `Delete/Drop`
 
 <br>
-```{r, echo = FALSE}
-knitr::include_graphics("images/drop_lwa_user.png")
-```
+
+<img src="images/drop_lwa_user.png" class="small">
+
 <br>
 
