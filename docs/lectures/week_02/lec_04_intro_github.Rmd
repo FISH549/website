@@ -6,6 +6,7 @@ output:
     theme: spacelab
     highlight: textmate
     css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
