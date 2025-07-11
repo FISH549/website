@@ -361,9 +361,90 @@ In general, social media is a great source of information on **R** and data scie
 
 ## GitHub
 
+### Issues
+
 As you start working more with teams on projects that are hosted on GitHub, you will invariably run into bugs, problems, errors, etc that you can't resolve yourself. Creating an issue that includes a reprex and description of the problem is a great way to solicit help, as well as maintain a record for future reference.
 
-In some cases, you may encounter a problem or discover a bug in a particular **R** package. Although [CRAN](https://cran.r-project.org/) is the primary location for hosting pacakges, many developers also maintain **GitHub** repos for their packages. These developers typically ask people to file an issue with the stipulation that you be polite and follow some general guidelines. Issues along the lines of "this doesn't work" or "why won't you update this" have a pretty good chance of being ignored. Very few people are paid to develop and maintain packages, so treat their time and effort with respect.
+In some cases, you may encounter a problem or discover a bug in a particular **R** package. Although [CRAN](https://cran.r-project.org/) is the primary location for hosting pacakges, many developers also maintain GitHub repos for their packages. These developers typically ask people to file an issue with the stipulation that you be polite and follow some general guidelines. Issues along the lines of "this doesn't work" or "why won't you update this" have a pretty good chance of being ignored. Very few people are paid to develop and maintain packages, so treat their time and effort with respect.
+
+### Gists
+
+GitHub provides another means to share code snippets via so-called [_gists_](https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists). When you create a gist, you can copy/paste the URL for its location into an issue, direct message, email, etc to share with others. You can also access all of the gists you create via your own [gist home page](https://gist.github.com/). Gists can be set to private or public, the latter of which are discoverable via web searches. Gists are also repos, which means you can view commit histories and for or clone them.
+
+Here are some instructions for creating a new gist.
+
+::: task
+
+Navigate to the gist home page [here](https://gist.github.com/).
+
+:::
+
+<img src="images/gist_1.png" class="noborder">
+
+::: task
+
+Click the '**+**' sign in the upper right to create a new gist.
+
+:::
+
+<img src="images/gist_2.png" class="noborder">
+
+::: task
+
+Give your gist a _short but informative_ title.
+
+:::
+
+<img src="images/gist_3.png" class="noborder">
+
+::: task
+
+Give your gist a short file name.
+
+:::
+
+::: tip
+
+Including the `.md` suffix for a Markdown document will bring up some additional editing info.
+
+:::
+
+<img src="images/gist_4.png" class="noborder">
+
+::: task
+
+Include some background information, as neccessary, and anything else you think would be helpful.
+
+:::
+
+<img src="images/gist_5.png" class="noborder">
+
+::: tip
+
+You click on the **Preview** tab to see how your document will look when saved.
+
+:::
+
+<img src="images/gist_6.png" class="noborder">
+
+::: task
+
+* Click on the down arrow next to the green **Create [option] gist** button to change options from private to public.
+
+* Click on the **Create [option] gist** button.
+
+:::
+
+<img src="images/gist_7.png" class="noborder">
+
+::: success
+
+You now have a gist that can be accessed via your account or shared with others.
+
+:::
+
+<img src="images/gist_8.png" class="noborder">
+
 
 ## Stack Overflow
 
