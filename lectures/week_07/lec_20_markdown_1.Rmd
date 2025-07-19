@@ -6,7 +6,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -30,28 +31,33 @@ Writing documents in **R Markdown** is relatively straightforward once you know 
 
 There are a number of existing templates available in the [**rticles**](https://github.com/rstudio/rticles) package that you can use for knitting your document to a specific style in `.pdf` format. For `.html` formats, there are a variety of "themes" [available as well](https://www.datadreaming.org/post/r-markdown-theme-gallery/). For example, this document was created with the `spacelab` theme.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open RStudio and from the menu options select **File > New File > R Markdown...**
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can change the **Title**, **Author**, and **Date**, fields here, but we'll do that later.
-</div>
+Open RStudio and from the menu options select **File > New File > R Markdown...**
 
-```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("images/rmd_create_new.png")
-```
+:::
+
+::: tip
+
+You can change the **Title**, **Author**, and **Date**, fields here, but we'll do that later.
+
+:::
+
+![](images/rmd_create_new.png){ width=70% }
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Leave the **Default Output Format** as `HTML` and click on **OK**.
-</div>
+::: task
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You now have a new `.Rmd` file ready for editing, which includes some placeholder text and code blocks.
-</div>
- 
+Leave the **Default Output Format** as `HTML` and click on **OK**.
+
+:::
+
+::: success
+
+You now have a new `.Rmd` file ready for editing, which includes some placeholder text and code blocks.
+
+:::
 
 ![](images/rmd_html_new.png)
 
@@ -65,9 +71,11 @@ knitr::include_graphics("images/rmd_create_new.png")
 
 Every Markdown document begins with a section of plain text written in [YAML](https://en.wikipedia.org/wiki/YAML) ("YAML Ain't Markup Language"). This block of human readable code is used to define some of the document's metadata such as the title, author, and date. It is also used to specify the document's format (eg, HTML or pdf) and its layout (eg, theme, font).
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The front matter is defined in a block of text that begins and ends with 3 dashes `---`.
-</div>
+::: tip
+
+The front matter is defined in a block of text that begins and ends with 3 dashes `---`.
+
+:::
 
 Here is the YAML for our new simple HTML document:
 
@@ -75,7 +83,7 @@ Here is the YAML for our new simple HTML document:
 ---
 title: "Untitled"
 author: "Mark Scheuerell"
-date: "10 February 2023"
+date: "7 February 2025"
 output: html_document
 ---
 ```
@@ -84,19 +92,18 @@ The YAML can include a lot more information as well, including fields for variou
 
 ```
 ---
-title: "Using R Markdown for publications"
+title: "Using R Markdown for reporting"
 subtitle: "Part 1"
-date: "10 February 2023"
+date: "<br>7 February 2025"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
-bibliography: "references.bib"
-csl: "ecology.csl"
 ---
 ```
 
@@ -106,39 +113,51 @@ csl: "ecology.csl"
 
 The process of creating a nicely formatted document (e.g., `html`, `.pdf`) from the raw markdown code in the `.Rmd` file is known as _knitting_. You can knit a `.Rmd` file from the R command line, but the easiest way in RStudio is to simply click the **Knit** button at the top of the editing pane.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Clicking on the downarrow to the right of the **Knit** button brings up some additional options.
-</div>
+::: tip
+
+Clicking on the downarrow to the right of the **Knit** button brings up some additional options.
+
+:::
 
 ![](images/rmd_knit_options.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Knit** button to render your `.Rmd` file as a `.html` file.
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** Knitting a `.Rmd` file automatically saves it. The first time you click **Knit**, you will be prompted for the filename and location where you want to save the file.
-</div>
+Click on the **Knit** button to render your `.Rmd` file as a `.html` file.
 
-![](images/rmd_html_knitted_1.png)
+:::
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You now have a knitted `.html` file.
-</div>
+::: note
+
+Knitting a `.Rmd` file automatically saves it. The first time you click **Knit**, you will be prompted for the filename and location where you want to save the file.
+
+:::
+
+<img src="images/rmd_html_knitted_1.png" class="noborder">
+
+::: success
+
+You now have a knitted `.html` file.
+
+:::
 
 ## Make some changes
 
 Let's make some changes to our markdown document and knit them.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add a title, subtitle, and table of contents (toc) to the YAML.
-</div>
+::: task
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** The indentation and colons in the YAML subfields are necessary.
-</div>
+Add a title, subtitle, and table of contents (toc) to the YAML.
+
+:::
+
+::: note
+
+The indentation and colons in the YAML subfields are necessary.
+
+:::
 
 ```
 ---
@@ -154,27 +173,32 @@ output:
 ---
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add a level-1 and level-3 header to your document.
-</div>
+::: task
+
+Add a level-1 and level-3 header to your document.
+
+:::
 
 ![](images/rmd_html_edited.png)
 
 <br>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click the **Knit** button to see you changes.
-</div>
+::: task
 
-![](images/rmd_html_knitted_2.png)
+Click the **Knit** button to see your changes.
 
-<br>
+:::
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The table of contents will change as you scroll down through the sections and float along the left side.
-</div>
+<img src="images/rmd_html_knitted_2.png" class="noborder">
 
-![](images/rmd_html_toc_scroll.png)
+::: tip
+
+The table of contents will change as you scroll down through the sections and float along the left side.
+
+:::
+
+<img src="images/rmd_html_toc_scroll.png" class="noborder">
+
 
 ***
 
@@ -184,145 +208,212 @@ Now that we've seen how to create an HTML report using R Markdown, let's publish
 
 ## Create a new repo
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate to GitHub and create a new _public_ repo called `markdown-demo`. Add a `README.md` file and an R `.gitignore` file as well (you can skip a license file). CLick the green **Create repository** button when you're ready.
-</div>
+::: task
 
-![](images/gh_new_demo_repo.png)
+* Navigate to GitHub and create a new _public_ repo called `markdown-demo`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Settings** button in the upper right.
-</div>
+* Add a `README.md` file and an R `.gitignore` file as well (you can skip a license file).
 
-![](images/gh_new_repo_home.png)
+* Click the green **Create repository** button when you're ready.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **Pages** button on the left side.
-</div>
+:::
 
-![](images/gh_new_repo_settings.png)
+<img src="images/gh_new_demo_repo.png" class="noborder">
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **None** button under the **Branch** heading and swith it to **main**.
-</div>
+::: task
 
-![](images/gh_new_repo_pages_branch.png)
+Click on the **Settings** button in the upper right.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the **/ (root)** button under the **Branch** heading and swith it to **/docs**.
-</div>
+:::
 
-![](images/gh_new_repo_pages_folder.png)
+<img src="images/gh_new_repo_home.png" class="noborder">
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** When you're ready, click on the **Save** button.
-</div>
+::: task
 
-![](images/gh_new_repo_pages_set.png)
+Click on the **Pages** button on the left side.
 
-<div class="boxy boxy-success boxy-check">
-**Success:** Your repo is now set to use GitHub Pages for displaying HTML files.
-</div>
+:::
 
-![](images/gh_new_repo_pages_done.png)
+<img src="images/gh_new_repo_settings.png" class="noborder">
+
+::: task
+
+Click on the **None** button under the **Branch** heading and swith it to **main**.
+
+:::
+
+<img src="images/gh_new_repo_pages_branch.png" class="noborder">
+
+::: task
+
+Click on the **/ (root)** button under the **Branch** heading and swith it to **/docs**.
+
+:::
+
+<img src="images/gh_new_repo_pages_folder.png" class="noborder">
+
+::: task
+
+When you're ready, click on the **Save** button.
+
+:::
+
+<img src="images/gh_new_repo_pages_set.png" class="noborder">
+
+::: success
+
+Your repo is now set to use GitHub Pages for displaying HTML files.
+
+:::
+
+<img src="images/gh_new_repo_pages_done.png" class="noborder">
+
 
 ## Create an RStudio project
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Create a new project in RStudio from the `markdown-demo` repo you just created.
-</div>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open a new R Markdown document and give it a title. Select the **HTML** format and click **OK** when you're done.
-</div>
+Create a new project in RStudio from the `markdown-demo` repo you just created.
 
-```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("images/rmd_html_doc_new.png")
-```
+:::
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Save your new document in a new subfolder within your `markdown-demo` project called `docs` with the filename `index.Rmd`.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** When you click **Save**, your markdown document will be knit automatically.
-</div>
+Open a new R Markdown document and give it a title. Select the **HTML** format and click **OK** when you're done.
 
-![](images/rmd_html_doc_save.png)
+:::
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** You should now see a `/docs` folder in the RStudio file pane. Click on it and you will see your `index.Rmd` and `index.html` files there. 
-</div>
+![](images/rmd_html_doc_new.png){ width=70% }
 
-```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("images/rmd_html_index_1.png")
-```
+::: task
 
-```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("images/rmd_html_index_2.png")
-```
+Save your new document in a new subfolder within your `markdown-demo` project called `docs` with the filename `index.Rmd`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Commit your changes to the `index.Rmd` and `index.html` files.
-</div>
+:::
 
-![](images/rmd_html_index_commit.png)
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Push your commit when done.
-</div>
+When you click **Save**, your markdown document will be knit automatically.
 
-![](images/rmd_html_index_push.png)
+:::
+
+<img src="images/rmd_html_doc_save.png" class="noborder">
+
+
+::: note
+
+You should now see a `/docs` folder in the RStudio file pane. Click on it and you will see your `index.Rmd` and `index.html` files there. 
+
+:::
+
+![](images/rmd_html_index_1.png){ width=70% }
+
+![](images/rmd_html_index_2.png){ width=70% }
+
+::: task
+
+Commit your changes to the `index.Rmd` and `index.html` files.
+
+:::
+
+<img src="images/rmd_html_index_commit.png" class="noborder">
+
+::: task
+
+Push your commit when done.
+
+:::
+
+<img src="images/rmd_html_index_push.png" class="noborder">
+
 
 ## Viewing your document
 
 Now that we've pushed our basic HTML report to GitHub, we should be able to view it online.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Navigate back your `markdown-demo` repo on GitHub and you'll see the `/docs` folder containing the `index.Rmd` and `index.html` files you just pushed.
-</div>
+::: task
 
-![](images/gh_repo_updated.png)
+Navigate back your `markdown-demo` repo on GitHub and you'll see the `/docs` folder containing the `index.Rmd` and `index.html` files you just pushed.
 
-![](images/gh_repo_docs.png)
+:::
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If you click on the `index.html` file, you'll notice that it just displays the raw HTML code rather than a nicely formatted website.
-</div>
+<img src="images/gh_repo_updated.png" class="noborder">
 
-![](images/gh_repo_docs_index.png)
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** GitHub cannot render HTML files in a normal repo, but you can view your new document by navigating to `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username.
-</div>
+<img src="images/gh_repo_docs.png" class="noborder">
 
-![](images/gh_pages_rendered.png)
 
-<div class="boxy boxy-success boxy-check">
-**Success:** You now have an online report that you can update by making changes in your RStudio project and pushing them to GitHub.
-</div>
+::: note
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can add a link to your newly rendered document by edited the main page of your repo.
-</div>
+If you click on the `index.html` file, you'll notice that it just displays the raw HTML code rather than a nicely formatted website.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on the small gear icon in the upper right, which will bring up a window to edit some aspects of your repo.
-</div>
+:::
 
-![](images/gh_repo_pages_link.png)
+<img src="images/gh_repo_docs_index.png" class="noborder">
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the **Website** field, type or copy/paste the link to your rendered site, which should be `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username. Click on the green **Save changes** button when you're done.
-</div>
 
-![](images/gh_pages_add_link.png)
+::: tip
 
-<div class="boxy boxy-success boxy-check">
-**Success:** Your repo has now been updated to include a direct link to your properly rendered HTML report.
-</div>
+GitHub cannot render HTML files in a normal repo, but you can view your new document by navigating to `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username.
 
-![](images/gh_repo_with_link.png)
+:::
+
+<img src="images/gh_pages_rendered.png" class="noborder">
+
+
+::: tip
+
+You can add a link to your newly rendered document by edited the main page of your repo.
+
+:::
+
+::: task
+
+Click on the small gear icon in the upper right, which will bring up a window to edit some aspects of your repo.
+
+:::
+
+<img src="images/gh_repo_pages_link.png" class="noborder">
+
+
+::: task
+
+* In the **Website** field, type or copy/paste the link to your rendered site, which should be `https://USERNAME.github.io/markdown-demo/` where `USERNAME` is your GitHub username. 
+
+* Click on the green **Save changes** button when you're done.
+
+:::
+
+<img src="images/gh_pages_add_link.png" class="noborder">
+
+
+::: success
+
+Your repo has now been updated to include a direct link to your properly rendered HTML report.
+
+:::
+
+<img src="images/gh_repo_with_link.png" class="noborder">
+
+::: tip
+
+You can easily share your online report with others by copying/pasting the link in the **About** field into a message, issue, etc.
+
+:::
+
+<br>
+
+## Updating your report
+
+You now have an online document that you can update by making changes in your RStudio project and pushing them to GitHub.
+
+::: tip
+
+Adding information about a document's version or the date it was last updated can be helpful to you and others. We'll see [next time](lec_21_markdown_2.html) how to do so.
+
+:::
+
+<br>
 
 ***
 
@@ -330,8 +421,9 @@ Now that we've pushed our basic HTML report to GitHub, we should be able to view
 
 Now that you have seen how to create HTML reports and display them online, you're ready to add more details such as equations, code blocks, figures, tables, etc.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can refer to [this primer](https://fish549.github.io/website/lectures/week_07/intro_rmarkdown.html) for some additional information on formatting R Markdown documents.
-</div>
+::: tip
 
+You can refer to [this primer](https://fish549.github.io/website/lectures/week_07/intro_rmarkdown.html) for some additional information on formatting R Markdown documents.
+
+:::
 
