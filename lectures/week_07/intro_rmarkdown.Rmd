@@ -4,7 +4,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -46,7 +47,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -143,9 +145,11 @@ results in
 
 > This bit is <u>underlined</u>.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can use all kinds of HTML tags within Markdown documents for additional formatting options.
-</div>
+::: tip
+
+You can use all kinds of HTML tags within Markdown documents for additional formatting options.
+
+:::
 
 
 ## Block quotes
@@ -244,33 +248,50 @@ and then provided the full address as `[1]: http://www.google.com` at the end of
 
 > Please conduct your search from [this link][1].
 
-## Inserting pictures
+# Inserting pictures
 
 ### Inline
 
-Inserting links to images works much the same as for websites, but you add an exclamation point (`!`) at the beginning of the construct (and the text inside the square brackets in optional). For example, here is how to include an inline link to a picture of the Ray Troll mural in the SAFS lobby, which exists in the same directory as this Markdown document.
+Inserting links to images works much the same as for websites, but you add an exclamation point (`!`) at the beginning of the code, so that the full call is
 
 ```
-Check out the SAFS mural: ![](safs_mural.jpeg)
+!["optional title"](path/to/your/image "optional-alt-text")
+```
+
+which can be shortened to simply
+
+```
+![](path/to/your/image)
+```
+
+For example, here is how to include an inline link to a picture of the Ray Troll mural in the SAFS lobby, which exists in the same directory as this Markdown document.
+
+```
+![Ray Troll's "Fishes of the Salish Sea"](safs_mural.jpeg "Ray Troll's 'Fishes of the Salish Sea'")
 ```
 
 which will yield this
 
-> Check out the SAFS mural: ![](safs_mural.jpeg)
+![Ray Troll's "Fishes of the Salish Sea"](safs_mural.jpeg "Ray Troll's 'Fishes of the Salish Sea'"){ width=100% }
+
 
 ### Referenced
 
 Referenced links work just as above for websites, but instead of the site's address, include the name of the image file. For example, we could have used
 
 ```
-Check out the SAFS mural: ![][2]
+!["Ray Troll's 'Fishes of the Salish Sea'"][2]
 ```
 
 which yields the same result:
 
-> Check out the SAFS mural: ![][2]
+![Ray Troll's "Fishes of the Salish Sea"](safs_mural.jpeg "Ray Troll's 'Fishes of the Salish Sea'"){ width=100% }
 
-(NOTE that we used `[1]` for the referenced Google link above, so we used `[2]` here.)
+::: note
+
+We used `[1]` for the referenced Google link above, so we used `[2]` here.
+
+:::
 
 Here are the references for the links. For some reason I put the full address here for the web link in the above section on "Referenced links", but it works just fine.
 
@@ -288,11 +309,16 @@ You can adjust the width of an image in your Markdown document by adding a `widt
 
 ```
 ## set the image width to 50%
-Check out the SAFS mural: ![](safs_mural.jpeg){ width=50% }
+![Ray Troll's "Fishes of the Salish Sea"](safs_mural.jpeg){ width=50% }
 ```
 
-> Check out the SAFS mural: ![](safs_mural.jpeg){ width=50% }
+![Ray Troll's "Fishes of the Salish Sea"](safs_mural.jpeg){ width=50% }
 
+::: note
+
+An image's title will always be fully left-justified in the knitted document and will not align with the image if its size is set less than 100%.
+
+:::
 
 # Writing code
 
@@ -352,9 +378,11 @@ a / b
 ```
 ````
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** There are [many other chunk options](https://yihui.org/knitr/options/#chunk-options) available for customizing code evaluation, results, etc.
-</div>
+::: tip
+
+There are [many other chunk options](https://yihui.org/knitr/options/#chunk-options) available for customizing code evaluation, results, etc.
+
+:::
 
 ## Inline
 
@@ -445,9 +473,11 @@ $$
 \end{aligned}
 $$
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If your preferred output format is pdf, there are additional **LaTeX** options for formatting equations.
-</div>
+::: tip
+
+If your preferred output format is pdf, there are additional **LaTeX** options for formatting equations.
+
+:::
 
 ***
 
@@ -542,6 +572,8 @@ y <- 1 + 0.5 * x + e
 plot(x, y)
 ```
 
+<br>
+
 You can also add chunk options to change the figure's size, location, etc. For example,
 
 ````
@@ -591,13 +623,13 @@ To export a reference library from **EndNote**, do the following
 
 * From the main menu, select `Edit > Output Styles > Open Style Manager...`
 
-![](images/endnote_1.png)
+![](images/endnote_1.png){ width=80% }
 
 * Enter "bibtex" into the search bar at the top of the pop-up window and check the box next to `BibTeX Export`
 
 * Close the window when you're finished
 
-![](images/endnote_2.png)
+![](images/endnote_2.png){ width=70% }
 
 * From the main menu, select `Edit > Output Styles` and check the `BibTeX Export` option
 
@@ -610,6 +642,8 @@ To export a reference library from **EndNote**, do the following
 * Click **Save** when you're finished
 
 ![](images/endnote_4.png)
+
+<br>
 
 ### Export from Mendeley
 
@@ -628,6 +662,8 @@ To export a reference library from **Mendeley**, do the following
 * Click **OK** when you are finished
 
 ![](images/mendeley.png)
+
+<br>
 
 ## Citations
 
