@@ -6,7 +6,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -37,30 +38,53 @@ date: "10 February 2025"
 output: pdf_document
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can also add a subtitle with the `subtitle` argument and set the data to automatically update with the inline **R** code `Sys.Date()`. You can create a custom format for the date as well.
-</div>
+::: tip
 
-For example, the following `date` option will print as `day full-month-name four-digit-year`. Check out the options for the R function `format()` to see how to change the date format.
+You can add a subtitle with the `subtitle` argument.
+
+:::
 
 ```{r yaml_2, eval = FALSE}
 title: "A catchy title"
-subtitle: "A pithy subtitle"
+subtitle: "A pithy subtitle"  # a subtitle
 author: "First Last"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "10 February 2025"
 output: pdf_document
 ```
 
+::: tip
+
+* You can set the date field to automatically update to the current date by using the R function `Sys.Date()` inline.
+
+* You can use custom date formats as well.
+
+:::
+
+For example, the following `date` option will print the current date as `full-month-name day, four-digit-year` (eg, `February 10, 2025`).
+
+```{r yaml_3, eval = FALSE}
+title: "A catchy title"
+subtitle: "A pithy subtitle"
+author: "First Last"
+date: "`r format(Sys.time(), '%B %d, %Y')`"  # use current date with formatting
+output: pdf_document
+```
+
+::: tip
+
+Type `?format()` at the R command prompt to see options for various date formats.
+
+:::
 
 ***
 
 # Document layout
 
-The default document layout for `.pdf` files in **R Markdown** is pretty good, but there are some options to improve it. These options are specified primarily in the document's `YAML`, but some of them will be placed in the "chunk options" within **R** code blocks.
+The default document layout for `.pdf` files in **R Markdown** is pretty good, but there are some options to improve it. These options are specified primarily in the document's `YAML`, but some of them will be placed in the "chunk options" within R code blocks.
 
 ## Appearance
 
-We can change the overall appearance or *class* of the document with the `documentclass` argument, which you set in the `YAML`. Here are some of the options.
+We can change the overall appearance or *class* of the document with the `documentclass` argument, which you set in the `YAML`. The following subsections show some of the options.
 
 ### Article
 
@@ -71,6 +95,7 @@ title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/10/2025"
 output: pdf_document
+## use default article format
 documentclass: article
 ```
 
@@ -83,6 +108,7 @@ title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/10/2025"
 output: pdf_document
+## use default report format
 documentclass: report
 ```
 
@@ -96,6 +122,7 @@ author: "First Last"
 date: "2/10/2025"
 output: pdf_document
 documentclass: report
+## use 2-column text
 classoption: twocolumn
 ```
 
@@ -110,14 +137,11 @@ author: "First Last"
 date: "2/10/2025"
 output: pdf_document
 documentclass: article
-geometry: margin=1.5in
+## set wider margins
+geometry: margin=1.5in  
 ```
 
 Here's an example of setting the top and bottom margins in an `article` to 1 inch and the left and right margins to 1.25 inches.
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** When using multiple settings in an argument, we need to set them on separate lines preceded by a dash `-`.
-</div>
 
 ```{r margins_2, eval = FALSE}
 title: "Example template for exploring formatting options"
@@ -125,6 +149,7 @@ author: "First Last"
 date: "2/10/2025"
 output: pdf_document
 documentclass: article
+## set different margins by location
 geometry:
 - top=1in
 - bottom=1in
@@ -132,9 +157,17 @@ geometry:
 - right=1.25in
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can also use metric units for margins.
-</div>
+::: note
+
+When using multiple settings in a YAML argument, we need to set them on separate lines preceded by a hyphen `-`.
+
+:::
+
+::: tip
+
+You can also use metric units for margins.
+
+:::
 
 ## Line spacing
 
@@ -147,6 +180,7 @@ date: "2/10/2025"
 output: pdf_document
 documentclass: article
 geometry: margin=1in
+# use double-spaced text
 linestretch: 2
 ```
 
@@ -154,21 +188,27 @@ linestretch: 2
 
 You can add line numbers to `.pdf` documents, but it involves using an additional **LaTeX** package call `lineno`.
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** To use additional **LaTeX** packages, you have to set the `header-includes` argument in the `YAML`. 
-</div>
+::: note
 
-For example, it looks like this for a double-spaced article with 1-inch margins:
+To use additional **LaTeX** packages, you have to set the `header-includes` argument in the `YAML`. 
+
+:::
+
+For example, here are the settings for a double-spaced article with 1-inch margins:
 
 ```{r line_numbers, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/10/2025"
 output: pdf_document
+## article
 documentclass: article
+## 1-in margins
 geometry: margin=1in
+## double-spaced
 linestretch: 2
-header-includes:
+## include line numbers
+header-includes:  
   - \usepackage{lineno}
   - \linenumbers
 ```
@@ -188,6 +228,7 @@ output: pdf_document
 documentclass: article
 geometry: margin=1in
 linestretch: 2
+## use 12-pt font
 fontsize: 12pt
 ```
 
@@ -195,29 +236,39 @@ fontsize: 12pt
 
 You can change the font family, but doing so depends on the **LaTeX** engine you are using.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can check your **LaTeX** engine by examining the **Global options** in **RStudio**.
-</div>
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Click on **Tools > Global Opotions...** In the dialogue box, select the **Sweave** option on the left and look at the setting for **Typeset LaTeX into PDF using**.
-</div>
+You can check your **LaTeX** engine by examining the **Global options** in **RStudio**.
+
+:::
+
+::: task
+
+* Click on **Tools > Global Opotions...**
+
+* In the dialogue box, select the **Sweave** option on the left and look at the setting for **Typeset LaTeX into PDF using**.
+
+:::
 
 ```{r, echo = FALSE, out.width = "80%", fig.align = "center"}
 knitr::include_graphics("images/rs_global_options.png")
 ```
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If your **LaTeX** distribution is **TinyTeX** and the required font packages have not been installed, they should be automatically installed when the document is knitted.
-</div>
+::: note
+
+If your **LaTeX** distribution is **TinyTeX** and the required font packages have not been installed, they should be automatically installed when the document is knitted.
+
+:::
 
 <br>
 
 #### Settings for `pdflatex`
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you are using **pdflatex**, you can use the `fontfamily` argument to select a **LaTeX** font package to be loaded in your document to change the font. Also note that this requires you to use multi-line option specification for `output` like we saw for `geometry` above.
-</div>
+::: tip
+
+If you are using **pdflatex**, you can use the `fontfamily` argument to select a **LaTeX** font package to be loaded in your document to change the font. Also note that this requires you to use multi-line option specification for `output` like we saw for `geometry` above.
+
+:::
 
 For example, this document will use the Arial font.
 
@@ -227,7 +278,9 @@ author: "First Last"
 date: "2/10/2025"
 output:
   pdf_document: 
+    ## set LaTeX engine
     latex_engine: pdflatex
+## set font to Arial
 fontfamily: Arial
 documentclass: article
 geometry: margin=1in
@@ -239,17 +292,21 @@ fontsize: 12pt
 
 #### Settings for `XeLaTeX`
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you using **XeLaTeX** or **luaLaTeX**, you will be able to select fonts that are available on your local computer, and do not have to install additional **LaTeX** packages. To do so, use the `mainfont` argument.
-</div>
+::: tip
+
+If you using **XeLaTeX** or **luaLaTeX**, you will be able to select fonts that are available on your local computer, and do not have to install additional **LaTeX** packages. To do so, use the `mainfont` argument.
+
+:::
 
 ```{r font_fam_2, eval = FALSE}
 title: "Example template for exploring formatting options"
 author: "First Last"
 date: "2/10/2025"
 output:
-  pdf_document: 
+  pdf_document:
+    ## set LaTeX engine
     latex_engine: xelatex
+## set font to Arial
 mainfont: Arial
 documentclass: article
 geometry: margin=1in
@@ -277,6 +334,7 @@ documentclass: report
 geometry: margin=1in
 linestretch: 2
 fontsize: 12pt
+## insert table of contents with level-2 headings
 toc: TRUE
 toc-depth: 2
 ```
@@ -315,13 +373,17 @@ to the following **LaTeX** code:
 ```
 
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** If the figure or table cannot be contained in the space remaining on the current page, **LaTeX** will try to place it at the top of the next page. If the figure is tall enough, it may occupy the whole next page, even if there is still space left for a few lines of text.
-</div>
+::: note
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The float's behavior can be controlled by using placement controls in square brackets like `\begin{figure}[]`.
-</div>
+If the figure or table cannot be contained in the space remaining on the current page, **LaTeX** will try to place it at the top of the next page. If the figure is tall enough, it may occupy the whole next page, even if there is still space left for a few lines of text.
+
+:::
+
+::: tip
+
+The float's behavior can be controlled by using placement controls in square brackets like `\begin{figure}[]`.
+
+:::
 
 Here are some possible controls:
 
@@ -330,9 +392,11 @@ Here are some possible controls:
 * `b`: Position at the bottom of the page  
 * `p`: Put on a special page for floats only  
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can override the default placement by prefacing the control with an exclamation point (eg, `[!t]`).
-</div>
+::: tip
+
+You can override the default placement by prefacing the control with an exclamation point (eg, `[!t]`).
+
+:::
 
 If you want to place the float at *exactly the location* in the **LaTeX** code, you will need to include a call to the `float` package in the `YAML`
 
@@ -347,6 +411,7 @@ linestretch: 2
 fontsize: 12pt
 toc: TRUE
 toc-depth: 2
+## use the {float} package
 header-includes:
   - \usepackage{float}
 ```
@@ -518,9 +583,11 @@ Each entry in the `.bib` file looks something like this:
 
 This document is set to use the style guidelines for the journal _Ecology_, as specified in `ecology.csl`.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can download just about any journal's style file [here](https://www.zotero.org/styles).
-</div>
+::: tip
+
+You can download just about any journal's style file [here](https://www.zotero.org/styles).
+
+:::
 
 At this point there are two options for setting up your **BibTeX** file and creating in-text citations.
 
@@ -555,7 +622,7 @@ To export a reference library from **Mendeley**, do the following
 
 * Click **OK** when you are finished
 
-![](images/mendeley.png)
+![](images/mendeley.png){ width=80% }
 
 <br>
 
@@ -565,13 +632,13 @@ To export a reference library from **EndNote**, do the following
 
 * From the main menu, select `Edit > Output Styles > Open Style Manager...`
 
-![](images/endnote_1.png)
+![](images/endnote_1.png){ width=80% }
 
 * Enter "bibtex" into the search bar at the top of the pop-up window and check the box next to `BibTeX Export`
 
 * Close the window when you're finished
 
-![](images/endnote_2.png)
+![](images/endnote_2.png){ width=70% }
 
 * From the main menu, select `Edit > Output Styles` and check the `BibTeX Export` option
 
@@ -584,6 +651,8 @@ To export a reference library from **EndNote**, do the following
 * Click **Save** when you're finished
 
 ![](images/endnote_4.png)
+
+<br>
 
 ### In-text citations
 
@@ -610,15 +679,19 @@ we could use `[@Smith_2021]` to format the in-text reference as "(Smith and John
 
 [Carl Boettiger](https://www.carlboettiger.info/) and colleagues have created a really neat package called `{knitcitations}` for creating and citing **BibTeX**-style references via several mechanisms.
 
-<div class="boxy boxy-red boxy-exclamation">
- **Note:** For this method to work properly, the `.bib` file you specify in the YAML **must not exist** in the working directory.
-</div>
+::: note
+
+For this method to work properly, the `.bib` file you specify in the YAML **must not exist** in the working directory.
+
+:::
 
 ### Initial setup
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Place the following code block somewhere near the top of your document. For example, you could even include it within the default `{r setup}` block beneath the YAML.
-</div>
+::: task
+
+Place the following code block somewhere near the top of your document. For example, you could even include it within the default `{r setup}` block beneath the YAML.
+
+:::
 
 ```{r load_knitcitations}
 ## load the package
@@ -637,7 +710,7 @@ Rather than creating a `.bib` file ahead of time, `{knitcitations}` actually cre
 
 ### In-text citations
 
-With `{knitcitations}`, you use **R** commands to both create an entry in the `.bib` file as well as create the in-text citation.
+With `{knitcitations}`, you use R commands to both create an entry in the `.bib` file as well as create the in-text citation.
 
 #### Cite by DOI
 
@@ -701,7 +774,7 @@ will do two things:
 
 #### Cite **BibTeX** objects directly
 
-We can also cite **BibTeX** objects directly, such as those that **R** provides for citing packages using the `citation()` function. So, for example, here are the citations for the `{knitr}` package
+We can also cite **BibTeX** objects directly, such as those that R provides for citing packages using the `citation()` function. So, for example, here are the citations for the `{knitr}` package
 
 ```{r}
 citation("knitr")
@@ -749,15 +822,15 @@ to generate the 3 **BibTeX** objects as
 
 and also create the formatted in-text citation
 
-"`r citep(citation("knitr"))`".
+> `r citep(citation("knitr"))`.
 
 We can now cite the package with normal **BibTeX** entries and pandoc will correctly avoid duplicating the author's name. For example,
 
 `[@Xie_2014; @Xie_2015]`
 
-will produce the formatted in-text citation
+will produce a formatted in-text citation
 
-"[@Xie_2014; @Xie_2015]".
+> [@Xie_2014; @Xie_2015].
 
 Similarly, we can cite references that are already included in our `.bib` file using the standard notation, such that
 
@@ -765,7 +838,7 @@ Similarly, we can cite references that are already included in our `.bib` file u
 
 will render as
 
-"[@Boettiger_2013]" or "@Boettiger_2013".
+> [@Boettiger_2013] or @Boettiger_2013.
 
 <br>
 
@@ -779,16 +852,18 @@ When `citep()` or `citet()` are called, they automatically generate a **BibTeX**
 
 will simply create the citation
 
-"[@Abrams_2012]".
+> [@Abrams_2012].
 
 
 ### Creating the **References** section
 
 Creating the **References** section is straightforward with `{knitcitations}`. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** At the end of your document, insert a code block with a call to `write.bibtex(file = "filename.bib")`, where `filename.bib` is the name of the `.bib` file to which you would like the references written.
-</div>
+::: task
+
+At the end of your document, insert a code block with a call to `write.bibtex(file = "filename.bib")`, where `filename.bib` is the name of the `.bib` file to which you would like the references written.
+
+:::
 
 The function will then create the reference cited section using the formatting specified in the `.csl` file supplied in the document's YAML.
 
@@ -815,9 +890,11 @@ write.bibtex(file = "references.bib")
 
 By default, formatted references in an R Markdown document will always be placed at the very end, but sometimes you might want to place them before other content like tables and figures. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can specify a specific location for the reference cited section with the following code.
-</div>
+::: tip
+
+You can specify a specific location for the reference cited section with the following code.
+
+:::
 
 ```{r, eval = FALSE}
 ::: {#refs}
