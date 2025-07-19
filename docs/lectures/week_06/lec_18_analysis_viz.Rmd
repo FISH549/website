@@ -482,7 +482,7 @@ ghg_1 <- ghg %>%
   select(-category) %>%
   tibble::deframe()
 
-ghg_p1 <- waffle::waffle(ghg_1) +
+ghg_p1 <- waffle::waffle(ghg_1, size = 0.67) +
   ggthemes::scale_fill_tableau(name=NULL,
                                palette = "Miller Stone",
                                type = "regular",
@@ -496,7 +496,7 @@ ghg_2 <- ghg %>%
   select(-category) %>%
   tibble::deframe()
 
-ghg_p2 <- waffle::waffle(ghg_2) +
+ghg_p2 <- waffle::waffle(ghg_2, size = 0.67) +
   ggthemes::scale_fill_tableau(name=NULL,
                                palette = "Miller Stone",
                                type = "regular",
@@ -510,7 +510,7 @@ ghg_3 <- ghg %>%
   select(-category) %>%
   tibble::deframe()
 
-ghg_p3 <- waffle::waffle(ghg_3) +
+ghg_p3 <- waffle::waffle(ghg_3, size = 0.67) +
   ggthemes::scale_fill_tableau(name=NULL,
                                palette = "Miller Stone",
                                type = "regular",
