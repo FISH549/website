@@ -6,7 +6,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -20,13 +21,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-If you think about your typical **R** script within a project, you probably have a series of calls to various functions (and subsequent assignments of their output to object names) that follow a purposeful path to an endpoint. Similar to how an article conveys scientific ideas to others, a package allows us to distribute a specific workflow to others. 
+If you think about your typical R script within a project, you probably have a series of calls to various functions (and subsequent assignments of their output to object names) that follow a purposeful path to an endpoint. Similar to how an article conveys scientific ideas to others, a package allows us to distribute a specific workflow to others. 
 
-For many of us, our first encounter with **R** packages is via those that come bundled with the base installation of **R** and allow us access to functions like `mean()` and `plot()`. In essence, packages allow us to expand the functionality of base **R** while still enforcing some standards (e.g., many of you will have experience with the various functions in the `{tidyverse}` collection).
+For many of us, our first encounter with R packages is via those that come bundled with the base installation of R and allow us access to functions like `mean()` and `plot()`. In essence, packages allow us to expand the functionality of base R while still enforcing some standards (e.g., many of you will have experience with the various functions in the `{tidyverse}` collection).
 
-Here is some common terminology with respect to **R** packages:
+Here is some common terminology with respect to R packages:
 
-* *Package*: An extension of the base **R** system with code, data [optional], and documentation combined together in a standard format (e.g., [`{MARSS}`](https://cran.r-project.org/web/packages/MARSS/index.html)).
+* *Package*: An extension of the base R system with code, data [optional], and documentation combined together in a standard format (e.g., [`{MARSS}`](https://cran.r-project.org/web/packages/MARSS/index.html)).
 
 * *Library*: A directory/folder containing installed packages (e.g., the location you would pass to the argument `lib` in the `install.packages()` function).
 
@@ -36,9 +37,9 @@ Here is some common terminology with respect to **R** packages:
 
 * *Binary*: A compiled version of a package with computer-readable text and code.
 
-* *Base packages*: Part of the **R** source tree, maintained by **R Core**.
+* *Base packages*: Part of the R source tree, maintained by **R Core**.
 
-* *Recommended packages*: Part of every **R** installation, but not necessarily maintained by **R Core**.
+* *Recommended packages*: Part of every R installation, but not necessarily maintained by **R Core**.
 
 * *Contributed packages*: All of the remaining packages contributed by the user community.
 
@@ -46,7 +47,7 @@ Here is some common terminology with respect to **R** packages:
 
 # Functions
 
-Functions form the basis for **R** packages. In general, an **R** function has the following structure
+Functions form the basis for R packages. In general, an R function has the following structure
 
 ```{r package_layout, eval = FALSE}
 function_name <- function(arguments) {
@@ -81,18 +82,26 @@ When building packages, we will also include some additional information that de
 
 Fortunately for us, there are variety of tools available to assist us in developing and producing packages.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-&nbsp; **Task:** Begin by creating a new, public repository on **GitHub** called `pets`. Populate the repo with
-<ol>
-<li>a brief `README.md`;</li>
-<li>a `.gitignore` file.</li>
-</ol>
-&nbsp; You can skip the license for now.
-</div>
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Create a new project in **RStudio** based upon this repo.
-</div>
+::: task
+
+* Create a new, public repository on **GitHub** called `pets`.
+
+* Populate the repo with
+
+  - a brief `README.md`;
+
+  - a `.gitignore` file.
+
+(You can skip the license for now.)
+
+:::
+
+::: task
+
+Create a new project in **RStudio** based upon this repo.
+
+:::
 
 
 ***
@@ -101,9 +110,17 @@ Fortunately for us, there are variety of tools available to assist us in develop
 
 Once upon a time you had to work through all of the steps to building a package unassisted. Fortunately for us, the `{devtools}` package will automate many of the steps.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** At the **R** command prompt, load the `{devtools}` package, which will respond with a messge about also loading the `{usethis}` package.
-</div>
+::: note
+
+You will need both the `{devtools}` and `{usethis}` packages for this exercise.
+
+:::
+
+::: task
+
+At the R command prompt, load the `{devtools}` package, which will respond with a message about also loading the `{usethis}` package.
+
+:::
 
 ```{r, eval = FALSE}
 > library(devtools)
@@ -112,9 +129,11 @@ Loading required package: usethis
 
 We're now ready to create a framework for building our package. Before doing so, however, we need to locate the folder/directory where you created the `pets` project.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** At the **R** command prompt, find the location of the working directory.
-</div>
+::: task
+
+At the R command prompt, find the location of the working directory.
+
+:::
 
 ```{r getwd, eval = FALSE}
 > getwd()
@@ -124,27 +143,23 @@ We're now ready to create a framework for building our package. Before doing so,
 ## [1] "/Users/mark/Documents/GitHub/FISH549/pets"
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Copy the result (including the quotation marks), which you will need for the next step.
-</div>
+::: task
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Now execute the following command at at the **R** command prompt, where `pasted/folder/from/previous/step` is the result from the `getwd()` call above.
-</div>
+Copy the result (including the quotation marks), which you will need for the next step.
+
+:::
+
+::: task
+
+Now execute the following command at at the R command prompt, where `pasted/folder/from/previous/step` is the result from the `getwd()` call above.
+
+:::
 
 ```{r create_pkg, eval = FALSE}
 > create_package("pasted/folder/from/previous/step")
 ```
 
-You should see **R** responding with a bunch of information about your new package framework, followed by a prompt asking if you'd like to overwrite the pre-existing file `pets.Rproj`.
-
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc (note that these options will vary each time you do this, so don't worry if yours don't mirror the options below).
-</div>
-
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** After making your selection, **RStudio** will open a new instance of your `pets` project.
-</div>
+You should see R responding with a bunch of information about your new package framework, followed by a prompt asking if you'd like to overwrite the pre-existing file `pets.Rproj`.
 
 ```{r create_pkg_results, eval = FALSE}
 ✓ Setting active project to '/Users/mark/Documents/GitHub/FISH549/pets'
@@ -178,6 +193,18 @@ Selection: 3
 ✓ Setting active project to '<no active project>'
 ```
 
+::: task
+
+Go ahead and select any of the options that look like `Nope`, `No way`, `Not now`, etc. (Note that these options will vary each time you do this, so don't worry if yours don't mirror the options below.)
+
+:::
+
+::: note
+
+After making your selection, **RStudio** will open a new instance of your `pets` project.
+
+:::
+
 ## Directory structure
 
 Wow, that's a lot of information. What just happened here?
@@ -192,17 +219,21 @@ First, you should notice that several new files and a folder have been added to 
 
 * `/R`: an empty folder where we'll put our `.R` files that contain our function definitions
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Files that begin with a `.` are generally hidden from view. If you cannot see any listed in the **Files** pane, click on the dropdown menu with the gear icon (it might say "More" next to it if your window is large enough). Select `Show Hidden Files` at the bottom of the menu to display them.
-</div>
+::: tip
+
+Files beginning with a `.` are generally hidden from view. If you cannot see any listed in the **Files** pane, click on the drop-down menu with the gear icon (it might say "More" next to it if your window is large enough). Select `Show Hidden Files` at the bottom of the menu to display them.
+
+:::
 
 ## Restart RStudio
 
-At this point, go ahead and quit both instances of the **RStudio** `pets` project. Navigate to the `pets.Rproj` file in the folder/directory where you set up the project initially, and double-click it to restart your project (or just select your project from the dropdown menu in the upper right).
+At this point, go ahead and quit both instances of the **RStudio** `pets` project. Navigate to the `pets.Rproj` file in the folder/directory where you set up the project initially, and double-click it to restart your project (or just select your project from the drop-down menu in the upper right).
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** After restarting **RStudio**, you will need to reload `{devtools}`.
-</div>
+::: task
+
+After restarting **RStudio**, you will need to reload `{devtools}`.
+
+:::
 
 ```{r reload_devtools, eval = FALSE}
 > library(devtools)
@@ -213,11 +244,13 @@ Loading required package: usethis
 
 # Write a function
 
-As mentioned above, the basis of **R** packages is functions. Let's go ahead and create a new function called `cats()`.
+As mentioned above, the basis of R packages is functions. Let's go ahead and create a new function called `cats()`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Type `use_r("cats)` to create a script within the `/R` directory called `cats.R` where we can define our new function.
-</div>
+::: task
+
+Type `use_r("cats)` to create a script within the `/R` directory called `cats.R` where we can define our new function.
+
+:::
 
 ```{r use_r, eval = FALSE}
 > use_r("cats")
@@ -226,15 +259,21 @@ As mentioned above, the basis of **R** packages is functions. Let's go ahead and
 • Call `use_test()` to create a matching test file
 ```
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** Later we'll come back the advice to create a matching test file with `use_test()`.
-</div>
+::: note
+
+Later we'll come back the advice to create a matching test file with `use_test()`.
+
+:::
 
 Now we can write our function definition. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Copy/paste the following code into the `cats.R` file. When you are finished, save the file.
-</div>
+::: task
+
+* Copy/paste the following code into the `cats.R` file.
+
+* When you are finished, save the file.
+
+:::
 
 ```{r define_cats, eval = FALSE}
 cats <- function(love = TRUE) {
@@ -250,20 +289,24 @@ cats <- function(love = TRUE) {
 
 ## Try our function
 
-Now that we've defined a new function, it's a good idea to try it out. Although we could just highlight the code and execute it in the normal **R** environment, there is a function `load_all()` that will help us better simulate the building, installing, and attaching our new `cats` package. As a package accumulates more functions, `load_all()` gives you a much more accurate sense of how the package is developing than simply testing functions defined in the global workspace. `load_all()` also allows much faster iteration than actually going through the process of building, installing, and attaching the package.
+Now that we've defined a new function, it's a good idea to try it out. Although we could just highlight the code and execute it in the normal R environment, there is a function `load_all()` that will help us better simulate the building, installing, and attaching our new `cats` package. As a package accumulates more functions, `load_all()` gives you a much more accurate sense of how the package is developing than simply testing functions defined in the global workspace. `load_all()` also allows much faster iteration than actually going through the process of building, installing, and attaching the package.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Call `load_all()` at the command prompt and the function will respond that it's loading the `{pets}` package.
-</div>
+::: task
+
+Call `load_all()` at the command prompt and the function will respond that it's loading the `{pets}` package.
+
+:::
 
 ```{r load_all, eval = FALSE}
 > load_all()
 ℹ Loading pets
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Go ahead and try out our new function.
-</div>
+::: task
+
+Go ahead and try out our new function.
+
+:::
 
 ```{r define_cats_2, echo = FALSE, eval = FALSE}
 cats <- function(love = TRUE) {
@@ -293,9 +336,11 @@ cats("a")
 [1] "I am not a cat person."
 ```
 
-<div class="boxy boxy-success boxy-check">
-**Success:** Our function works!
-</div>
+::: success
+
+Our function works!
+
+:::
 
 ## Informal testing
 
@@ -310,9 +355,13 @@ We will set up some more formal function testing later, but let's see what happe
 [1] "I am not a cat person."
 ```
 
-What happened here? Why didn't **R** throw an error or warning when we didn't include a logical argument of `TRUE` or `FALSE`?
+What happened here? Why didn't R throw an error or warning when we didn't include a logical argument of `TRUE` or `FALSE`?
 
-In the first case, `1` is equivalent to `TRUE` in **R**, so it returns the result as if `cats(TRUE)`. In the second and third cases, our function definition only involves a check whether the argument is `TRUE`. If not, the default behavior is to return the result `"I am not a cat person."` These tests suggest that although our function works as expected, we might want to add some additional checks on the input argument.
+* In the first case, `1` is equivalent to `TRUE` in R, so it returns the result as if `cats(TRUE)`.
+
+* In the second and third cases, our function definition only involves a check whether the argument is `TRUE`. If not, the default behavior is to return the result `"I am not a cat person."`
+
+These tests suggest that although our function works as expected, we might want to add some additional checks on the input argument.
 
 ## Commit our changes
 
@@ -322,17 +371,21 @@ This is a good time to go ahead and commit the files we created as part of `crea
 
 # Checking a function
 
-At this point, we have reason to believe that `cats()` works as expected, but we should really verify that all of the elements of the entire `pets` package indeed work. This may seem a bit silly to check after such a small addition or change, but it's good to establish the habit of checking often.
+At this point, we have reason to believe that `cats()` works as expected, but we should really verify that all of the elements of the entire `pets` package indeed work. This may seem a bit silly to check after such a small addition or change, but it's good to establish the habit of checking our work often.
 
 The standard method for checking a package's functionality is to run the command `R CMD check` in the **Terminal**. However, we can make us of the `check()` function in `{devtools}` to do so without leaving **RStudio**. 
 
-<div class="boxy boxy-red boxy-exclamation">
-**Note:** `check()` produces ***a lot*** of output under the categories of `Documenting`, `Building`, and `Checking`.
-</div>
+::: note
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Run `check()` at the command prompt.
-</div>
+`check()` produces ***a lot*** of output under the categories of `Documenting`, `Building`, and `Checking`.
+
+:::
+
+::: task
+
+Run `check()` at the command prompt.
+
+:::
 
 ```{r run_check, eval = FALSE}
 > check()
@@ -428,9 +481,11 @@ Duration: 7.2s
 0 errors ✔ | 1 warning ✖ | 0 notes ✔
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** It is **very important** to read over all of this information, as it will report the things that passed the check as well as any warnings or errors encountered in the process. 
-</div>
+::: tip
+
+It is **very important** to read over all of this information, as it will report the things that passed the check as well as any warnings or errors encountered in the process. 
+
+:::
 
 Here we see that we have 0 errors, 1 warning, and 0 notes. The warning says,
 
@@ -438,13 +493,14 @@ Here we see that we have 0 errors, 1 warning, and 0 notes. The warning says,
 
 which is OK for now, as we'll address that later.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can also run a package check via the **Build** pane in **RStudio**.
-</div>
+::: tip
 
-```{r rs_build_check, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("img/rs_build_check.png")
-```
+You can also run a package check via the **Build** pane in **RStudio**.
+
+:::
+
+![](img/rs_build_check.png){ width=70% }
+
 
 ***
 
@@ -469,21 +525,29 @@ RoxygenNote: 7.2.1
 
 Let's go ahead and make the following changes:
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Change the package title to `Evaluates Your Feelings About Pets`.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** The convention is to use Title Case for package titles.
-</div>
+Change the package title to `Evaluates Your Feelings About Pets`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add your first and last names, and your email address. You can leave the `role` as is and delete the `comment` field asking about your `ORCID`.
-</div>
+:::
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Write some descriptive text about the package in the `Description` field. For example, `Pets are awesome companions. Some people are fans of cats, others not so much.`
-</div>
+::: tip
+
+The convention is to use Title Case for package titles.
+
+:::
+
+::: task
+
+Add your first and last names, and your email address. You can leave the `role` as is and delete the `comment` field asking about your `ORCID`.
+
+:::
+
+::: tip
+
+Write some descriptive text about the package in the `Description` field. For example, `Pets are awesome companions. Some people are fans of cats, others not so much.`
+
+:::
 
 When finished, your `DESCRIPTION` file should look something like this:
 
@@ -508,11 +572,13 @@ RoxygenNote: 7.2.1
 
 # Add a license
 
-We should add a license to our package, as it's considered a best practice (here we'll use the MIT license).
+It's best practice to add a license to our package so let's go ahead and do that (we'll use the MIT license).
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use the helper function `use_mit_license()` to create a license and make sure to use your own name in the argument.
-</div>
+::: task
+
+Use the helper function `use_mit_license()` to create a license and make sure to use your own name in the argument.
+
+:::
 
 ```{r add_license, eval = FALSE}
 > use_mit_license("Mark Scheuerell")
@@ -522,18 +588,22 @@ We should add a license to our package, as it's considered a best practice (here
 ✔ Adding '^LICENSE\\.md$' to '.Rbuildignore'
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open up the newly created `LICENSE` file and confirm it has the current year and your name.
-</div>
+::: task
+
+Open up the newly created `LICENSE` file and confirm it has the current year and your name.
+
+:::
 
 ```
-YEAR: 2023
+YEAR: 2025
 COPYRIGHT HOLDER: Mark Scheuerell
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** `use_mit_license()` will also put a copy of the full license in `LICENSE.md` and add this file to `.Rbuildignore`.
-</div>
+::: tip
+
+`use_mit_license()` will also put a copy of the full license in `LICENSE.md` and add this file to `.Rbuildignore`.
+
+:::
 
 
 ***
@@ -542,13 +612,17 @@ COPYRIGHT HOLDER: Mark Scheuerell
 
 If you're like Mark, you often rely on a function's documentation to help you understand the arguments to a function and the value(s) that the function returns. This is typically done via a question mark preceding the function name (e.g., `?print`). Writing this documentation used to be a bit onerous, but now it's easy to add documentation to a package using the `{roxygen2}` package. To do so, we'll add a special form of comment above our function definition in `cats.R`, which we'll denote with a `#'`. 
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open the `cats.R` script and make sure your cursor is at the very top . From your **RStudio** menu, select **Code > Insert Roxygen Skeleton**.
-</div>
+::: task
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Your `cats.R` file should now look like following.
-</div>
+Open the `cats.R` script and make sure your cursor is at the very top . From your **RStudio** menu, select **Code > Insert Roxygen Skeleton**.
+
+:::
+
+::: tip
+
+Your `cats.R` file should now look like following.
+
+:::
 
 ```
 #' Title
@@ -584,9 +658,11 @@ Let's go over the different elements of the function's documentation skeleton th
 
 ### Title
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Replace `Title` with something more descriptive like `Expresses your opinion about cats`.
-</div>
+::: task
+
+Replace `Title` with something more descriptive like `Expresses your opinion about cats`.
+
+:::
 
 ```
 #' Expresses your opinion about cats
@@ -612,9 +688,11 @@ cats <- function(love = TRUE) {
 
 Our `{roxygen}` skeleton already contains the one parameter in our function `love`, but we can go ahead and add an explicit description of this argument. It's often a good idea to also include what, if any, the default argument is.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the `#' @param` field after `love`, add ```A logical argument indicating whether or not you love cats (default = `TRUE`)```.
-</div>
+::: task
+
+In the `#' @param` field after `love`, add ```A logical argument indicating whether or not you love cats (default = `TRUE`)```.
+
+:::
 
 ```
 #' Expresses your opinion about cats
@@ -640,9 +718,11 @@ cats <- function(love = TRUE) {
 
 It's good practice to tell the user what they should expect from a function. This is admittedly a rather simple function, which is easy to decipher, but other functions will not be nearly as transparent.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** In the `#' @return` field , add ```One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`)```.
-</div>
+::: task
+
+In the `#' @return` field , add ```One of two possible character strings (`"I love cats!"` or `"I am not a cat person."`)```.
+
+:::
 
 ```
 #' Expresses your opinion about cats
@@ -672,9 +752,11 @@ You can leave this blank, as the default behavior is all we need here.
 
 This is an optional element of the documentation. If you include `@examples` without any actual code, you will get a warning about `@examples requires a value`. In this case, we can add a really simple example:
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Add `cats(TRUE)` to the `#' @examples ` field.
-</div>
+::: task
+
+Add `cats(TRUE)` to the `#' @examples ` field.
+
+:::
 
 ```
 #' Expresses your opinion about cats
@@ -696,18 +778,22 @@ cats <- function(love = TRUE) {
 }
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Make sure to save `cats.R` after modifying the `{roxygen}` skeleton.
-</div>
+::: tip
+
+Make sure to save `cats.R` after modifying the `{roxygen}` skeleton.
+
+:::
 
 
 ## Assemble the documentation
 
 Now that we've written the function's documentation, we need to pass it along to the `cats.Rd` file in the help manual. To do so, we can use the `document()` function.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Run `document()` at the command prompt to create the function documentation.
-</div>
+::: task
+
+Run `document()` at the command prompt to create the function documentation.
+
+:::
 
 ```{r document_help, eval = FALSE}
 > document()
@@ -717,13 +803,17 @@ Writing NAMESPACE
 Writing cats.Rd
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** There should be a new folder in your project directory called `/man`, which stands for "manual". This is where the help files live.
-</div>
+::: tip
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open up the `/man` folder and inspect the contents of `cats.Rd`. It should look like the following.
-</div>
+There should be a new folder in your project directory called `/man`, which stands for "manual". This is where the help files live.
+
+:::
+
+::: task
+
+Open up the `/man` folder and inspect the contents of `cats.Rd`. It should look like the following.
+
+:::
 
 ```
 % Generated by roxygen2: do not edit by hand
@@ -748,31 +838,35 @@ cats(TRUE)
 }
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Check that everything worked as planned by previewing our help file with `?cats`.
-</div>
+::: task
+
+Check that everything worked as planned by previewing our help file with `?cats`.
+
+:::
 
 ```{r test_help, eval = FALSE}
 > ?cats
 ℹ Rendering development documentation for "cats"
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Your help tab should look like this.
-</div>
+::: tip
 
-```{r check_cats_help, echo = FALSE, out.width = "70%", fig.align = "center"}
-knitr::include_graphics("img/help_cats.png")
-```
+Your help tab should look like this.
+
+:::
+
+![](img/help_cats.png){ width=70% }
 
 
 ### Examine `NAMESPACE` file
 
 When we called `document()` above to convert the special **Roxygen** comments in `cats.R` into `man/cats.Rd`, it also updated the `NAMESPACE` file based on the `@export` line found in the `roxygen` comments.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Open up your `NAMESPACE` file and verify that its contents look like this.
-</div>
+::: task
+
+Open up your `NAMESPACE` file and verify that its contents look like this.
+
+:::
 
 ```
 # Generated by roxygen2: do not edit by hand
@@ -786,9 +880,11 @@ export(cats)
 
 Now is a good time to re-run our diagnostic checks.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Call `check()` again, which should return no errors or warnings.
-</div>
+::: task
+
+Call `check()` again, which should return no errors or warnings.
+
+:::
 
 ```{r re-check, eval = FALSE}
 > check()
@@ -877,13 +973,20 @@ Duration: 11.3s
 0 errors ✔ | 0 warnings ✔ | 0 notes ✔
 ```
 
-<div class="boxy boxy-success boxy-check">
-**Success:** Everything checks out now!
-</div>
+::: success
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Now that we've verified that our package builds correctly, let's install and try it out with the `install()` function.
-</div>
+Everything checks out now!
+
+:::
+
+### Install
+
+::: task
+
+Now that we've verified that our package builds correctly, let's install and try it out with the `install()` function.
+
+:::
+
 ```{r install_pkg, eval = FALSE}
 > install()
 ✔  checking for file ‘/Users/mark/Documents/GitHub/FISH549/pets/DESCRIPTION’ ...
@@ -910,19 +1013,21 @@ Running /Library/Frameworks/R.framework/Resources/bin/R CMD INSTALL \
 * DONE (pets)
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** At this point you can run `library(pets)` to load the package and use the `cats()` function.
-</div>
+::: tip
+
+At this point you can run `library(pets)` to load the package and use the `cats()` function.
+
+:::
 
 ```{r load_pkg, eval = FALSE}
 > library(pets)
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can also install your package via the **Build** pane in **RStudio**.
-</div>
+::: tip
 
-```{r rs_build_install, echo = FALSE, out.width = "80%", fig.align = "center"}
-knitr::include_graphics("img/rs_build_install.png")
-```
+You can also install your package via the **Build** pane in **RStudio**.
+
+:::
+
+![](img/rs_build_install.png){ width=70% }
 
