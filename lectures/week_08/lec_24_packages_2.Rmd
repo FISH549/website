@@ -6,7 +6,8 @@ output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: ["lecture_inst.css", "fontawesome.css", "solid.css"]
+    css: ../lecture_inst.css
+    code_download: true
     toc: true
     toc_float: true
     toc_depth: 3
@@ -44,18 +45,22 @@ Fortunately, the `{devtools}` package helps us with this process via some built-
 
 * add the script `tests/testthat.R`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Load the `{devtools}` package.
-</div>
+::: task
+
+Load the `{devtools}` package.
+
+:::
 
 ```{r load_devtools}
 > library(devtools)
 Loading required package: usethis
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Set the testing framework with `use_testthat()`.
-</div>
+::: task
+
+Set the testing framework with `use_testthat()`.
+
+:::
 
 ```{r use_testthat}
 ## set testing framework
@@ -72,9 +77,11 @@ Loading required package: usethis
 
 Now that we have our testing framework, we need to write some actual test scripts. Here again, we see a suggestion like [last time](https://fish549.github.io/website/lectures/week_08/lec_23_packages_1.html#Write_a_function) to use `use_test()` to initialize a basic test file.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Use the `use_test()` function to create an empty script for testing our `cats()` function.
-</div>
+::: task
+
+Use the `use_test()` function to create an empty script for testing our `cats()` function.
+
+:::
 
 ```{r use_test}
 > use_test("cats")
@@ -82,7 +89,11 @@ Now that we have our testing framework, we need to write some actual test script
 ● Modify 'tests/testthat/test-cats.R'
 ```
 
+::: tip
+
 You should now see a script called `test-cats.R` with the following example unit test in it.
+
+:::
 
 ```{r test_that_default}
 test_that("multiplication works", {
@@ -92,15 +103,19 @@ test_that("multiplication works", {
 
 Unit tests are hierarchical in nature. So-called *expectations* are grouped into *tests*, which are then organized into *files*. Expectations are informal and intended solely for human eyes---they will never be read or checked by an **R** function. The test itself is embedded within `test_that()`, and is based upon the expected result of an operation that we check with an `expect_` function. In the example test shown above, the expectation is that `"multiplication works"`. The specific test of the expectation is whether or not `2 * 2 == 4`, which is coded as `expect_equal(2 * 2, 4)`. 
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
-</div>
+::: tip
+
+You can find a whole battery of `{testthat}` functions [here](https://testthat.r-lib.org/reference/index.html).
+
+:::
 
 Let's go ahead and write some unit tests for `cats()`.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Delete the default unit test in `test-cats.R` and replace it with the following code.
-</div>
+::: task
+
+Delete the default unit test in `test-cats.R` and replace it with the following code.
+
+:::
 
 ```{r unit_test_1}
 test_that("logical operators work", {
@@ -115,17 +130,21 @@ test_that("logical operators work", {
 })
 ```
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Save your file when you're done entering the tests.
-</div>
+::: task
+
+Save your file when you're done entering the tests.
+
+:::
 
 ## Run unit tests
 
 Now we're set to run these tests with the `test()` function.
 
-<div class="boxy boxy-blue boxy-clipboard-list">
-**Task:** Call `test()` and note the output, which may differ somewhat from below.
-</div>
+::: task
+
+Call `test()` and note the output, which may differ somewhat from below.
+
+:::
 
 ```{r run_test}
 > test()
@@ -149,17 +168,24 @@ The following object is masked from ‘package:devtools’:
 [ FAIL 0 | WARN 0 | SKIP 0 | PASS 4 ]
 ```
 
+<br>
+
 What does this all mean?
 
 The report indicates how many total tests were run (4) and the output of each test. The `Results` section at the bottom shows how many of the tests failed (`FAIL`), issued a warning (`WARN`), were skipped (`SKIP`), and passed (`PASS`).
 
-<div class="boxy boxy-success boxy-check">
-**Success:** All four of our tests passed!
-</div>
+::: success
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** Now is a good time to commit your changes and push them to **GitHub**.
-</div>
+All four of our tests passed!
+
+:::
+
+
+::: tip
+
+Now is a good time to commit your changes and push them to **GitHub**.
+
+:::
 
 ***
 
@@ -167,9 +193,11 @@ The report indicates how many total tests were run (4) and the output of each te
 
 The `pets` repo we created on **GitHub** contains our package skeleton in human-readable form. One of the neat things about this is that you (or anyone else) can now install the package directly from **GitHub**.
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** You can use either of the following function calls to install a package diectly from GitHub. To do so, replace `GITHUB_USERNAME` with the username of the repo's owner and `PACKAGE` with the package's name.
-</div>
+::: tip
+
+You can use either of the following function calls to install a package diectly from GitHub. To do so, replace `GITHUB_USERNAME` with the username of the repo's owner and `PACKAGE` with the package's name.
+
+:::
 
 ```{r install_gh}
 ## original call using {devtools} still works
@@ -179,9 +207,11 @@ devtools::install_github("GITHUB_USERNAME/PACKAGE")
 remotes::install_github("GITHUB_USERNAME/PACKAGE")
 ```
 
-<div class="boxy boxy-orange boxy-lightbulb">
-**Tip:** If you try either of these commands and get the following error, run `Sys.unsetenv("GITHUB_PAT")` and then try again. 
-</div>
+::: tip
+
+If you try either of these commands and get the following error, run `Sys.unsetenv("GITHUB_PAT")` and then try again. 
+
+:::
 
 ```
 Using github PAT from envvar GITHUB_PAT
