@@ -83,7 +83,7 @@ lec_topics_html <- sapply(lapply(lec_topics, paste, "<br>", collapse = ""), c)
 names(lec_topics_html) <- NULL
 ```
 
-```{r lec_links, include = FALSE}
+```{r lec_links_orig, include = FALSE}
 ## HTML
 slide_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$html)} else {""} })
 slide_links_html <- sapply(lapply(slide_links, function(x) {
@@ -137,6 +137,59 @@ pdf_links_html <- sapply(lapply(pdf_links, function(x) {
   tmp[x==""] <- ""
   tmp <- paste(tmp, collapse = "<br>")
   tmp}), c)
+```
+
+```{r lec_links, include = FALSE}
+## HTML
+slide_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$html)} else {""} })
+slide_links_html <- sapply(lapply(slide_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[html (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[html](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse = "<br>")
+  tmp}), c)
+
+# slide_links_html <- sapply(slide_links_html, sub, 
+#                            pattern = 'role', replacement = 'aria-labelledby=\"link\" role')               
+               
+## Rmd
+source_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$rmd)} else {""} })
+source_links_html <- sapply(lapply(source_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[Rmd (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[Rmd](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1,x,tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse = "<br>")
+  tmp}), c)
+
+# source_links_html <- sapply(source_links_html, sub, 
+#                             pattern = 'role', replacement = 'aria-labelledby=\"link\" role')               
+
+## PDF
+pdf_links <- lapply(week_lecs, function(x) { if(is.list(x)) {c(x$pdf)} else {""} })
+pdf_links_html <- sapply(lapply(pdf_links, function(x) {
+  if(length(x)>1) {
+    tmp1 <- paste0("[pdf (", 1:length(x), ")](")
+    } else {
+      tmp1 <- paste0("[pdf](")
+      }
+  tmp2 <- ")"
+  tmp <- paste0(tmp1, x, tmp2)
+  tmp[x==""] <- ""
+  tmp <- paste(tmp, collapse = "<br>")
+  tmp}), c)
+
+# pdf_links_html <- sapply(source_links_html, 
+#                          sub, pattern = 'role', replacement = 'aria-labelledby=\"link\" role')
 ```
 
 ```{r zoom_links, include = FALSE}
