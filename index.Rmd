@@ -1,6 +1,6 @@
 ---
-title: "Best Practices in Environmental Data Science"
-subtitle: "FISH 549 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Winter 2025"
+title: "<br>Best Practices in Environmental Data Science"
+subtitle: "<br>FISH 549 &nbsp; &nbsp; University of Washington &nbsp; &nbsp; Winter 2027"
 output: html_document
 ---
 
@@ -18,16 +18,16 @@ h3 {
 }
 </style>
 
-<br>
+<br><br>
 
 
 <p align="center">
-    <img width="346" height="400" src="FISH549_hex_sticker.png">
+    <img width="346" height="400" src="FISH549_hex_sticker.png" alt="Hex sticker showing three elements of data science: computer science, math/stats, domain knowledge.">
 </p>
 
 <br>
 
-<center>&copy; Mark Scheuerell 2025</center>
+<center>&copy; Mark Scheuerell 2026</center>
 
 <br>
 
