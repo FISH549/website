@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Steps &amp; software for analysis</title>
+  <title>Steps to an analysis</title>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -9,7 +9,7 @@
 
 
 
-  <meta name="date" content="2025-01-08" />
+  <meta name="date" content="2025-01-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Steps &amp; software for analysis',
+                title: 'Steps to an analysis',
                         subtitle: 'Best Practices in Environmental Data Science<br>FISH 549',
                 useBuilds: true,
         usePrettify: true,
@@ -3193,21 +3193,11 @@ font-size: 2em;
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-            <p style="margin-top: 6px; margin-left: -2px;">8 January 2025</p>
+            <p style="margin-top: 6px; margin-left: -2px;">6 January 2025</p>
           </hgroup>
   </slide>
 
-<slide class=""><hgroup><h2>Goals for today</h2></hgroup><article  id="goals-for-today">
-
-<ul>
-<li>Outline the steps to a data science analysis</li>
-</ul>
-
-<ul class = 'build'>
-<li>Understand the software requirements for the course</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Credits</h2></hgroup><article  id="credits">
+<slide class=""><hgroup><h2>Credits</h2></hgroup><article  id="credits">
 
 <p>This content draws upon material developed by Jeff Leek &amp; Roger Peng for their Advanced Data Science Course at the Johns Hopkins Bloomberg School of Public Health.</p>
 
@@ -3283,11 +3273,11 @@ font-size: 2em;
 <p>Do the data meet your expectations?</p>
 
 <ul class = 'build'>
-<li>Make judicious use of plots</li>
+<li>Make judicious use of plots (eg, <a href='https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html' title=''>{corrplot}</a>)</li>
 </ul>
 
 <ul class = 'build'>
-<li>Also consider correlation matrics (eg, <a href='https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html' title=''>{corrplot}</a>)</li>
+<li>Create data summaries (eg, <a href='https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html' title=''>{skimr}</a>)</li>
 </ul>
 
 <ul class = 'build'>
@@ -3344,13 +3334,15 @@ font-size: 2em;
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Types of analyses</h2></hgroup><article  id="types-of-analyses">
 
-</article></slide><slide class=""><hgroup><h2>Types of analysis </h2><h3> Raw</h3></hgroup><article  id="types-of-analysis-raw">
+</article></slide><slide class=""><hgroup><h2>Types of analyses </h2><h3> Raw</h3></hgroup><article  id="types-of-analyses-raw">
 
 <p>The goal is to explore the data</p>
 
 <p>This is your &ldquo;sandbox&rdquo;</p>
 
-</article></slide><slide class=""><hgroup><h2>Types of analysis </h2><h3> Informal</h3></hgroup><article  id="types-of-analysis-informal">
+<p>AI can be helpful here</p>
+
+</article></slide><slide class=""><hgroup><h2>Types of analyses </h2><h3> Informal</h3></hgroup><article  id="types-of-analyses-informal">
 
 <p>Soften the edges of the raw results</p>
 
@@ -3386,21 +3378,19 @@ font-size: 2em;
 
 </center>
 
-</article></slide><slide class=""><hgroup><h2>Types of analysis </h2><h3> Formal</h3></hgroup><article  id="types-of-analysis-formal">
+</article></slide><slide class=""><hgroup><h2>Types of analyses </h2><h3> Formal</h3></hgroup><article  id="types-of-analyses-formal">
 
 <p>A refined analysis and presentation</p>
 
 <ul class = 'build'>
-<li>Code in supplementary materials (<strong>GitHub</strong>, <strong>Zenodo</strong>, <strong>figshare</strong>)</li>
+<li>Data &amp; code in supplementary materials (<strong>GitHub</strong>, <strong>Zenodo</strong>, <strong>figshare</strong>)</li>
 </ul>
 
 <ul class = 'build'>
 <li>High quality figures</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>A rubric for analyses</h2></hgroup><article  id="a-rubric-for-analyses">
-
-<p>Here are some useful questions to ask yourself</p>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Some questions to ask yourself</h2></hgroup><article  id="some-questions-to-ask-yourself">
 
 </article></slide><slide class=""><hgroup><h2>A rubric for analyses </h2><h3> Answering the question posed</h3></hgroup><article  id="a-rubric-for-analyses-answering-the-question-posed">
 
@@ -3419,7 +3409,11 @@ font-size: 2em;
 </article></slide><slide class=""><hgroup><h2>A rubric for analyses </h2><h3> Cleaning the data</h3></hgroup><article  id="a-rubric-for-analyses-cleaning-the-data">
 
 <ul class = 'build'>
-<li>Are the data &ldquo;tidy&rdquo;?</li>
+<li>Did you preserve the raw data?</li>
+</ul>
+
+<ul class = 'build'>
+<li>Are the cleaned data &ldquo;tidy&rdquo;?</li>
 </ul>
 
 <ul class = 'build'>
@@ -3441,7 +3435,7 @@ font-size: 2em;
 </ul>
 
 <ul class = 'build'>
-<li>Did you check the units of all data points to make sure they are in the right range?</li>
+<li>Did you check the units to make sure they are in the right range?</li>
 </ul>
 
 <ul class = 'build'>
@@ -3459,7 +3453,7 @@ font-size: 2em;
 </ul>
 
 <ul class = 'build'>
-<li>Is this a correlative or causative study?</li>
+<li>Did you check the assumptions of your model?</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>A rubric for analyses </h2><h3> Communication</h3></hgroup><article  id="a-rubric-for-analyses-communication">
