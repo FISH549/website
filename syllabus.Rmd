@@ -44,15 +44,13 @@ By the end of the quarter, students should be able to:
 
 * Import and clean a messy data file using a variety of {packages}::functions in **R**
 
-* Properly describe and document data using **Ecological Metadata Language**
-
 * Create and access a relational database with **PostgreSQL**
 
 * Use unit tests in **R** to evaluate code functionality
 
 * Create a package in **R** and document its contents
 
-* Use **R Markdown** to combine text, equations, code, tables, and figures into reports, websites, and presentations
+* Use **R Markdown** and **Quarto** to combine text, equations, code, tables, and figures into reports, websites, and presentations
 
 * Create dynamic html reports with **Shiny**
 
@@ -123,11 +121,11 @@ Although I strive to create and use inclusive materials in this course, there ma
 
 All students deserve access to the full range of learning experiences, and the University of Washington is committed to creating inclusive and accessible learning environments consistent with federal and state laws. If you feel like your performance in class is being impacted by your experiences outside of class, please talk with me.
 
-### Disabilities
+## Disabilities
 
 If you have already established accommodations with Disability Resources for Students (DRS), please communicate your approved accommodations to me at your earliest convenience so we can discuss your needs in this course. If you have not yet established services through DRS, but have a temporary health condition or permanent disability that requires accommodations (*e.g.*, mental health, learning, vision, hearing, physical impacts), you are welcome to contact DRS at 206-543-8924 or via [email](mailto:uwdrs@uw.edu) or their [website](https://depts.washington.edu/uwdrs/). DRS offers resources and coordinates reasonable accommodations for students with disabilities and/or temporary health conditions.  Reasonable accommodations are established through an interactive process between you, your instructor(s) and DRS.
 
-### Religious observances
+## Religious observances
 
 Students who expect to miss class or assignments as a consequence of their religious observance will be provided with a reasonable accommodation to fulfill their academic responsibilities. Absence from class for religious reasons does not relieve students from responsibility for the course work required during the period of absence. It is the responsibility of the student to provide the instructor with advance notice of the dates of religious holidays on which they will be absent. Students who are absent will be offered an opportunity to make up the work, without penalty, within a reasonable time, as long as the student has made prior arrangements.
 
@@ -165,11 +163,11 @@ In addition to email and Zoom, we will use the "Issues" feature in **GitHub** to
 
 Students will be evaluated on their knowledge of course content and their ability to communicate their understanding of the material via individual homework assignments (80%) and their active participation in class (20%). There will be 8 homework assignments, each counting toward 10% of the final grade. Please note, **all assignments must be turned in to achieve a passing grade**.
 
-### Homework
+## Homework
 
 Homework will be assigned each Friday of weeks 2-9 and will be due by 11:59 PM 9 days later on the following Sunday (weeks 3-10). The instructor will evaluate and return student homework assignments within one week of their due date. **If for some reason you cannot meet the homework deadline, contact the instructor as soon as possible to discuss other options**. Please see the [Homework](homework.html) page for more details.
 
-### Participation
+## Participation
 
 Data science is about communicating your ideas and findings to others. As such, this course will require students to engage with the instructor and one another in small groups. I expect all students to contribute to our discussions of concepts, results, bugs/errors, etc. 
 
@@ -179,11 +177,28 @@ Students should discuss any potential schedule conflicts with the instructor dur
 
 # Use of Artificial Intelligence (AI)
 
-In this course, students are permitted to use AI-based tools (such as ChatGPT) on some assignments. The instructions for each assignment will include information about whether and how you may use AI-based tools to complete the assignment. All sources, including AI tools, must be properly cited. Use of AI in ways that are inconsistent with the parameters above will be considered academic misconduct and subject to investigation.
+**Overall approach.** This course takes a cautiously open approach to AI tools (such as ChatGPT, GitHub Copilot, or similar). You may use AI on some tasks, but its use is restricted on others where working through the problem yourself is central to the learning goals of this course, especially debugging and writing reproducible examples. Specific guidance is given below; when in doubt, ask.
 
-Please note that AI results can be biased and inaccurate. It is your responsibility to ensure that the information you use from AI is accurate. Additionally, pay attention to the privacy of your data. Many AI tools will incorporate and use any content you share, so be careful not to unintentionally share copyrighted materials, original work, or personal information.
+**Restricted: debugging and reproducible examples.** A core skill in this course, and in the open-science community more broadly, is learning to diagnose your own errors, interpret error messages, and construct a minimal reproducible example when asking for help. For homework components that ask you to debug code or produce a reproducible example, you may **not** use AI tools to generate the fix or the example for you. You are welcome to use AI to help you *understand* an error message in general terms, but the diagnostic work and the final reproducible example must be your own.
 
-_If you have any questions about citation or about what constitutes academic integrity in this course or at the University of Washington, please feel free to contact me to discuss your concerns._
+**Permitted, with expectations: AI-assisted code generation.** On other assignment components, you may use AI tools to help draft code, explain concepts, or suggest approaches. If you do:
+
+- **Write good prompts.** Treat prompting as its own skill. Where practical, draft your prompt as pseudo-code or a clear structured description of the desired input, process, and output before handing it to the AI tool. This mirrors how you would write a specification for a human collaborator. For example, rather than asking "write me a function to clean my data," a good pseudo-code prompt might look like:
+
+  > Input: a data frame `raw_df` with columns `site`, `date` (as character, format "MM/DD/YYYY"), and `count` (may contain NA or negative values).  
+  > Process: convert `date` to a Date class object; remove rows where `count` is NA or negative; group by `site`.  
+  > Output: a tidy data frame `clean_df` with one row per `site`-`date` combination and a column for mean `count`.  
+  > Write this as an R function using {dplyr} and {lubridate}.
+
+  This kind of prompt forces you to think through the logic yourself _before_ the AI helps with syntax, not by solving the problem for you.
+  
+- **Write meaningful tests.** Any code you use, whether generated by AI, copied from a colleague, or written by you, must be checked with your own unit tests before you submit it. You are responsible for verifying that the code does what you claim it does. "The AI wrote it" is not a substitute for demonstrating that it works.
+
+- **Cite your use.** As with any source, you must disclose and cite AI tool use in your submission, consistent with the course's general citation requirements. This disclosure must include the tool name, a brief note on what it was used for, the exact prompt(s) you gave it, and the response(s) it returned (e.g., as an appendix, footnote, or linked text file). This record is part of demonstrating that you independently verified the output.
+
+**Accuracy, bias, and privacy.** AI outputs can be biased, inaccurate, or confidently wrong. This is especially relevant given the course's discussion of data ethics and the risks of using derived or AI-generated information uncritically. You are responsible for verifying any information or code you take from an AI tool. Also be mindful of data privacy: do not share copyrighted material, original unpublished work, or personal/identifying data (including survey or demographic data discussed in this course) with AI tools, since many retain and reuse submitted content.
+
+**Academic integrity.** Use of AI inconsistent with the parameters above, or without disclosure, will be treated as academic misconduct under the UW Student Conduct Code. _If you have any questions about citation or about what constitutes academic integrity in this course or at the University of Washington, please feel free to contact me to discuss your concerns._
 
 <br>
 
@@ -226,5 +241,6 @@ No student should ever have to choose between buying food or textbooks. The UW F
 
 ## Footnotes
 
+<br>
 
-
+<center>*This site was last updated at `r format(Sys.time(), "%H:%M")` on `r format(Sys.Date(), "%d %b %Y")`*</center>
