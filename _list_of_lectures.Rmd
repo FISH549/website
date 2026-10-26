@@ -20,15 +20,13 @@ TBD <- list(
 )
 
 ## day 0 - original ####
-intro_1 <- list(
-  title = "Introduction",
-  topics = c("<b>Course overview</b>", "Required software"),
+software <- list(
+  title = "Software requirements",
+  topics = c("<b>Software requirements</b>"),
   pdf = c(""),
-  rmd = c("lectures/week_01/lec_00_class_overview.Rmd",
-          "lectures/week_01/lec_01_intro_to_data_science.Rmd"),
-  html = c("lectures/week_01/lec_00_class_overview.html",
-           "lectures/week_01/lec_01_intro_to_data_science.html"),
-  background = c("[Leek & Peng (2015)](references/Leek_Peng_2015_what_is_the_Q.pdf)", "[D’Agostino McGowan (2020)](https://docs.google.com/presentation/d/1pZe8Sp350iYzsKsweZzR374179gvRwpI3cAX_NObgj8/edit#slide=id.p)", "[Peng (2018)](https://simplystatistics.org/posts/2018-06-04-trustworthy-data-analysis/)"),
+  rmd = c("lectures/week_01/lec_00_software.Rmd"),
+  html = c("lectures/week_01/lec_00_software.html"),
+  background = c(""),
   zoom = ""
 )
 
@@ -48,10 +46,8 @@ intro <- list(
   title = "Introduction",
   topics = c("<b>What is data science?</b>", "Types of questions", "Storytelling"),
   pdf = c(""),
-  rmd = c("lectures/week_01/lec_00_class_overview.Rmd",
-          "lectures/week_01/lec_01_intro_to_data_science.Rmd"),
-  html = c("lectures/week_01/lec_00_class_overview.html",
-           "lectures/week_01/lec_01_intro_to_data_science.html"),
+  rmd = c("lectures/week_01/lec_01_intro_to_data_science.Rmd"),
+  html = c("lectures/week_01/lec_01_intro_to_data_science.html"),
   background = c("[Leek & Peng (2015)](references/Leek_Peng_2015_what_is_the_Q.pdf)", "[D’Agostino McGowan (2020)](https://docs.google.com/presentation/d/1pZe8Sp350iYzsKsweZzR374179gvRwpI3cAX_NObgj8/edit#slide=id.p)", "[Peng (2018)](https://simplystatistics.org/posts/2018-06-04-trustworthy-data-analysis/)"),
   zoom = ""
 )

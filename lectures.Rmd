@@ -24,8 +24,12 @@ output: html_document
 
 ```{r week_lecs, include = FALSE}
 ## empty list for lecs
-week_lecs <- vector("list", 30)
-names(week_lecs) <- paste0("L", seq(30))
+week_lecs <- vector("list", 31)
+names(week_lecs) <- paste0("L", seq(0, 30))
+
+## background info
+week_lecs$L0 <- software
+
 ## lecture topics
 ## week 1: Jan 6-10
 week_lecs$L1 <- intro
