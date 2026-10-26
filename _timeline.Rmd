@@ -13,10 +13,10 @@ wed <- mon + 2
 ## all fri
 fri <- wed + 2
 ## all qtr
-qtr <- sort(c(mon, wed, fri))
-qtr <- sub("0(\\d)", "\\1", format(qtr, "%d %b"))
-## replace first Mon with background
-## qtr[1] <- "Background"
+dates <- sort(c(mon, wed, fri))
+dates <- sub("0(\\d)", "\\1", format(dates, "%d %b"))
+## add placeholder for background info
+qtr <- c("", dates)
 ```
 
 
