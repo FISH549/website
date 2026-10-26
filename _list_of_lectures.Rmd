@@ -76,25 +76,25 @@ organization_styles <- list(
 )
 
 ## day 4 ####
-github <- list(
-  title = "Introduction to GitHub",
-  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Markdown", "Issues", "Projects"),
-  pdf = c(""),
-  rmd = c("lectures/week_02/lec_04_intro_github.Rmd"),
-  html = c("lectures/week_02/lec_04_intro_github.html"),
-  background = c("[Intro to GitHub](https://guides.github.com/activities/hello-world/)"),
-  zoom = ""
-)
-
-## day 5 ####
 version_control <- list(
   title = "Version control",
   topics = c("<b>Version control with Git</b>", "Adding files", "Committing file", "Exploring history", "Reverting files"),
   pdf = c(""),
-  rmd = c("lectures/week_02/lec_05_intro_git.Rmd"),
-  html = c("lectures/week_02/lec_05_intro_git.html"),
+  rmd = c("lectures/week_02/lec_04_intro_git.Rmd"),
+  html = c("lectures/week_02/lec_04_intro_git.html"),
   background = c("[Blischak et al (2016)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668)",
                  "[Chap 20 of HGG](https://happygitwithr.com/git-basics.html)"),
+  zoom = ""
+)
+
+## day 5 ####
+github <- list(
+  title = "Introduction to GitHub",
+  topics = c("<b>Introduction to GitHub</b>", "Repositories", "Markdown", "Issues", "Projects"),
+  pdf = c(""),
+  rmd = c("lectures/week_02/lec_05_intro_github.Rmd"),
+  html = c("lectures/week_02/lec_05_intro_github.html"),
+  background = c("[Intro to GitHub](https://guides.github.com/activities/hello-world/)"),
   zoom = ""
 )
 
