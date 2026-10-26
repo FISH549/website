@@ -2,7 +2,7 @@
 title: "Organization and styles"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "10 January 2025"
+date: "8 January 2027"
 output:
   ioslides_presentation:
     widescreen: true
@@ -15,17 +15,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Goals for today
 
+* Understand the notion of *reproducibility*
+
 * Understand the elements of a *research compendium*
 
 > - Understand conventions for coding styles
-
-
-
-## The reproducibility crisis in science
-
-We are witnessing an increasing number of examples where the original analysis cannot be reproduced
-
-> - For example, a group of Amgen scientists could only confirm the results in 6 out of 53 cancer studies (Begley & Ellis 2012) 
 
 
 ## What does it mean to be reproducible?
@@ -46,6 +40,28 @@ Reproducibility can be further broken down
 > - computational (eg, code, software, hardware)
 
 
+## The reproducibility crisis in science
+
+We are witnessing an increasing number of examples where the original analysis cannot be reproduced
+
+> - 6 out of 53 cancer studies ([Begley & Ellis 2012](https://doi.org/10.1038/483531a)) 
+
+> - 6 out of 360 water resource studies ([Stagge et al 2019](https://doi.org/10.1038/sdata.2019.30))
+
+> - 70% of researchers have failed to reproduce another scientist's experiments; **50% have failed to reproduce their own** ([Baker 2016](https://doi.org/10.1038/533452a))
+
+
+## The reproducibility crisis in science | A cautionary note about AI
+
+> - commercial models are updated or retired without notice
+
+> - training data and weights are usually undisclosed
+
+> - outputs can shift from one run to the next when settings are held constant
+
+> - testing data are sometimes used in the training set (_data leakage_)
+
+
 ## What is a research compendium?
 
 _A standard and easily recognizable way for organizing the digital materials of a project to enable others to inspect, reproduce, and extend the research._
@@ -57,9 +73,9 @@ Marwick et al. (2018)
 
 1. Project organization should follow the conventions of the scientific community
 
-    > - The community might be a lab group
+    > - The community might be a lab group or a professional society
 
-    > - The convention(s) support tool building
+    > - The convention(s) support reproducibility and transparency
 
 
 ## 3 principles of research compendia
@@ -116,12 +132,7 @@ Marwick et al. (2018)
 Organize your compendium so another person knows what to expect from the plain meaning of the file and directory names
 
 
-## Simple compendium {data-background=images/compendium_1.png data-background-size=40% data-background-position=50%60% .citation}
-
-Marwick et al (2018)
-
-
-## Simple compendium {data-background=images/compendium_2.png data-background-size=35% data-background-position=50%60% .citation}
+## Simple<br>compendium {data-background=images/compendium_1.png data-background-size=30% data-background-position=50%15% .citation}
 
 Marwick et al (2018)
 
@@ -269,20 +280,20 @@ The [{here}](https://cran.r-project.org/web/packages/here/index.html) package ma
 
 ## A cautionary tale from the real world
 
-Consider all of these "special characters"
+Consider all of these "special characters"  
 
-~`!@#$%^&()+={}[]|\:";'<,>.?/*
+> ~ ` ! @ # $ % ^ & () + = {} [] | \ : " ; ' < , > . ? / *
 
 
 ## A cautionary tale from the real world
 
-Consider all of these "special characters"
+Consider all of these "special characters"  
 
-~`!@#$%^&()+={}[]|\:";'<,>.?/*
+> ~ ` ! @ # $ % ^ & () + = {} [] | \ : " ; ' < , > . ? / *
 
 <br>
 
-Of them, the pipe | was the only character available for use as a delimiter in a plain text file for a statewide energy efficiency database **because all the others had been used in variable names**.
+Of them, the pipe `|` was the only character available for use as a delimiter in a plain text file for a statewide energy efficiency database **because all the others had been used in variable names**
 
 
 ## Example file names | Bad

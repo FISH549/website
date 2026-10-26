@@ -1,11 +1,11 @@
 ---
 title: "Introduction to GitHub remotes"
-date: "15 January 2025"
+date: "15 January 2027"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: "../lecture_inst.css"
+    css: ../lecture_inst.css
     code_download: true
     toc: true
     toc_float: true
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Remote repositories like GitHub allow you to store you code, data, and other information in a convenient online location. However, most of the time you will want to work on your personal computer and take advantage of a nicer programming interface, or so-called *integrated development environment* (IDE) like RStudio. Using remotes also allows for easier collaboration among people working in different places. This lesson will introduce you to working with remote repositories and show how to move your files back and forth from the cloud to a local computer. In general, our model for this process looks something like this.
 
-![](images/github_model.png)
+![](images/github_model.png){ width=80% }
 
 ***
 

@@ -1,11 +1,11 @@
 ---
 title: "Introduction to Git"
-date: "17 January 2025"
+date: "11 January 2027"
 output:
   html_document:
     theme: spacelab
     highlight: textmate
-    css: "../lecture_inst.css"
+    css: ../lecture_inst.css
     code_download: true
     toc: true
     toc_float: true

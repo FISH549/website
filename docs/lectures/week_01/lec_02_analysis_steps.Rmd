@@ -1,8 +1,8 @@
 ---
-title: "Steps & software for analysis"
+title: "Steps to an analysis"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
 author: "Mark Scheuerell"
-date: "8 January 2025"
+date: "6 January 2027"
 output:
   ioslides_presentation:
     widescreen: true
@@ -12,13 +12,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-## Goals for today
-
-* Outline the steps to a data science analysis
-
-> - Understand the software requirements for the course
-
 
 ## Credits
 
@@ -86,9 +79,9 @@ It's also the most important & the hardest to teach
 
 Do the data meet your expectations?
 
-> - Make judicious use of plots
+> - Make judicious use of plots (eg, [{corrplot}](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html))
 
-> - Also consider correlation matrics (eg, [{corrplot}](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html))
+> - Create data summaries (eg, [{skimr}](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html))
 
 > - Beware of data mining!
 
@@ -129,14 +122,16 @@ Consider these real scenarios
 # Types of analyses
 
 
-## Types of analysis | Raw
+## Types of analyses | Raw
 
 The goal is to explore the data 
 
 This is your "sandbox"
 
+AI can be helpful here
 
-## Types of analysis | Informal
+
+## Types of analyses | Informal
 
 Soften the edges of the raw results
 
@@ -161,18 +156,16 @@ Soften the edges of the raw results
 <center>[TidyTuesday example from Megsie Siple](https://twitter.com/margaretsiple/status/1332827208721821698)</center>
 
 
-## Types of analysis | Formal
+## Types of analyses | Formal
 
 A refined analysis and presentation
 
-> - Code in supplementary materials (**GitHub**, **Zenodo**, **figshare**)
+> - Data & code in supplementary materials (**GitHub**, **Zenodo**, **figshare**)
 
 > - High quality figures
 
 
-## A rubric for analyses
-
-Here are some useful questions to ask yourself
+# Some questions to ask yourself
 
 
 ## A rubric for analyses | Answering the question posed
@@ -186,7 +179,9 @@ Here are some useful questions to ask yourself
 
 ## A rubric for analyses | Cleaning the data
 
-> - Are the data "tidy"?
+> - Did you preserve the raw data?
+
+> - Are the cleaned data "tidy"?
 
 > - Did you record the recipe for moving from raw to tidy data?
 
@@ -199,7 +194,7 @@ Here are some useful questions to ask yourself
 
 > - Did you consider correlations between variables (scatterplots)?
 
-> - Did you check the units of all data points to make sure they are in the right range?
+> - Did you check the units to make sure they are in the right range?
 
 > - Did you try to identify any errors or miscoding of variables?
 
@@ -210,7 +205,7 @@ Here are some useful questions to ask yourself
 
 > - How did you select your model(s) (eg, information theory, cross validation)?
 
-> - Is this a correlative or causative study?
+> - Did you check the assumptions of your model?
 
 
 ## A rubric for analyses | Communication
