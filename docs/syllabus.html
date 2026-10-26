@@ -13,14 +13,14 @@
 
 <title>Syllabus</title>
 
-<script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.32/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <link href="site_libs/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-5.3.8/bootstrap.bundle.min.js"></script>
-<script src="site_libs/bs3compat-0.11.0/transition.js"></script>
-<script src="site_libs/bs3compat-0.11.0/tabs.js"></script>
-<script src="site_libs/bs3compat-0.11.0/bs3compat.js"></script>
+<script src="site_libs/bs3compat-0.12.0/transition.js"></script>
+<script src="site_libs/bs3compat-0.12.0/tabs.js"></script>
+<script src="site_libs/bs3compat-0.12.0/bs3compat.js"></script>
 <script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -513,8 +513,8 @@ experiences, and the University of Washington is committed to creating
 inclusive and accessible learning environments consistent with federal
 and state laws. If you feel like your performance in class is being
 impacted by your experiences outside of class, please talk with me.</p>
-<div id="disabilities" class="section level3">
-<h3>Disabilities</h3>
+<div id="disabilities" class="section level2">
+<h2>Disabilities</h2>
 <p>If you have already established accommodations with Disability
 Resources for Students (DRS), please communicate your approved
 accommodations to me at your earliest convenience so we can discuss your
@@ -529,8 +529,8 @@ disabilities and/or temporary health conditions. Reasonable
 accommodations are established through an interactive process between
 you, your instructor(s) and DRS.</p>
 </div>
-<div id="religious-observances" class="section level3">
-<h3>Religious observances</h3>
+<div id="religious-observances" class="section level2">
+<h2>Religious observances</h2>
 <p>Students who expect to miss class or assignments as a consequence of
 their religious observance will be provided with a reasonable
 accommodation to fulfill their academic responsibilities. Absence from
@@ -618,8 +618,8 @@ individual homework assignments (80%) and their active participation in
 class (20%). There will be 8 homework assignments, each counting toward
 10% of the final grade. Please note, <strong>all assignments must be
 turned in to achieve a passing grade</strong>.</p>
-<div id="homework" class="section level3">
-<h3>Homework</h3>
+<div id="homework" class="section level2">
+<h2>Homework</h2>
 <p>Homework will be assigned each Friday of weeks 2-9 and will be due by
 11:59 PM 9 days later on the following Sunday (weeks 3-10). The
 instructor will evaluate and return student homework assignments within
@@ -628,8 +628,8 @@ the homework deadline, contact the instructor as soon as possible to
 discuss other options</strong>. Please see the <a
 href="homework.html">Homework</a> page for more details.</p>
 </div>
-<div id="participation" class="section level3">
-<h3>Participation</h3>
+<div id="participation" class="section level2">
+<h2>Participation</h2>
 <p>Data science is about communicating your ideas and findings to
 others. As such, this course will require students to engage with the
 instructor and one another in small groups. I expect all students to
@@ -642,23 +642,78 @@ instructor during the first week of class.</p>
 </div>
 <div id="use-of-artificial-intelligence-ai" class="section level1">
 <h1>Use of Artificial Intelligence (AI)</h1>
-<p>In this course, students are permitted to use AI-based tools (such as
-ChatGPT) on some assignments. The instructions for each assignment will
-include information about whether and how you may use AI-based tools to
-complete the assignment. All sources, including AI tools, must be
-properly cited. Use of AI in ways that are inconsistent with the
-parameters above will be considered academic misconduct and subject to
-investigation.</p>
-<p>Please note that AI results can be biased and inaccurate. It is your
-responsibility to ensure that the information you use from AI is
-accurate. Additionally, pay attention to the privacy of your data. Many
-AI tools will incorporate and use any content you share, so be careful
-not to unintentionally share copyrighted materials, original work, or
-personal information.</p>
-<p><em>If you have any questions about citation or about what
-constitutes academic integrity in this course or at the University of
-Washington, please feel free to contact me to discuss your
-concerns.</em></p>
+<p><strong>Overall approach.</strong> This course takes a cautiously
+open approach to AI tools (such as ChatGPT, GitHub Copilot, or similar).
+You may use AI on some tasks, but its use is restricted on others where
+working through the problem yourself is central to the learning goals of
+this course, especially debugging and writing reproducible examples.
+Specific guidance is given below; when in doubt, ask.</p>
+<p><strong>Restricted: debugging and reproducible examples.</strong> A
+core skill in this course, and in the open-science community more
+broadly, is learning to diagnose your own errors, interpret error
+messages, and construct a minimal reproducible example when asking for
+help. For homework components that ask you to debug code or produce a
+reproducible example, you may <strong>not</strong> use AI tools to
+generate the fix or the example for you. You are welcome to use AI to
+help you <em>understand</em> an error message in general terms, but the
+diagnostic work and the final reproducible example must be your own.</p>
+<p><strong>Permitted, with expectations: AI-assisted code
+generation.</strong> On other assignment components, you may use AI
+tools to help draft code, explain concepts, or suggest approaches. If
+you do:</p>
+<ul>
+<li><p><strong>Write good prompts.</strong> Treat prompting as its own
+skill. Where practical, draft your prompt as pseudo-code or a clear
+structured description of the desired input, process, and output before
+handing it to the AI tool. This mirrors how you would write a
+specification for a human collaborator. For example, rather than asking
+“write me a function to clean my data,” a good pseudo-code prompt might
+look like:</p>
+<blockquote>
+<p>Input: a data frame <code>raw_df</code> with columns
+<code>site</code>, <code>date</code> (as character, format
+“MM/DD/YYYY”), and <code>count</code> (may contain NA or negative
+values).<br />
+Process: convert <code>date</code> to a Date class object; remove rows
+where <code>count</code> is NA or negative; group by
+<code>site</code>.<br />
+Output: a tidy data frame <code>clean_df</code> with one row per
+<code>site</code>-<code>date</code> combination and a column for mean
+<code>count</code>.<br />
+Write this as an R function using {dplyr} and {lubridate}.</p>
+</blockquote>
+<p>This kind of prompt forces you to think through the logic yourself
+<em>before</em> the AI helps with syntax, not by solving the problem for
+you.</p></li>
+<li><p><strong>Write meaningful tests.</strong> Any code you use,
+whether generated by AI, copied from a colleague, or written by you,
+must be checked with your own unit tests before you submit it. You are
+responsible for verifying that the code does what you claim it does.
+“The AI wrote it” is not a substitute for demonstrating that it
+works.</p></li>
+<li><p><strong>Cite your use.</strong> As with any source, you must
+disclose and cite AI tool use in your submission, consistent with the
+course’s general citation requirements. This disclosure must include the
+tool name, a brief note on what it was used for, the exact prompt(s) you
+gave it, and the response(s) it returned (e.g., as an appendix,
+footnote, or linked text file). This record is part of demonstrating
+that you independently verified the output.</p></li>
+</ul>
+<p><strong>Accuracy, bias, and privacy.</strong> AI outputs can be
+biased, inaccurate, or confidently wrong. This is especially relevant
+given the course’s discussion of data ethics and the risks of using
+derived or AI-generated information uncritically. You are responsible
+for verifying any information or code you take from an AI tool. Also be
+mindful of data privacy: do not share copyrighted material, original
+unpublished work, or personal/identifying data (including survey or
+demographic data discussed in this course) with AI tools, since many
+retain and reuse submitted content.</p>
+<p><strong>Academic integrity.</strong> Use of AI inconsistent with the
+parameters above, or without disclosure, will be treated as academic
+misconduct under the UW Student Conduct Code. <em>If you have any
+questions about citation or about what constitutes academic integrity in
+this course or at the University of Washington, please feel free to
+contact me to discuss your concerns.</em></p>
 <p><br></p>
 </div>
 <div id="academic-integrity" class="section level1">
@@ -727,6 +782,10 @@ hours and additional food support resources.</p>
 <p><br></p>
 <div id="footnotes" class="section level2">
 <h2>Footnotes</h2>
+<p><br></p>
+<center>
+<em>This site was last updated at 11:00 on 26 Oct 2026</em>
+</center>
 </div>
 </div>
 <div class="footnotes footnotes-end-of-document">
