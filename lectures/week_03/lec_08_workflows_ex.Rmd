@@ -1,9 +1,12 @@
 ---
 title: "Examples of collaborative workflows"
-date: "24 January 2025"
+author: "Mark Scheuerell"
+date: "22 January 2027"
 output:
   html_document:
-    theme: spacelab
+    theme: 
+      bootswatch: journal
+      primary: "#32006e"
     highlight: textmate
     css: ../lecture_inst.css
     code_download: true
@@ -20,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-This document demonstrates some of the workflows we saw in class [here](https://fish549.github.io/website/lectures/week_03/lec_08_workflows.html). All of these workflows have some pros and cons. It's up to you and your team as to which one you adopt. Also note that your preferences might change, depending on the composition of your team and the task at hand.
+This document demonstrates some of the workflows we saw previously in class [here](https://fish549.github.io/website/lectures/week_03/lec_08_workflows.html). All of these workflows have some pros and cons. It's up to you and your team as to which one you adopt. Also note that your preferences might change, depending on the composition of your team and the task at hand.
 
 ***
 
