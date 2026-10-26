@@ -29,7 +29,3 @@ h3 {
 
 <center>&copy; Mark Scheuerell 2026</center>
 
-<br>
-
-<center>*This site was last updated at `r format(Sys.time(), "%H:%M")` on `r Sys.Date()`*</center>
-
