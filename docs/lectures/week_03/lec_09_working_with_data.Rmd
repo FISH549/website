@@ -1,12 +1,12 @@
 ---
 title: "Working with data"
 subtitle: "Best Practices in Environmental Data Science<br>FISH 549"
-author: "Markus Min"
-date: "27 January 2025"
+author: "Mark Scheuerell"
+date: "25 January 2027"
 output:
   ioslides_presentation:
     widescreen: true
-    css: ["lecture_slides.css", "lecture_inst.css"]
+    css: ../lecture_slides.css
 ---
 
 ```{r setup, include=FALSE}
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## What are data?
 
-Data are a set of values of qualitative or quantitative variables collected through observations
+A set of values of qualitative or quantitative variables collected by observation
 
 
 ## What are raw data?
@@ -83,18 +83,19 @@ Choose good names
 | obs_01      | first_obs   | 1st Obs. |
 
 
-## An aside on cases in coding {.slide}
+## An aside on cases in coding {data-background=images/allison_horst_cases.png data-background-size=70% data-background-position=50%60% .citation}
 
-![](images/allison_horst_cases.png){ width=80% }
+Allison Horst
+
 
 
 ## The {janitor} package | Helps with non-standard column names
 
 * The [{janitor}](https://www.rdocumentation.org/packages/janitor/versions/2.2.1) package has an extremely useful function called `clean_names()` which will handle all of your gross header names for you
 
-* From the `clean_names()` documentation:
+> - Resulting names are unique and consist only of underscores, numbers, and letters
 
-*Resulting names are unique and consist only of the _ character, numbers, and letters. Capitalization preferences can be specified using the case parameter.*
+> - Capitalization preferences can be specified using the `case` argument
 
 
 ## Organizing data in spreadsheets | Broman & Woo (2018)
@@ -181,7 +182,7 @@ Be very cautious of Excel workbooks and Google sheets
 
 <br><br><br><br><br><br><br><br><br>
 
-How many issues can you identify?
+How many problems can you identify here?
 
 
 ## Organizing data in spreadsheets | Broman & Woo (2018)

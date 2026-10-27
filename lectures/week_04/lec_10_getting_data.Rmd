@@ -1,9 +1,12 @@
 ---
 title: "Reading data into R"
-date: "29 January 2025"
+author: "Mark Scheuerell"
+date: "27 January 2027"
 output:
   html_document:
-    theme: spacelab
+    theme: 
+      bootswatch: journal
+      primary: "#32006e"
     highlight: textmate
     css: ../lecture_inst.css
     code_download: true
