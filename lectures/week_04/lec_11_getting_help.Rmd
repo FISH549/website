@@ -1,9 +1,12 @@
 ---
 title: "Getting help from others"
-date: "31 January 2025"
+author: "Mark Scheuerell"
+date: "29 January 2027"
 output:
   html_document:
-    theme: spacelab
+    theme: 
+      bootswatch: journal
+      primary: "#32006e"
     highlight: textmate
     css: ../lecture_inst.css
     code_download: true
@@ -54,11 +57,11 @@ This process is variously referred to as creating a
 
 The bottom line is that you should
 
-* Use the least amount of code possible to produce the problem (minimal)
+* use the least amount of code possible to produce the problem (minimal)
 
-* Provide *everything* (code, data) someone would need to reproduce your problem (complete)
+* provide *everything* (code, data) someone would need to reproduce your problem (complete)
 
-* Verify that the code you're about to share reproduces the problem (reproducible)
+* verify that the code you're about to share reproduces the problem (reproducible)
 
 In addition, you should phrase your question in manner that is polite and free of jargon or other language constructs that might confuse people. The data science community is global, so recognize that someone reading your question might not speak English as a first language. Also consider that others may very well stumble across your question, and hopefully the correct answer, years after it was solved. As such, using plain, descriptive language in the title and body of a post will allow others to find it when searching for answers. For example, [this problem](https://stackoverflow.com/questions/36634641/formatting-table-headings-in-rmarkdown) I posted on Stack Overflow in 2016 has since received over 3000 views!
 
@@ -66,7 +69,7 @@ In addition, you should phrase your question in manner that is polite and free o
 
 There tends to be a strong negative correlation between the length of your code and the likelihood that someone will 1) read all the way through it, and 2) actually be able to solve your problem. Therefore, you should consider the following points:
 
-* Consider creating a new script, including *only those elements germane to the problem*; 
+* Consider creating a new script that includes *only those elements germane to the problem*; 
 
 * Remove extraneous information that doesn't influence the problematic code;
 
@@ -125,10 +128,15 @@ You should double-check that your example reproduces the problem. It's good prac
 
 In addition to minimal, complete, and reproducible code (and possibly data), you should also include information about your larger work environment. This includes:
 
-* Your operating system (Mac, Windows, Linux) and its version;
+* your operating system (Mac, Windows, Linux) and its version;
 
-* Versions of your software (**R**, packages); `sessionInfo()` and `packageVersion("package-name-here")` are both helpful functions.
+* versions of your software (**R**, packages)
 
+::: tip
+
+`sessionInfo()` and `packageVersion("package-name-here")` are helpful functions for getting this information. 
+
+:::
 
 ***
 
@@ -347,6 +355,10 @@ When you are ready, scroll down and click on the green **Submit new issue** butt
 
 Now that you know *how* to ask for help, let's consider some places *where* you can find help. One of the first things I often do is to simply use Google to search for my problem or error message. Sometimes you can find the answer rather quickly, but often you'll be presented with an array of possible solutions that require you to read through the various questions and corresponding answers that others have posed. In the end, your desire for a quick resolution can be countered by the time you'll spend combing through lots of extraneous information. Therefore, you might want to consider these other options.
 
+## AI
+
+AI is a hot topic these days, and there are a number of AI tools that can help you with coding problems. For example, ChatGPT or Claude can be used to generate code snippets, explain error messages, and provide guidance on best practices. However, it's important to remember that AI is not infallible and may provide incorrect or incomplete information. Always verify the information you receive from AI tools and use them as a supplement to your own knowledge and research.
+
 ## Colleagues
 
 Your friends, colleagues, advisor, and committee members can be a great resource for help. Asking people you know can be much less intimidating than engaging with anonymous strangers. Turning to your officemate and asking them for help can be quick and also gratifying for them if they were able to help. Many lab groups have Slack channels for `#coding` or `#programming`, so consider asking there as well.
@@ -358,6 +370,10 @@ The **RStudio** community provides a [nice forum](https://community.rstudio.com/
 ## Social media
 
 In general, social media is a great source of information on **R** and data science. Although it's difficult to squeeze a reprex into limited character spaces, you can share links to locations where you've posted a reprex (e.g., a [GitHub Gist](https://gist.github.com/)). Also consider checking in on the **#rstats** hashtag or including it in a post asking for help.
+
+## Stack Overflow
+
+If you tried searching for an answer to your problem, there's a good chance you've come across some posts on [Stack Overflow](https://stackoverflow.com/), or "SO" as it's often referred. SO has keywords or tags that people can use to highlight the software or packages they're using (e.g., "R", "dplyr"), which allows you to filter results. SO also has a reputation of being an intimidating forum with often snarky comments on posts. However, if you've taken the time to create a good reprex, you shouldn't encounter any problems.
 
 ## GitHub
 
@@ -444,11 +460,4 @@ You now have a gist that can be accessed via your account or shared with others.
 :::
 
 <img src="images/gist_8.png" class="noborder">
-
-
-## Stack Overflow
-
-If you tried searching for an answer to your problem, there's a good chance you've come across some posts on [Stack Overflow](https://stackoverflow.com/), or "SO" as it's often referred. SO has keywords or tags that people can use to highlight the software or packages they're using (e.g., "R", "dplyr"), which allows you to filter results. SO also has a reputation of being an intimidating forum with often snarky comments on posts. However, if you've taken the time to create a good reprex, you shouldn't encounter any problems.
-
-
 
