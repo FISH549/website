@@ -186,7 +186,9 @@ Students should discuss any potential schedule conflicts with the instructor dur
 - **Write good prompts.** Treat prompting as its own skill. Where practical, draft your prompt as pseudo-code or a clear structured description of the desired input, process, and output before handing it to the AI tool. This mirrors how you would write a specification for a human collaborator. For example, rather than asking "write me a function to clean my data," a good pseudo-code prompt might look like:
 
   > Input: a data frame `raw_df` with columns `site`, `date` (as character, format "MM/DD/YYYY"), and `count` (may contain NA or negative values).  
+  > 
   > Process: convert `date` to a Date class object; remove rows where `count` is NA or negative; group by `site`.  
+  > 
   > Output: a tidy data frame `clean_df` with one row per `site`-`date` combination and a column for mean `count`.  
   > Write this as an R function using {dplyr} and {lubridate}.
 
@@ -210,7 +212,7 @@ Faculty and students at the University of Washington are expected to maintain th
 
 # Mental health
 
-We are in the midst of an historic pandemic that is creating a variety of challenges for everyone. If you should feel like you need some help, please consider the following resources available to students.
+Life presents a variety of challenges for everyone and maintaining good mental health is important. If you should feel like you need some help, please consider the following resources available to students.
 
 **If you are experiencing a life-threatening emergency, please dial 911**.  
 
