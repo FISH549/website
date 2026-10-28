@@ -31,7 +31,7 @@ This document demonstrates some of the workflows we saw previously in class [her
 
 A centralized workflow uses a single repo for all changes to the project. All team members pull from and push to the same repo.
 
-Imagine Juan sits down to work on his new **testing** project that Mary and Aisha have been working on as well. The first thing Juan does is **pull** from the remote repository.
+Imagine Juan sits down to work on his new **testing** project that Chris and Aisha have been working on as well. The first thing Juan does is **pull** from the remote repository.
 
 <br>
 
@@ -69,9 +69,9 @@ The last step before Juan takes a break is to **push** his local commit up to th
 
 Oops--that did not go as expected!
 
-What went wrong? Git is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Mary was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Mary made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from Git, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
+What went wrong? Git is telling us that there are some changes on the remote repo that Juan does not have in his local copy. How did that happen? It turns out that Chris was also working on the project at the same time as Juan. In between the time that Juan sat down and pulled the changes from the remote repo (there were none at the time), Chris made some changes to the script, committed them, and pushed them to the remote repo. In looking at the error message from Git, Juan notices that it suggests he should **pull** the changes and integrate them into his own script.
 
-Juan goes ahead and pulls Mary's recent changes to his local repo, which issues another warning about a so-called *merge conflict* in `R/00_testing.R` that Juan will have to fix.
+Juan goes ahead and pulls Chris's recent changes to his local repo, which issues another warning about a so-called *merge conflict* in `R/00_testing.R` that Juan will have to fix.
 
 <br>
 
@@ -81,7 +81,7 @@ Juan goes ahead and pulls Mary's recent changes to his local repo, which issues 
 
 ## Merge conflicts
 
-When Juan inspects his version of `00_testing.R` he sees that Git has added some information to the script, which brackets the new changes that both Juan and Mary made:
+When Juan inspects his version of `00_testing.R` he sees that Git has added some information to the script, which brackets the new changes that both Juan and Chris made:
 
 ```{r eval = FALSE}
 <<<<<<< HEAD
@@ -111,11 +111,11 @@ Everything between `=======` and `>>>>>>> d1ab55e3cf1979efd0a61954305f742cfbb38e
 
 ::: tip
 
-At this point, it would be a good idea for Juan to contact Mary and find out what her plans are, so he can avoid this problem in the future.
+At this point, it would be a good idea for Juan to contact Chris and find out what their plans are, so he can avoid this problem in the future.
 
 :::
 
-After confirming that Mary is done making changes for awhile, Juan can return to resolving the current merge conflict. To do so, Juan inspects the new changes that Mary made and decides if he wants to merge them into his version of the file, or whether he wants to discard them. In this case, Juan is happy with the new addition operation that Mary made, so he accepts them by simply deleting the conflict dividers.
+After confirming that Chris is done making changes for awhile, Juan can return to resolving the current merge conflict. To do so, Juan inspects the new changes that Chris made and decides if he wants to merge them into his version of the file, or whether he wants to discard them. In this case, Juan is happy with the new addition operation that Chris made, so he accepts them by simply deleting the conflict dividers.
 
 <br>
 
@@ -135,7 +135,7 @@ Now Juan can commit his resolved changes and push them to the remote repo.
 
 <br>
 
-Now Juan is all set on his side, but Mary should make sure that she pulls Juan's changes to her local repo before she starts working on the script again.
+Now Juan is all set on his side, but Chris should make sure that they pull Juan's changes to their local repo before they start working on the script again.
 
 ::: note
 
@@ -165,7 +165,7 @@ The first approach is from GitHub itself. To do so, navigate to the remote repo 
 
 <br>
 
-<img src="images/feature_new_branch.png" class="noborder">
+<img src="images/feature_new_branch_gh.png" class="noborder">
 
 <br>
 
@@ -292,7 +292,7 @@ If your pull request involves multiple files, features, etc, it's a good idea to
 :::
 
 
-<img src="images/feature_gh+pr_merge.png" class="noborder">
+<img src="images/feature_gh_pr_merge.png" class="noborder">
 
 
 <br>
@@ -654,7 +654,7 @@ Give your pull request a title and description. When ready, click on the green *
 
 :::
  
-<img src="images/gh_fork_sumbit_pr_2.png" class="noborder">
+<img src="images/gh_fork_submit_pr_2.png" class="noborder">
 
 
 <br>
