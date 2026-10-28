@@ -7,15 +7,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
+<p style="margin-top: 15px;">Students are not required to purchase any materials for the course, as we will rely upon freely available software and information sources. As the course progresses, more references may be added to this page.</p>
 
-Students are not required to purchase any materials for the course, as we will rely upon freely available software and information sources. As the course progresses, more references will be added to this page.
+## Background information  
 
-<br>
-
-## Background information
-
-[Creating a GitHub account](./references/github_signup.html)
+<p style="margin-top: 15px;">[Creating a GitHub account](./references/github_signup.html)</p>
 
 [Creating a GitHub Personal Access Token](./references/github_pat_creation.html)
 
@@ -23,11 +19,9 @@ Students are not required to purchase any materials for the course, as we will r
 
 [Ignoring files in Git](./references/set_global_gitignore.html)
 
-<br>
+## Online books  
 
-## Online books
-
-Jenny Bryan (and others) [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) [abbreviated "HGG" elsewhere on this site]
+<p style="margin-top: 15px;">Jenny Bryan (and others) [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) [abbreviated "HGG" elsewhere on this site]</p>
 
 Hadley Wickham & Garrett Grolemund [*R for Data Science*](https://r4ds.had.co.nz/index.html)
 
@@ -35,10 +29,7 @@ Natalie Cooper & Pen-Yuan Hsing (Editors) [*A Guide to Reproducible Code in Ecol
 
 Scott Chacon & Ben Straub [Pro Git](https://git-scm.com/book/en/v2)
 
-<br>
+## Tutorials  
 
-## Tutorials
-
-R-bloggers [*R tutorials for Data Science*](https://www.r-bloggers.com/2016/06/curated-list-of-r-tutorials-for-data-science/) 
-
+<p style="margin-top: 15px;">R-bloggers [*R tutorials for Data Science*](https://www.r-bloggers.com/2016/06/curated-list-of-r-tutorials-for-data-science/)</p>
 
