@@ -17,9 +17,13 @@ library(kableExtra)
 
 <br>
 
-Students will have occasional assignments that will require them to demonstrate their knowledge of various course topics.
+**Important notes**
 
-All assignments will be submitted, reviewed, and returned via GitHub.
+* All assignments are due by 11:59 PM PST on the due date.
+
+* Please see the instructions on each assignment for details regarding  the use of AI.
+
+<br>
 
 ```{r week_hw, include = FALSE}
 ## empty list for labs
@@ -96,7 +100,7 @@ syl_txt <- data.frame(
   data_links = data_links_html,
   key_links = key_links_html
 )
-colnames(syl_txt) <- c("Assigned", "Due", "Topic(s)", "Instructions", "Data", "Answer key")
+colnames(syl_txt) <- c("Assigned", "Due", "Topic", "Instructions", "Data", "Answer key")
 rownames(syl_txt) <- NULL
 
 ## generate table
