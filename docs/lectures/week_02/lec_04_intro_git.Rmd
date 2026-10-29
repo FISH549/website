@@ -28,9 +28,7 @@ Git is a version control software, which means it records changes to a file or s
 ***
 
 # Git vocabulary
-
-<br>
-
+&nbsp;  
 **repository (repo)**: folder containing all tracked files as well as the version control history
 
 **local**: a version of a repository stored on a personal computer
@@ -64,42 +62,26 @@ Git is a version control software, which means it records changes to a file or s
 
 To begin, we will be using Git via the command line, which means having to type out each instruction. Every Git command begins with the word `git`. If you are running Mac OS, you'll use **Terminal**. If you are running Windows, you'll use the **Git Bash** app that comes with your installation of Git.
 
-`git help`  
-This will bring up the 21 most common Git commands. You can also type `git help blah` where `blah` is the name of a specific command to get more specific information.
+| Command | Description                 |
+|---------|-----------------------------|
+| `git help` | Show help for the 21 most common Git commands |
+| `git help blah` | Show help for the specific Git command `blah` |
+| `git config` | Configure Git settings |
+| `git init` | Initialize a new Git repository |
+| `git status` | Show the status of the working directory and staging area |
+| `git add` | Add files to the staging area |
+| `git commit` | Commit changes to the repository |
+| `git push` | Push (move) changes from a local repository to a remote repository |
+| `git pull` | Pull (move) changes from a remote repository to a local repository |
+| `git branch` | List, create, or delete branches |
+| `git checkout` | Switch branches or restore files |
+| `git merge` | Merge branches |
 
-`git config`  
-Short for "configure", this is how you set up Git for the first time.
-
-`git init`  
-This initializes a new Git repository, which you will need to do inside a repository (directory) before Git will recognize it as something to track.
-
-`git status`  
-Check the status of your repository. See which files are inside it and which changes still need to be committed. This command also offers helpful hints about possible next steps (e.g., unstaging a commit).
-
-`git add`  
-This is a bit misleading as it doesn't actually add new files to your repository. Rather, it merely alerts Git to start paying attention to a file.
-
-`git commit`  
-This is *the most important* command, as it tells Git to take a snapshot of any changed files in the repository.
-
-`git push`  
-This moves ("pushes") changes from your local repo up to a remote repository like GitHub.
-
-`git pull`  
-This moves ("pulls") changes from a remote repository like GitHub to your local repo.
-
-`git branch`  
-This creates a new branch in the current repo.
-
-`git checkout`  
-This command has two uses: 1) inspect a new branch, and 2) discard any changes to a local file and revert it back to the way it was at the last commit.
-
-`git merge`  
-When you’re done working on a branch, you can merge your changes back to the master branch, which is visible to all collaborators. git merge cats would take all the changes you made to the “cats” branch and add them to the master.
+<br>
 
 ***
 
-# Getting set up
+# Getting started
 
 ## Create a sandbox
 
@@ -165,19 +147,31 @@ Click on the **Terminal** tab to switch from the R console to the terminal.
 
 <br>
 
-If you haven't used the Terminal before, the text may look a bit confusing. The information you see is
+::: tip
+
+If you haven't used the Terminal before, the text may look a bit confusing. 
+
+:::
+
+You will generally see something like this:
 
 ```sh
 [computer-name]:[directory] [user-name]$
 ```
 
-where `[computer-name]` is the name of your computer (`Marks-MacBook-Pro-4` in the example above), `[directory]` is the current terminal directory (`~` indicates the root directory in the example above), and `[user-name]` is your user name on your computer (`mark` in the example above). The `$` marks the beginning of the command line where you can start typing commands.
+* `[computer-name]` is the name of your computer (`Marks-MacBook-Pro-4` in the example above)
 
-At this point our R working directory and our terminal directory are different, so we need to fix that.
+* `[directory]` is the current terminal directory (`~` indicates the root directory in the example above)
+
+* `[user-name]` is your user name on your computer (`mark` in the example above)
+
+* The `$` marks the beginning of the command line where you can start typing commands.
 
 ::: task
 
-Click on the "Terminal 1" downarrow and select "Go to Current Directory".
+At this point our R working directory and our terminal directory are different, so we need to fix that.
+
+Click on the small triangular down-arrow to the right of "Terminal 1" and select "Go to Current Directory".
 
 :::
 

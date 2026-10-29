@@ -62,37 +62,37 @@ It *should not* be a burden
 ![](images/central_ex_1.svg){ width=80% }
 
 
-## Centralized workflow
-
-![](images/central_diverge.svg){ width=90% }
-
-
-## Centralized workflow | Mary works on her code
-
-![](images/central_ex_2.svg){ width=80% }
-
-
 ## Centralized workflow | Juan pushes his commits `(git push origin main)`
 
 ![](images/central_ex_3.svg){ width=80% }
 
 
-## Centralized workflow | Mary tries to push, but it fails  `(git push origin main)`
+## Centralized workflow | Chris works on their code
+
+![](images/central_ex_2.svg){ width=80% }
+
+
+## Centralized workflow | Chris tries to push, but it fails  `(git push origin main)`
 
 ![](images/central_ex_4.svg){ width=80% }
 
 
-## Centralized workflow | Mary *rebases* `(git pull --rebase origin main)`
+## Centralized workflow
+
+![](images/central_diverge.svg){ width=90% }
+
+
+## Centralized workflow | Chris *rebases* `(git pull --rebase origin main)`
 
 ![](images/central_ex_5.svg){ width=80% }
 
 
-## Centralized workflow | `rebase` moves Mary's commits to tip
+## Centralized workflow | `rebase` moves Chris's commits to tip
 
 ![](images/mary_repo.png){ width=70% }
 
 
-## Centralized workflow | Mary resolves her *merge conflict*
+## Centralized workflow | Chris resolves their *merge conflict*
 
 ![](images/central_ex_6.svg){ width=80% }
 
@@ -107,7 +107,7 @@ git add
 git rebase --continue
 ```
 
-## Centralized workflow | Mary pushes her commits `(git push origin main)`
+## Centralized workflow | Chris pushes their commits `(git push origin main)`
 
 ![](images/central_ex_7.svg){ width=80% }
 
@@ -142,23 +142,23 @@ git rebase --continue
 > - Accepted changes are merged into `main` and pushed to remote repo
 
 
-## Feature branch | Mary creates a new development branch 
+## Feature branch | Chris creates a new development branch 
 
 ![](images/branch_ex_1.svg)
 
 <br>
 
 ```
-git checkout -b marys-feature main
+git checkout -b chris-feature main
 ```
 
 
-## Feature branch | Mary pushes `(git push -u origin marys-feature)` 
+## Feature branch | Chris pushes `(git push -u origin chris-feature)` 
 
 ![](images/branch_ex_2.svg){ width=80% }
 
 
-## Feature branch | Mary finishes her changes & submits a pull request
+## Feature branch | Chris finishes their changes & submits a pull request
 
 ![](images/branch_ex_3.svg){ width=80% }
 
@@ -168,17 +168,17 @@ git checkout -b marys-feature main
 ![](images/branch_ex_4.svg){ width=80% }
 
 
-## Feature branch | Juan & Mary discuss changes
+## Feature branch | Juan & Chris discuss changes
 
 ![](images/branch_ex_4.svg){ width=80% }
 
 
-## Feature branch | Mary makes changes
+## Feature branch | Chris makes changes
 
 ![](images/branch_ex_5.svg){ width=80% }
 
 
-## Feature branch | Changes are accepted & merged (by Juan or Mary)
+## Feature branch | Changes are accepted & merged (by Juan or Chris)
 
 ![](images/branch_ex_6.svg){ width=80% }
 
@@ -190,7 +190,7 @@ git checkout main
 ## pull changes from main
 git pull
 ## pull changes from feature
-git pull origin marys-feature
+git pull origin chris-feature
 ## push changes to main
 git push 
 ```
@@ -210,9 +210,11 @@ git push
 
 * Start with a central remote repo
 
-> - Instead of cloning a repo, team members *fork* the repo, which creates a remote copy
+> - Instead of cloning a repo, team members *fork* the repo
 
-> - Each team member then clones their remote fork to their local machine
+> - Forking a repo creates a copy in each team member's own GitHub account
+
+> - Each team member then clones their forked copy to their local machine
 
 > - [optional] A new local `feature` branch is created
 
