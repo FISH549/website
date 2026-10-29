@@ -375,8 +375,6 @@ I assigned the the temporary data frame to the variable `tmp`.
 
 You can treat the `README.md` file as a "landing page" for your repo. Because it's a Markdown document, you can display images, lists, emphasis, etc. Similarly, you could add another `README.md` file inside a folder within a repo to describe the contents of the folder.
 
-<br>
-
 ::: task
 
 Edit your `README.md` file by clicking on the pencil icon in the upper right.
@@ -388,8 +386,6 @@ Edit your `README.md` file by clicking on the pencil icon in the upper right.
 <br>
 
 This brings up an editing window where you can add or modify existing text using the various formatting options via Markdown. Below you can see where I've added some Markdown flavored text. 
-
-<br>
 
 ::: task
 
@@ -421,8 +417,6 @@ When you are done editing the text, you need to "commit" the changes. To do so, 
 <br>
 
 This is your first introduction to **Git**. When committing a file, you need to include a "short but informative" commit message to describe the changes you've made. 
-
-<br>
 
 ::: task
 
@@ -457,8 +451,6 @@ Your repo has a newly formatted `README.md` file.
 # Issues
 
 Issues are used to track to-do items, bugs, feature requests, and more. Some people will refer to these as "tickets" or "cards". Let's see how to add an issue to a repo.
-
-<br>
 
 ::: task
 
@@ -509,8 +501,6 @@ Give your issue an informative title.
 <br>
 
 It's common to include some details concerning an issue. For example, you might describe a problem you're having or a bug you've encountered that will need to be fixed later. The issue description can also contain formatted text via the same Markdown we used on our `README.md` file. Below you can see where I've added some details about this issue.
-
-<br>
 
 ::: task
 
@@ -634,22 +624,16 @@ From here you can add more issues, or click on an existing issue to bring up its
 ***
 
 # Projects
-
+&nbsp;  
 **Projects** in GitHub are a great way to organize your issues, set tasks, track your progress, and work with a team. 
-
-<br>
 
 ::: task
 
-Click on the **Projects** tab at the top of the page.
+Click on the **Projects** tab at the top of the page to see some information about Projects and all of the things you can do with them.
 
 :::
 
 ![](images/gh_project_select.png)
-
-<br>
-
-Here you will see some information about Projects and all of the things you can do with them.
 
 <br>
 
@@ -787,9 +771,11 @@ Click on the left arrow in the upper left to return to your project's main page.
 
 <br>
 
+::: success
+
 Your project now has a better name.
 
-<br>
+:::
 
 ![](images/gh_project_empty-updated.png)
 
@@ -855,11 +841,9 @@ You can click on the issue title in the todo column to see its details. Click on
 
 <br>
 
-Now let's address our todo items in our open issue.
-
-<br>
-
 ::: task
+
+Let's address our todo items in our open issue.
 
 Click-and-drag the issue from **Todo** to **In progress**.
 
@@ -882,10 +866,8 @@ Click in the **Search or jump to...** box at the top and select your testing rep
 ***
 
 # Adding files and folders
-
+&nbsp;  
 Let's address our open issue by adding some more content to our repo. To do so, we'll work entirely within GitHub, but later in the course we'll see how to add files from other locations like a local directory on your computer.
-
-<br>
 
 ::: task
 
@@ -1039,7 +1021,7 @@ Click on the **Code** tab in the upper left, which will take you back the repo's
 ***
 
 # Closing an Issue
-
+&nbsp;  
 Now that we've added some new folders and files to our repo, let's return to the Issue we created earlier and "close" it. 
 
 ::: task
@@ -1113,10 +1095,8 @@ Click on the **Issues** tab to return to the Issues page where GitHub informs yo
 <br>
 
 # Closing a project
-
+&nbsp;  
 Let's return to our project and check on our progress now that we've closed the open issue.
-
-<br>
 
 ::: task
 
@@ -1139,7 +1119,7 @@ GitHub automatically moved the open issue to the **Done** column when you closed
 <br>
 
 # Endnote
-
+&nbsp;  
 **Congratulations!**
 
 You've now successfully done the following:
